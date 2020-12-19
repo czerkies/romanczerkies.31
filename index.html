@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="description" content="Roman Czerkies, Développeur Web Full Stack, UI Designer">
+        <title>ROMAN CZERKIES</title>
+        <style>
+            :root {                
+                --hsl-bg: 200 10% 99%;
+                --clr-lbl-prmr: hsl(200 15% 10% / .98);
+                --clr-lbl-scndr: hsl(200 10% 30% / .8);
+
+                --gttr-1: clamp(.75rem, 3.25vw, 1.5rem);
+                --gttr-9: clamp(2rem, 10vh, 5rem);
+
+                --ft-sz-1: .875rem;
+                --ft-sz-3: clamp(1.5rem, 3.33vw, 2.5rem);
+
+                /*--line-height-title: 1.1;*/
+                --line-height-text: 1.175;
+                --letter-spacing-lower: -.016em;
+                --letter-spacing-upper: .05em;
+
+                --nmtn: 200ms cubic-bezier(.42, 0, .58, 1)}
+            @media (prefers-reduced-motion: reduce) {
+                :root {
+                    --nmtn: none}}
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --hsl-bg: 0 0% 0%;
+
+                    --clr-lbl-prmr: hsl(200 15% 90% / .96);
+                    --clr-lbl-scndr: hsl(200 10% 80% / .75)}}
+            * {
+                box-sizing: border-box;
+                text-rendering: optimizeLegibility;
+                -webkit-font-smoothing: antialiased}
+            html {
+                display: flex;
+                min-block-size: 100vh;
+                min-height: -webkit-fill-available;
+                font: normal 100%/var(--line-height-text) Helvetica, Arial, sans-serif;
+                -webkit-text-size-adjust: 100%}
+            h1,h2 {
+                margin: 0;
+                font-size: inherit;
+                display: inline}
+            body {
+                display: grid;
+                grid-gap: var(--gttr-9);
+                margin: auto;
+                padding: env(safe-area-inset-start) 0 env(safe-area-inset-end) 0;
+                background: hsl(var(--hsl-bg))}
+            .manifest {
+                margin: 0;
+                padding: 0 calc(var(--gttr-1) + env(safe-area-inset-right)) 0 calc(var(--gttr-1) + env(safe-area-inset-left));
+                max-inline-size: 48ch;
+                color: var(--clr-lbl-scndr);
+                font-size: var(--ft-sz-3);
+                letter-spacing: var(--letter-spacing-lower);
+                font-weight: 600}
+            .manifest__title {
+                color: var(--clr-lbl-prmr)}
+            .header {
+                overflow-x: auto;
+                padding-block-start: var(--gttr-1);
+                padding-block-end: var(--gttr-1);
+                padding-block: var(--gttr-1);
+                padding-inline-start: env(safe-area-inset-left);
+                padding-inline-end: calc(var(--gttr-1) + env(safe-area-inset-right));
+                padding-inline: env(safe-area-inset-left) calc(var(--gttr-1) + env(safe-area-inset-right));
+                overscroll-behavior-x: contain;
+                scroll-snap-type: x mandatory;
+                white-space: nowrap}
+            .header__link {
+                display: inline-block;
+                padding: var(--gttr-1);
+                scroll-snap-align: start;
+                font-size: var(--ft-sz-1);
+                color: var(--headr-clr, var(--clr-lbl-scndr));
+                text-decoration: none;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: var(--letter-spacing-upper);
+                outline-offset: calc(var(--gttr-1) * -1);
+                transition: color var(--nmtn), opacity var(--nmtn)}
+                .header__link:is(:focus, :hover, :target),
+                .header__link--current {
+                    --headr-clr: var(--clr-lbl-prmr)}
+                .header__link:active {
+                    opacity: .25}
+        </style>
+    </head>
+    <body>
+        <section class="manifest">
+            <h2 class="manifest__title">Développeur Web Full Stack, UI Designer.</h2> Spécialisé dans le design, prototype et développement d'interface utilisateur. Largement inspirées du minimalisme et brutalisme, l'ensemble des créations tendent à un design simple et inclusif.
+        </section>
+        <header class="header">
+            <h1><a href="/" class="header__link header__link--current" title="Roman Czerkies">Roman Czerkies</a></h1><a href="//twitter.com/roman_czerkies" id="twitter" class="header__link" title="Twitter @roman_czerkies">Twitter</a><a href="//linkedin.com/in/romanczerkies" id="linkedin" class="header__link" title="LinkedIn Roman Czerkies">LinkedIn</a><a href="//github.com/czerkies" id="github" class="header__link" title="GitHub czerkies">GitHub</a><a href="//strava.com/athletes/roman_czerkies" id="strava" class="header__link" title="Strava Roman Czerkies">Strava</a><a href="mailto:contact@romanczerkies.fr" id="contanct" class="header__link" title="Adresser un courriel à Roman Czerkies">contact@romanczerkies.fr</a>
+        </header>
+    </body>
+    <!-- romanczerkies.fr Version 31.0.0-beta.4 -->
+</html>
