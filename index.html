@@ -11,9 +11,8 @@
                 --clr-lbl-prmr: hsl(200 15% 10% / .98);
                 --clr-lbl-scndr: hsl(200 10% 30% / .8);
 
-                --gttr-1: clamp(.5rem, 2.7vw, 1.5rem);
-                --gttr-5: calc(var(--gttr-1) * 2);
-                /*--gttr-9: clamp(2rem, 10vh, 5rem);*/
+                --gttr-nln: clamp(.5rem, 2.7vw, 1.5rem);
+                --gttr-blck: clamp(.5rem, 2.25vh, 1.5rem);
 
                 --ft-sz-1: .875rem;
                 --ft-sz-3: clamp(1.5rem, 3.33vw, 2.5rem);
@@ -49,19 +48,24 @@
                 display: inline}
             body {
                 display: grid;
-                grid-gap: var(--gttr-1);
-
+                gap: var(--gttr-blck);
                 margin: auto;
-                padding: env(safe-area-inset-start) 0 env(safe-area-inset-end) 0;
+                padding-block-start: calc(var(--gttr-blck) + env(safe-area-inset-top));
+                padding-block-end: calc(var(--gttr-blck) + env(safe-area-inset-bottom));
+                padding-block: calc(var(--gttr-blck) + env(safe-area-inset-top)) calc(var(--gttr-blck) + env(safe-area-inset-bottom));
+
                 background: hsl(var(--hsl-bg))}
             .manifest {
                 margin: 0;
-                padding-block-start: var(--gttr-5);
-                padding-block-end: var(--gttr-5);
-                padding-block: var(--gttr-5);
-                padding-inline-start: calc(var(--gttr-5) + env(safe-area-inset-right));
-                padding-inline-end: calc(var(--gttr-5) + env(safe-area-inset-left));
-                padding-inline: calc(var(--gttr-5) + env(safe-area-inset-right)) calc(var(--gttr-5) + env(safe-area-inset-left));
+
+                padding-inline-start: calc((var(--gttr-nln) * 2) + env(safe-area-inset-right));
+                padding-inline-end: calc((var(--gttr-nln) * 2) + env(safe-area-inset-left));
+                padding-inline: calc((var(--gttr-nln) * 2) + env(safe-area-inset-right)) calc((var(--gttr-nln) * 2) + env(safe-area-inset-left));
+
+                padding-block-start: var(--gttr-blck);
+                padding-block-end: var(--gttr-blck);
+                padding-block: var(--gttr-blck) var(--gttr-nln);
+
                 max-inline-size: 50ch;
                 color: var(--clr-lbl-scndr);
                 font-size: var(--ft-sz-3);
@@ -71,29 +75,37 @@
             .header {
                 overflow-x: auto;
 
-                padding-block-start: var(--gttr-1);
-                padding-block-end: var(--gttr-1);
-                padding-block: var(--gttr-1);
+                padding-block-start: var(--gttr-blck);
+                padding-block-end: var(--gttr-blck);
+                padding-block: var(--gttr-blck);
 
-                padding-inline-start: calc(var(--gttr-1) + env(safe-area-inset-left));
-                padding-inline-end: calc(var(--gttr-5) + env(safe-area-inset-right));
-                padding-inline: calc(var(--gttr-1) + env(safe-area-inset-left)) calc(var(--gttr-5) + env(safe-area-inset-right));
+                padding-inline-start: calc(var(--gttr-nln) + env(safe-area-inset-left));
+                padding-inline-end: calc(var(--gttr-nln) + env(safe-area-inset-right));
+                padding-inline: calc(var(--gttr-nln) + env(safe-area-inset-left)) calc(var(--gttr-nln) + env(safe-area-inset-right));
 
-                scroll-padding: calc(var(--gttr-1) + env(safe-area-inset-left));
+                scroll-padding: calc(var(--gttr-nln) + env(safe-area-inset-left));
 
                 overscroll-behavior-x: contain;
                 scroll-snap-type: x mandatory;
                 white-space: nowrap}
                 .header__link {
                     display: inline-block;
-                    padding: var(--gttr-1);
+                    /*padding: var(--gttr-nln);*/
+                    padding-block-start: var(--gttr-blck);
+                    padding-block-end: var(--gttr-blck);
+                    padding-block: var(--gttr-blck);
+
+                    padding-inline-start: var(--gttr-nln);
+                    padding-inline-end: var(--gttr-nln);
+                    padding-inline: var(--gttr-nln);
+
                     scroll-snap-align: start;
                     font-size: var(--ft-sz-1);
                     color: var(--headr-clr, var(--clr-lbl-scndr));
                     text-decoration: none;
                     text-transform: uppercase;
                     letter-spacing: var(--letter-spacing-upper);
-                    outline-offset: calc(var(--gttr-1) * -1);
+                    outline-offset: calc(var(--gttr-nln) * -1);
                     transition: color var(--nmtn), opacity var(--nmtn)}
                     .header__link:is(:focus, :hover, :target),
                     .header__link--current {
