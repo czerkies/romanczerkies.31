@@ -15,7 +15,7 @@
                 --gttr-blck: clamp(.5rem, 2.25vh, 1.5rem);
 
                 --ft-sz-1: .875rem;
-                --ft-sz-3: clamp(1.5rem, (1rem + 2vw), 2.5rem);
+                --ft-sz-3: clamp(1.5rem, (1rem + 1.9vw), 2.5rem);
 
                 --line-height-text: 1.175;
                 --letter-spacing-lower: -.016em;
@@ -42,10 +42,11 @@
                 font: 700 100%/var(--line-height-text) Helvetica, Arial, sans-serif;
                 -webkit-text-size-adjust: 100%}
             h1,h2 {
+                display: inline;
                 margin: 0;
                 font-size: inherit;
                 font-weight: inherit;
-                display: inline}
+                color: var(--clr-lbl-prmr)}
             body {
                 display: grid;
                 margin: auto;
@@ -53,7 +54,7 @@
                 padding-block-end: calc(var(--gttr-blck) + env(safe-area-inset-bottom));
                 padding-block: calc(var(--gttr-blck) + env(safe-area-inset-top)) calc(var(--gttr-blck) + env(safe-area-inset-bottom));
                 background: hsl(var(--hsl-bg))}
-            .manifest {
+            section {
                 margin-block-start: var(--gttr-blck);
                 margin-block-end: var(--gttr-blck);
                 margin-block: var(--gttr-blck);
@@ -70,9 +71,7 @@
                 color: var(--clr-lbl-scndr);
                 font-size: var(--ft-sz-3);
                 letter-spacing: var(--letter-spacing-lower)}
-                .manifest__title {
-                    color: var(--clr-lbl-prmr)}
-            .header {
+            header {
                 overflow-x: auto;
                 padding-block-start: var(--gttr-blck);
                 padding-block-end: var(--gttr-blck);
@@ -83,8 +82,9 @@
                 scroll-padding: calc(var(--gttr-nln) + env(safe-area-inset-left));
                 overscroll-behavior-x: contain;
                 scroll-snap-type: x mandatory;
-                white-space: nowrap}
-                .header__link {
+                white-space: nowrap;
+                color: var(--clr-lbl-scndr)}
+                header a {
                     display: inline-block;
                     padding-block-start: var(--gttr-blck);
                     padding-block-end: var(--gttr-blck);
@@ -94,24 +94,23 @@
                     padding-inline: var(--gttr-nln);
                     scroll-snap-align: start;
                     font-size: var(--ft-sz-1);
-                    color: var(--headr-clr, var(--clr-lbl-scndr));
+                    color: var(--headr-clr, inherit);
                     text-decoration: none;
                     text-transform: uppercase;
                     letter-spacing: var(--letter-spacing-upper);
                     transition: color var(--nmtn), opacity var(--nmtn)}
-                    .header__link:is(:focus, :hover, :target),
-                    .header__link--current {
+                    header a:is(:focus, :hover, :target) {
                         --headr-clr: var(--clr-lbl-prmr)}
-                    .header__link:active {
+                    header a:active {
                         opacity: .25}
         </style>
     </head>
     <body>
-        <section class="manifest">
-            <h2 class="manifest__title">Développeur Web, UI Designer.</h2> Spécialisé dans le design, prototype et développement d'interface utilisateur. Largement inspirées du minimalisme et brutalisme, l'ensemble des créations tendent à un design simple et inclusif.
+        <section>
+            <h2>Développeur Web, UI Designer.</h2> Spécialisé dans le design, prototype et développement d'interface utilisateur. Largement inspirées du minimalisme et brutalisme, l'ensemble des créations tendent à un design simple et inclusif.
         </section>
-        <header class="header">
-            <h1><a href="/" class="header__link header__link--current" title="Roman Czerkies">Roman Czerkies</a></h1><a href="//twitter.com/roman_czerkies" id="twitter" class="header__link" title="Twitter @roman_czerkies">Twitter</a><a href="//linkedin.com/in/romanczerkies" id="linkedin" class="header__link" title="LinkedIn Roman Czerkies">LinkedIn</a><a href="//github.com/czerkies" id="github" class="header__link" title="GitHub czerkies">GitHub</a><a href="//strava.com/athletes/roman_czerkies" id="strava" class="header__link" title="Strava Roman Czerkies">Strava</a><a href="mailto:contact@romanczerkies.fr" id="contanct" class="header__link" title="Adresser un courriel à Roman Czerkies">contact@romanczerkies.fr</a>
+        <header>
+            <h1><a href="/" title="Roman Czerkies">Roman Czerkies</a></h1><a href="//twitter.com/roman_czerkies" id="twitter" title="Twitter @roman_czerkies">Twitter</a><a href="//linkedin.com/in/romanczerkies" id="linkedin" title="LinkedIn Roman Czerkies">LinkedIn</a><a href="//github.com/czerkies" id="github" title="GitHub czerkies">GitHub</a><a href="//strava.com/athletes/roman_czerkies" id="strava" title="Strava Roman Czerkies">Strava</a><a href="mailto:contact@romanczerkies.fr" id="contanct" title="Adresser un courriel à Roman Czerkies">contact@romanczerkies.fr</a>
         </header>
     </body>
     <!-- romanczerkies.fr Version 31.0.0-beta.7 -->
