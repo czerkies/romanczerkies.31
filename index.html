@@ -2,15 +2,16 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
         <meta name="description" content="Roman Czerkies. Développeur Web Full Stack, UI Designer.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
         <title>Roman Czerkies</title>
         <style>
-            :root {                
+            :root {   
                 --hsl-bg: 200 10% 99%;
                 --clr-lbl-prmr: hsl(200 16% 9% / .98);
                 --clr-lbl-scndr: hsl(200 10% 30% / .8);
-                --gttr-nln: clamp(.5rem, 2.5vw, 1.5rem);
+                --gttr-nln: clamp(.5rem, 2.6vw, 1.5rem);
                 --gttr-blck: clamp(.5rem, 2.25vh, 1.5rem);
                 --nmtn: 200ms cubic-bezier(.42, 0, .58, 1)}
             @media (prefers-reduced-motion: reduce) {
@@ -19,8 +20,8 @@
             @media (prefers-color-scheme: dark) {
                 :root {
                     --hsl-bg: 0 0% 0%;
-                    --clr-lbl-prmr: hsl(200 25% 96% / .96);
-                    --clr-lbl-scndr: hsl(200 16% 80% / .75)}}
+                    --clr-lbl-prmr: hsl(200 25% 95% / .96);
+                    --clr-lbl-scndr: hsl(200 16% 78% / .75)}}
             * {
                 box-sizing: border-box;
                 text-rendering: optimizeLegibility;
@@ -29,8 +30,7 @@
                 display: flex;
                 min-block-size: 100vh;
                 min-height: -webkit-fill-available;
-                font: 700 100%/1.175 "Helvetica Neue", Helvetica, Arial, sans-serif;
-                -webkit-text-size-adjust: 100%}
+                font: 700 100%/1.175 "Helvetica Neue", Helvetica, Arial, sans-serif}
             h1,h2 {
                 display: inline;
                 margin: 0;
@@ -54,8 +54,11 @@
                 padding-inline-end: var(--gttr-nln);
                 max-inline-size: 51ch;
                 color: var(--clr-lbl-scndr);
-                font-size: clamp(1.5rem, (1rem + 1.9vw), 2.5rem);
-                letter-spacing: .004em}
+                font-size: var(--sctn-fs, 1.5rem);
+                letter-spacing: .003em}
+                @media (min-width: 1000px) {
+                    section {
+                        --sctn-fs: 2.5rem}}
             header {
                 overflow-x: auto;
                 padding-block-start: var(--gttr-blck);
@@ -75,13 +78,13 @@
                 padding-inline-end: var(--gttr-nln);
                 scroll-snap-align: start;
                 font-size: .875rem;
-                color: var(--headr-clr, inherit);
+                color: var(--a-clr, inherit);
                 text-decoration: none;
                 text-transform: uppercase;
-                letter-spacing: .05em;
-                transition: color var(--nmtn), opacity var(--nmtn)}
-                a:focus,a:hover,a:target {
-                    --headr-clr: var(--clr-lbl-prmr)}
+                letter-spacing: .06em;
+                transition: all var(--nmtn)}
+                a:is(:focus,:hover,:target) {
+                    --a-clr: var(--clr-lbl-prmr)}
                 a:active {
                     opacity: .25}
         </style>
@@ -94,5 +97,5 @@
             <h1><a href="/" title="Roman Czerkies">Roman Czerkies</a></h1><a href="//twitter.com/roman_czerkies" id="twitter" title="Twitter @roman_czerkies">Twitter</a><a href="//linkedin.com/in/romanczerkies" id="linkedin" title="LinkedIn Roman Czerkies">LinkedIn</a><a href="//github.com/czerkies" id="github" title="GitHub czerkies">GitHub</a><a href="//strava.com/athletes/roman_czerkies" id="strava" title="Strava Roman Czerkies">Strava</a><a href="mailto:contact@romanczerkies.fr?subject=Demande de contact" id="contact" title="Adresser un courriel à Roman Czerkies">contact@romanczerkies.fr</a>
         </header>
     </body>
-    <!-- romanczerkies.fr Version 31.0.0 -->
+    <!-- romanczerkies.fr Version 31.1.0 -->
 </html>
