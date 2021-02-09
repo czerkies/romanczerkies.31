@@ -11,6 +11,7 @@
 ### Date de mise en production
 
 v31.0.0 - 09/01/2021
+v31.1.0 - 10/02/2021
 
 
 ## Technos
