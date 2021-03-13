@@ -16,7 +16,7 @@
                 --nmtn: 200ms cubic-bezier(.42, 0, .58, 1)}
             @media (prefers-contrast: more) {
                 :root {
-                    --atd: underline;
+                    --a-tn: underline;
                     --hsl-bg: 200 10% 100%;
                     --clr-lbl-prmr: hsl(200 13% 0%);
                     --clr-lbl-scndr: hsl(200 10% 30%)}}
@@ -29,9 +29,9 @@
                     --clr-lbl-prmr: hsl(200 25% 95% / .96);
                     --clr-lbl-scndr: hsl(200 16% 78% / .75)}
                     @media (prefers-contrast: more) {
-                    :root {
-                        --clr-lbl-prmr: hsl(200 30% 100%);
-                        --clr-lbl-scndr: hsl(200 26% 78%)}}}
+                        :root {
+                            --clr-lbl-prmr: hsl(200 30% 100%);
+                            --clr-lbl-scndr: hsl(200 26% 78%)}}}
             * {
                 box-sizing: border-box;
                 text-rendering: optimizeLegibility;
@@ -50,15 +50,14 @@
             body {
                 display: grid;
                 margin: auto;
-                padding-block-start: calc(var(--gttr-blck) + env(safe-area-inset-top));
-                padding-block-end: calc(var(--gttr-blck) + env(safe-area-inset-bottom));
+                padding-block: calc(var(--gttr-blck) + env(safe-area-inset-top)) calc(var(--gttr-blck) + env(safe-area-inset-bottom));
                 background: hsl(var(--hsl-bg))}
             section {
+                max-inline-size: 51ch;
                 margin-block: var(--gttr-blck);
                 margin-inline: calc(var(--gttr-nln) + env(safe-area-inset-right)) calc(var(--gttr-nln) + env(safe-area-inset-left));
                 padding-block: var(--gttr-blck);
                 padding-inline: var(--gttr-nln);
-                max-inline-size: 51ch;
                 color: var(--clr-lbl-scndr);
                 font-size: var(--sctn-fs, 1.5rem);
                 letter-spacing: .003em}
@@ -81,7 +80,7 @@
                 scroll-snap-align: start;
                 font-size: .875rem;
                 color: var(--a-clr, inherit);
-                text-decoration: var(--atd, none);
+                text-decoration: var(--a-tn, none);
                 text-transform: uppercase;
                 letter-spacing: .06em;
                 transition: all var(--nmtn)}
@@ -99,5 +98,5 @@
             <h1><a href="/" title="Roman Czerkies">Roman Czerkies</a></h1><a href="//twitter.com/roman_czerkies" id="twitter" title="Twitter @roman_czerkies">Twitter</a><a href="//linkedin.com/in/romanczerkies" id="linkedin" title="LinkedIn Roman Czerkies">LinkedIn</a><a href="//github.com/czerkies" id="github" title="GitHub czerkies">GitHub</a><a href="//strava.com/athletes/roman_czerkies" id="strava" title="Strava Roman Czerkies">Strava</a><a href="mailto:contact@romanczerkies.fr?subject=Demande de contact" id="contact" title="Adresser un courriel à Roman Czerkies">contact@romanczerkies.fr</a>
         </header>
     </body>
-    <!-- romanczerkies.fr Version 31.2.0-beta.2 -->
+    <!-- romanczerkies.fr Version 31.2.0-beta.3 -->
 </html>
