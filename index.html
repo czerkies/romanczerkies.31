@@ -7,13 +7,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
         <title>Roman Czerkies</title>
         <style>
-            :root {   
+            :root {
                 --hsl-bg: 200 10% 99%;
                 --clr-lbl-prmr: hsl(200 16% 9% / .98);
                 --clr-lbl-scndr: hsl(200 10% 30% / .8);
                 --gttr-nln: clamp(.5rem, 2.6vw, 1.5rem);
                 --gttr-blck: clamp(.5rem, 2.25vh, 1.5rem);
                 --nmtn: 200ms cubic-bezier(.42, 0, .58, 1)}
+            @media (prefers-contrast: more) {
+                :root {
+                    --atd: underline;
+                    --hsl-bg: 200 10% 100%;
+                    --clr-lbl-prmr: hsl(200 13% 0%);
+                    --clr-lbl-scndr: hsl(200 10% 30%)}}
             @media (prefers-reduced-motion: reduce) {
                 :root {
                     --nmtn: none}}
@@ -21,7 +27,11 @@
                 :root {
                     --hsl-bg: 0 0% 0%;
                     --clr-lbl-prmr: hsl(200 25% 95% / .96);
-                    --clr-lbl-scndr: hsl(200 16% 78% / .75)}}
+                    --clr-lbl-scndr: hsl(200 16% 78% / .75)}
+                    @media (prefers-contrast: more) {
+                    :root {
+                        --clr-lbl-prmr: hsl(200 30% 100%);
+                        --clr-lbl-scndr: hsl(200 26% 78%)}}}
             * {
                 box-sizing: border-box;
                 text-rendering: optimizeLegibility;
@@ -71,7 +81,7 @@
                 scroll-snap-align: start;
                 font-size: .875rem;
                 color: var(--a-clr, inherit);
-                text-decoration: none;
+                text-decoration: var(--atd, none);
                 text-transform: uppercase;
                 letter-spacing: .06em;
                 transition: all var(--nmtn)}
@@ -89,5 +99,5 @@
             <h1><a href="/" title="Roman Czerkies">Roman Czerkies</a></h1><a href="//twitter.com/roman_czerkies" id="twitter" title="Twitter @roman_czerkies">Twitter</a><a href="//linkedin.com/in/romanczerkies" id="linkedin" title="LinkedIn Roman Czerkies">LinkedIn</a><a href="//github.com/czerkies" id="github" title="GitHub czerkies">GitHub</a><a href="//strava.com/athletes/roman_czerkies" id="strava" title="Strava Roman Czerkies">Strava</a><a href="mailto:contact@romanczerkies.fr?subject=Demande de contact" id="contact" title="Adresser un courriel à Roman Czerkies">contact@romanczerkies.fr</a>
         </header>
     </body>
-    <!-- romanczerkies.fr Version 31.2.0-beta.1 -->
+    <!-- romanczerkies.fr Version 31.2.0-beta.2 -->
 </html>
