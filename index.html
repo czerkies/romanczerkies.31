@@ -7,75 +7,76 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
         <title>Roman Czerkies</title>
         <style>
-            :root {
+            :root{
                 --hsl-bg: 200 10% 99%;
                 --clr-lbl-prmr: hsl(200 16% 9% / .98);
                 --clr-lbl-scndr: hsl(200 10% 30% / .8);
                 --gttr-nln: clamp(.5rem, 2.6vw, 1.5rem);
                 --gttr-blck: clamp(.5rem, 2.25vh, 1.5rem);
+                --pg-st: calc(var(--gttr-nln) + env(safe-area-inset-left)) calc(var(--gttr-nln) + env(safe-area-inset-right));
                 --nmtn: 200ms cubic-bezier(.42, 0, .58, 1)}
-            @media (prefers-contrast: more) {
-                :root {
+            @media (prefers-contrast: more){
+                :root{
                     --a-tn: underline;
                     --hsl-bg: 200 10% 100%;
                     --clr-lbl-prmr: hsl(200 13% 0%);
                     --clr-lbl-scndr: hsl(200 10% 30%)}}
-            @media (prefers-reduced-motion: reduce) {
-                :root {
+            @media (prefers-reduced-motion: reduce){
+                :root{
                     --nmtn: none;
                     --sl-bv: auto}}
-            @media (prefers-color-scheme: dark) {
-                :root {
+            @media (prefers-color-scheme: dark){
+                :root{
                     --hsl-bg: 0 0% 0%;
                     --clr-lbl-prmr: hsl(200 25% 95% / .96);
                     --clr-lbl-scndr: hsl(200 16% 78% / .75)}
-                    @media (prefers-contrast: more) {
+                    @media (prefers-contrast: more){
                         :root {
                             --clr-lbl-prmr: hsl(200 30% 100%);
                             --clr-lbl-scndr: hsl(200 26% 78%)}}}
-            * {
+            *{
                 box-sizing: border-box;
                 text-rendering: optimizeLegibility;
                 -webkit-font-smoothing: antialiased}
-            html {
+            html{
                 display: flex;
                 min-block-size: 100vh;
                 min-height: -webkit-fill-available;
                 font: 700 100%/1.175 'Helvetica Neue', Helvetica, Arial, sans-serif}
-            h1,h2 {
+            h1,h2{
                 display: inline;
                 margin: 0;
                 font-size: inherit;
                 font-weight: inherit;
                 color: var(--clr-lbl-prmr)}
-            body {
+            body{
                 display: grid;
                 margin: auto;
                 padding-block: calc(var(--gttr-blck) + env(safe-area-inset-top)) calc(var(--gttr-blck) + env(safe-area-inset-bottom));
                 background: hsl(var(--hsl-bg))}
-            section {
+            section{
                 max-inline-size: 51ch;
                 margin-block: var(--gttr-blck);
-                margin-inline: calc(var(--gttr-nln) + env(safe-area-inset-right)) calc(var(--gttr-nln) + env(safe-area-inset-left));
+                margin-inline: var(--pg-st);
                 padding-block: var(--gttr-blck);
                 padding-inline: var(--gttr-nln);
                 color: var(--clr-lbl-scndr);
                 font-size: var(--sctn-fs, 1.5rem);
                 letter-spacing: .003em}
-                @media (min-width: 1000px) {
-                    section {
+                @media (min-width: 1000px){
+                    section{
                         --sctn-fs: 2.5rem}}
-            header {
+            header{
                 overflow-x: auto;
                 padding-block: var(--gttr-blck);
-                padding-inline: calc(var(--gttr-nln) + env(safe-area-inset-left)) calc(var(--gttr-nln) + env(safe-area-inset-right));
-                scroll-padding: calc(var(--gttr-nln) + env(safe-area-inset-left)) calc(var(--gttr-nln) + env(safe-area-inset-right));
+                padding-inline: var(--pg-st);
+                scroll-padding: 0 var(--pg-st);
                 overscroll-behavior-x: contain;
                 scroll-snap-type: x mandatory;
                 scroll-behavior: var(--sl-bv, smooth);
                 white-space: nowrap;
                 color: var(--clr-lbl-scndr)}
-            a {
+            a{
                 display: inline-block;
                 padding-block: var(--gttr-blck);
                 padding-inline: var(--gttr-nln);
@@ -86,9 +87,9 @@
                 text-transform: uppercase;
                 letter-spacing: .06em;
                 transition: all var(--nmtn)}
-                a:is(:focus,:hover,:target) {
+                a:is(:focus,:hover,:target){
                     --a-clr: var(--clr-lbl-prmr)}
-                a:active {
+                a:active{
                     opacity: .25}
         </style>
     </head>
@@ -100,5 +101,5 @@
             <h1><a href="/" title="Roman Czerkies">Roman Czerkies</a></h1><a href="//twitter.com/roman_czerkies" id="twitter" title="Twitter @roman_czerkies">Twitter</a><a href="//linkedin.com/in/romanczerkies" id="linkedin" title="LinkedIn Roman Czerkies">LinkedIn</a><a href="//github.com/czerkies" id="github" title="GitHub czerkies">GitHub</a><a href="//strava.com/athletes/roman_czerkies" id="strava" title="Strava Roman Czerkies">Strava</a><a href="mailto:contact@romanczerkies.fr?subject=Demande de contact" id="contact" title="Adresser un courriel à Roman Czerkies">contact@romanczerkies.fr</a>
         </header>
     </body>
-    <!-- romanczerkies.fr Version 31.2.0-beta.4 -->
+    <!-- romanczerkies.fr Version 31.2.0-beta.5 -->
 </html>
