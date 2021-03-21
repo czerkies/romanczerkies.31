@@ -22,7 +22,8 @@
                     --clr-lbl-scndr: hsl(200 10% 30%)}}
             @media (prefers-reduced-motion: reduce) {
                 :root {
-                    --nmtn: none}}
+                    --nmtn: none;
+                    --sl-bv: auto}}
             @media (prefers-color-scheme: dark) {
                 :root {
                     --hsl-bg: 0 0% 0%;
@@ -68,9 +69,10 @@
                 overflow-x: auto;
                 padding-block: var(--gttr-blck);
                 padding-inline: calc(var(--gttr-nln) + env(safe-area-inset-left)) calc(var(--gttr-nln) + env(safe-area-inset-right));
-                scroll-padding: calc(var(--gttr-nln) + env(safe-area-inset-left));
+                scroll-padding: calc(var(--gttr-nln) + env(safe-area-inset-left)) calc(var(--gttr-nln) + env(safe-area-inset-right));
                 overscroll-behavior-x: contain;
                 scroll-snap-type: x mandatory;
+                scroll-behavior: var(--sl-bv, smooth);
                 white-space: nowrap;
                 color: var(--clr-lbl-scndr)}
             a {
@@ -98,5 +100,5 @@
             <h1><a href="/" title="Roman Czerkies">Roman Czerkies</a></h1><a href="//twitter.com/roman_czerkies" id="twitter" title="Twitter @roman_czerkies">Twitter</a><a href="//linkedin.com/in/romanczerkies" id="linkedin" title="LinkedIn Roman Czerkies">LinkedIn</a><a href="//github.com/czerkies" id="github" title="GitHub czerkies">GitHub</a><a href="//strava.com/athletes/roman_czerkies" id="strava" title="Strava Roman Czerkies">Strava</a><a href="mailto:contact@romanczerkies.fr?subject=Demande de contact" id="contact" title="Adresser un courriel à Roman Czerkies">contact@romanczerkies.fr</a>
         </header>
     </body>
-    <!-- romanczerkies.fr Version 31.2.0-beta.3 -->
+    <!-- romanczerkies.fr Version 31.2.0-beta.4 -->
 </html>
