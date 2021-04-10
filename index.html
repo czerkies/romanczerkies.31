@@ -46,8 +46,7 @@
             h1,h2{
                 display: inline;
                 margin: 0;
-                font-size: inherit;
-                font-weight: inherit;
+                font: inherit;
                 color: var(--clr-lbl-prmr)}
             body{
                 display: grid;
@@ -73,9 +72,10 @@
                 scroll-padding: 0 var(--pg-st);
                 overscroll-behavior-x: contain;
                 scroll-snap-type: x mandatory;
-                scroll-behavior: var(--sl-bv, smooth);
                 white-space: nowrap;
                 color: var(--clr-lbl-scndr)}
+                header:focus-within{
+                    scroll-behavior: var(--sl-bv, smooth)}
             a{
                 display: inline-block;
                 padding-block: var(--gttr-blck);
