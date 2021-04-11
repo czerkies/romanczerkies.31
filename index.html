@@ -40,19 +40,18 @@
                 -webkit-font-smoothing: antialiased}
             html{
                 display: flex;
-                min-block-size: 100vh;
-                min-height: -webkit-fill-available;
+                min-block-size: 100%;
                 font: 700 100%/1.175 'Helvetica Neue', Helvetica, Arial, sans-serif}
-            h1,h2{
-                display: inline;
-                margin: 0;
-                font: inherit;
-                color: var(--clr-lbl-prmr)}
             body{
                 display: grid;
                 margin: auto;
                 padding-block: calc(var(--gttr-blck) + env(safe-area-inset-top)) calc(var(--gttr-blck) + env(safe-area-inset-bottom));
                 background: hsl(var(--hsl-bg))}
+            h1,h2{
+                display: inline;
+                margin: 0;
+                font: inherit;
+                color: var(--clr-lbl-prmr)}
             section{
                 max-inline-size: 51ch;
                 margin-block: var(--gttr-blck);
