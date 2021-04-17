@@ -13,7 +13,8 @@
                 --clr-lbl-scndr: hsl(200 10% 30% / .8);
                 --gttr-nln: clamp(.5rem, 2.6vw, 1.5rem);
                 --gttr-blck: clamp(.5rem, 2.25vh, 1.5rem);
-                --pg-st: calc(var(--gttr-nln) + env(safe-area-inset-left)) calc(var(--gttr-nln) + env(safe-area-inset-right));
+                --pg-st-start: calc(var(--gttr-nln) + env(safe-area-inset-left));
+                --pg-st-end: calc(var(--gttr-nln) + env(safe-area-inset-right));
                 --nmtn: 200ms cubic-bezier(.42, 0, .58, 1)}
             @media (prefers-contrast: more){
                 :root{
@@ -45,7 +46,8 @@
             body{
                 display: grid;
                 margin: auto;
-                padding-block: calc(var(--gttr-blck) + env(safe-area-inset-top)) calc(var(--gttr-blck) + env(safe-area-inset-bottom));
+                padding-block-start: calc(var(--gttr-blck) + env(safe-area-inset-top));
+                padding-block-end: calc(var(--gttr-blck) + env(safe-area-inset-bottom));
                 background: hsl(var(--hsl-bg))}
             h1,h2{
                 display: inline;
@@ -54,10 +56,10 @@
                 color: var(--clr-lbl-prmr)}
             section{
                 max-inline-size: 51ch;
-                margin-block: var(--gttr-blck);
-                margin-inline: var(--pg-st);
-                padding-block: var(--gttr-blck);
-                padding-inline: var(--gttr-nln);
+                margin-block-start: var(--gttr-blck);
+                margin-block-end: var(--gttr-blck);
+                margin-inline-start: var(--pg-st-start);
+                margin-inline-end: var(--pg-st-end);
                 color: var(--clr-lbl-scndr);
                 font-size: var(--sctn-fs, 1.5rem);
                 letter-spacing: .003em}
@@ -66,9 +68,10 @@
                         --sctn-fs: 2.5rem}}
             header{
                 overflow-x: auto;
-                padding-block: var(--gttr-blck);
-                padding-inline: var(--pg-st);
-                scroll-padding: 0 var(--pg-st);
+                padding-inline-start: var(--pg-st-start);
+                padding-inline-end: var(--pg-st-end);
+                scroll-padding-left: var(--pg-st-start);
+                scroll-padding-right: var(--pg-st-end);
                 overscroll-behavior-x: contain;
                 scroll-snap-type: x mandatory;
                 white-space: nowrap;
@@ -77,8 +80,7 @@
                     scroll-behavior: var(--sl-bv, smooth)}
             a{
                 display: inline-block;
-                padding-block: var(--gttr-blck);
-                padding-inline: var(--gttr-nln);
+                
                 scroll-snap-align: start;
                 font-size: .875rem;
                 color: var(--a-clr, inherit);
@@ -90,6 +92,12 @@
                     --a-clr: var(--clr-lbl-prmr)}
                 a:active{
                     opacity: .25}
+            section,header,a{
+                padding-block-start: var(--gttr-blck);
+                padding-block-end: var(--gttr-blck)}
+            section,a{
+                padding-inline-start: var(--gttr-nln);
+                padding-inline-end: var(--gttr-nln)}
         </style>
     </head>
     <body>
