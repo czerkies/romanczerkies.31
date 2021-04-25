@@ -23,6 +23,6 @@ v31.2.0 - 04/2021
 
 ## Liens
 
-Site : [romanczerkies.fr Version 31.0.0](https://romanczerki.es)
+Site : [romanczerkies.fr Version 31](https://romanczerki.es)
 
 Twitter : [@roman_czerkies](https://twitter.com/roman_czerkies)
