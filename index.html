@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="color-scheme" content="light dark">
-        <meta name="description" content="Roman Czerkies. Développeur Web Full Stack, UI Designer.">
+        <meta name="description" content="Développeur Web Full Stack, UI Designer. Réseaux sociaux et contact.">
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
         <link rel="icon" type="image/png" href="ico.png">
         <link rel="manifest" href="manifest.webmanifest">
@@ -15,8 +15,7 @@
                 --clr-lbl-scndr: hsl(200 10% 30% / .8);
                 --gttr-nln: clamp(.5rem, 2.6vw, 1.5rem);
                 --gttr-blck: clamp(.5rem, 2.25vh, 1.5rem);
-                --pg-st-start: calc(var(--gttr-nln) + env(safe-area-inset-left));
-                --pg-st-end: calc(var(--gttr-nln) + env(safe-area-inset-right));
+                --gttr-nln-env: calc(var(--gttr-nln) + env(safe-area-inset-left));
                 --nmtn: 200ms cubic-bezier(.42, 0, .58, 1)}
             @media (prefers-contrast: more){
                 :root{
@@ -46,22 +45,18 @@
                 min-block-size: 100%;
                 font: 700 100%/1.175 'Helvetica Neue', Helvetica, Arial, sans-serif;
                 color: var(--clr-lbl-scndr)}
-
             body{
                 display: grid;
                 margin: auto;
                 padding-block-start: calc(var(--gttr-blck) + env(safe-area-inset-top));
                 padding-block-end: calc(var(--gttr-blck) + env(safe-area-inset-bottom));
                 background: hsl(var(--hsl-bg))}
-
             h1,h2{
                 margin: 0;
                 font: inherit;
                 color: var(--clr-lbl-prmr)}
-
             h2,p{
                 display: inline}
-            
             main{
                 max-inline-size: 51ch;
                 font-size: var(--mn-fs, 1.5rem);
@@ -69,23 +64,20 @@
                 @media (min-width: 1000px){
                     main{
                         --mn-fs: 2.5rem}}
-            
             nav{
                 overflow-x: var(--vrflw, auto);
                 overscroll-behavior-x: contain;
-                scroll-padding-left: var(--pg-st-start);
+                scroll-padding-left: var(--gttr-nln-env);
                 scroll-snap-type: x mandatory}
                 nav:focus-within{
                     scroll-behavior: var(--sl-bv, smooth)}
                 @media print{
                     nav{
                         --vrflw: visible}}
-            
             ul{
                 padding: 0;
                 display: inline-flex;
                 list-style: none}
-
             a{
                 display: inline-block;
                 scroll-snap-align: start;
@@ -101,12 +93,11 @@
                     --a-clr: var(--clr-lbl-prmr)}
                 a:active{
                     opacity: .25}
-            
             main,ul{
                 margin-block-start: var(--gttr-blck);
                 margin-block-end: var(--gttr-blck);
-                margin-inline-start: var(--pg-st-start);
-                margin-inline-end: var(--pg-st-end)}
+                margin-inline-start: var(--gttr-nln-env);
+                margin-inline-end: calc(var(--gttr-nln) + env(safe-area-inset-right))}
             main,a{
                 padding-block-start: var(--gttr-blck);
                 padding-block-end: var(--gttr-blck);
@@ -142,5 +133,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.3.0-beta.3 -->
+    <!-- romanczerkies.fr Version 31.3.0-beta.4 -->
 </html>
