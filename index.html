@@ -16,7 +16,7 @@
                 --gttr-nln: clamp(.5rem, 2.6vw, 1.5rem);
                 --gttr-blck: clamp(.5rem, 2.25vh, 1.5rem);
                 --gttr-nln-env: calc(var(--gttr-nln) + env(safe-area-inset-left));
-                --nmtn: 200ms cubic-bezier(.42, 0, .58, 1)}
+                --nmtn: var(--nmtn-drtn, 200ms) cubic-bezier(.42, 0, .58, 1)}
             @media (prefers-contrast: more){
                 :root{
                     --a-tn: underline;
@@ -25,7 +25,7 @@
                     --clr-lbl-scndr: hsl(200 10% 30%)}}
             @media (prefers-reduced-motion: reduce){
                 :root{
-                    --nmtn: none;
+                    --nmtn-drtn: 0s;
                     --sl-bv: auto}}
             @media (prefers-color-scheme: dark){
                 :root{
@@ -87,8 +87,8 @@
                 text-transform: uppercase;
                 white-space: nowrap;
                 letter-spacing: .06em;
-                outline-offset: calc(var(--gttr-nln) * -1);
-                transition: all var(--nmtn)}
+                outline-offset: -.75em;
+                transition: color var(--nmtn), opacity var(--nmtn)}
                 a:is(:focus,:hover,:target){
                     --a-clr: var(--clr-lbl-prmr)}
                 a:active{
@@ -133,5 +133,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.3.0-beta.4 -->
+    <!-- romanczerkies.fr Version 31.3.0-beta.5 -->
 </html>
