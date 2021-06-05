@@ -2,7 +2,7 @@
 
 ## Informations
 
-Ce projet n'est pas seulement minimaliste, rapide et accessible; il est conçu pour implémenter et tester les dernières technologies web standardisées ou en cours de spécification, afin de créer le design le plus efficient possible.
+Ce projet n'est pas seulement minimaliste, rapide et accessible; il est conçu pour implémenter et tester les dernières technologies web standardisées ou en cours de spécification, dans l'intention de simplifier ses composants essentiels et créer le design le plus efficient possible.
 
 [romanczerki.es](https://romanczerki.es)
 
