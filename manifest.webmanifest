@@ -1,0 +1,18 @@
+{
+  "background_color": "#000",
+  "description": "Développeur Web Full Stack, UI Designer. Réseaux sociaux et contact.",
+  "dir": "ltr",
+  "display": "standalone",
+  "icons": [{
+    "src": "ico.png",
+    "sizes": "256x256",
+    "type": "image/png"
+  }],
+  "lang": "fr",
+  "name": "Roman Czerkies",
+  "orientation": "portrait",
+  "scope": "/",
+  "short_name": "romanczerki.es",
+  "start_url": ".",
+  "theme_color": "#000"
+}

@@ -3,8 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="color-scheme" content="light dark">
-        <meta name="description" content="Roman Czerkies. Développeur Web Full Stack, UI Designer.">
+        <meta name="description" content="Développeur Web Full Stack, UI Designer. Réseaux sociaux et contact.">
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <link rel="icon" type="image/png" href="ico.png">
+        <link rel="manifest" href="manifest.webmanifest">
         <title>Roman Czerkies</title>
         <style>
             :root{
@@ -13,9 +15,8 @@
                 --clr-lbl-scndr: hsl(200 10% 30% / .8);
                 --gttr-nln: clamp(.5rem, 2.6vw, 1.5rem);
                 --gttr-blck: clamp(.5rem, 2.25vh, 1.5rem);
-                --pg-st-start: calc(var(--gttr-nln) + env(safe-area-inset-left));
-                --pg-st-end: calc(var(--gttr-nln) + env(safe-area-inset-right));
-                --nmtn: 200ms cubic-bezier(.42, 0, .58, 1)}
+                --gttr-nln-env: calc(var(--gttr-nln) + env(safe-area-inset-left));
+                --nmtn: var(--nmtn-drtn, 200ms) cubic-bezier(.42, 0, .58, 1)}
             @media (prefers-contrast: more){
                 :root{
                     --a-tn: underline;
@@ -24,7 +25,7 @@
                     --clr-lbl-scndr: hsl(200 10% 30%)}}
             @media (prefers-reduced-motion: reduce){
                 :root{
-                    --nmtn: none;
+                    --nmtn-drtn: 0s;
                     --sl-bv: auto}}
             @media (prefers-color-scheme: dark){
                 :root{
@@ -42,7 +43,8 @@
             html{
                 display: flex;
                 min-block-size: 100%;
-                font: 700 100%/1.175 'Helvetica Neue', Helvetica, Arial, sans-serif}
+                font: 700 100%/1.175 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                color: var(--clr-lbl-scndr)}
             body{
                 display: grid;
                 margin: auto;
@@ -50,34 +52,32 @@
                 padding-block-end: calc(var(--gttr-blck) + env(safe-area-inset-bottom));
                 background: hsl(var(--hsl-bg))}
             h1,h2{
-                display: inline;
                 margin: 0;
                 font: inherit;
                 color: var(--clr-lbl-prmr)}
-            section{
+            h2,p{
+                display: inline}
+            main{
                 max-inline-size: 51ch;
-                margin-block-start: var(--gttr-blck);
-                margin-block-end: var(--gttr-blck);
-                margin-inline-start: var(--pg-st-start);
-                margin-inline-end: var(--pg-st-end);
-                color: var(--clr-lbl-scndr);
-                font-size: var(--sctn-fs, 1.5rem);
+                font-size: var(--mn-fs, 1.5rem);
                 letter-spacing: .003em}
                 @media (min-width: 1000px){
-                    section{
-                        --sctn-fs: 2.5rem}}
-            header{
-                overflow-x: auto;
-                padding-inline-start: var(--pg-st-start);
-                padding-inline-end: var(--pg-st-end);
-                scroll-padding-left: var(--pg-st-start);
-                scroll-padding-right: var(--pg-st-end);
+                    main{
+                        --mn-fs: 2.5rem}}
+            nav{
+                overflow-x: var(--vrflw, auto);
                 overscroll-behavior-x: contain;
-                scroll-snap-type: x mandatory;
-                white-space: nowrap;
-                color: var(--clr-lbl-scndr)}
-                header:focus-within{
+                scroll-padding-left: var(--gttr-nln-env);
+                scroll-snap-type: x mandatory}
+                nav:focus-within{
                     scroll-behavior: var(--sl-bv, smooth)}
+                @media print{
+                    nav{
+                        --vrflw: visible}}
+            ul{
+                padding: 0;
+                display: inline-flex;
+                list-style: none}
             a{
                 display: inline-block;
                 scroll-snap-align: start;
@@ -85,27 +85,53 @@
                 color: var(--a-clr, inherit);
                 text-decoration: var(--a-tn, none);
                 text-transform: uppercase;
+                white-space: nowrap;
                 letter-spacing: .06em;
-                transition: all var(--nmtn)}
+                outline-offset: -.75em;
+                transition: color var(--nmtn), opacity var(--nmtn)}
                 a:is(:focus,:hover,:target){
                     --a-clr: var(--clr-lbl-prmr)}
                 a:active{
                     opacity: .25}
-            section,header,a{
+            main,ul{
+                margin-block-start: var(--gttr-blck);
+                margin-block-end: var(--gttr-blck);
+                margin-inline-start: var(--gttr-nln-env);
+                margin-inline-end: calc(var(--gttr-nln) + env(safe-area-inset-right))}
+            main,a{
                 padding-block-start: var(--gttr-blck);
-                padding-block-end: var(--gttr-blck)}
-            section,a{
+                padding-block-end: var(--gttr-blck);
                 padding-inline-start: var(--gttr-nln);
                 padding-inline-end: var(--gttr-nln)}
         </style>
     </head>
     <body>
-        <section>
-            <h2>Développeur Web Full Stack, UI Designer.</h2> Spécialisé dans le design, prototype et développement d'interface utilisateur. Largement inspirées du minimalisme et brutalisme, l'ensemble des créations tendent à un design simple et inclusif.
-        </section>
-        <header>
-            <h1><a href="/" title="Roman Czerkies">Roman Czerkies</a></h1><a href="//twitter.com/roman_czerkies" id="twitter" title="Twitter @roman_czerkies">Twitter</a><a href="//linkedin.com/in/romanczerkies" id="linkedin" title="LinkedIn Roman Czerkies">LinkedIn</a><a href="//github.com/czerkies" id="github" title="GitHub czerkies">GitHub</a><a href="//strava.com/athletes/roman_czerkies" id="strava" title="Strava Roman Czerkies">Strava</a><a href="mailto:contact@romanczerkies.fr?subject=Demande%20de%20contact" id="contact" title="Adresser un courriel à Roman Czerkies">contact@romanczerkies.fr</a>
-        </header>
+        <main>
+            <h2>Développeur Web Full Stack, UI Designer.</h2>
+            <p>Spécialisé dans le design, prototype et développement d'interface utilisateur. Largement inspirées du minimalisme et brutalisme, l'ensemble des créations tendent à un design simple et inclusif.</p>
+        </main>
+        <nav>
+            <ul aria-label="Réseaux sociaux et contact">
+                <li>
+                    <h1><a href="/" title="Roman Czerkies">Roman Czerkies</a></h1>
+                </li>
+                <li>
+                    <a href="//twitter.com/roman_czerkies" id="twitter" title="Twitter @roman_czerkies">Twitter</a>
+                </li>
+                <li>
+                    <a href="//linkedin.com/in/romanczerkies" id="linkedin" title="LinkedIn Roman Czerkies">LinkedIn</a>
+                </li>
+                <li>
+                    <a href="//github.com/czerkies" id="github" title="GitHub czerkies">GitHub</a>
+                </li>
+                <li>
+                    <a href="//strava.com/athletes/roman_czerkies" id="strava" title="Strava Roman Czerkies">Strava</a>
+                </li>
+                <li>
+                    <a href="mailto:contact@romanczerkies.fr?subject=Demande%20de%20contact" id="contact" title="Adresser un courriel à Roman Czerkies">contact@romanczerkies.fr</a>
+                </li>
+            </ul>
+        </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.2.0 -->
+    <!-- romanczerkies.fr Version 31.3.0 -->
 </html>
