@@ -4,6 +4,13 @@
         <meta charset="utf-8">
         <meta name="color-scheme" content="light dark">
         <meta name="description" content="Développeur Web Full Stack, UI Designer. Réseaux sociaux et contact.">
+        
+        <meta property="og:image" content="https://romanczerkies.fr/010121/banner.jpg">
+        <meta property="og:video" content="https://romanczerkies.fr/010121/banner.mov">
+
+        <meta name="theme-color" content="hsl(200 10% 99%)" media="(prefers-color-scheme: light)">
+        <meta name="theme-color" content="hsl(0 0% 0%)" media="(prefers-color-scheme: dark)">
+
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
         <link rel="icon" type="image/png" href="ico.png">
         <link rel="manifest" href="manifest.webmanifest">
@@ -15,7 +22,8 @@
                 --clr-lbl-scndr: hsl(200 10% 30% / .8);
                 --gttr-nln: clamp(.5rem, 2.6vw, 1.5rem);
                 --gttr-blck: clamp(.5rem, 2.25vh, 1.5rem);
-                --gttr-nln-env: calc(var(--gttr-nln) + env(safe-area-inset-left));
+                --gttr-nln-left: calc(var(--gttr-nln) + env(safe-area-inset-left));
+                --gttr-nln-right: calc(var(--gttr-nln) + env(safe-area-inset-right));
                 --nmtn: var(--nmtn-drtn, 200ms) cubic-bezier(.42, 0, .58, 1)}
             @media (prefers-contrast: more){
                 :root{
@@ -48,13 +56,13 @@
             body{
                 display: grid;
                 margin: auto;
-                padding-block-start: calc(var(--gttr-blck) + env(safe-area-inset-top));
-                padding-block-end: calc(var(--gttr-blck) + env(safe-area-inset-bottom));
+                padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
                 background: hsl(var(--hsl-bg))}
             h1,h2{
-                margin: 0;
                 font: inherit;
                 color: var(--clr-lbl-prmr)}
+            h1,h2,p{
+                margin: 0}
             h2,p{
                 display: inline}
             main{
@@ -66,8 +74,9 @@
                         --mn-fs: 2.5rem}}
             nav{
                 overflow-x: var(--vrflw, auto);
-                overscroll-behavior-x: contain;
-                scroll-padding-left: var(--gttr-nln-env);
+                overscroll-behavior-inline: contain;
+                scroll-padding-left: var(--gttr-nln-left);
+                scroll-padding-right: var(--gttr-nln-right);
                 scroll-snap-type: x mandatory}
                 nav:focus-within{
                     scroll-behavior: var(--sl-bv, smooth)}
@@ -96,8 +105,8 @@
             main,ul{
                 margin-block-start: var(--gttr-blck);
                 margin-block-end: var(--gttr-blck);
-                margin-inline-start: var(--gttr-nln-env);
-                margin-inline-end: calc(var(--gttr-nln) + env(safe-area-inset-right))}
+                margin-left: var(--gttr-nln-left);
+                margin-right: var(--gttr-nln-right)}
             main,a{
                 padding-block-start: var(--gttr-blck);
                 padding-block-end: var(--gttr-blck);
@@ -113,7 +122,7 @@
         <nav>
             <ul aria-label="Réseaux sociaux et contact">
                 <li>
-                    <h1><a href="/" title="Roman Czerkies">Roman Czerkies</a></h1>
+                    <h1><a href="/" title="Roman Czerkies" translate="no">Roman Czerkies</a></h1>
                 </li>
                 <li>
                     <a href="//twitter.com/roman_czerkies" id="twitter" title="Twitter @roman_czerkies">Twitter</a>
@@ -133,5 +142,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.3.0 -->
+    <!-- romanczerkies.fr Version 31.4.0-beta.1 -->
 </html>
