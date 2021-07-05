@@ -6,12 +6,15 @@ Ce projet n'est pas seulement minimaliste, rapide et accessible; il est conçu p
 
 [romanczerki.es](https://romanczerki.es)
 
-## Date de mise en production
+## Releases
 
-v31.0.0 - 09/01/2021  
-v31.1.0 - 09/02/2021  
-v31.2.0 - 30/04/2021  
-v31.3.0 - 07/06/2021  
+Version | Date
+:---: | ---
+**[31.4.0](https://github.com/czerkies/romanczerkies.31/releases/tag/v31.4.0)** | --/09/2021
+**[31.3.0](https://github.com/czerkies/romanczerkies.31/releases/tag/v31.3.0)** | 07/06/2021
+**[31.2.0](https://github.com/czerkies/romanczerkies.31/releases/tag/v31.2.0)** | 30/04/2021
+**[31.1.0](https://github.com/czerkies/romanczerkies.31/releases/tag/v31.1.0)** | 09/02/2021
+**[31.0.0](https://github.com/czerkies/romanczerkies.31/releases/tag/v31.0.0)** | 09/01/2021
 
 ## Technos
 
@@ -19,6 +22,7 @@ v31.3.0 - 07/06/2021
 - CSS
 - JSON
 - PNG
+- OGP
 
 ## Liens
 
