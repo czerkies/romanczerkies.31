@@ -22,27 +22,27 @@
         <title>Roman Czerkies</title>
         <style>
             :root{
-                --hsl-bg: 200 10% 99%;
+                --hsl-bckgrnd: 200 10% 99%;
                 --clr-lbl-prmr: hsl(200 16% 9% / .98);
                 --clr-lbl-scndr: hsl(200 10% 30% / .8);
                 --gttr-nln: clamp(.5rem, 2.6vw, 1.5rem);
                 --gttr-blck: clamp(.5rem, 2.25vh, 1.5rem);
-                --gttr-nln-left: calc(var(--gttr-nln) + env(safe-area-inset-left));
-                --gttr-nln-right: calc(var(--gttr-nln) + env(safe-area-inset-right));
-                --nmtn: var(--nmtn-drtn, 200ms) cubic-bezier(.42, 0, .58, 1)}
+                --sf-lft: calc(var(--gttr-nln) + env(safe-area-inset-left));
+                --sf-rght: calc(var(--gttr-nln) + env(safe-area-inset-right));
+                --trnstn: var(--trnstn-drtn, 200ms) cubic-bezier(.42, 0, .58, 1)}
             @media (prefers-contrast: more){
                 :root{
-                    --a-tn: underline;
-                    --hsl-bg: 200 10% 100%;
+                    --txt-dcrtn: underline;
+                    --hsl-bckgrnd: 200 10% 100%;
                     --clr-lbl-prmr: hsl(200 13% 0%);
                     --clr-lbl-scndr: hsl(200 10% 30%)}}
             @media (prefers-reduced-motion: reduce){
                 :root{
-                    --nmtn-drtn: 0s;
-                    --sl-bv: auto}}
+                    --trnstn-drtn: 0s;
+                    --srll-bhvr: auto}}
             @media (prefers-color-scheme: dark){
                 :root{
-                    --hsl-bg: 0 0% 0%;
+                    --hsl-bckgrnd: 0 0% 0%;
                     --clr-lbl-prmr: hsl(200 25% 95% / .96);
                     --clr-lbl-scndr: hsl(200 16% 78% / .75)}
                     @media (prefers-contrast: more){
@@ -62,7 +62,7 @@
                 display: grid;
                 margin: auto;
                 padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
-                background: hsl(var(--hsl-bg))}
+                background: hsl(var(--hsl-bckgrnd))}
             h1,h2{
                 font: inherit;
                 color: var(--clr-lbl-prmr)}
@@ -72,19 +72,19 @@
                 display: inline}
             main{
                 max-inline-size: 51ch;
-                font-size: var(--mn-fs, 1.5rem);
+                font-size: var(--mn-fnt-sz, 1.5rem);
                 letter-spacing: .003em}
                 @media (min-width: 1000px){
                     main{
-                        --mn-fs: 2.5rem}}
+                        --mn-fnt-sz: 2.5rem}}
             nav{
                 overflow-x: var(--vrflw, auto);
                 overscroll-behavior-inline: contain;
-                scroll-padding-left: var(--gttr-nln-left);
-                scroll-padding-right: var(--gttr-nln-right);
+                scroll-padding-left: var(--sf-lft);
+                scroll-padding-right: var(--sf-rght);
                 scroll-snap-type: x mandatory}
                 nav:focus-within{
-                    scroll-behavior: var(--sl-bv, smooth)}
+                    scroll-behavior: var(--srll-bhvr, smooth)}
                 @media print{
                     nav{
                         --vrflw: visible}}
@@ -96,22 +96,22 @@
                 display: inline-block;
                 scroll-snap-align: start;
                 font-size: .875rem;
-                color: var(--a-clr, inherit);
-                text-decoration: var(--a-tn, none);
+                color: var(--clr, inherit);
+                text-decoration: var(--txt-dcrtn, none);
                 text-transform: uppercase;
                 white-space: nowrap;
                 letter-spacing: .06em;
                 outline-offset: -.75em;
-                transition: color var(--nmtn), opacity var(--nmtn)}
+                transition: color var(--trnstn), opacity var(--trnstn)}
                 a:is(:focus,:hover,:target){
-                    --a-clr: var(--clr-lbl-prmr)}
+                    --clr: var(--clr-lbl-prmr)}
                 a:active{
                     opacity: .25}
             main,ul{
                 margin-block-start: var(--gttr-blck);
                 margin-block-end: var(--gttr-blck);
-                margin-left: var(--gttr-nln-left);
-                margin-right: var(--gttr-nln-right)}
+                margin-left: var(--sf-lft);
+                margin-right: var(--sf-rght)}
             main,a{
                 padding-block-start: var(--gttr-blck);
                 padding-block-end: var(--gttr-blck);
@@ -147,5 +147,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.4.0-beta.1 -->
+    <!-- romanczerkies.fr Version 31.4.0-beta.2 -->
 </html>
