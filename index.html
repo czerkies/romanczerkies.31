@@ -4,19 +4,15 @@
         <meta charset="utf-8">
         <meta name="color-scheme" content="light dark">
         <meta name="description" content="Développeur Web Full Stack, UI Designer. Réseaux sociaux et contact.">
-        
-        <meta property="og:image" content="https://romanczerkies.fr/010121/banner.jpg">
-        <meta property="og:video" content="https://romanczerkies.fr/010121/banner.mov">
-
-        <meta property="og:title" content="Roman Czerkies">
-        <meta property="og:description" content="Développeur Web Full Stack, UI Designer. Réseaux sociaux et contact.">
-        <meta property="og:url" content="https://romanczerkies.fr/010121/">
-        <meta property="og:type" content="website">
-
         <meta name="theme-color" content="hsl(200 10% 99%)" media="(prefers-color-scheme: light)">
         <meta name="theme-color" content="hsl(0 0% 0%)" media="(prefers-color-scheme: dark)">
-
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta property="og:title" content="Roman Czerkies">
+        <meta property="og:description" content="Développeur Web Full Stack, UI Designer. Réseaux sociaux et contact.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="/">
+        <meta property="og:image" content="https://romanczerkies.fr/banner.jpg">
+        <meta property="og:video" content="https://romanczerkies.fr/banner.mov">
         <link rel="icon" type="image/png" href="ico.png">
         <link rel="manifest" href="manifest.webmanifest">
         <title>Roman Czerkies</title>
@@ -80,8 +76,7 @@
             nav{
                 overflow-x: var(--vrflw, auto);
                 overscroll-behavior-inline: contain;
-                scroll-padding-left: var(--sf-lft);
-                scroll-padding-right: var(--sf-rght);
+                scroll-padding: 0 var(--sf-rght) 0 var(--sf-lft);
                 scroll-snap-type: x mandatory}
                 nav:focus-within{
                     scroll-behavior: var(--srll-bhvr, smooth)}
@@ -108,15 +103,12 @@
                 a:active{
                     opacity: .25}
             main,ul{
-                margin-block-start: var(--gttr-blck);
-                margin-block-end: var(--gttr-blck);
+                margin-block: var(--gttr-blck);
                 margin-left: var(--sf-lft);
                 margin-right: var(--sf-rght)}
             main,a{
-                padding-block-start: var(--gttr-blck);
-                padding-block-end: var(--gttr-blck);
-                padding-inline-start: var(--gttr-nln);
-                padding-inline-end: var(--gttr-nln)}
+                padding-block: var(--gttr-blck);
+                padding-inline: var(--gttr-nln)}
         </style>
     </head>
     <body>
@@ -147,5 +139,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.4.0-beta.2 -->
+    <!-- romanczerkies.fr Version 31.4.0-beta.3 -->
 </html>
