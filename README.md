@@ -21,9 +21,7 @@ Version | Date
 - HTML
 - CSS
 - webmanifest
-- PNG
-- mov
-- Open Graph Protocol
+- Open Graph protocol
 
 ## Liens
 
