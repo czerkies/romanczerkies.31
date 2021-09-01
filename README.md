@@ -22,6 +22,7 @@ Version | Date
 - CSS
 - webmanifest
 - Open Graph protocol
+- RSS
 
 ## Liens
 
