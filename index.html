@@ -4,32 +4,42 @@
         <meta charset="utf-8">
         <meta name="color-scheme" content="light dark">
         <meta name="description" content="Développeur Web Full Stack, UI Designer. Réseaux sociaux et contact.">
+        <meta name="theme-color" content="hsl(200 10% 99%)" media="(prefers-color-scheme: light)">
+        <meta name="theme-color" content="hsl(0 0% 0%)" media="(prefers-color-scheme: dark)">
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta property="og:description" content="Développeur Web Full Stack, UI Designer. Réseaux sociaux et contact.">
+        <meta property="og:image" content="https://romanczerkies.fr/banner.jpg">
+        <meta property="og:title" content="Roman Czerkies">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://romanczerkies.fr/">
+        <meta property="og:video" content="https://romanczerkies.fr/banner.mp4">
+        <link rel="alternate" type="application/atom+xml" title="Mises à jour de romanczerkies.fr" href="//github.com/czerkies/romanczerkies.31/releases.atom">
         <link rel="icon" type="image/png" href="ico.png">
         <link rel="manifest" href="manifest.webmanifest">
         <title>Roman Czerkies</title>
         <style>
             :root{
-                --hsl-bg: 200 10% 99%;
+                --hsl-bckgrnd: 200 10% 99%;
                 --clr-lbl-prmr: hsl(200 16% 9% / .98);
                 --clr-lbl-scndr: hsl(200 10% 30% / .8);
                 --gttr-nln: clamp(.5rem, 2.6vw, 1.5rem);
                 --gttr-blck: clamp(.5rem, 2.25vh, 1.5rem);
-                --gttr-nln-env: calc(var(--gttr-nln) + env(safe-area-inset-left));
-                --nmtn: var(--nmtn-drtn, 200ms) cubic-bezier(.42, 0, .58, 1)}
+                --sf-lft: calc(var(--gttr-nln) + env(safe-area-inset-left));
+                --sf-rght: calc(var(--gttr-nln) + env(safe-area-inset-right));
+                --trnstn: var(--trnstn-drtn, 200ms) cubic-bezier(.42, 0, .58, 1)}
             @media (prefers-contrast: more){
                 :root{
-                    --a-tn: underline;
-                    --hsl-bg: 200 10% 100%;
+                    --txt-dcrtn: underline;
+                    --hsl-bckgrnd: 200 10% 100%;
                     --clr-lbl-prmr: hsl(200 13% 0%);
                     --clr-lbl-scndr: hsl(200 10% 30%)}}
             @media (prefers-reduced-motion: reduce){
                 :root{
-                    --nmtn-drtn: 0s;
-                    --sl-bv: auto}}
+                    --trnstn-drtn: 0s;
+                    --srll-bhvr: auto}}
             @media (prefers-color-scheme: dark){
                 :root{
-                    --hsl-bg: 0 0% 0%;
+                    --hsl-bckgrnd: 0 0% 0%;
                     --clr-lbl-prmr: hsl(200 25% 95% / .96);
                     --clr-lbl-scndr: hsl(200 16% 78% / .75)}
                     @media (prefers-contrast: more){
@@ -48,29 +58,29 @@
             body{
                 display: grid;
                 margin: auto;
-                padding-block-start: calc(var(--gttr-blck) + env(safe-area-inset-top));
-                padding-block-end: calc(var(--gttr-blck) + env(safe-area-inset-bottom));
-                background: hsl(var(--hsl-bg))}
+                padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
+                background: hsl(var(--hsl-bckgrnd))}
             h1,h2{
-                margin: 0;
                 font: inherit;
                 color: var(--clr-lbl-prmr)}
+            h1,h2,p{
+                margin: 0}
             h2,p{
                 display: inline}
             main{
                 max-inline-size: 51ch;
-                font-size: var(--mn-fs, 1.5rem);
+                font-size: var(--mn-fnt-sz, 1.5rem);
                 letter-spacing: .003em}
                 @media (min-width: 1000px){
                     main{
-                        --mn-fs: 2.5rem}}
+                        --mn-fnt-sz: 2.5rem}}
             nav{
                 overflow-x: var(--vrflw, auto);
                 overscroll-behavior-x: contain;
-                scroll-padding-left: var(--gttr-nln-env);
+                scroll-padding: 0 var(--sf-rght) 0 var(--sf-lft);
                 scroll-snap-type: x mandatory}
                 nav:focus-within{
-                    scroll-behavior: var(--sl-bv, smooth)}
+                    scroll-behavior: var(--srll-bhvr, smooth)}
                 @media print{
                     nav{
                         --vrflw: visible}}
@@ -82,27 +92,24 @@
                 display: inline-block;
                 scroll-snap-align: start;
                 font-size: .875rem;
-                color: var(--a-clr, inherit);
-                text-decoration: var(--a-tn, none);
+                color: var(--clr, inherit);
+                text-decoration: var(--txt-dcrtn, none);
                 text-transform: uppercase;
                 white-space: nowrap;
                 letter-spacing: .06em;
                 outline-offset: -.75em;
-                transition: color var(--nmtn), opacity var(--nmtn)}
+                transition: color var(--trnstn), opacity var(--trnstn)}
                 a:is(:focus,:hover,:target){
-                    --a-clr: var(--clr-lbl-prmr)}
+                    --clr: var(--clr-lbl-prmr)}
                 a:active{
                     opacity: .25}
             main,ul{
-                margin-block-start: var(--gttr-blck);
-                margin-block-end: var(--gttr-blck);
-                margin-inline-start: var(--gttr-nln-env);
-                margin-inline-end: calc(var(--gttr-nln) + env(safe-area-inset-right))}
+                margin-block: var(--gttr-blck);
+                margin-left: var(--sf-lft);
+                margin-right: var(--sf-rght)}
             main,a{
-                padding-block-start: var(--gttr-blck);
-                padding-block-end: var(--gttr-blck);
-                padding-inline-start: var(--gttr-nln);
-                padding-inline-end: var(--gttr-nln)}
+                padding-block: var(--gttr-blck);
+                padding-inline: var(--gttr-nln)}
         </style>
     </head>
     <body>
@@ -113,7 +120,7 @@
         <nav>
             <ul aria-label="Réseaux sociaux et contact">
                 <li>
-                    <h1><a href="/" title="Roman Czerkies">Roman Czerkies</a></h1>
+                    <h1><a href="/" title="Roman Czerkies" translate="no">Roman Czerkies</a></h1>
                 </li>
                 <li>
                     <a href="//twitter.com/roman_czerkies" id="twitter" title="Twitter @roman_czerkies">Twitter</a>
@@ -133,5 +140,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.3.0 -->
+    <!-- romanczerkies.fr Version 31.4.0 -->
 </html>
