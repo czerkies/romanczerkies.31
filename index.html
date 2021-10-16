@@ -19,19 +19,42 @@
         <title>Roman Czerkies</title>
         <style>
             :root{
+                --lph-prmr: .98;
+                
                 --hsl-bckgrnd: 200 10% 99%;
-                --clr-lbl-prmr: hsl(200 16% 9% / .98);
+                
+                /* --clr-lbl-prmr: hsl(200 16% 9% / var(--clr-lbl-prmr-alpha, .98)); */
+
+                --clr-lbl-prmr-hsl: 200 16% 9%;
+                --clr-lbl-prmr-lph: .98;
+
                 --clr-lbl-scndr: hsl(200 10% 30% / .8);
+                --clr-lbl-scndr-hsl: 200 10% 30%;
+                --clr-lbl-scndr-lph: .8;
+
                 --gttr-nln: clamp(.5rem, 2.6vw, 1.5rem);
                 --gttr-blck: clamp(.5rem, 2.25vh, 1.5rem);
                 --sf-lft: calc(var(--gttr-nln) + env(safe-area-inset-left));
                 --sf-rght: calc(var(--gttr-nln) + env(safe-area-inset-right));
-                --trnstn: var(--trnstn-drtn, 200ms) cubic-bezier(.42, 0, .58, 1)}
+                --trnstn: var(--trnstn-drtn, 1ms) cubic-bezier(.42, 0, .58, 1);
+            
+                --lph-ctv: .25;
+            }
+
+            @media (hover: hover) {
+                :root {
+                    --lph-hvr: 1;
+                    --lph-ctv: .25;
+                    --trnstn-drtn: 250ms;
+                }
+            }
+            
             @media (prefers-contrast: more){
                 :root{
                     --txt-dcrtn: underline;
                     --hsl-bckgrnd: 200 10% 100%;
                     --clr-lbl-prmr: hsl(200 13% 0%);
+                    --clr-lbl-prmr-hsl: 200 13% 0%;
                     --clr-lbl-scndr: hsl(200 10% 30%)}}
             @media (prefers-reduced-motion: reduce){
                 :root{
@@ -41,6 +64,7 @@
                 :root{
                     --hsl-bckgrnd: 0 0% 0%;
                     --clr-lbl-prmr: hsl(200 25% 95% / .96);
+                    --clr-lbl-prmr-hsl: 200 25% 95%;
                     --clr-lbl-scndr: hsl(200 16% 78% / .75)}
                     @media (prefers-contrast: more){
                         :root {
@@ -61,8 +85,11 @@
                 padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
                 background: hsl(var(--hsl-bckgrnd))}
             h1,h2{
+                --clr-hsl: var(--clr-lbl-prmr-hsl);
+                --clr-lph: var(--clr-lbl-prmr-lph);
+                
                 font: inherit;
-                color: var(--clr-lbl-prmr)}
+                color: hsl(var(--clr-hsl) / var(--clr-lbl-prmr-lph))}
             h1,h2,p{
                 margin: 0}
             h2,p{
@@ -92,17 +119,27 @@
                 display: inline-block;
                 scroll-snap-align: start;
                 font-size: .875rem;
-                color: var(--clr, inherit);
+                /* color: var(--clr); */
+                color: hsl(
+                    var(--clr-hsl, var(--clr-lbl-scndr-hsl)) / var(--lph, var(--clr-lph, var(--clr-lbl-scndr-lph)))
+                );
+                
                 text-decoration: var(--txt-dcrtn, none);
                 text-transform: uppercase;
                 white-space: nowrap;
                 letter-spacing: .06em;
                 outline-offset: -.75em;
-                transition: color var(--trnstn), opacity var(--trnstn)}
+
+                transition: color var(--trnstn)}
+
                 a:is(:focus,:hover,:target){
-                    --clr: var(--clr-lbl-prmr)}
+                    --lph: var(--lph-hvr);
+                }
+
                 a:active{
-                    opacity: .25}
+                    --lph: var(--lph-ctv);
+                }
+
             main,ul{
                 margin-block: var(--gttr-blck);
                 margin-left: var(--sf-lft);
@@ -140,5 +177,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.4.0 -->
+    <!-- romanczerkies.fr Version 31.5.0-beta.1 -->
 </html>
