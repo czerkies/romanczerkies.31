@@ -25,10 +25,11 @@
                 
                 /* --clr-lbl-prmr: hsl(200 16% 9% / var(--clr-lbl-prmr-alpha, .98)); */
 
+                /* Custom properties created for prmr colors */
                 --clr-lbl-prmr-hsl: 200 16% 9%;
                 --clr-lbl-prmr-lph: .98;
 
-                --clr-lbl-scndr: hsl(200 10% 30% / .8);
+                /* --clr-lbl-scndr: hsl(200 10% 30% / .8); */
                 --clr-lbl-scndr-hsl: 200 10% 30%;
                 --clr-lbl-scndr-lph: .8;
 
@@ -54,6 +55,7 @@
                     --txt-dcrtn: underline;
                     --hsl-bckgrnd: 200 10% 100%;
                     --clr-lbl-prmr: hsl(200 13% 0%);
+                    /* @todo: add new colors custom properties with semantic name */
                     --clr-lbl-prmr-hsl: 200 13% 0%;
                     --clr-lbl-scndr: hsl(200 10% 30%)}}
             @media (prefers-reduced-motion: reduce){
@@ -85,11 +87,14 @@
                 padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
                 background: hsl(var(--hsl-bckgrnd))}
             h1,h2{
-                --clr-hsl: var(--clr-lbl-prmr-hsl);
-                --clr-lph: var(--clr-lbl-prmr-lph);
+                /* Variables used to create custom properties and bypass the Inherit behavior */
+                --nhrt-hsl: var(--clr-lbl-prmr-hsl);
+                --nhrt-lph: var(--clr-lbl-prmr-lph);
                 
                 font: inherit;
-                color: hsl(var(--clr-hsl) / var(--clr-lbl-prmr-lph))}
+                /* Custom properties used for the color property */
+                /* color: hsl(var(--nhrt-hsl) / var(--nhrt-lph)) */
+            }
             h1,h2,p{
                 margin: 0}
             h2,p{
@@ -120,9 +125,8 @@
                 scroll-snap-align: start;
                 font-size: .875rem;
                 /* color: var(--clr); */
-                color: hsl(
-                    var(--clr-hsl, var(--clr-lbl-scndr-hsl)) / var(--lph, var(--clr-lph, var(--clr-lbl-scndr-lph)))
-                );
+                /* color: hsl(inherit, hsl(var(--nhrt-hsl, var(--clr-lbl-scndr-hsl)) / var(--lph, var(--nhrt-lph, var(--clr-lbl-scndr-lph))))); */
+                /* color: var(--clr-lbl-scndr-hsl); */
                 
                 text-decoration: var(--txt-dcrtn, none);
                 text-transform: uppercase;
@@ -132,12 +136,20 @@
 
                 transition: color var(--trnstn)}
 
+
+            a,
+            h1,
+            h2 {
+                color: hsl(
+                    var(--nhrt-hsl, var(--clr-lbl-scndr-hsl)) / var(--nhrt-lph, var(--clr-lbl-scndr-lph)));
+            }
+
                 a:is(:focus,:hover,:target){
-                    --lph: var(--lph-hvr);
+                    --nhrt-lph: var(--lph-hvr);
                 }
 
                 a:active{
-                    --lph: var(--lph-ctv);
+                    --nhrt-lph: var(--lph-ctv);
                 }
 
             main,ul{
@@ -177,5 +189,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.5.0-beta.1 -->
+    <!-- romanczerkies.fr Version 31.5.0-beta.2 -->
 </html>
