@@ -18,9 +18,7 @@
         <link rel="manifest" href="manifest.webmanifest">
         <title>Roman Czerkies</title>
         <style>
-            :root{
-                --lph-prmr: .98;
-                
+            :root{                
                 --hsl-bckgrnd: 200 10% 99%;
                 
                 /* --clr-lbl-prmr: hsl(200 16% 9% / var(--clr-lbl-prmr-alpha, .98)); */
@@ -29,7 +27,7 @@
                 --clr-lbl-prmr-hsl: 200 16% 9%;
                 --clr-lbl-prmr-lph: .98;
 
-                /* --clr-lbl-scndr: hsl(200 10% 30% / .8); */
+                /* Custom properties created for scndr colors */
                 --clr-lbl-scndr-hsl: 200 10% 30%;
                 --clr-lbl-scndr-lph: .8;
 
@@ -37,16 +35,15 @@
                 --gttr-blck: clamp(.5rem, 2.25vh, 1.5rem);
                 --sf-lft: calc(var(--gttr-nln) + env(safe-area-inset-left));
                 --sf-rght: calc(var(--gttr-nln) + env(safe-area-inset-right));
-                --trnstn: var(--trnstn-drtn, 1ms) cubic-bezier(.42, 0, .58, 1);
+                --trnstn: var(--trnstn-drtn, 0s) cubic-bezier(.42, 0, .58, 1);
             
-                --lph-ctv: .25;
+                --lph-ctv: .32;
             }
 
             @media (hover: hover) {
                 :root {
                     --lph-hvr: 1;
-                    --lph-ctv: .25;
-                    --trnstn-drtn: 250ms;
+                    --trnstn-drtn: 200ms;
                 }
             }
             
@@ -54,10 +51,11 @@
                 :root{
                     --txt-dcrtn: underline;
                     --hsl-bckgrnd: 200 10% 100%;
-                    --clr-lbl-prmr: hsl(200 13% 0%);
-                    /* @todo: add new colors custom properties with semantic name */
-                    --clr-lbl-prmr-hsl: 200 13% 0%;
-                    --clr-lbl-scndr: hsl(200 10% 30%)}}
+                    /* --clr-lbl-prmr-hsl: 200 8% 0%; */
+                    --clr-lbl-prmr-hsl: 200 10% 0%;
+                    /* --clr-lbl-scndr-hsl: 200 10% 30%; */
+                    --clr-lbl-scndr-hsl: 200 8% 16%;
+                }}
             @media (prefers-reduced-motion: reduce){
                 :root{
                     --trnstn-drtn: 0s;
@@ -65,13 +63,17 @@
             @media (prefers-color-scheme: dark){
                 :root{
                     --hsl-bckgrnd: 0 0% 0%;
-                    --clr-lbl-prmr: hsl(200 25% 95% / .96);
                     --clr-lbl-prmr-hsl: 200 25% 95%;
-                    --clr-lbl-scndr: hsl(200 16% 78% / .75)}
+                    --clr-lbl-prmr-lph: .98;
+                    --clr-lbl-scndr-hsl: 200 16% 78%;
+                    --clr-lbl-scndr-lph: .75}
                     @media (prefers-contrast: more){
                         :root {
-                            --clr-lbl-prmr: hsl(200 28% 100%);
-                            --clr-lbl-scndr: hsl(200 18% 78%)}}}
+                            /* --clr-lbl-prmr-hsl: 200 28% 100%; */
+                            --clr-lbl-prmr-hsl: 200 32% 100%;
+                            /* --clr-lbl-scndr-hsl: 200 18% 78%; */
+                            --clr-lbl-scndr-hsl: 200 22% 88%;
+                        }}}
             *{
                 box-sizing: border-box;
                 text-rendering: optimizeLegibility;
@@ -80,7 +82,7 @@
                 display: flex;
                 min-block-size: 100%;
                 font: 700 100%/1.175 'Helvetica Neue', Helvetica, Arial, sans-serif;
-                color: var(--clr-lbl-scndr)}
+                color: hsl(var(--clr-lbl-scndr-hsl) / var(--clr-lbl-scndr-lph))}
             body{
                 display: grid;
                 margin: auto;
@@ -135,11 +137,7 @@
                 outline-offset: -.75em;
 
                 transition: color var(--trnstn)}
-
-
-            a,
-            h1,
-            h2 {
+            a,h1,h2 {
                 color: hsl(
                     var(--nhrt-hsl, var(--clr-lbl-scndr-hsl)) / var(--nhrt-lph, var(--clr-lbl-scndr-lph)));
             }
@@ -189,5 +187,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.5.0-beta.2 -->
+    <!-- romanczerkies.fr Version 31.5.0-beta.3 -->
 </html>
