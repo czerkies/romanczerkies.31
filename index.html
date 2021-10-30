@@ -37,13 +37,15 @@
                 --sf-rght: calc(var(--gttr-nln) + env(safe-area-inset-right));
                 --trnstn: var(--trnstn-drtn, 0s) cubic-bezier(.42, 0, .58, 1);
             
-                --lph-ctv: .32;
+                --lph-hvr: .5;
+                --lph-ctv: .5; /* @todo: Test utility */
             }
 
             @media (hover: hover) {
                 :root {
                     --lph-hvr: 1;
-                    --trnstn-drtn: 200ms;
+                    --lph-ctv: .32;
+                    --trnstn-drtn: 175ms;
                 }
             }
             
@@ -171,6 +173,9 @@
                 </li>
                 <li>
                     <a href="//twitter.com/roman_czerkies" id="twitter" title="Twitter @roman_czerkies">Twitter</a>
+                </li>
+                <li>
+                    <a href="#" id="twitter" title="Twitter @roman_czerkies">Twitter</a>
                 </li>
                 <li>
                     <a href="//linkedin.com/in/romanczerkies" id="linkedin" title="LinkedIn Roman Czerkies">LinkedIn</a>
