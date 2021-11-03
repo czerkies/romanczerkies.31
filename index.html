@@ -36,12 +36,9 @@
                 --sf-lft: calc(var(--gttr-nln) + env(safe-area-inset-left));
                 --sf-rght: calc(var(--gttr-nln) + env(safe-area-inset-right));
                 --trnstn: var(--trnstn-drtn, 0s) cubic-bezier(.42, 0, .58, 1);
-            
-                --lph-hvr: .5;
-                --lph-ctv: .5; /* @todo: Test utility */
             }
 
-            @media (hover: hover) {
+            @media (any-hover: hover) {
                 :root {
                     --lph-hvr: 1;
                     --lph-ctv: .32;
@@ -145,11 +142,11 @@
             }
 
                 a:is(:focus,:hover,:target){
-                    --nhrt-lph: var(--lph-hvr);
+                    --nhrt-lph: var(--lph-hvr, .5);
                 }
 
                 a:active{
-                    --nhrt-lph: var(--lph-ctv);
+                    --nhrt-lph: var(--lph-ctv, .5);
                 }
 
             main,ul{
