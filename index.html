@@ -20,32 +20,20 @@
         <style>
             :root{                
                 --hsl-bckgrnd: 200 10% 99%;
-                
-                /* --clr-lbl-prmr: hsl(200 16% 9% / var(--clr-lbl-prmr-alpha, .98)); */
-
-                /* Custom properties created for prmr colors */
                 --clr-lbl-prmr-hsl: 200 16% 9%;
                 --clr-lbl-prmr-lph: .98;
-
-                /* Custom properties created for scndr colors */
                 --clr-lbl-scndr-hsl: 200 10% 30%;
                 --clr-lbl-scndr-lph: .8;
-
                 --gttr-nln: clamp(.5rem, 2.6vw, 1.5rem);
                 --gttr-blck: clamp(.5rem, 2.25vh, 1.5rem);
                 --sf-lft: calc(var(--gttr-nln) + env(safe-area-inset-left));
                 --sf-rght: calc(var(--gttr-nln) + env(safe-area-inset-right));
-                --trnstn: var(--trnstn-drtn, 0s) cubic-bezier(.42, 0, .58, 1);
-            }
-
+                --trnstn: var(--trnstn-drtn, 0s) cubic-bezier(.42, 0, .58, 1)}
             @media (any-hover: hover) {
                 :root {
                     --lph-hvr: 1;
                     --lph-ctv: .32;
-                    --trnstn-drtn: 175ms;
-                }
-            }
-            
+                    --trnstn-drtn: 175ms}}
             @media (prefers-contrast: more){
                 :root{
                     --txt-dcrtn: underline;
@@ -53,7 +41,7 @@
                     /* --clr-lbl-prmr-hsl: 200 8% 0%; */
                     --clr-lbl-prmr-hsl: 200 10% 0%;
                     /* --clr-lbl-scndr-hsl: 200 10% 30%; */
-                    --clr-lbl-scndr-hsl: 200 8% 16%;
+                    --clr-lbl-scndr-hsl: 200 12% 16%;
                 }}
             @media (prefers-reduced-motion: reduce){
                 :root{
@@ -88,13 +76,9 @@
                 padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
                 background: hsl(var(--hsl-bckgrnd))}
             h1,h2{
-                /* Variables used to create custom properties and bypass the Inherit behavior */
                 --nhrt-hsl: var(--clr-lbl-prmr-hsl);
                 --nhrt-lph: var(--clr-lbl-prmr-lph);
-                
                 font: inherit;
-                /* Custom properties used for the color property */
-                /* color: hsl(var(--nhrt-hsl) / var(--nhrt-lph)) */
             }
             h1,h2,p{
                 margin: 0}
@@ -125,30 +109,18 @@
                 display: inline-block;
                 scroll-snap-align: start;
                 font-size: .875rem;
-                /* color: var(--clr); */
-                /* color: hsl(inherit, hsl(var(--nhrt-hsl, var(--clr-lbl-scndr-hsl)) / var(--lph, var(--nhrt-lph, var(--clr-lbl-scndr-lph))))); */
-                /* color: var(--clr-lbl-scndr-hsl); */
-                
                 text-decoration: var(--txt-dcrtn, none);
                 text-transform: uppercase;
                 white-space: nowrap;
                 letter-spacing: .06em;
                 outline-offset: -.75em;
-
                 transition: color var(--trnstn)}
             a,h1,h2 {
-                color: hsl(
-                    var(--nhrt-hsl, var(--clr-lbl-scndr-hsl)) / var(--nhrt-lph, var(--clr-lbl-scndr-lph)));
-            }
-
+                color: hsl(var(--nhrt-hsl, var(--clr-lbl-scndr-hsl)) / var(--nhrt-lph, var(--clr-lbl-scndr-lph)))}
                 a:is(:focus,:hover,:target){
-                    --nhrt-lph: var(--lph-hvr, .5);
-                }
-
+                    --nhrt-lph: var(--lph-hvr, .42)}
                 a:active{
-                    --nhrt-lph: var(--lph-ctv, .5);
-                }
-
+                    --nhrt-lph: var(--lph-ctv, .42)}
             main,ul{
                 margin-block: var(--gttr-blck);
                 margin-left: var(--sf-lft);
@@ -172,7 +144,7 @@
                     <a href="//twitter.com/roman_czerkies" id="twitter" title="Twitter @roman_czerkies">Twitter</a>
                 </li>
                 <li>
-                    <a href="#" id="twitter" title="Twitter @roman_czerkies">Twitter</a>
+                    <a href="#" id="twitter" title="Link Test">Link Test</a>
                 </li>
                 <li>
                     <a href="//linkedin.com/in/romanczerkies" id="linkedin" title="LinkedIn Roman Czerkies">LinkedIn</a>
@@ -189,5 +161,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.5.0-beta.3 -->
+    <!-- romanczerkies.fr Version 31.5.0-beta.4 -->
 </html>
