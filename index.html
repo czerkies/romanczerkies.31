@@ -18,7 +18,7 @@
         <link rel="manifest" href="manifest.webmanifest">
         <title>Roman Czerkies</title>
         <style>
-            :root{                
+            :root{
                 --hsl-bckgrnd: 200 10% 99%;
                 --clr-lbl-prmr-hsl: 200 16% 9%;
                 --clr-lbl-prmr-lph: .98;
@@ -93,9 +93,12 @@
                         --mn-fnt-sz: 2.5rem}}
             nav{
                 overflow-x: var(--vrflw, auto);
-                overscroll-behavior-x: contain;
+                overscroll-behavior-inline: contain;
                 scroll-padding: 0 var(--sf-rght) 0 var(--sf-lft);
-                scroll-snap-type: x mandatory}
+                scroll-snap-type: inline mandatory}
+                @supports not (overscroll-behavior-inline: contain){
+                    nav{
+                        overscroll-behavior-x: contain}}
                 nav:focus-within{
                     scroll-behavior: var(--srll-bhvr, smooth)}
                 @media print{
@@ -161,5 +164,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.5.0-beta.4 -->
+    <!-- romanczerkies.fr Version 31.5.0-beta.5 -->
 </html>
