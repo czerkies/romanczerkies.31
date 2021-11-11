@@ -92,10 +92,13 @@
                     main{
                         --mn-fnt-sz: 2.5rem}}
             nav{
-                overflow-x: var(--vrflw, auto);
+                overflow-inline: var(--vrflw, auto);
                 overscroll-behavior-inline: contain;
                 scroll-padding: 0 var(--sf-rght) 0 var(--sf-lft);
                 scroll-snap-type: inline mandatory}
+                @supports not (overflow-inline: auto){
+                    nav{
+                        overflow-x: var(--vrflw, auto)}}
                 @supports not (overscroll-behavior-inline: contain){
                     nav{
                         overscroll-behavior-x: contain}}
