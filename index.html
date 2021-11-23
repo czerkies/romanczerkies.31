@@ -20,19 +20,25 @@
         <style>
             :root{
                 --hsl-bckgrnd: 200 10% 99%;
-                --clr-lbl-prmr: hsl(200 16% 9% / .98);
-                --clr-lbl-scndr: hsl(200 10% 30% / .8);
+                --clr-lbl-prmr-hsl: 200 16% 9%;
+                --clr-lbl-prmr-lph: .98;
+                --clr-lbl-scndr-hsl: 200 10% 30%;
+                --clr-lbl-scndr-lph: .8;
                 --gttr-nln: clamp(.5rem, 2.6vw, 1.5rem);
                 --gttr-blck: clamp(.5rem, 2.25vh, 1.5rem);
                 --sf-lft: calc(var(--gttr-nln) + env(safe-area-inset-left));
-                --sf-rght: calc(var(--gttr-nln) + env(safe-area-inset-right));
-                --trnstn: var(--trnstn-drtn, 200ms) cubic-bezier(.42, 0, .58, 1)}
+                --sf-rght: calc(var(--gttr-nln) + env(safe-area-inset-right))}
+            @media (any-hover: hover){
+                :root {
+                    --lph-hvr: 1;
+                    --lph-ctv: .32;
+                    --trnstn-drtn: 175ms}}
             @media (prefers-contrast: more){
                 :root{
                     --txt-dcrtn: underline;
                     --hsl-bckgrnd: 200 10% 100%;
-                    --clr-lbl-prmr: hsl(200 13% 0%);
-                    --clr-lbl-scndr: hsl(200 10% 30%)}}
+                    --clr-lbl-prmr-hsl: 200 10% 0%;
+                    --clr-lbl-scndr-hsl: 200 20% 7%}}
             @media (prefers-reduced-motion: reduce){
                 :root{
                     --trnstn-drtn: 0s;
@@ -40,12 +46,14 @@
             @media (prefers-color-scheme: dark){
                 :root{
                     --hsl-bckgrnd: 0 0% 0%;
-                    --clr-lbl-prmr: hsl(200 25% 95% / .96);
-                    --clr-lbl-scndr: hsl(200 16% 78% / .75)}
+                    --clr-lbl-prmr-hsl: 200 25% 95%;
+                    --clr-lbl-prmr-lph: .98;
+                    --clr-lbl-scndr-hsl: 200 16% 78%;
+                    --clr-lbl-scndr-lph: .75}
                     @media (prefers-contrast: more){
                         :root {
-                            --clr-lbl-prmr: hsl(200 28% 100%);
-                            --clr-lbl-scndr: hsl(200 18% 78%)}}}
+                            --clr-lbl-prmr-hsl: 200 32% 100%;
+                            --clr-lbl-scndr-hsl: 200 24% 94%}}}
             *{
                 box-sizing: border-box;
                 text-rendering: optimizeLegibility;
@@ -54,15 +62,16 @@
                 display: flex;
                 min-block-size: 100%;
                 font: 700 100%/1.175 'Helvetica Neue', Helvetica, Arial, sans-serif;
-                color: var(--clr-lbl-scndr)}
+                color: hsl(var(--clr-lbl-scndr-hsl) / var(--clr-lbl-scndr-lph))}
             body{
                 display: grid;
                 margin: auto;
                 padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
                 background: hsl(var(--hsl-bckgrnd))}
             h1,h2{
-                font: inherit;
-                color: var(--clr-lbl-prmr)}
+                --nhrt-hsl: var(--clr-lbl-prmr-hsl);
+                --nhrt-lph: var(--clr-lbl-prmr-lph);
+                font: inherit}
             h1,h2,p{
                 margin: 0}
             h2,p{
@@ -75,10 +84,16 @@
                     main{
                         --mn-fnt-sz: 2.5rem}}
             nav{
-                overflow-x: var(--vrflw, auto);
-                overscroll-behavior-x: contain;
+                overflow-inline: var(--vrflw, auto);
+                overscroll-behavior-inline: contain;
                 scroll-padding: 0 var(--sf-rght) 0 var(--sf-lft);
-                scroll-snap-type: x mandatory}
+                scroll-snap-type: inline mandatory}
+                @supports not (overflow-inline: auto){
+                    nav{
+                        overflow-x: var(--vrflw, auto)}}
+                @supports not (overscroll-behavior-inline: contain){
+                    nav{
+                        overscroll-behavior-x: contain}}
                 nav:focus-within{
                     scroll-behavior: var(--srll-bhvr, smooth)}
                 @media print{
@@ -92,17 +107,18 @@
                 display: inline-block;
                 scroll-snap-align: start;
                 font-size: .875rem;
-                color: var(--clr, inherit);
                 text-decoration: var(--txt-dcrtn, none);
                 text-transform: uppercase;
                 white-space: nowrap;
                 letter-spacing: .06em;
                 outline-offset: -.75em;
-                transition: color var(--trnstn), opacity var(--trnstn)}
+                transition: color var(--trnstn-drtn, 0s) cubic-bezier(.42, 0, .58, 1)}
+            a,h1,h2 {
+                color: hsl(var(--nhrt-hsl, var(--clr-lbl-scndr-hsl)) / var(--nhrt-lph, var(--clr-lbl-scndr-lph)))}
                 a:is(:focus,:hover,:target){
-                    --clr: var(--clr-lbl-prmr)}
+                    --nhrt-lph: var(--lph-hvr, .32)}
                 a:active{
-                    opacity: .25}
+                    --nhrt-lph: var(--lph-ctv, .32)}
             main,ul{
                 margin-block: var(--gttr-blck);
                 margin-left: var(--sf-lft);
@@ -140,5 +156,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.4.0 -->
+    <!-- romanczerkies.fr Version 31.5.0 -->
 </html>
