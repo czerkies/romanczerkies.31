@@ -22,17 +22,13 @@
                 --hue: 200;
                 --hsl-bck-prmr: var(--hue) 10% 99%;
                 --hsl-bck-scndr: var(--hue) 30% 70%;
-
                 --clr-lbl-prmr-lph: .98;
                 --clr-lbl-scndr-lph: .8;
-                
                 --clr-lbl-prmr-hsl: hsl(var(--hue) 16% 9% / var(--clr-lbl-prmr-lph));
                 --clr-lbl-scndr-hsl: hsl(var(--hue) 10% 30% / var(--clr-lbl-scndr-lph));
-
-                --lph-ctv: .16;
-                
-                --gttr-nln: clamp(.5rem, 2.6vw, 1.5rem);
-                --gttr-blck: clamp(.5rem, 2.25vh, 1.5rem);
+                --lph-ctv: .28;
+                --gttr-nln: clamp(.2rem, 2.22vw, 1.5rem);
+                --gttr-blck: clamp(.2rem, 2.25vh, 1.5rem);
                 --sf-lft: calc(var(--gttr-nln) + env(safe-area-inset-left));
                 --sf-rght: calc(var(--gttr-nln) + env(safe-area-inset-right))}
             @media (any-hover: hover){
@@ -44,7 +40,6 @@
                     --txt-dcrtn: underline;
                     --hsl-bck-prmr: var(--hue) 10% 100%;
                     --hsl-bck-scndr: var(--hue) 26% 50%;
-
                     --clr-lbl-prmr-hsl: hsl(var(--hue) 10% 0% / var(--clr-lbl-prmr-lph));
                     --clr-lbl-scndr-hsl: hsl(var(--hue) 20% 7% / var(--clr-lbl-scndr-lph))}}
             @media (prefers-reduced-motion: reduce){
@@ -55,16 +50,13 @@
                 :root{
                     --hsl-bck-prmr: var(--hue) 0% 0%;
                     --hsl-bck-scndr: var(--hue) 70% 85%;
-
                     --clr-lbl-prmr-lph: .98;
                     --clr-lbl-scndr-lph: .75;
-
                     --clr-lbl-prmr-hsl: hsl(var(--hue) 25% 95% / var(--clr-lbl-prmr-lph));
                     --clr-lbl-scndr-hsl: hsl(var(--hue) 16% 78% / var(--clr-lbl-scndr-lph))}
                     @media (prefers-contrast: more){
                         :root {
                             --hsl-bck-scndr: var(--hue) 74% 95%;
-
                             --clr-lbl-prmr-hsl: hsl(var(--hue) 32% 100% / var(--clr-lbl-prmr-lph));
                             --clr-lbl-scndr-hsl: hsl(var(--hue) 24% 94% / var(--clr-lbl-scndr-lph))}}}
             *{
@@ -72,7 +64,8 @@
                 text-rendering: optimizeLegibility;
                 -webkit-font-smoothing: antialiased}
             ::selection{
-                background: hsl(var(--hsl-bck-scndr) / var(--lph-ctv))}
+                background: hsl(var(--hsl-bck-scndr) / var(--lph-ctv));
+                color: var(--clr-lbl-prmr-hsl)}
             html{
                 display: flex;
                 min-block-size: 100%;
@@ -91,9 +84,9 @@
             h2,p{
                 display: inline}
             main{
-                max-inline-size: 57ch;
+                max-inline-size: 52ch;
                 font-size: var(--mn-fnt-sz, 1.5rem);
-                letter-spacing: .002em}
+                letter-spacing: .0012em}
                 @media (min-width: 1000px){
                     main{
                         --mn-fnt-sz: 2.25rem}}
@@ -125,7 +118,7 @@
                 text-decoration: var(--txt-dcrtn, none);
                 text-transform: uppercase;
                 white-space: nowrap;
-                letter-spacing: .06em;
+                letter-spacing: .09em;
                 outline: none;
                 border-radius: 8px;
                 background: var(--bckgrnd-clr, transparent);
@@ -146,7 +139,7 @@
     <body>
         <main>
             <h2>Designer & Développeur d'Interface Humaine.</h2>
-            <p>Spécialisé dans la conception itérative et développement de Design Systems. Largement inspirées du minimalisme et brutalisme, l'ensemble des créations tendent à un design simple et inclusif.</p>
+            <p>Spécialisé dans la conception centré utilisateurs et développement de Design Systems. L'ensemble des créations, largement inspirées du minimalisme et brutalisme, tendent à un design simple et inclusif.</p>
         </main>
         <nav>
             <ul aria-label="Réseaux sociaux et contact">
@@ -171,5 +164,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.6.0-beta.1 -->
+    <!-- romanczerkies.fr Version 31.6.0-beta.2 -->
 </html>
