@@ -120,13 +120,13 @@
                 white-space: nowrap;
                 letter-spacing: .1em;
                 outline: none;
-                border-radius: 8px;
-                background: var(--bckgrnd-clr, transparent);
+                border-radius: .5rem;
+                background: hsl(var(--hsl-bck-scndr) / var(--lph, 0));
                 transition: background-color var(--trnstn-drtn, 0s) cubic-bezier(.68, .48, .48, .98)}
                 a:is(:focus,:hover,:target){
-                    --bckgrnd-clr: hsl(var(--hsl-bck-scndr) / var(--lph-hvr, var(--lph-ctv)))}
+                    --lph: var(--lph-hvr, var(--lph-ctv))}
                 a:active{
-                    --bckgrnd-clr: hsl(var(--hsl-bck-scndr) / var(--lph-ctv))}
+                    --lph: var(--lph-ctv)}
             main,ul{
                 margin-block: var(--gttr-blck);
                 margin-left: var(--sf-lft);
@@ -164,5 +164,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.6.0-rc.1 -->
+    <!-- romanczerkies.fr Version 31.6.0-rc.2 -->
 </html>
