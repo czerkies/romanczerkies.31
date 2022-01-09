@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta name="color-scheme" content="light dark">
-        <meta name="description" content="Développeur Web Full Stack, UI Designer. Réseaux sociaux et contact.">
+        <meta name="description" content="Designer & Développeur d'Interface Humaine. Réseaux sociaux et contact.">
         <meta name="theme-color" content="hsl(200 10% 99%)" media="(prefers-color-scheme: light)">
         <meta name="theme-color" content="hsl(0 0% 0%)" media="(prefers-color-scheme: dark)">
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-        <meta property="og:description" content="Développeur Web Full Stack, UI Designer. Réseaux sociaux et contact.">
+        <meta property="og:description" content="Designer & Développeur d'Interface Humaine. Réseaux sociaux et contact.">
         <meta property="og:image" content="https://romanczerkies.fr/banner.jpg">
         <meta property="og:title" content="Roman Czerkies">
         <meta property="og:type" content="website">
@@ -19,67 +19,74 @@
         <title>Roman Czerkies</title>
         <style>
             :root{
-                --hsl-bckgrnd: 200 10% 99%;
-                --clr-lbl-prmr-hsl: 200 16% 9%;
+                --hue: 200;
+                --hsl-bck-prmr: var(--hue) 10% 99%;
+                --hsl-bck-scndr: var(--hue) 30% 70%;
                 --clr-lbl-prmr-lph: .98;
-                --clr-lbl-scndr-hsl: 200 10% 30%;
                 --clr-lbl-scndr-lph: .8;
-                --gttr-nln: clamp(.5rem, 2.6vw, 1.5rem);
-                --gttr-blck: clamp(.5rem, 2.25vh, 1.5rem);
+                --clr-lbl-prmr-hsl: hsl(var(--hue) 16% 9% / var(--clr-lbl-prmr-lph));
+                --clr-lbl-scndr-hsl: hsl(var(--hue) 10% 30% / var(--clr-lbl-scndr-lph));
+                --lph-ctv: .28;
+                --gttr-nln: clamp(.25rem, 2vw, 1.5rem);
+                --gttr-blck: clamp(.25rem, 2.5vh, 1.5rem);
                 --sf-lft: calc(var(--gttr-nln) + env(safe-area-inset-left));
                 --sf-rght: calc(var(--gttr-nln) + env(safe-area-inset-right))}
             @media (any-hover: hover){
                 :root {
-                    --lph-hvr: 1;
-                    --lph-ctv: .32;
-                    --trnstn-drtn: 175ms}}
+                    --lph-hvr: .1;
+                    --trnstn-drtn: 200ms}}
             @media (prefers-contrast: more){
                 :root{
                     --txt-dcrtn: underline;
-                    --hsl-bckgrnd: 200 10% 100%;
-                    --clr-lbl-prmr-hsl: 200 10% 0%;
-                    --clr-lbl-scndr-hsl: 200 20% 7%}}
+                    --hsl-bck-prmr: var(--hue) 10% 100%;
+                    --hsl-bck-scndr: var(--hue) 26% 50%;
+                    --clr-lbl-prmr-hsl: hsl(var(--hue) 10% 0% / var(--clr-lbl-prmr-lph));
+                    --clr-lbl-scndr-hsl: hsl(var(--hue) 20% 7% / var(--clr-lbl-scndr-lph))}}
             @media (prefers-reduced-motion: reduce){
                 :root{
                     --trnstn-drtn: 0s;
                     --srll-bhvr: auto}}
             @media (prefers-color-scheme: dark){
                 :root{
-                    --hsl-bckgrnd: 0 0% 0%;
-                    --clr-lbl-prmr-hsl: 200 25% 95%;
-                    --clr-lbl-prmr-lph: .98;
-                    --clr-lbl-scndr-hsl: 200 16% 78%;
-                    --clr-lbl-scndr-lph: .75}
+                    --hsl-bck-prmr: var(--hue) 0% 0%;
+                    --hsl-bck-scndr: var(--hue) 70% 85%;
+                    --clr-lbl-prmr-lph: .97;
+                    --clr-lbl-scndr-lph: .75;
+                    --clr-lbl-prmr-hsl: hsl(var(--hue) 25% 95% / var(--clr-lbl-prmr-lph));
+                    --clr-lbl-scndr-hsl: hsl(var(--hue) 16% 78% / var(--clr-lbl-scndr-lph))}
                     @media (prefers-contrast: more){
                         :root {
-                            --clr-lbl-prmr-hsl: 200 32% 100%;
-                            --clr-lbl-scndr-hsl: 200 24% 94%}}}
+                            --hsl-bck-scndr: var(--hue) 74% 95%;
+                            --clr-lbl-prmr-hsl: hsl(var(--hue) 32% 100% / var(--clr-lbl-prmr-lph));
+                            --clr-lbl-scndr-hsl: hsl(var(--hue) 24% 94% / var(--clr-lbl-scndr-lph))}}}
             *{
                 box-sizing: border-box;
                 text-rendering: optimizeLegibility;
                 -webkit-font-smoothing: antialiased}
+            ::selection{
+                background: hsl(var(--hsl-bck-scndr) / var(--lph-ctv));
+                color: var(--clr-lbl-prmr-hsl)}
             html{
                 display: flex;
                 min-block-size: 100%;
-                font: 700 100%/1.175 'Helvetica Neue', Helvetica, Arial, sans-serif;
-                color: hsl(var(--clr-lbl-scndr-hsl) / var(--clr-lbl-scndr-lph))}
+                font: 700 100%/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                color: var(--clr-lbl-scndr-hsl)}
             body{
                 display: grid;
                 margin: auto;
                 padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
-                background: hsl(var(--hsl-bckgrnd))}
+                background: hsl(var(--hsl-bck-prmr))}
             h1,h2{
-                --nhrt-hsl: var(--clr-lbl-prmr-hsl);
-                --nhrt-lph: var(--clr-lbl-prmr-lph);
+                color: var(--clr-lbl-prmr-hsl);
                 font: inherit}
             h1,h2,p{
                 margin: 0}
             h2,p{
                 display: inline}
             main{
-                max-inline-size: 51ch;
+                max-inline-size: 56ch;
                 font-size: var(--mn-fnt-sz, 1.5rem);
-                letter-spacing: .003em}
+                letter-spacing: .0016em}
                 @media (min-width: 1000px){
                     main{
                         --mn-fnt-sz: 2.5rem}}
@@ -106,19 +113,20 @@
             a{
                 display: inline-block;
                 scroll-snap-align: start;
+                color: inherit;
                 font-size: .875rem;
                 text-decoration: var(--txt-dcrtn, none);
                 text-transform: uppercase;
                 white-space: nowrap;
-                letter-spacing: .06em;
-                outline-offset: -.75em;
-                transition: color var(--trnstn-drtn, 0s) cubic-bezier(.42, 0, .58, 1)}
-            a,h1,h2 {
-                color: hsl(var(--nhrt-hsl, var(--clr-lbl-scndr-hsl)) / var(--nhrt-lph, var(--clr-lbl-scndr-lph)))}
+                letter-spacing: .1em;
+                outline: none;
+                border-radius: .5rem;
+                background: hsl(var(--hsl-bck-scndr) / var(--lph, 0));
+                transition: background-color var(--trnstn-drtn, 0s) cubic-bezier(.68, .48, .48, .98)}
                 a:is(:focus,:hover,:target){
-                    --nhrt-lph: var(--lph-hvr, .42)}
+                    --lph: var(--lph-hvr, var(--lph-ctv))}
                 a:active{
-                    --nhrt-lph: var(--lph-ctv, .42)}
+                    --lph: var(--lph-ctv)}
             main,ul{
                 margin-block: var(--gttr-blck);
                 margin-left: var(--sf-lft);
@@ -130,8 +138,8 @@
     </head>
     <body>
         <main>
-            <h2>Développeur Web Full Stack, UI Designer.</h2>
-            <p>Spécialisé dans le design, prototype et développement d'interface utilisateur. Largement inspirées du minimalisme et brutalisme, l'ensemble des créations tendent à un design simple et inclusif.</p>
+            <h2>Designer & Développeur d'Interface Humaine.</h2>
+            <p>Spécialisé dans la conception centrée utilisateurs et développement de Design Systems. Largement inspiré du minimalisme et brutalisme, les créations tendent à un design simple et inclusif.</p>
         </main>
         <nav>
             <ul aria-label="Réseaux sociaux et contact">
@@ -156,5 +164,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.5.1 -->
+    <!-- romanczerkies.fr Version 31.6.0 -->
 </html>
