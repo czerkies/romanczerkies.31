@@ -19,7 +19,7 @@
         <title>Roman Czerkies</title>
         <style>
             :root{
-                --hue: 232.625;
+                --hue: 232.752;
                 --hsl-bck-prmr: var(--hue) 10% 99%;
                 --hsl-bck-scndr: var(--hue) 30% 70%;
                 --clr-lbl-prmr-lph: .98;
@@ -31,7 +31,6 @@
                 --gttr-blck: clamp(.25rem, 2.5vh, 1.5rem);
                 --sf-lft: calc(var(--gttr-nln) + env(safe-area-inset-left));
                 --sf-rght: calc(var(--gttr-nln) + env(safe-area-inset-right))}
-
             @supports not (color: lch(0% 0 0)){
                 :root{
                     --hue: 200;
@@ -48,34 +47,45 @@
                     --hsl-bck-scndr: var(--hue) 26% 50%;
                     --clr-lbl-prmr-hsl: hsl(var(--hue) 10% 0% / var(--clr-lbl-prmr-lph));
                     --clr-lbl-scndr-hsl: hsl(var(--hue) 20% 7% / var(--clr-lbl-scndr-lph))}}
+
             @media (prefers-reduced-motion: reduce){
                 :root{
                     --trnstn-drtn: 0s;
                     --srll-bhvr: auto}}
-
             @media (prefers-color-scheme: dark){
                 :root{
-                    --hsl-bck-prmr: var(--hue) 0% 0%;
-                    --hsl-bck-scndr: var(--hue) 70% 85%;
+                    --hsl-bck-prmr: 0% 0 var(--hue);
+                    --hsl-bck-scndr: 87.709% 15.939 var(--hue);
                     --clr-lbl-prmr-lph: .97;
                     --clr-lbl-scndr-lph: .75;
-                    --clr-lbl-prmr-hsl: lch(95.668% 1.934 var(--hue) / var(--clr-lbl-prmr-lph));
-                    --clr-lbl-scndr-hsl: hsl(var(--hue) 16% 78% / var(--clr-lbl-scndr-lph))}
+                    --clr-lbl-prmr-hsl: lch(95.577% 1.829 var(--hue) / var(--clr-lbl-prmr-lph));
+                    --clr-lbl-scndr-hsl: lch(80.528% 5.608 var(--hue) / var(--clr-lbl-scndr-lph))}
                     @supports not (color: lch(0% 0 0)){
                         :root{
-                            --clr-lbl-prmr-hsl: hsl(var(--hue) 25% 95% / var(--clr-lbl-prmr-lph))}}
+                            --hsl-bck-prmr: var(--hue) 0% 0%;
+                            --hsl-bck-scndr: var(--hue) 70% 85%;
+                            --clr-lbl-prmr-hsl: hsl(var(--hue) 25% 95% / var(--clr-lbl-prmr-lph));
+                            --clr-lbl-scndr-hsl: hsl(var(--hue) 16% 78% / var(--clr-lbl-scndr-lph))}}
                     @media (prefers-contrast: more){
                         :root {
-                            --hsl-bck-scndr: var(--hue) 74% 95%;
-                            --clr-lbl-prmr-hsl: hsl(var(--hue) 32% 100% / var(--clr-lbl-prmr-lph));
-                            --clr-lbl-scndr-hsl: hsl(var(--hue) 24% 94% / var(--clr-lbl-scndr-lph))}}}
+                            --hsl-bck-scndr: 95.785% 5.738 var(--hue);
+                            --clr-lbl-prmr-hsl: lch(100% 0 var(--hue) / var(--clr-lbl-prmr-lph));
+                            --clr-lbl-scndr-hsl: lch(94.804% 2.144 var(--hue) / var(--clr-lbl-scndr-lph))}
+                            @supports not (color: lch(0% 0 0)){
+                                :root{
+                                    --hsl-bck-scndr: var(--hue) 74% 95%;
+                                    --clr-lbl-prmr-hsl: hsl(var(--hue) 25% 95% / var(--clr-lbl-prmr-lph));
+                                    --clr-lbl-scndr-hsl: hsl(var(--hue) 16% 78% / var(--clr-lbl-scndr-lph))}}}}
             *{
                 box-sizing: border-box;
                 text-rendering: optimizeLegibility;
                 -webkit-font-smoothing: antialiased}
             ::selection{
-                background: hsl(var(--hsl-bck-scndr) / var(--lph-ctv));
+                background: lch(var(--hsl-bck-scndr) / var(--lph-ctv));
                 color: var(--clr-lbl-prmr-hsl)}
+                @supports not (color: lch(0% 0 0)){
+                    body{
+                        background: hsl(var(--hsl-bck-scndr) / var(--lph-ctv))}}
             html{
                 display: flex;
                 min-block-size: 100%;
@@ -85,7 +95,10 @@
                 display: grid;
                 margin: auto;
                 padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
-                background: hsl(var(--hsl-bck-prmr))}
+                background: lch(var(--hsl-bck-prmr))}
+                @supports not (color: lch(0% 0 0)){
+                    body{
+                        background: hsl(var(--hsl-bck-prmr))}}
             h1,h2{
                 color: var(--clr-lbl-prmr-hsl);
                 font: inherit}
@@ -131,9 +144,12 @@
                 letter-spacing: .075em;
                 outline: none;
                 border-radius: .5rem;
-                background: hsl(var(--hsl-bck-scndr) / var(--lph, 0));
+                background: lch(var(--hsl-bck-scndr) / var(--lph, 0));
                 touch-action: manipulation;
                 transition: background-color var(--trnstn-drtn, 0s) cubic-bezier(.68, .48, .48, .98)}
+                @supports not (color: lch(0% 0 0)){
+                    a{
+                        background: hsl(var(--hsl-bck-scndr) / var(--lph, 0))}}
                 a:is(:focus,:hover,:target){
                     --lph: var(--lph-hvr, var(--lph-ctv))}
                 a:active{
@@ -175,5 +191,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.7.0-beta.1 -->
+    <!-- romanczerkies.fr Version 31.7.0-beta.2 -->
 </html>
