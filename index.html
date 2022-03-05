@@ -91,7 +91,7 @@
                 background: lch(var(--bck-scndr-lch) / var(--lph-ctv));
                 color: var(--lbl-prmr)}
                 @supports not (color: lch(0% 0 0)){
-                    body{
+                    ::selection{
                         background: hsl(var(--bck-scndr-lch) / var(--lph-ctv))}}
             html{
                 display: flex;
