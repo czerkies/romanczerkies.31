@@ -14,23 +14,30 @@
         <meta property="og:url" content="https://romanczerkies.fr/">
         <meta property="og:video" content="https://romanczerkies.fr/banner.mp4">
         <link rel="alternate" type="application/atom+xml" title="Mises à jour de romanczerkies.fr" href="//github.com/czerkies/romanczerkies.31/releases.atom">
-        <link rel="icon" type="image/png" href="ico.png">
+        <link rel="icon" type="image/png" href="cn.png">
         <link rel="manifest" href="manifest.webmanifest">
         <title>Roman Czerkies</title>
         <style>
             :root{
-                --hue: 200;
-                --hsl-bck-prmr: var(--hue) 10% 99%;
-                --hsl-bck-scndr: var(--hue) 30% 70%;
-                --clr-lbl-prmr-lph: .98;
-                --clr-lbl-scndr-lph: .8;
-                --clr-lbl-prmr-hsl: hsl(var(--hue) 16% 9% / var(--clr-lbl-prmr-lph));
-                --clr-lbl-scndr-hsl: hsl(var(--hue) 10% 30% / var(--clr-lbl-scndr-lph));
+                --hue: 232.752;
+                --bck-prmr-lch: 99.233% 0.363 var(--hue);
+                --bck-scndr-lch: 73.635% 13.776 var(--hue);
+                --lbl-prmr-lph: .98;
+                --lbl-scndr-lph: .8;
+                --lbl-prmr: lch(7.824% 3.42 var(--hue) / var(--lbl-prmr-lph));
+                --lbl-scndr: lch(32.847% 5.435 var(--hue) / var(--lbl-scndr-lph));
                 --lph-ctv: .28;
-                --gttr-nln: clamp(.25rem, 2vw, 1.5rem);
+                --gttr-nln: clamp(.25rem, 2.1vw, 1.5rem);
                 --gttr-blck: clamp(.25rem, 2.5vh, 1.5rem);
                 --sf-lft: calc(var(--gttr-nln) + env(safe-area-inset-left));
                 --sf-rght: calc(var(--gttr-nln) + env(safe-area-inset-right))}
+            @supports not (color: lch(0% 0 0)){
+                :root{
+                    --hue: 200;
+                    --bck-prmr-lch: var(--hue) 10% 99%;
+                    --bck-scndr-lch: var(--hue) 30% 70%;
+                    --lbl-prmr: hsl(var(--hue) 16% 9% / var(--lbl-prmr-lph));
+                    --lbl-scndr: hsl(var(--hue) 10% 30% / var(--lbl-scndr-lph))}}
             @media (any-hover: hover){
                 :root {
                     --lph-hvr: .1;
@@ -38,46 +45,69 @@
             @media (prefers-contrast: more){
                 :root{
                     --txt-dcrtn: underline;
-                    --hsl-bck-prmr: var(--hue) 10% 100%;
-                    --hsl-bck-scndr: var(--hue) 26% 50%;
-                    --clr-lbl-prmr-hsl: hsl(var(--hue) 10% 0% / var(--clr-lbl-prmr-lph));
-                    --clr-lbl-scndr-hsl: hsl(var(--hue) 20% 7% / var(--clr-lbl-scndr-lph))}}
+                    --bck-prmr-lch: 100% 0 var(--hue);
+                    --bck-scndr-lch: 55.236% 20.393 var(--hue);
+                    --lbl-prmr: lch(0% 0 var(--hue) / var(--lbl-prmr-lph));
+                    --lbl-scndr: lch(5.51% 2.471 var(--hue) / var(--lbl-scndr-lph))}
+                    @supports not (color: lch(0% 0 0)){
+                        :root{
+                            --bck-prmr-lch: var(--hue) 10% 100%;
+                            --bck-scndr-lch: var(--hue) 26% 50%;
+                            --lbl-prmr: hsl(var(--hue) 10% 0% / var(--lbl-prmr-lph));
+                            --lbl-scndr: hsl(var(--hue) 20% 7% / var(--lbl-scndr-lph))}}}
             @media (prefers-reduced-motion: reduce){
                 :root{
                     --trnstn-drtn: 0s;
                     --srll-bhvr: auto}}
             @media (prefers-color-scheme: dark){
                 :root{
-                    --hsl-bck-prmr: var(--hue) 0% 0%;
-                    --hsl-bck-scndr: var(--hue) 70% 85%;
-                    --clr-lbl-prmr-lph: .97;
-                    --clr-lbl-scndr-lph: .75;
-                    --clr-lbl-prmr-hsl: hsl(var(--hue) 25% 95% / var(--clr-lbl-prmr-lph));
-                    --clr-lbl-scndr-hsl: hsl(var(--hue) 16% 78% / var(--clr-lbl-scndr-lph))}
+                    --bck-prmr-lch: 0% 0 var(--hue);
+                    --bck-scndr-lch: 87.709% 15.939 var(--hue);
+                    --lbl-prmr-lph: .97;
+                    --lbl-scndr-lph: .75;
+                    --lbl-prmr: lch(95.577% 1.829 var(--hue) / var(--lbl-prmr-lph));
+                    --lbl-scndr: lch(80.528% 5.608 var(--hue) / var(--lbl-scndr-lph))}
+                    @supports not (color: lch(0% 0 0)){
+                        :root{
+                            --bck-prmr-lch: var(--hue) 0% 0%;
+                            --bck-scndr-lch: var(--hue) 70% 85%;
+                            --lbl-prmr: hsl(var(--hue) 25% 95% / var(--lbl-prmr-lph));
+                            --lbl-scndr: hsl(var(--hue) 16% 78% / var(--lbl-scndr-lph))}}
                     @media (prefers-contrast: more){
                         :root {
-                            --hsl-bck-scndr: var(--hue) 74% 95%;
-                            --clr-lbl-prmr-hsl: hsl(var(--hue) 32% 100% / var(--clr-lbl-prmr-lph));
-                            --clr-lbl-scndr-hsl: hsl(var(--hue) 24% 94% / var(--clr-lbl-scndr-lph))}}}
+                            --bck-scndr-lch: 95.785% 5.738 var(--hue);
+                            --lbl-prmr: lch(100% 0 var(--hue) / var(--lbl-prmr-lph));
+                            --lbl-scndr: lch(94.804% 2.144 var(--hue) / var(--lbl-scndr-lph))}
+                            @supports not (color: lch(0% 0 0)){
+                                :root{
+                                    --bck-scndr-lch: var(--hue) 74% 95%;
+                                    --lbl-prmr: hsl(var(--hue) 25% 95% / var(--lbl-prmr-lph));
+                                    --lbl-scndr: hsl(var(--hue) 16% 78% / var(--lbl-scndr-lph))}}}}
             *{
                 box-sizing: border-box;
                 text-rendering: optimizeLegibility;
                 -webkit-font-smoothing: antialiased}
             ::selection{
-                background: hsl(var(--hsl-bck-scndr) / var(--lph-ctv));
-                color: var(--clr-lbl-prmr-hsl)}
+                background: lch(var(--bck-scndr-lch) / var(--lph-ctv));
+                color: var(--lbl-prmr)}
+                @supports not (color: lch(0% 0 0)){
+                    ::selection{
+                        background: hsl(var(--bck-scndr-lch) / var(--lph-ctv))}}
             html{
                 display: flex;
                 min-block-size: 100%;
                 font: 700 100%/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
-                color: var(--clr-lbl-scndr-hsl)}
+                color: var(--lbl-scndr)}
             body{
                 display: grid;
                 margin: auto;
                 padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
-                background: hsl(var(--hsl-bck-prmr))}
+                background: lch(var(--bck-prmr-lch))}
+                @supports not (color: lch(0% 0 0)){
+                    body{
+                        background: hsl(var(--bck-prmr-lch))}}
             h1,h2{
-                color: var(--clr-lbl-prmr-hsl);
+                color: var(--lbl-prmr);
                 font: inherit}
             h1,h2,p{
                 margin: 0}
@@ -86,7 +116,7 @@
             main{
                 max-inline-size: 56ch;
                 font-size: var(--mn-fnt-sz, 1.5rem);
-                letter-spacing: .0016em}
+                letter-spacing: -.001em}
                 @media (min-width: 1000px){
                     main{
                         --mn-fnt-sz: 2.5rem}}
@@ -118,11 +148,15 @@
                 text-decoration: var(--txt-dcrtn, none);
                 text-transform: uppercase;
                 white-space: nowrap;
-                letter-spacing: .1em;
+                letter-spacing: .075em;
                 outline: none;
                 border-radius: .5rem;
-                background: hsl(var(--hsl-bck-scndr) / var(--lph, 0));
+                background: lch(var(--bck-scndr-lch) / var(--lph, 0));
+                touch-action: manipulation;
                 transition: background-color var(--trnstn-drtn, 0s) cubic-bezier(.68, .48, .48, .98)}
+                @supports not (color: lch(0% 0 0)){
+                    a{
+                        background: hsl(var(--bck-scndr-lch) / var(--lph, 0))}}
                 a:is(:focus,:hover,:target){
                     --lph: var(--lph-hvr, var(--lph-ctv))}
                 a:active{
@@ -164,5 +198,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.6.0 -->
+    <!-- romanczerkies.fr Version 31.7.0 -->
 </html>
