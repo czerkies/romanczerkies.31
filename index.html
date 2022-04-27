@@ -18,156 +18,221 @@
         <link rel="manifest" href="manifest.webmanifest">
         <title>Roman Czerkies</title>
         <style>
-            :root{
-                --hue: 232.752;
-                --bck-prmr-lch: 99.233% 0.363 var(--hue);
-                --bck-scndr-lch: 73.635% 13.776 var(--hue);
-                --lbl-prmr-lph: .98;
-                --lbl-scndr-lph: .8;
-                --lbl-prmr: lch(7.824% 3.42 var(--hue) / var(--lbl-prmr-lph));
-                --lbl-scndr: lch(32.847% 5.435 var(--hue) / var(--lbl-scndr-lph));
-                --lph-ctv: .28;
-                --gttr-nln: clamp(.25rem, 2.1vw, 1.5rem);
-                --gttr-blck: clamp(.25rem, 2.5vh, 1.5rem);
-                --sf-lft: calc(var(--gttr-nln) + env(safe-area-inset-left));
-                --sf-rght: calc(var(--gttr-nln) + env(safe-area-inset-right))}
-            @supports not (color: lch(0% 0 0)){
-                :root{
-                    --hue: 200;
-                    --bck-prmr-lch: var(--hue) 10% 99%;
-                    --bck-scndr-lch: var(--hue) 30% 70%;
-                    --lbl-prmr: hsl(var(--hue) 16% 9% / var(--lbl-prmr-lph));
-                    --lbl-scndr: hsl(var(--hue) 10% 30% / var(--lbl-scndr-lph))}}
-            @media (any-hover: hover){
-                :root {
-                    --lph-hvr: .1;
-                    --trnstn-drtn: 200ms}}
-            @media (prefers-contrast: more){
-                :root{
-                    --txt-dcrtn: underline;
-                    --bck-prmr-lch: 100% 0 var(--hue);
-                    --bck-scndr-lch: 55.236% 20.393 var(--hue);
-                    --lbl-prmr: lch(0% 0 var(--hue) / var(--lbl-prmr-lph));
-                    --lbl-scndr: lch(5.51% 2.471 var(--hue) / var(--lbl-scndr-lph))}
-                    @supports not (color: lch(0% 0 0)){
-                        :root{
-                            --bck-prmr-lch: var(--hue) 10% 100%;
-                            --bck-scndr-lch: var(--hue) 26% 50%;
-                            --lbl-prmr: hsl(var(--hue) 10% 0% / var(--lbl-prmr-lph));
-                            --lbl-scndr: hsl(var(--hue) 20% 7% / var(--lbl-scndr-lph))}}}
-            @media (prefers-reduced-motion: reduce){
-                :root{
-                    --trnstn-drtn: 0s;
-                    --srll-bhvr: auto}}
-            @media (prefers-color-scheme: dark){
-                :root{
-                    --bck-prmr-lch: 0% 0 var(--hue);
-                    --bck-scndr-lch: 87.709% 15.939 var(--hue);
-                    --lbl-prmr-lph: .97;
-                    --lbl-scndr-lph: .75;
-                    --lbl-prmr: lch(95.577% 1.829 var(--hue) / var(--lbl-prmr-lph));
-                    --lbl-scndr: lch(80.528% 5.608 var(--hue) / var(--lbl-scndr-lph))}
-                    @supports not (color: lch(0% 0 0)){
-                        :root{
-                            --bck-prmr-lch: var(--hue) 0% 0%;
-                            --bck-scndr-lch: var(--hue) 70% 85%;
-                            --lbl-prmr: hsl(var(--hue) 25% 95% / var(--lbl-prmr-lph));
-                            --lbl-scndr: hsl(var(--hue) 16% 78% / var(--lbl-scndr-lph))}}
-                    @media (prefers-contrast: more){
+            @layer designSystem {
+                @layer variables {
+                    :root {
+                        --hue: 232.752;
+                        --bck-prmr-lch: 99.233% 0.363 var(--hue);
+                        --bck-scndr-lch: 73.635% 13.776 var(--hue);
+                        --lbl-prmr-lph: .98;
+                        --lbl-scndr-lph: .8;
+                        --lbl-prmr: lch(7.824% 3.42 var(--hue) / var(--lbl-prmr-lph));
+                        --lbl-scndr: lch(32.847% 5.435 var(--hue) / var(--lbl-scndr-lph));
+                        --lph: .1;
+                        --lph-ctv: .28;
+                        --gttr-nln: clamp(.25rem, 2.1vw, 1.5rem);
+                        --gttr-blck: clamp(.25rem, 2.5vh, 1.5rem);
+                        --sf-lft: calc(var(--gttr-nln) + env(safe-area-inset-left));
+                        --sf-rght: calc(var(--gttr-nln) + env(safe-area-inset-right));
+                        --gttr-nav: var(--gttr-blck);
+                    }
+                    @supports not (color: lch(0% 0 0)) {
                         :root {
-                            --bck-scndr-lch: 95.785% 5.738 var(--hue);
-                            --lbl-prmr: lch(100% 0 var(--hue) / var(--lbl-prmr-lph));
-                            --lbl-scndr: lch(94.804% 2.144 var(--hue) / var(--lbl-scndr-lph))}
-                            @supports not (color: lch(0% 0 0)){
-                                :root{
+                            --hue: 200;
+                            --bck-prmr-lch: var(--hue) 10% 99%;
+                            --bck-scndr-lch: var(--hue) 30% 70%;
+                            --lbl-prmr: hsl(var(--hue) 16% 9% / var(--lbl-prmr-lph));
+                            --lbl-scndr: hsl(var(--hue) 10% 30% / var(--lbl-scndr-lph))
+                        }
+                    }
+                    @media (any-hover: hover) {
+                        :root {
+                            --lph: 0;
+                            --lph-hvr: .1;
+                            --gttr-nav: 0;
+                            --trnstn-drtn: 200ms
+                        }
+                    }
+                    @media (prefers-contrast: more) {
+                        :root {
+                            --txt-dcrtn: underline;
+                            --bck-prmr-lch: 100% 0 var(--hue);
+                            --bck-scndr-lch: 55.236% 20.393 var(--hue);
+                            --lbl-prmr: lch(0% 0 var(--hue) / var(--lbl-prmr-lph));
+                            --lbl-scndr: lch(5.51% 2.471 var(--hue) / var(--lbl-scndr-lph))
+                        }
+                        @supports not (color: lch(0% 0 0)) {
+                            :root {
+                                --bck-prmr-lch: var(--hue) 10% 100%;
+                                --bck-scndr-lch: var(--hue) 26% 50%;
+                                --lbl-prmr: hsl(var(--hue) 10% 0% / var(--lbl-prmr-lph));
+                                --lbl-scndr: hsl(var(--hue) 20% 7% / var(--lbl-scndr-lph))
+                            }
+                        }
+                    }
+                    @media (prefers-reduced-motion: reduce) {
+                        :root {
+                            --trnstn-drtn: 0s;
+                            --srll-bhvr: auto
+                        }
+                    }
+                    @media (prefers-color-scheme: dark) {
+                        :root {
+                            --bck-prmr-lch: 0% 0 var(--hue);
+                            --bck-scndr-lch: 87.709% 15.939 var(--hue);
+                            --lbl-prmr-lph: .97;
+                            --lbl-scndr-lph: .75;
+                            --lbl-prmr: lch(95.577% 1.829 var(--hue) / var(--lbl-prmr-lph));
+                            --lbl-scndr: lch(80.528% 5.608 var(--hue) / var(--lbl-scndr-lph))
+                        }    
+                        @supports not (color: lch(0% 0 0)) {
+                            :root {
+                                --bck-prmr-lch: var(--hue) 0% 0%;
+                                --bck-scndr-lch: var(--hue) 70% 85%;
+                                --lbl-prmr: hsl(var(--hue) 25% 95% / var(--lbl-prmr-lph));
+                                --lbl-scndr: hsl(var(--hue) 16% 78% / var(--lbl-scndr-lph))
+                            }
+                        }
+                        @media (prefers-contrast: more) {
+                            :root {
+                                --bck-scndr-lch: 95.785% 5.738 var(--hue);
+                                --lbl-prmr: lch(100% 0 var(--hue) / var(--lbl-prmr-lph));
+                                --lbl-scndr: lch(94.804% 2.144 var(--hue) / var(--lbl-scndr-lph))
+                            }
+                            @supports not (color: lch(0% 0 0)) {
+                                :root {
                                     --bck-scndr-lch: var(--hue) 74% 95%;
                                     --lbl-prmr: hsl(var(--hue) 25% 95% / var(--lbl-prmr-lph));
-                                    --lbl-scndr: hsl(var(--hue) 16% 78% / var(--lbl-scndr-lph))}}}}
-            *{
-                box-sizing: border-box;
-                text-rendering: optimizeLegibility;
-                -webkit-font-smoothing: antialiased}
-            ::selection{
-                background: lch(var(--bck-scndr-lch) / var(--lph-ctv));
-                color: var(--lbl-prmr)}
-                @supports not (color: lch(0% 0 0)){
-                    ::selection{
-                        background: hsl(var(--bck-scndr-lch) / var(--lph-ctv))}}
-            html{
-                display: flex;
-                min-block-size: 100%;
-                font: 700 100%/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
-                color: var(--lbl-scndr)}
-            body{
-                display: grid;
-                margin: auto;
-                padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
-                background: lch(var(--bck-prmr-lch))}
-                @supports not (color: lch(0% 0 0)){
-                    body{
-                        background: hsl(var(--bck-prmr-lch))}}
-            h1,h2{
-                color: var(--lbl-prmr);
-                font: inherit}
-            h1,h2,p{
-                margin: 0}
-            h2,p{
-                display: inline}
-            main{
-                max-inline-size: 56ch;
-                font-size: var(--mn-fnt-sz, 1.5rem);
-                letter-spacing: -.001em}
-                @media (min-width: 1000px){
-                    main{
-                        --mn-fnt-sz: 2.5rem}}
-            nav{
-                overflow-inline: var(--vrflw, auto);
-                overscroll-behavior-inline: contain;
-                scroll-padding: 0 var(--sf-rght) 0 var(--sf-lft);
-                scroll-snap-type: inline mandatory}
-                @supports not (overflow-inline: auto){
-                    nav{
-                        overflow-x: var(--vrflw, auto)}}
-                @supports not (overscroll-behavior-inline: contain){
-                    nav{
-                        overscroll-behavior-x: contain}}
-                nav:focus-within{
-                    scroll-behavior: var(--srll-bhvr, smooth)}
-                @media print{
-                    nav{
-                        --vrflw: visible}}
-            ul{
-                padding: 0;
-                display: inline-flex;
-                list-style: none}
-            a{
-                display: inline-block;
-                scroll-snap-align: start;
-                color: inherit;
-                font-size: .875rem;
-                text-decoration: var(--txt-dcrtn, none);
-                text-transform: uppercase;
-                white-space: nowrap;
-                letter-spacing: .075em;
-                outline: none;
-                border-radius: .5rem;
-                background: lch(var(--bck-scndr-lch) / var(--lph, 0));
-                touch-action: manipulation;
-                transition: background-color var(--trnstn-drtn, 0s) cubic-bezier(.68, .48, .48, .98)}
-                @supports not (color: lch(0% 0 0)){
-                    a{
-                        background: hsl(var(--bck-scndr-lch) / var(--lph, 0))}}
-                a:is(:focus,:hover,:target){
-                    --lph: var(--lph-hvr, var(--lph-ctv))}
-                a:active{
-                    --lph: var(--lph-ctv)}
-            main,ul{
-                margin-block: var(--gttr-blck);
-                margin-left: var(--sf-lft);
-                margin-right: var(--sf-rght)}
-            main,a{
-                padding-block: var(--gttr-blck);
-                padding-inline: var(--gttr-nln)}
+                                    --lbl-scndr: hsl(var(--hue) 16% 78% / var(--lbl-scndr-lph))
+                                }
+                            }
+                        }
+                    }
+                }
+                @layer resets {
+                    * {
+                        box-sizing: border-box;
+                        text-rendering: optimizeLegibility;
+                        -webkit-font-smoothing: antialiased
+                    }
+                    ::selection {
+                        background: lch(var(--bck-scndr-lch) / var(--lph-ctv));
+                        color: var(--lbl-prmr)
+                    }
+                    @supports not (color: lch(0% 0 0)) {
+                        ::selection {
+                            background: hsl(var(--bck-scndr-lch) / var(--lph-ctv))
+                        }
+                    }
+                }
+                @layer layouts {
+                    html {
+                        display: flex;
+                        min-block-size: 100%;
+                        font: 700 100%/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                        color: var(--lbl-scndr)
+                    }
+                    body {
+                        display: grid;
+                        margin: auto;
+                        padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
+                        background: lch(var(--bck-prmr-lch))
+                    }
+                    @supports not (color: lch(0% 0 0)) {
+                        body {
+                            background: hsl(var(--bck-prmr-lch))
+                        }
+                    }
+                }
+                @layer components {
+                    h1, h2 {
+                        color: var(--lbl-prmr);
+                        font: inherit
+                    }
+                    h1, h2, p {
+                        margin: 0
+                    }
+                    h2, p {
+                        display: inline
+                    }
+                    main {
+                        max-inline-size: 56ch;
+                        font-size: var(--mn-fnt-sz, 1.5rem);
+                        letter-spacing: -.001em
+                    }
+                    @media (min-width: 1000px) {
+                        main {
+                            --mn-fnt-sz: 2.5rem
+                        }
+                    }
+                    nav {
+                        padding-inline: var(--gttr-nav);
+                        overflow-inline: var(--vrflw, auto);
+                        overscroll-behavior-inline: contain;
+                        scroll-padding: 0 var(--sf-rght) 0 var(--sf-lft);
+                        scroll-snap-type: inline mandatory
+                    }
+                    @supports not (overflow-inline: auto) {
+                        nav {
+                            overflow-x: var(--vrflw, auto)
+                        }
+                    }
+                    @supports not (overscroll-behavior-inline: contain) {
+                        nav {
+                            overscroll-behavior-x: contain
+                        }
+                    }
+                    nav:focus-within {
+                        scroll-behavior: var(--srll-bhvr, smooth)
+                    }
+                    @media print {
+                        nav {
+                            --vrflw: visible
+                        }
+                    }
+                    ul {
+                        padding: 0;
+                        display: inline-flex;
+                        gap: var(--gttr-nln);
+                        list-style: none
+                    }
+                    a {
+                        display: inline-block;
+                        scroll-snap-align: start;
+                        color: inherit;
+                        font-size: .875rem;
+                        text-decoration: var(--txt-dcrtn, none);
+                        text-transform: uppercase;
+                        white-space: nowrap;
+                        letter-spacing: .075em;
+                        outline: none;
+                        border-radius: .5rem;
+                        background: lch(var(--bck-scndr-lch) / var(--lph));
+                        touch-action: manipulation;
+                        transition: background-color var(--trnstn-drtn, 0s) cubic-bezier(.68, .48, .48, .98)
+                    }
+                    @supports not (color: lch(0% 0 0)) {
+                        a {
+                            background: hsl(var(--bck-scndr-lch) / var(--lph))
+                        }
+                    }
+                    a:is(:focus, :hover, :target) {
+                        --lph: var(--lph-hvr, var(--lph-ctv))
+                    }
+                    a:active {
+                        --lph: var(--lph-ctv)
+                    }
+                    main, ul {
+                        margin-block: var(--gttr-blck);
+                        margin-left: var(--sf-lft);
+                        margin-right: var(--sf-rght)
+                    }
+                    main, a {
+                        padding-block: var(--gttr-blck);
+                        padding-inline: var(--gttr-nln)
+                    }
+                }
+            }
         </style>
     </head>
     <body>
@@ -198,5 +263,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.7.0 -->
+    <!-- romanczerkies.fr Version 31.8.0-beta.1 -->
 </html>
