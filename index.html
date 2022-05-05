@@ -28,13 +28,17 @@
                         --lbl-scndr-lph: .8;
                         --lbl-prmr: lch(7.824% 3.42 var(--hue) / var(--lbl-prmr-lph));
                         --lbl-scndr: lch(32.847% 5.435 var(--hue) / var(--lbl-scndr-lph));
-                        --lph: .1;
+                        --lph-nt: .1;
                         --lph-ctv: .28;
                         --gttr-nln: clamp(.25rem, 2.1vw, 1.5rem);
                         --gttr-blck: clamp(.25rem, 2.5vh, 1.5rem);
                         --sf-lft: calc(var(--gttr-nln) + env(safe-area-inset-left));
                         --sf-rght: calc(var(--gttr-nln) + env(safe-area-inset-right));
-                        --gttr-nav: var(--gttr-blck);
+                        --gttr-nv: var(--gttr-nln);
+                        --gttr-hrf: var(--gttr-blck);
+                        --lttr-spcng-prmr: -.001em;
+                        --lttr-spcng-scndr: .075em;
+                        --brdr-rds: .4rem
                     }
                     @supports not (color: lch(0% 0 0)) {
                         :root {
@@ -47,10 +51,16 @@
                     }
                     @media (any-hover: hover) {
                         :root {
-                            --lph: 0;
                             --lph-hvr: .1;
-                            --gttr-nav: 0;
                             --trnstn-drtn: 200ms
+                        }
+                    }
+                    @media (min-width: 1000px) {
+                        :root {
+                            --lph-nt: 0;
+                            --gttr-nv: 0;
+                            --gttr-hrf: var(--gttr-nln);
+                            --mn-fnt-sz: 2.5rem
                         }
                     }
                     @media (prefers-contrast: more) {
@@ -158,18 +168,13 @@
                     main {
                         max-inline-size: 56ch;
                         font-size: var(--mn-fnt-sz, 1.5rem);
-                        letter-spacing: -.001em
-                    }
-                    @media (min-width: 1000px) {
-                        main {
-                            --mn-fnt-sz: 2.5rem
-                        }
+                        letter-spacing: var(--lttr-spcng-prmr);
                     }
                     nav {
-                        padding-inline: var(--gttr-nav);
+                        padding-inline: var(--gttr-nv);
                         overflow-inline: var(--vrflw, auto);
                         overscroll-behavior-inline: contain;
-                        scroll-padding: 0 var(--sf-rght) 0 var(--sf-lft);
+                        scroll-padding: 0 calc(var(--sf-rght) + var(--gttr-nv)) 0 calc(var(--sf-lft) + var(--gttr-nv));
                         scroll-snap-type: inline mandatory
                     }
                     @supports not (overflow-inline: auto) {
@@ -193,7 +198,7 @@
                     ul {
                         padding: 0;
                         display: inline-flex;
-                        gap: var(--gttr-nln);
+                        gap: var(--gttr-nv);
                         list-style: none
                     }
                     a {
@@ -204,10 +209,10 @@
                         text-decoration: var(--txt-dcrtn, none);
                         text-transform: uppercase;
                         white-space: nowrap;
-                        letter-spacing: .075em;
+                        letter-spacing: var(--lttr-spcng-scndr);
                         outline: none;
-                        border-radius: .5rem;
-                        background: lch(var(--bck-scndr-lch) / var(--lph));
+                        border-radius: var(--brdr-rds);
+                        background: lch(var(--bck-scndr-lch) / var(--lph-nt));
                         touch-action: manipulation;
                         transition: background-color var(--trnstn-drtn, 0s) cubic-bezier(.68, .48, .48, .98)
                     }
@@ -217,10 +222,10 @@
                         }
                     }
                     a:is(:focus, :hover, :target) {
-                        --lph: var(--lph-hvr, var(--lph-ctv))
+                        --lph-nt: var(--lph-hvr, var(--lph-ctv))
                     }
                     a:active {
-                        --lph: var(--lph-ctv)
+                        --lph-nt: var(--lph-ctv)
                     }
                     main, ul {
                         margin-block: var(--gttr-blck);
@@ -229,7 +234,12 @@
                     }
                     main, a {
                         padding-block: var(--gttr-blck);
+                    }
+                    main {
                         padding-inline: var(--gttr-nln)
+                    }
+                    a {
+                        padding-inline: var(--gttr-hrf)
                     }
                 }
             }
@@ -263,5 +273,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.8.0-beta.1 -->
+    <!-- romanczerkies.fr Version 31.8.0-beta.2 -->
 </html>
