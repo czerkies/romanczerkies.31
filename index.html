@@ -52,6 +52,13 @@
                             --lbl-scndr: hsl(var(--hue) 10% 30% / var(--lbl-scndr-lph))
                         }
                     }
+                    @media (any-hover: hover) {
+                        :root {
+                            --lph-nt: .08;
+                            --lph-hvr: .16;
+                            --trnstn-drtn: 200ms
+                        }
+                    }
                     @media (min-width: 1000px) {
                         :root {
                             --lph-nt: 0;
@@ -59,11 +66,10 @@
                             --gttr-hrf: var(--gttr-nln);
                             --fnt-sz-prmr: 2.5rem
                         }
-                    }
-                    @media (any-hover: hover) {
-                        :root {
-                            --lph-hvr: .1;
-                            --trnstn-drtn: 200ms
+                        @media (any-hover: hover) {
+                            :root {
+                                --lph-hvr: .1;
+                            }
                         }
                     }
                     @media (prefers-contrast: more) {
@@ -272,5 +278,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.8.0-beta.4 -->
+    <!-- romanczerkies.fr Version 31.8.0-beta.5 -->
 </html>
