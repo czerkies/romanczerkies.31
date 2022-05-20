@@ -41,7 +41,8 @@
                         --fnt-sz-scndr: .875rem;
                         --lttr-spcng-prmr: -.001em;
                         --lttr-spcng-scndr: .075em;
-                        --brdr-rds: .375rem
+                        --brdr-rds: .375rem;
+                        --cbc-bzr: .68, .48, .48, .98
                     }
                     @supports not (color: lch(0% 0 0)) {
                         :root {
@@ -68,8 +69,14 @@
                         }
                         @media (any-hover: hover) {
                             :root {
-                                --lph-hvr: .1;
+                                --lph-hvr: .1
                             }
+                        }
+                    }
+                    @media (prefers-reduced-motion: reduce) {
+                        :root {
+                            --trnstn-drtn: 0s;
+                            --srll-bhvr: auto
                         }
                     }
                     @media (prefers-contrast: more) {
@@ -87,12 +94,6 @@
                                 --lbl-prmr: hsl(var(--hue) 10% 0% / var(--lbl-prmr-lph));
                                 --lbl-scndr: hsl(var(--hue) 20% 7% / var(--lbl-scndr-lph))
                             }
-                        }
-                    }
-                    @media (prefers-reduced-motion: reduce) {
-                        :root {
-                            --trnstn-drtn: 0s;
-                            --srll-bhvr: auto
                         }
                     }
                     @media (prefers-color-scheme: dark) {
@@ -125,6 +126,11 @@
                                     --lbl-scndr: hsl(var(--hue) 16% 78% / var(--lbl-scndr-lph))
                                 }
                             }
+                        }
+                    }
+                    @media print {
+                        :root {
+                            --vrflw: visible
                         }
                     }
                 }
@@ -200,11 +206,6 @@
                     nav:focus-within {
                         scroll-behavior: var(--srll-bhvr, smooth)
                     }
-                    @media print {
-                        nav {
-                            --vrflw: visible
-                        }
-                    }
                     ul {
                         padding: 0;
                         display: inline-flex;
@@ -225,7 +226,7 @@
                         border-radius: var(--brdr-rds);
                         background: lch(var(--bck-scndr-lch) / var(--lph-nt));
                         touch-action: manipulation;
-                        transition: background-color var(--trnstn-drtn, 0s) cubic-bezier(.68, .48, .48, .98)
+                        transition: background-color var(--trnstn-drtn, 0s) cubic-bezier(var(--cbc-bzr))
                     }
                     @supports not (color: lch(0% 0 0)) {
                         a {
