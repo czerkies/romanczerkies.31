@@ -212,7 +212,7 @@
                         gap: var(--gttr-nv);
                         list-style: none
                     }
-                    a {
+                    a:any-link {
                         display: inline-block;
                         padding-inline: var(--gttr-hrf);
                         scroll-snap-align: start;
@@ -233,10 +233,10 @@
                             background: hsl(var(--bck-scndr-lch) / var(--lph-nt))
                         }
                     }
-                    a:is(:focus, :hover, :target) {
+                    a:any-link:is(:focus, :hover, :target) {
                         --lph-nt: var(--lph-hvr, var(--lph-ctv))
                     }
-                    a:active {
+                    a:any-link:active {
                         --lph-nt: var(--lph-ctv)
                     }
                     main, ul {
