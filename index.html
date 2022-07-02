@@ -229,7 +229,7 @@
                         transition: background-color var(--trnstn-drtn, 0s) cubic-bezier(var(--cbc-bzr))
                     }
                     @supports not (color: lch(0% 0 0)) {
-                        a {
+                        a:any-link {
                             background: hsl(var(--bck-scndr-lch) / var(--lph-nt))
                         }
                     }
@@ -244,7 +244,7 @@
                         margin-left: var(--sf-lft);
                         margin-right: var(--sf-rght)
                     }
-                    main, a {
+                    main, a:any-link {
                         padding-block: var(--gttr-blck)
                     }
                 }
