@@ -2,14 +2,13 @@
 
 ## Informations
 
-Ce projet n'est pas seulement minimaliste, rapide et accessible; il est conçu pour implémenter et tester les dernières technologies web standardisées ou en cours de spécification, dans l'intention de simplifier ses composants essentiels et créer le design le plus efficient possible.
-
-[romanczerki.es](https://romanczerki.es)
+This project is not only minimalist, fast and accessible; it is designed to implement and test the latest web technologies standardized or being specified, with the intention of simplifying its essential components and creating the most efficient design possible.
 
 ## Releases
 
 Version | Date
 :---: | :---:
+**[31.9.0](https://github.com/czerkies/romanczerkies.31/releases/tag/v31.9.0)** | XX/09/2022
 **[31.8.0](https://github.com/czerkies/romanczerkies.31/releases/tag/v31.8.0)** | 06/06/2022
 **[31.7.0](https://github.com/czerkies/romanczerkies.31/releases/tag/v31.7.0)** | 08/03/2022
 **[31.6.0](https://github.com/czerkies/romanczerkies.31/releases/tag/v31.6.0)** | 09/01/2022
@@ -21,7 +20,7 @@ Version | Date
 **[31.1.0](https://github.com/czerkies/romanczerkies.31/releases/tag/v31.1.0)** | 09/02/2021
 **[31.0.0](https://github.com/czerkies/romanczerkies.31/releases/tag/v31.0.0)** | 09/01/2021
 
-## Technos
+## Technologies
 
 - HTML
 - CSS
@@ -29,8 +28,7 @@ Version | Date
 - Open Graph protocol
 - RSS
 
-## Liens
+## Links
 
-Site : [romanczerkies.fr](https://romanczerki.es)
-
-Twitter : [@roman_czerkies](https://twitter.com/roman_czerkies)
+- [romanczerki.es](https://romanczerki.es)
+- [@roman_czerkies](https://twitter.com/roman_czerkies)
