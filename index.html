@@ -201,11 +201,6 @@
                             overflow-x: var(--vrflw, auto)
                         }
                     }
-                    @supports not (overscroll-behavior-inline: contain) {
-                        nav {
-                            overscroll-behavior-x: contain
-                        }
-                    }
                     nav:focus-within {
                         scroll-behavior: var(--srll-bhvr, smooth)
                     }
