@@ -151,17 +151,20 @@
                     }
                 }
                 @layer layouts {
-                    html {
-                        display: flex;
-                        min-block-size: 100%;
+                    body {
+                        display: grid;
+                        place-content: center;
+                        margin: auto;
+                        padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
+                        min-block-size: 100svb;
+                        background: lch(var(--bck-prmr-lch));
                         font: 700 100%/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
                         color: var(--lbl-scndr)
                     }
-                    body {
-                        display: grid;
-                        margin: auto;
-                        padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
-                        background: lch(var(--bck-prmr-lch))
+                    @supports not (block-size: 1svb) {
+                        body {
+                            min-block-size: 100vh;
+                        }
                     }
                     @supports not (color: lch(0% 0 0)) {
                         body {
@@ -196,11 +199,6 @@
                     @supports not (overflow-inline: auto) {
                         nav {
                             overflow-x: var(--vrflw, auto)
-                        }
-                    }
-                    @supports not (overscroll-behavior-inline: contain) {
-                        nav {
-                            overscroll-behavior-x: contain
                         }
                     }
                     nav:focus-within {
@@ -279,5 +277,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.9.0-beta.1 -->
+    <!-- romanczerkies.fr Version 31.9.0-beta.2 -->
 </html>
