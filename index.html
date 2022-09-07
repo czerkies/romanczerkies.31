@@ -152,12 +152,14 @@
                             background: hsl(var(--bck-scndr-lch) / var(--lph-ctv))
                         }
                     }
+                    body, h1, h2, p {
+                        margin: 0
+                    }
                 }
                 @layer layouts {
                     body {
                         display: grid;
                         place-content: center;
-                        margin: auto;
                         padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
                         min-block-size: 100svb;
                         background: lch(var(--bck-prmr-lch));
@@ -179,9 +181,6 @@
                     h1, h2 {
                         color: var(--lbl-prmr);
                         font: inherit
-                    }
-                    h1, h2, p {
-                        margin: 0
                     }
                     h2, p {
                         display: inline
@@ -280,5 +279,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.9.0-beta.3 -->
+    <!-- romanczerkies.fr Version 31.9.0-rc -->
 </html>
