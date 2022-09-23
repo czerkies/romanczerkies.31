@@ -56,8 +56,7 @@
                     @media (any-hover: hover) {
                         :root {
                             --lph-nt: .0875;
-                            --lph-hvr: .16;
-                            --trnstn-drtn: 200ms
+                            --lph-hvr: .16
                         }
                     }
                     @media (min-width: 1000px) {
@@ -73,10 +72,14 @@
                             }
                         }
                     }
-                    @media (prefers-reduced-motion: reduce) {
+                    @media (prefers-reduced-motion: no-preference) {
                         :root {
-                            --trnstn-drtn: 0s;
-                            --srll-bhvr: auto
+                            --srll-bhvr: smooth
+                        }
+                        @media (any-hover: hover) {
+                            :root {
+                                --trnstn-drtn: 200ms
+                            }
                         }
                     }
                     @media (prefers-contrast: more) {
@@ -149,19 +152,24 @@
                             background: hsl(var(--bck-scndr-lch) / var(--lph-ctv))
                         }
                     }
+                    body, h1, h2, p {
+                        margin: 0
+                    }
                 }
                 @layer layouts {
-                    html {
-                        display: flex;
-                        min-block-size: 100%;
+                    body {
+                        display: grid;
+                        place-content: center;
+                        padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
+                        min-block-size: 100svb;
+                        background: lch(var(--bck-prmr-lch));
                         font: 700 100%/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
                         color: var(--lbl-scndr)
                     }
-                    body {
-                        display: grid;
-                        margin: auto;
-                        padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
-                        background: lch(var(--bck-prmr-lch))
+                    @supports not (block-size: 1svb) {
+                        body {
+                            min-block-size: 100vh;
+                        }
                     }
                     @supports not (color: lch(0% 0 0)) {
                         body {
@@ -173,9 +181,6 @@
                     h1, h2 {
                         color: var(--lbl-prmr);
                         font: inherit
-                    }
-                    h1, h2, p {
-                        margin: 0
                     }
                     h2, p {
                         display: inline
@@ -198,13 +203,8 @@
                             overflow-x: var(--vrflw, auto)
                         }
                     }
-                    @supports not (overscroll-behavior-inline: contain) {
-                        nav {
-                            overscroll-behavior-x: contain
-                        }
-                    }
                     nav:focus-within {
-                        scroll-behavior: var(--srll-bhvr, smooth)
+                        scroll-behavior: var(--srll-bhvr, auto)
                     }
                     ul {
                         padding: 0;
@@ -212,7 +212,7 @@
                         gap: var(--gttr-nv);
                         list-style: none
                     }
-                    a {
+                    a:any-link {
                         display: inline-block;
                         padding-inline: var(--gttr-hrf);
                         scroll-snap-align: start;
@@ -229,14 +229,14 @@
                         transition: background-color var(--trnstn-drtn, 0s) cubic-bezier(var(--cbc-bzr))
                     }
                     @supports not (color: lch(0% 0 0)) {
-                        a {
+                        a:any-link {
                             background: hsl(var(--bck-scndr-lch) / var(--lph-nt))
                         }
                     }
-                    a:is(:focus, :hover, :target) {
+                    a:any-link:is(:focus, :hover, :target) {
                         --lph-nt: var(--lph-hvr, var(--lph-ctv))
                     }
-                    a:active {
+                    a:any-link:active {
                         --lph-nt: var(--lph-ctv)
                     }
                     main, ul {
@@ -244,7 +244,7 @@
                         margin-left: var(--sf-lft);
                         margin-right: var(--sf-rght)
                     }
-                    main, a {
+                    main, a:any-link {
                         padding-block: var(--gttr-blck)
                     }
                 }
@@ -259,7 +259,7 @@
         <nav>
             <ul aria-label="Réseaux sociaux et contact">
                 <li>
-                    <h1><a href="/" title="Roman Czerkies" translate="no">Roman Czerkies</a></h1>
+                    <h1><a href="." title="Roman Czerkies" translate="no">Roman Czerkies</a></h1>
                 </li>
                 <li>
                     <a href="//twitter.com/roman_czerkies" id="twitter" title="Twitter @roman_czerkies">Twitter</a>
@@ -279,5 +279,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.8.0 -->
+    <!-- romanczerkies.fr Version 31.9.0 -->
 </html>
