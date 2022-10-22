@@ -159,7 +159,9 @@
                 @layer layouts {
                     body {
                         display: grid;
-                        place-content: center;
+                        align-content: center;
+                        inline-size: fit-content;
+                        margin: auto;
                         padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
                         min-block-size: 100svb;
                         background: lch(var(--bck-prmr-lch));
@@ -279,5 +281,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.9.0 -->
+    <!-- romanczerkies.fr Version 31.10.0-beta.1 -->
 </html>
