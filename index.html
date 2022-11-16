@@ -2,20 +2,10 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <meta name="color-scheme" content="light dark">
-        <meta name="description" content="Designer & Développeur d'Interface Humaine. Réseaux sociaux et contact.">
-        <meta name="theme-color" content="hsl(200 10% 99%)" media="(prefers-color-scheme: light)">
-        <meta name="theme-color" content="hsl(0 0% 0%)" media="(prefers-color-scheme: dark)">
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-        <meta property="og:description" content="Designer & Développeur d'Interface Humaine. Réseaux sociaux et contact.">
-        <meta property="og:image" content="https://romanczerkies.fr/banner.jpg">
-        <meta property="og:title" content="Roman Czerkies">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://romanczerkies.fr/">
-        <meta property="og:video" content="https://romanczerkies.fr/banner.mp4">
-        <link rel="alternate" type="application/atom+xml" title="Mises à jour de romanczerkies.fr" href="//github.com/czerkies/romanczerkies.31/releases.atom">
-        <link rel="icon" type="image/png" href="cn.png">
-        <link rel="manifest" href="manifest.webmanifest">
+        <meta name="color-scheme" content="light dark">
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="hsl(200 10% 99%)">
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="hsl(0 0% 0%)">
         <title>Roman Czerkies</title>
         <style>
             @layer designSystem {
@@ -59,7 +49,7 @@
                             --lph-hvr: .16
                         }
                     }
-                    @media (min-width: 1000px) {
+                    @media (min-width: 1000px), print {
                         :root {
                             --lph-nt: 0;
                             --gttr-nv: 0;
@@ -157,22 +147,17 @@
                     }
                 }
                 @layer layouts {
-                    body {
+                    html {
                         display: grid;
+                        grid-template-columns: minmax(0, auto);
                         place-content: center;
-                        padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
-                        min-block-size: 100svb;
+                        min-block-size: 100%;
                         background: lch(var(--bck-prmr-lch));
                         font: 700 100%/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
                         color: var(--lbl-scndr)
                     }
-                    @supports not (block-size: 1svb) {
-                        body {
-                            min-block-size: 100vh;
-                        }
-                    }
                     @supports not (color: lch(0% 0 0)) {
-                        body {
+                        html {
                             background: hsl(var(--bck-prmr-lch))
                         }
                     }
@@ -250,6 +235,16 @@
                 }
             }
         </style>
+        <link rel="icon" type="image/png" href="cn.png">
+        <link rel="manifest" href="manifest.webmanifest">
+        <link rel="alternate" type="application/atom+xml" title="Mises à jour de romanczerkies.fr" href="//github.com/czerkies/romanczerkies.31/releases.atom">
+        <meta name="description" content="Designer & Développeur d'Interface Humaine. Réseaux sociaux et contact.">
+        <meta property="og:description" content="Designer & Développeur d'Interface Humaine. Réseaux sociaux et contact.">
+        <meta property="og:image" content="https://romanczerkies.fr/banner.jpg">
+        <meta property="og:title" content="Roman Czerkies">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://romanczerkies.fr/">
+        <meta property="og:video" content="https://romanczerkies.fr/banner.mp4">
     </head>
     <body>
         <main>
@@ -279,5 +274,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.9.0 -->
+    <!-- romanczerkies.fr Version 31.10.0-rc.1 -->
 </html>
