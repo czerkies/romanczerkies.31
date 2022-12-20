@@ -18,15 +18,15 @@
                         --lbl-scndr-lph: .8;
                         --lbl-prmr: lch(7.824% 3.42 var(--hue) / var(--lbl-prmr-lph));
                         --lbl-scndr: lch(32.847% 5.435 var(--hue) / var(--lbl-scndr-lph));
-                        --lph-nt: .1;
-                        --lph-ctv: .28;
-                        --mx-nln-sz: 56ch;
+                        --lph-prmr: .0875;
+                        --lph-scndr: .1;
+                        --lph-trtr: .16;
+                        --lph-qutrnr: .28;
+                        --mx-nln-sz: 58ch;
                         --gttr-nln: clamp(.25rem, 2.1vw, 1.5rem);
                         --gttr-blck: clamp(.25rem, 2.5vh, 1.5rem);
                         --sf-lft: calc(var(--gttr-nln) + env(safe-area-inset-left));
                         --sf-rght: calc(var(--gttr-nln) + env(safe-area-inset-right));
-                        --gttr-nv: var(--gttr-nln);
-                        --gttr-hrf: var(--gttr-blck);
                         --fnt-sz-prmr: 1.5rem;
                         --fnt-sz-scndr: .875rem;
                         --lttr-spcng-prmr: -.001em;
@@ -43,22 +43,13 @@
                             --lbl-scndr: hsl(var(--hue) 10% 30% / var(--lbl-scndr-lph))
                         }
                     }
-                    @media (any-hover: hover) {
+                    @media (min-width: 900px) {
                         :root {
-                            --lph-nt: .0875;
-                            --lph-hvr: .16
+                            --fnt-sz-prmr: 2rem;
                         }
-                    }
-                    @media (min-width: 1000px), print {
-                        :root {
-                            --lph-nt: 0;
-                            --gttr-nv: 0;
-                            --gttr-hrf: var(--gttr-nln);
-                            --fnt-sz-prmr: 2.5rem
-                        }
-                        @media (any-hover: hover) {
+                        @media (min-width: 1250px), print {
                             :root {
-                                --lph-hvr: .1
+                                --fnt-sz-prmr: 2.5rem;
                             }
                         }
                     }
@@ -121,11 +112,6 @@
                             }
                         }
                     }
-                    @media print {
-                        :root {
-                            --vrflw: visible
-                        }
-                    }
                 }
                 @layer resets {
                     * {
@@ -134,74 +120,123 @@
                         -webkit-font-smoothing: antialiased
                     }
                     ::selection {
-                        background: lch(var(--bck-scndr-lch) / var(--lph-ctv));
+                        background: lch(var(--bck-scndr-lch) / var(--lph-qutrnr));
                         color: var(--lbl-prmr)
                     }
                     @supports not (color: lch(0% 0 0)) {
                         ::selection {
-                            background: hsl(var(--bck-scndr-lch) / var(--lph-ctv))
+                            background: hsl(var(--bck-scndr-lch) / var(--lph-qutrnr))
                         }
                     }
-                    body, h1, h2, p {
+                    body, h1, h2, ul, p {
                         margin: 0
                     }
                 }
                 @layer layouts {
-                    html {
+                    body {
                         display: grid;
-                        grid-template-columns: minmax(0, auto);
-                        place-content: center;
-                        min-block-size: 100%;
+                        /* grid-template: [main] auto [nav] auto / [nav-start] 1fr [main-start] minmax(auto, var(--mx-nln-sz)) [main-end] 1fr [nav-end]; */
+                        grid-template-columns: [nav-start] 1fr [main-start] minmax(auto, var(--mx-nln-sz)) [main-end] 1fr [nav-end];
+                        align-content: center;
+                        min-block-size: 100svb;
                         padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
                         background: lch(var(--bck-prmr-lch));
-                        font: 700 100%/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                        font: 700 var(--fnt-sz-prmr)/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
                         color: var(--lbl-scndr)
                     }
                     @supports not (color: lch(0% 0 0)) {
-                        html {
+                        body {
                             background: hsl(var(--bck-prmr-lch))
                         }
                     }
                 }
+
                 @layer components {
+                    /* H* */
                     h1, h2 {
                         color: var(--lbl-prmr);
                         font: inherit
                     }
-                    h2, p {
-                        display: inline
-                    }
+                    
+                    /* MAIN */
                     main {
-                        max-inline-size: var(--mx-nln-sz);
-                        padding-inline: var(--gttr-nln);
-                        font-size: var(--fnt-sz-prmr);
+                        grid-column: main-start / main-end;
+                        padding-left: var(--sf-lft);
+                        padding-right: var(--sf-rght);
                         letter-spacing: var(--lttr-spcng-prmr)
                     }
+                    main, main section {
+                        padding-block: var(--gttr-blck);
+                    }
+                    main section {
+                        padding-inline: var(--gttr-nln);
+                    }
+                    main :is(h2, p) {
+                        display: inline
+                    }
+
+                    /* NAV */
                     nav {
-                        padding-inline: var(--gttr-nv);
-                        overflow-inline: var(--vrflw, auto);
+                        container: nav / inline-size;
+                        --_dnmc-nln: 50% - min(var(--mx-nln-sz), 100%) / 2;
+
+                        grid-column: nav-start / nav-end;
+                        overflow-inline: auto;
                         overscroll-behavior-inline: contain;
-                        scroll-padding: 0 calc(var(--sf-rght) + var(--gttr-nv)) 0 calc(var(--sf-lft) + var(--gttr-nv));
+                        scroll-padding:
+                            0
+                            calc(var(--_dnmc-nln) + var(--sf-rght))
+                            0
+                            calc(var(--_dnmc-nln) + var(--sf-lft));
                         scroll-snap-type: inline mandatory
                     }
                     @supports not (overflow-inline: auto) {
                         nav {
-                            overflow-x: var(--vrflw, auto)
+                            overflow-x: auto;
+                        }
+                    }
+                    @media (any-hover: hover) {
+                        nav {
+                            --_lph-ntl: var(--lph-prmr);
+                            --_lph-hvr: var(--lph-trtr)
                         }
                     }
                     nav:focus-within {
                         scroll-behavior: var(--srll-bhvr, auto)
                     }
-                    ul {
-                        padding: 0;
-                        display: inline-flex;
-                        gap: var(--gttr-nv);
+                    @container nav (inline-size > 900px) {
+                        nav ul {
+                            --_lph-ntl: 0;
+                            --_gttr-nv: 0;
+                            --_nv-lnk-nln: var(--gttr-nln);
+                        }
+                        @media (any-hover: hover) {
+                            nav ul {
+                                --_lph-hvr: var(--lph-scndr)
+                            }
+                        }
+                    }
+                    @media print {
+                        nav ul {
+                            --_gttr-nv: 0;
+                            --_nv-drctn: block;
+                        }
+                    }
+                    nav ul {
+                        padding-block: var(--gttr-blck);
+                        padding-left: calc(var(--_dnmc-nln) + var(--sf-lft));
+                        padding-right: calc(var(--_dnmc-nln) + var(--sf-rght));
+                        display: var(--_nv-drctn, inline-flex);
                         list-style: none
                     }
-                    a:any-link {
-                        display: inline-block;
-                        padding-inline: var(--gttr-hrf);
+                    nav li {
+                        padding-inline-start: var(--_gttr-nv, var(--gttr-nln));
                         scroll-snap-align: start;
+                    }
+                    nav a:any-link {
+                        display: block;
+                        padding-block: var(--gttr-blck);
+                        padding-inline: var(--_nv-lnk-nln, var(--gttr-blck));
                         color: inherit;
                         font-size: var(--fnt-sz-scndr);
                         text-decoration: var(--txt-dcrtn, none);
@@ -210,28 +245,20 @@
                         letter-spacing: var(--lttr-spcng-scndr);
                         outline: none;
                         border-radius: var(--brdr-rds);
-                        background: lch(var(--bck-scndr-lch) / var(--lph-nt));
+                        background: lch(var(--bck-scndr-lch) / var(--_lph-ntl, var(--lph-prmr)));
                         touch-action: manipulation;
                         transition: background-color var(--trnstn-drtn, 0s) cubic-bezier(var(--cbc-bzr))
                     }
                     @supports not (color: lch(0% 0 0)) {
-                        a:any-link {
-                            background: hsl(var(--bck-scndr-lch) / var(--lph-nt))
+                        nav a:any-link {
+                            background: hsl(var(--bck-scndr-lch) / var(--_lph-ntl))
                         }
                     }
-                    a:any-link:is(:focus, :hover, :target) {
-                        --lph-nt: var(--lph-hvr, var(--lph-ctv))
+                    nav a:any-link:is(:focus, :hover, :target) {
+                        --_lph-ntl: var(--_lph-hvr, var(--lph-qutrnr))
                     }
-                    a:any-link:active {
-                        --lph-nt: var(--lph-ctv)
-                    }
-                    main, ul {
-                        margin-block: var(--gttr-blck);
-                        margin-left: var(--sf-lft);
-                        margin-right: var(--sf-rght)
-                    }
-                    main, a:any-link {
-                        padding-block: var(--gttr-blck)
+                    nav a:any-link:active {
+                        --_lph-ntl: var(--lph-qutrnr)
                     }
                 }
             }
@@ -249,8 +276,10 @@
     </head>
     <body>
         <main>
-            <h2>Designer & Développeur d'Interface Humaine.</h2>
-            <p>Spécialisé dans la conception centrée utilisateurs et développement de Design Systems. Largement inspiré du minimalisme et brutalisme, les créations tendent à un design simple et inclusif.</p>
+            <section>
+                <h2>Designer & Développeur d'Interface Humaine.</h2>
+                <p>Spécialisé dans la conception centrée utilisateurs et développement de Design Systems. Largement inspiré du minimalisme et brutalisme, les créations tendent à un design simple et inclusif.</p>
+            </section>
         </main>
         <nav>
             <ul aria-label="Réseaux sociaux et contact">
@@ -275,5 +304,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.10.0 -->
+    <!-- romanczerkies.fr Version 31.11.0-b1 -->
 </html>
