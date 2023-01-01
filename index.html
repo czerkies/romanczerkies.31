@@ -136,7 +136,7 @@
                 @layer layouts {
                     body {
                         display: grid;
-                        grid-template-columns: [nav-start] 1fr [main-start] minmax(auto, var(--mx-nln-sz)) [main-end] 1fr [nav-end];
+                        grid: auto / [dg-strt] 1fr [mn-strt] minmax(auto, var(--mx-nln-sz)) [mn-nd] 1fr [dg-nd];
                         align-content: center;
                         min-block-size: 100svb;
                         padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
@@ -160,7 +160,7 @@
                     
                     /* MAIN */
                     main {
-                        grid-column: main-start / main-end;
+                        grid-column: mn-strt / mn-nd;
                         padding-left: var(--sf-lft);
                         padding-right: var(--sf-rght);
                         letter-spacing: var(--lttr-spcng-prmr)
@@ -180,7 +180,7 @@
                         container: nav / inline-size;
                         --_dnmc-nln: 50% - min(var(--mx-nln-sz), 100%) / 2;
 
-                        grid-column: nav-start / nav-end;
+                        grid-column: dg-strt / dg-nd;
                         overflow-inline: auto;
                         overscroll-behavior-inline: contain;
                         scroll-padding:
@@ -304,5 +304,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.11.0-b.2 -->
+    <!-- romanczerkies.fr Version 31.11.0-b.3 -->
 </html>
