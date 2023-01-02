@@ -11,8 +11,7 @@
             @layer designSystem {
                 @layer variables {
                     :root {
-                        --hue: 232.752;
-                        --hue: 229;
+                        --hue: 228.752;
                         --bck-prmr-oklch: 99.25% 0.001 var(--hue);
                         --bck-scndr-oklch: 77.17% 0.04 var(--hue);
                         --lbl-prmr-lph: .98;
@@ -152,13 +151,10 @@
                 }
 
                 @layer components {
-                    /* H* */
                     h1, h2 {
                         color: var(--lbl-prmr);
                         font: inherit
                     }
-                    
-                    /* MAIN */
                     main {
                         grid-column: mn-strt / mn-nd;
                         padding-left: var(--sf-lft);
@@ -174,8 +170,6 @@
                     main :is(h2, p) {
                         display: inline
                     }
-
-                    /* NAV */
                     nav {
                         container: nav / inline-size;
                         --_dnmc-nln: 50% - min(var(--mx-nln-sz), 100%) / 2;
@@ -304,5 +298,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.11.0-b.3 -->
+    <!-- romanczerkies.fr Version 31.11.0-beta.4 -->
 </html>
