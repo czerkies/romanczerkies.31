@@ -45,11 +45,11 @@
                     }
                     @media (min-width: 900px) {
                         :root {
-                            --fnt-sz-prmr: 2rem;
+                            --fnt-sz-prmr: 2rem
                         }
                         @media (min-width: 1250px), print {
                             :root {
-                                --fnt-sz-prmr: 2.5rem;
+                                --fnt-sz-prmr: 2.5rem
                             }
                         }
                     }
@@ -162,10 +162,10 @@
                         letter-spacing: var(--lttr-spcng-prmr)
                     }
                     main, main section {
-                        padding-block: var(--gttr-blck);
+                        padding-block: var(--gttr-blck)
                     }
                     main section {
-                        padding-inline: var(--gttr-nln);
+                        padding-inline: var(--gttr-nln)
                     }
                     main :is(h2, p) {
                         display: inline
@@ -182,7 +182,7 @@
                     }
                     @supports not (overflow-inline: auto) {
                         nav {
-                            overflow-x: auto;
+                            overflow-x: auto
                         }
                     }
                     @media (any-hover: hover) {
@@ -198,7 +198,7 @@
                         nav ul {
                             --_lph-ntl: 0;
                             --_gttr-nv: 0;
-                            --_nv-lnk-nln: var(--gttr-nln);
+                            --_nv-lnk-nln: var(--gttr-nln)
                         }
                         @media (any-hover: hover) {
                             nav ul {
@@ -209,7 +209,7 @@
                     @media print {
                         nav ul {
                             --_gttr-nv: 0;
-                            --_nv-drctn: block;
+                            --_nv-drctn: block
                         }
                     }
                     nav ul {
@@ -221,7 +221,10 @@
                     }
                     nav li {
                         padding-inline-start: var(--_gttr-nv, var(--gttr-nln));
-                        scroll-snap-align: start;
+                        scroll-snap-align: start
+                    }
+                    nav li:last-child {
+                        padding-inline-end: var(--_gttr-nv, var(--gttr-nln))
                     }
                     nav a:any-link {
                         display: block;
@@ -294,5 +297,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.11.0-rc.1 -->
+    <!-- romanczerkies.fr Version 31.11.0-rc.2 -->
 </html>
