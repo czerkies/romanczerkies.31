@@ -43,11 +43,11 @@
                             --lbl-scndr: hsl(var(--hue) 10% 30% / var(--lbl-scndr-lph))
                         }
                     }
-                    @media (min-width: 900px) {
+                    @media (width >= 900px) {
                         :root {
                             --fnt-sz-prmr: 2rem
                         }
-                        @media (min-width: 1250px), print {
+                        @media (width >= 1250px), print {
                             :root {
                                 --fnt-sz-prmr: 2.5rem
                             }
@@ -193,7 +193,7 @@
                     nav:focus-within {
                         scroll-behavior: var(--srll-bhvr, auto)
                     }
-                    @container nav (inline-size > 900px) {
+                    @container nav (inline-size >= 900px) {
                         nav ul {
                             --_lph-ntl: 0;
                             --_gttr-nv: 0;
