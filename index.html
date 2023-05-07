@@ -159,99 +159,184 @@
                         grid-column: mn-strt / mn-nd;
                         padding-left: var(--sf-lft);
                         padding-right: var(--sf-rght);
-                        letter-spacing: var(--lttr-spcng-prmr)
+                        letter-spacing: var(--lttr-spcng-prmr);
+
+                        &, section {
+                            padding-block: var(--gttr-blck)
+                        }
+                        & section {
+                            padding-inline: var(--gttr-nln)
+                        }
+                        :is(h2, p) {
+                            display: inline
+                        }
                     }
-                    main, main section {
-                        padding-block: var(--gttr-blck)
-                    }
-                    main section {
-                        padding-inline: var(--gttr-nln)
-                    }
-                    main :is(h2, p) {
-                        display: inline
+                    @supports not (selector(&)) {
+                        main, main section {
+                            padding-block: var(--gttr-blck)
+                        }
+                        main section {
+                            padding-inline: var(--gttr-nln);
+                        }
+                        main :is(h2, p) {
+                            display: inline
+                        }
                     }
                     nav {
-                        container: nav / inline-size;
                         --_dnmc-nln: 50cqi - min(var(--mx-nln-sz), 100cqi) / 2;
+
+                        container: nav / inline-size;
                         grid-column: dg-strt / dg-nd;
                         overflow-inline: auto;
                         overscroll-behavior-inline: contain;
                         scroll-padding: 0 calc(var(--_dnmc-nln) + var(--sf-rght)) 0 calc(var(--_dnmc-nln) + var(--sf-lft));
-                        scroll-snap-type: inline mandatory
+                        scroll-snap-type: inline mandatory;
+                        @media (any-hover: hover) {
+                                --_lph-ntl: var(--lph-prmr);
+                                --_lph-hvr: var(--lph-trtr)
+                        }
+                        &:focus-within {
+                            scroll-behavior: var(--srll-bhvr, auto)
+                        }
+                        & ul {
+                            @container nav (inline-size >= 900px) {
+                                --_lph-ntl: 0;
+                                --_gttr-nv: 0;
+                                --_nv-lnk-nln: var(--gttr-nln);
+                                @media (any-hover: hover) {
+                                    --_lph-hvr: var(--lph-scndr)
+                                }
+                            }
+                            @media print {
+                                --_gttr-nv: 0;
+                                --_nv-drctn: block
+                            }
+                            padding-block: var(--gttr-blck);
+                            padding-left: calc(var(--_dnmc-nln) + var(--sf-lft));
+                            padding-right: calc(var(--_dnmc-nln) + var(--sf-rght));
+                            display: var(--_nv-drctn, inline-flex);
+                            list-style: none
+                        }
+                        & li {
+                            padding-inline-start: var(--_gttr-nv, var(--gttr-nln));
+                            scroll-snap-align: start;
+                            &:last-child {
+                                padding-inline-end: var(--_gttr-nv, var(--gttr-nln))
+                            }
+                        }
+                        & a:any-link {
+                            display: block;
+                            padding-block: var(--gttr-blck);
+                            padding-inline: var(--_nv-lnk-nln, var(--gttr-blck));
+                            color: inherit;
+                            font-size: var(--fnt-sz-scndr);
+                            text-decoration: var(--txt-dcrtn, none);
+                            text-decoration-skip-ink: all;
+                            text-transform: uppercase;
+                            white-space: nowrap;
+                            letter-spacing: var(--lttr-spcng-scndr);
+                            outline: none;
+                            border-radius: var(--brdr-rds);
+                            background: oklch(var(--bck-scndr-klch) / var(--_lph-ntl, var(--lph-prmr)));
+                            touch-action: manipulation;
+                            transition: background-color var(--trnstn-drtn, 0s) cubic-bezier(var(--cbc-bzr));
+                            &:is(:focus-visible, :hover, :target) {
+                                --_lph-ntl: var(--_lph-hvr, var(--lph-qutrnr))
+                            }
+                            &:active {
+                                --_lph-ntl: var(--lph-qutrnr)
+                            }
+                        }
                     }
                     @supports not (overflow-inline: auto) {
                         nav {
                             overflow-x: auto
                         }
                     }
-                    @media (any-hover: hover) {
+                    @supports not (selector(&)) {
                         nav {
-                            --_lph-ntl: var(--lph-prmr);
-                            --_lph-hvr: var(--lph-trtr)
+                            container: nav / inline-size;
+                            --_dnmc-nln: 50cqi - min(var(--mx-nln-sz), 100cqi) / 2;
+                            grid-column: dg-strt / dg-nd;
+                            overflow-inline: auto;
+                            overscroll-behavior-inline: contain;
+                            scroll-padding: 0 calc(var(--_dnmc-nln) + var(--sf-rght)) 0 calc(var(--_dnmc-nln) + var(--sf-lft));
+                            scroll-snap-type: inline mandatory
                         }
-                    }
-                    nav:focus-within {
-                        scroll-behavior: var(--srll-bhvr, auto)
-                    }
-                    @container nav (inline-size >= 900px) {
-                        nav ul {
-                            --_lph-ntl: 0;
-                            --_gttr-nv: 0;
-                            --_nv-lnk-nln: var(--gttr-nln)
-                        }
-                        @media (any-hover: hover) {
-                            nav ul {
-                                --_lph-hvr: var(--lph-scndr)
+                        @supports not (overflow-inline: auto) {
+                            nav {
+                                overflow-x: auto
                             }
                         }
-                    }
-                    @media print {
+                        @media (any-hover: hover) {
+                            nav {
+                                --_lph-ntl: var(--lph-prmr);
+                                --_lph-hvr: var(--lph-trtr)
+                            }
+                        }
+                        nav:focus-within {
+                            scroll-behavior: var(--srll-bhvr, auto)
+                        }
+                        @container nav (inline-size >= 900px) {
+                            nav ul {
+                                --_lph-ntl: 0;
+                                --_gttr-nv: 0;
+                                --_nv-lnk-nln: var(--gttr-nln)
+                            }
+                            @media (any-hover: hover) {
+                                nav ul {
+                                    --_lph-hvr: var(--lph-scndr)
+                                }
+                            }
+                        }
+                        @media print {
+                            nav ul {
+                                --_gttr-nv: 0;
+                                --_nv-drctn: block
+                            }
+                        }
                         nav ul {
-                            --_gttr-nv: 0;
-                            --_nv-drctn: block
+                            padding-block: var(--gttr-blck);
+                            padding-left: calc(var(--_dnmc-nln) + var(--sf-lft));
+                            padding-right: calc(var(--_dnmc-nln) + var(--sf-rght));
+                            display: var(--_nv-drctn, inline-flex);
+                            list-style: none
                         }
-                    }
-                    nav ul {
-                        padding-block: var(--gttr-blck);
-                        padding-left: calc(var(--_dnmc-nln) + var(--sf-lft));
-                        padding-right: calc(var(--_dnmc-nln) + var(--sf-rght));
-                        display: var(--_nv-drctn, inline-flex);
-                        list-style: none
-                    }
-                    nav li {
-                        padding-inline-start: var(--_gttr-nv, var(--gttr-nln));
-                        scroll-snap-align: start
-                    }
-                    nav li:last-child {
-                        padding-inline-end: var(--_gttr-nv, var(--gttr-nln))
-                    }
-                    nav a:any-link {
-                        display: block;
-                        padding-block: var(--gttr-blck);
-                        padding-inline: var(--_nv-lnk-nln, var(--gttr-blck));
-                        color: inherit;
-                        font-size: var(--fnt-sz-scndr);
-                        text-decoration: var(--txt-dcrtn, none);
-                        text-decoration-skip-ink: all;
-                        text-transform: uppercase;
-                        white-space: nowrap;
-                        letter-spacing: var(--lttr-spcng-scndr);
-                        outline: none;
-                        border-radius: var(--brdr-rds);
-                        background: oklch(var(--bck-scndr-klch) / var(--_lph-ntl, var(--lph-prmr)));
-                        touch-action: manipulation;
-                        transition: background-color var(--trnstn-drtn, 0s) cubic-bezier(var(--cbc-bzr))
-                    }
-                    @supports not (color: oklch(0% 0 0)) {
+                        nav li {
+                            padding-inline-start: var(--_gttr-nv, var(--gttr-nln));
+                            scroll-snap-align: start
+                        }
+                        nav li:last-child {
+                            padding-inline-end: var(--_gttr-nv, var(--gttr-nln))
+                        }
                         nav a:any-link {
-                            background: hsl(var(--bck-scndr-klch) / var(--_lph-ntl))
+                            display: block;
+                            padding-block: var(--gttr-blck);
+                            padding-inline: var(--_nv-lnk-nln, var(--gttr-blck));
+                            color: inherit;
+                            font-size: var(--fnt-sz-scndr);
+                            text-decoration: var(--txt-dcrtn, none);
+                            text-decoration-skip-ink: all;
+                            text-transform: uppercase;
+                            white-space: nowrap;
+                            letter-spacing: var(--lttr-spcng-scndr);
+                            outline: none;
+                            border-radius: var(--brdr-rds);
+                            background: oklch(var(--bck-scndr-klch) / var(--_lph-ntl, var(--lph-prmr)));
+                            touch-action: manipulation;
+                            transition: background-color var(--trnstn-drtn, 0s) cubic-bezier(var(--cbc-bzr))
                         }
-                    }
-                    nav a:any-link:is(:focus-visible, :hover, :target) {
-                        --_lph-ntl: var(--_lph-hvr, var(--lph-qutrnr))
-                    }
-                    nav a:any-link:active {
-                        --_lph-ntl: var(--lph-qutrnr)
+                        @supports not (color: oklch(0% 0 0)) {
+                            nav a:any-link {
+                                background: hsl(var(--bck-scndr-klch) / var(--_lph-ntl))
+                            }
+                        }
+                        nav a:any-link:is(:focus-visible, :hover, :target) {
+                            --_lph-ntl: var(--_lph-hvr, var(--lph-qutrnr))
+                        }
+                        nav a:any-link:active {
+                            --_lph-ntl: var(--lph-qutrnr)
+                        }
                     }
                 }
             }
