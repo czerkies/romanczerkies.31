@@ -32,51 +32,109 @@
                         --lttr-spcng-prmr: -.001em;
                         --lttr-spcng-scndr: .075em;
                         --brdr-rds: .375rem;
-                        --cbc-bzr: .68, .48, .48, .98
-                    }
-                    @media (width >= 900px) {
-                        :root {
-                            --fnt-sz-prmr: 2rem
-                        }
-                        @media (width >= 1250px), print {
-                            :root {
+                        --cbc-bzr: .68, .48, .48, .98;
+                        @media (width >= 900px) {
+                            --fnt-sz-prmr: 2rem;
+                            @media (width >= 1250px), print {
                                 --fnt-sz-prmr: 2.5rem
                             }
                         }
-                    }
-                    @media (prefers-reduced-motion: no-preference) {
-                        :root {
-                            --srll-bhvr: smooth
-                        }
-                        @media (any-hover: hover) {
-                            :root {
+                        @media (prefers-reduced-motion: no-preference) {
+                            --srll-bhvr: smooth;
+                            @media (any-hover: hover) {
                                 --trnstn-drtn: 200ms
                             }
                         }
-                    }
-                    @media (prefers-contrast: more) {
-                        :root {
+                        @media (prefers-contrast: more) {
                             --txt-dcrtn: underline;
                             --bck-prmr-klch: 99.62% 0.002 var(--hue);
                             --bck-scndr-klch: 61.16% 0.059 var(--hue);
                             --lbl-prmr: oklch(0% 0 var(--hue) / var(--lbl-prmr-lph));
                             --lbl-scndr: oklch(18.29% 0.009 var(--hue) / var(--lbl-scndr-lph))
                         }
-                    }
-                    @media (prefers-color-scheme: dark) {
-                        :root {
+                        @media (prefers-color-scheme: dark) {
                             --bck-prmr-klch: 0% 0 var(--hue);
                             --bck-scndr-klch: 89.18% 0.045 var(--hue);
                             --lbl-prmr-lph: .97;
                             --lbl-scndr-lph: .75;
                             --lbl-prmr: oklch(96.25% 0.005 var(--hue) / var(--lbl-prmr-lph));
-                            --lbl-scndr: oklch(83.13% 0.016 var(--hue) / var(--lbl-scndr-lph))
-                        }
-                        @media (prefers-contrast: more) {
-                            :root {
+                            --lbl-scndr: oklch(83.13% 0.016 var(--hue) / var(--lbl-scndr-lph));
+                            @media (prefers-contrast: more) {
                                 --bck-scndr-klch: 96.38% 0.016 var(--hue);
                                 --lbl-prmr: oklch(99.63% 0.001 var(--hue) / var(--lbl-prmr-lph));
                                 --lbl-scndr: oklch(95.49% 0.006 var(--hue) / var(--lbl-scndr-lph))
+                            }
+                        }
+                    }
+                    @supports not (selector(&)) {
+                        :root {
+                            --hue: 228.752;
+                            --bck-prmr-klch: 99.25% 0.001 var(--hue);
+                            --bck-scndr-klch: 77.17% 0.04 var(--hue);
+                            --lbl-prmr-lph: .98;
+                            --lbl-scndr-lph: .8;
+                            --lbl-prmr: oklch(20.58% 0.009 var(--hue) / var(--lbl-prmr-lph));
+                            --lbl-scndr: oklch(42.06% 0.016 var(--hue) / var(--lbl-scndr-lph));
+                            --lph-prmr: .0875;
+                            --lph-scndr: .1;
+                            --lph-trtr: .16;
+                            --lph-qutrnr: .28;
+                            --mx-nln-sz: 58ch;
+                            --gttr-nln: clamp(.25rem, 2.1vw, 1.5rem);
+                            --gttr-blck: clamp(.25rem, 2.5vh, 1.5rem);
+                            --sf-lft: calc(var(--gttr-nln) + env(safe-area-inset-left));
+                            --sf-rght: calc(var(--gttr-nln) + env(safe-area-inset-right));
+                            --fnt-sz-prmr: 1.5rem;
+                            --fnt-sz-scndr: .875rem;
+                            --lttr-spcng-prmr: -.001em;
+                            --lttr-spcng-scndr: .075em;
+                            --brdr-rds: .375rem;
+                            --cbc-bzr: .68, .48, .48, .98
+                        }
+                        @media (width >= 900px) {
+                            :root {
+                                --fnt-sz-prmr: 2rem
+                            }
+                            @media (width >= 1250px), print {
+                                :root {
+                                    --fnt-sz-prmr: 2.5rem
+                                }
+                            }
+                        }
+                        @media (prefers-reduced-motion: no-preference) {
+                            :root {
+                                --srll-bhvr: smooth
+                            }
+                            @media (any-hover: hover) {
+                                :root {
+                                    --trnstn-drtn: 200ms
+                                }
+                            }
+                        }
+                        @media (prefers-contrast: more) {
+                            :root {
+                                --txt-dcrtn: underline;
+                                --bck-prmr-klch: 99.62% 0.002 var(--hue);
+                                --bck-scndr-klch: 61.16% 0.059 var(--hue);
+                                --lbl-prmr: oklch(0% 0 var(--hue) / var(--lbl-prmr-lph));
+                                --lbl-scndr: oklch(18.29% 0.009 var(--hue) / var(--lbl-scndr-lph))
+                            }
+                        }
+                        @media (prefers-color-scheme: dark) {
+                            :root {
+                                --bck-prmr-klch: 0% 0 var(--hue);
+                                --bck-scndr-klch: 89.18% 0.045 var(--hue);
+                                --lbl-prmr-lph: .97;
+                                --lbl-scndr-lph: .75;
+                                --lbl-prmr: oklch(96.25% 0.005 var(--hue) / var(--lbl-prmr-lph));
+                                --lbl-scndr: oklch(83.13% 0.016 var(--hue) / var(--lbl-scndr-lph))
+                            }
+                            @media (prefers-contrast: more) {
+                                :root {
+                                    --bck-scndr-klch: 96.38% 0.016 var(--hue);
+                                    --lbl-prmr: oklch(99.63% 0.001 var(--hue) / var(--lbl-prmr-lph));
+                                    --lbl-scndr: oklch(95.49% 0.006 var(--hue) / var(--lbl-scndr-lph))
+                                }
                             }
                         }
                     }
