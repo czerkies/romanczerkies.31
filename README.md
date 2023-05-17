@@ -8,6 +8,7 @@ This project is not only minimalist, fast and accessible; it is designed to impl
 
 Version | Date
 :---: | :---:
+**[31.13.0](https://github.com/czerkies/romanczerkies.31/releases/tag/v31.13.0)** | 05/06/2023
 **[31.12.0](https://github.com/czerkies/romanczerkies.31/releases/tag/v31.12.0)** | 31/03/2023
 **[31.11.0](https://github.com/czerkies/romanczerkies.31/releases/tag/v31.11.0)** | 09/01/2023
 **[31.10.0](https://github.com/czerkies/romanczerkies.31/releases/tag/v31.10.0)** | 18/11/2022
