@@ -65,54 +65,6 @@
                             }
                         }
                     }
-                    @supports not (selector(&)) {
-                        @media (width >= 900px) {
-                            :root {
-                                --fnt-sz-prmr: 2rem
-                            }
-                            @media (width >= 1250px), print {
-                                :root {
-                                    --fnt-sz-prmr: 2.5rem
-                                }
-                            }
-                        }
-                        @media (prefers-reduced-motion: no-preference) {
-                            :root {
-                                --srll-bhvr: smooth
-                            }
-                            @media (any-hover: hover) {
-                                :root {
-                                    --trnstn-drtn: 200ms
-                                }
-                            }
-                        }
-                        @media (prefers-contrast: more) {
-                            :root {
-                                --txt-dcrtn: underline;
-                                --bck-prmr-klch: 99.62% 0.002 var(--hue);
-                                --bck-scndr-klch: 61.16% 0.059 var(--hue);
-                                --lbl-prmr: oklch(0% 0 var(--hue) / var(--lbl-prmr-lph));
-                                --lbl-scndr: oklch(18.29% 0.009 var(--hue) / var(--lbl-scndr-lph))
-                            }
-                        }
-                        @media (prefers-color-scheme: dark) {
-                            :root {
-                                --bck-prmr-klch: 0% 0 var(--hue);
-                                --bck-scndr-klch: 89.18% 0.045 var(--hue);
-                                --lbl-prmr-lph: .97;
-                                --lbl-scndr-lph: .75;
-                                --lbl-prmr: oklch(96.25% 0.005 var(--hue) / var(--lbl-prmr-lph));
-                                --lbl-scndr: oklch(83.13% 0.016 var(--hue) / var(--lbl-scndr-lph))
-                            }
-                            @media (prefers-contrast: more) {
-                                :root {
-                                    --bck-scndr-klch: 96.38% 0.016 var(--hue);
-                                    --lbl-prmr: oklch(99.63% 0.001 var(--hue) / var(--lbl-prmr-lph));
-                                    --lbl-scndr: oklch(95.49% 0.006 var(--hue) / var(--lbl-scndr-lph))
-                                }
-                            }
-                        }
-                    }
                 }
                 @layer resets {
                     * {
@@ -158,17 +110,6 @@
                             padding-inline: var(--gttr-nln)
                         }
                         :is(h2, p) {
-                            display: inline
-                        }
-                    }
-                    @supports not (selector(&)) {
-                        main, main section {
-                            padding-block: var(--gttr-blck)
-                        }
-                        main section {
-                            padding-inline: var(--gttr-nln)
-                        }
-                        main :is(h2, p) {
                             display: inline
                         }
                     }
@@ -240,76 +181,6 @@
                     @supports not (overflow-inline: auto) {
                         nav {
                             overflow-x: auto
-                        }
-                    }
-                    @supports not (selector(&)) {
-                        @supports not (overflow-inline: auto) {
-                            nav {
-                                overflow-x: auto
-                            }
-                        }
-                        @media (any-hover: hover) {
-                            nav {
-                                --_lph-hvr: var(--lph-scndr)
-                            }
-                        }
-                        nav:focus-within {
-                            scroll-behavior: var(--srll-bhvr, auto)
-                        }
-                        @container nav (inline-size >= 900px) {
-                            nav ul {
-                                --_lph-ntl: 0;
-                                --_gttr-nv: 0;
-                                --_nv-lnk-nln: var(--gttr-nln)
-                            }
-                            @media (any-hover: hover) {
-                                nav ul {
-                                    --_lph-hvr: var(--lph-prmr)
-                                }
-                            }
-                        }
-                        @media print {
-                            nav ul {
-                                --_gttr-nv: 0;
-                                --_nv-drctn: block
-                            }
-                        }
-                        nav ul {
-                            padding-block: var(--gttr-blck);
-                            padding-left: calc(var(--_dnmc-nln) + var(--sf-lft));
-                            padding-right: calc(var(--_dnmc-nln) + var(--sf-rght));
-                            display: var(--_nv-drctn, inline-flex);
-                            list-style: none
-                        }
-                        nav li {
-                            padding-inline-start: var(--_gttr-nv, var(--gttr-nln));
-                            scroll-snap-align: start
-                        }
-                        nav li:last-child {
-                            padding-inline-end: var(--_gttr-nv, var(--gttr-nln))
-                        }
-                        nav a:any-link {
-                            display: block;
-                            padding-block: var(--gttr-blck);
-                            padding-inline: var(--_nv-lnk-nln, var(--gttr-blck));
-                            color: inherit;
-                            font-size: var(--fnt-sz-scndr);
-                            text-decoration: var(--txt-dcrtn, none);
-                            text-decoration-skip-ink: all;
-                            text-transform: uppercase;
-                            white-space: nowrap;
-                            letter-spacing: var(--lttr-spcng-scndr);
-                            outline: none;
-                            border-radius: var(--brdr-rds);
-                            background: oklch(var(--bck-scndr-klch) / var(--_lph-ntl, var(--lph-prmr)));
-                            touch-action: manipulation;
-                            transition: background-color var(--trnstn-drtn, 0s) cubic-bezier(var(--cbc-bzr))
-                        }
-                        nav a:any-link:is(:focus-visible, :hover, :target) {
-                            --_lph-ntl: var(--_lph-hvr, var(--lph-trtr))
-                        }
-                        nav a:any-link:active {
-                            --_lph-ntl: var(--lph-trtr)
                         }
                     }
                 }
