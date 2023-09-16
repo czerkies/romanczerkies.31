@@ -22,8 +22,9 @@
                         --lph-scndr: .16;
                         --lph-trtr: .28;
                         --mx-nln-sz: 58ch;
-                        --gttr-nln: clamp(.25rem, 2.1vw, 1.5rem);
-                        --gttr-blck: clamp(.25rem, 2.5vh, 1.5rem);
+                        --gttr-mn: .25rem;
+                        --gttr-nln: clamp(var(--gttr-mn), 2.1vw, 1.5rem);
+                        --gttr-blck: clamp(var(--gttr-mn), 2.5vh, 1.5rem);
                         --sf-lft: calc(var(--gttr-nln) + env(safe-area-inset-left));
                         --sf-rght: calc(var(--gttr-nln) + env(safe-area-inset-right));
                         --fnt-sz-prmr: .875rem;
@@ -122,7 +123,7 @@
                         }
                     }
                     nav {
-                        --_dnmc-nln: 50cqi - min(var(--mx-nln-sz), 100cqi) / 2;
+                        --_dnmc-nln: 50cqi - min(var(--mx-nln-sz), 100cqi) / 2 + var(--_gttr, var(--gttr-nln));
                         grid-column: dg-strt / dg-nd;
                         overflow-inline: auto;
                         scrollbar-width: thin;
@@ -134,37 +135,35 @@
                         }
                         @container (inline-size >= 900px) {
                             --_lph-ntl: 0;
-                            --_gttr-nv: 0;
-                            --_nv-lnk-nln: var(--gttr-nln);
+                            --_gttr: 0em;
+                            --_lnk-nln: var(--gttr-nln);
                             @media (any-hover: hover) {
                                 --_lph-hvr: var(--lph-prmr)
                             }
+                            @media (pointer: coarse) {
+                                --_gp: var(--gttr-mn)
+                            }
                         }
                         @media print {
-                            --_gttr-nv: 0;
-                            --_nv-drctn: block
+                            --_gttr: 0em;
+                            --_drctn: block
                         }
                         &:focus-within {
                             scroll-behavior: var(--srll-bhvr, auto)
                         }
                         & ul {
+                            display: var(--_drctn, inline-flex);
+                            gap: var(--_gp, var(--_gttr, var(--gttr-nln)));
                             padding-block: var(--gttr-blck);
                             padding-left: calc(var(--_dnmc-nln) + var(--sf-lft));
                             padding-right: calc(var(--_dnmc-nln) + var(--sf-rght));
-                            display: var(--_nv-drctn, inline-flex);
                             list-style: none
-                        }
-                        & li {
-                            padding-inline-start: var(--_gttr-nv, var(--gttr-nln));
-                            scroll-snap-align: start;
-                            &:last-child {
-                                padding-inline-end: var(--_gttr-nv, var(--gttr-nln))
-                            }
                         }
                         & a:any-link {
                             display: block;
                             padding-block: var(--gttr-blck);
-                            padding-inline: var(--_nv-lnk-nln, var(--gttr-blck));
+                            padding-inline: var(--_lnk-nln, var(--gttr-blck));
+                            scroll-snap-align: start;
                             color: inherit;
                             font-size: var(--fnt-sz-prmr);
                             text-decoration: var(--txt-dcrtn, none);
