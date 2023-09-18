@@ -89,16 +89,17 @@
                         min-block-size: 100svb;
                         padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
                         background: oklch(var(--bck-prmr-klch));
-                        font-size: var(--_bd-fnt-sz, var(--fnt-sz-scndr));
+                        font-size: var(--_fnt-sz, var(--fnt-sz-scndr));
+                        font-size-adjust: from-font;
                         color: var(--lbl-scndr);
                         @container icb (inline-size >= 900px) {
-                            --_bd-fnt-sz: var(--fnt-sz-trtr);
+                            --_fnt-sz: var(--fnt-sz-trtr);
                             @container icb (inline-size >= 1250px) {
-                                --_bd-fnt-sz: var(--fnt-sz-qtrnr)
+                                --_fnt-sz: var(--fnt-sz-qtrnr)
                             }
                         }
                         @media print {
-                            --_bd-fnt-sz: var(--fnt-sz-qtrnr)
+                            --_fnt-sz: var(--fnt-sz-qtrnr)
                         }
                     }
                 }
