@@ -18,27 +18,23 @@
                         --lbl-scndr-lph: .8;
                         --lbl-prmr: oklch(20.58% 0.009 var(--hue) / var(--lbl-prmr-lph));
                         --lbl-scndr: oklch(42.06% 0.016 var(--hue) / var(--lbl-scndr-lph));
-                        --lph-prmr: .0875;
-                        --lph-scndr: .1;
-                        --lph-trtr: .16;
-                        --lph-qutrnr: .28;
+                        --lph-prmr: .1;
+                        --lph-scndr: .16;
+                        --lph-trtr: .28;
                         --mx-nln-sz: 58ch;
-                        --gttr-nln: clamp(.25rem, 2.1vw, 1.5rem);
-                        --gttr-blck: clamp(.25rem, 2.5vh, 1.5rem);
+                        --gttr-mn: .25rem;
+                        --gttr-blck: clamp(var(--gttr-mn), 2.5svb, 1.5rem);
+                        --gttr-nln: clamp(var(--gttr-mn), 2.1svi, 1.5rem);
                         --sf-lft: calc(var(--gttr-nln) + env(safe-area-inset-left));
                         --sf-rght: calc(var(--gttr-nln) + env(safe-area-inset-right));
-                        --fnt-sz-prmr: 1.5rem;
-                        --fnt-sz-scndr: .875rem;
+                        --fnt-sz-prmr: .875rem;
+                        --fnt-sz-scndr: 1.5rem;
+                        --fnt-sz-trtr: 2rem;
+                        --fnt-sz-qtrnr: 2.5rem;
                         --lttr-spcng-prmr: -.004em;
                         --lttr-spcng-scndr: .075em;
-                        --brdr-rds: .375rem;
+                        --brdr-rds: .5rem;
                         --cbc-bzr: .68, .48, .48, .98;
-                        @media (width >= 900px) {
-                            --fnt-sz-prmr: 2rem;
-                            @media (width >= 1250px), print {
-                                --fnt-sz-prmr: 2.5rem
-                            }
-                        }
                         @media (prefers-reduced-motion: no-preference) {
                             --srll-bhvr: smooth;
                             @media (any-hover: hover) {
@@ -66,54 +62,6 @@
                             }
                         }
                     }
-                    @supports not (selector(&)) {
-                        @media (width >= 900px) {
-                            :root {
-                                --fnt-sz-prmr: 2rem
-                            }
-                            @media (width >= 1250px), print {
-                                :root {
-                                    --fnt-sz-prmr: 2.5rem
-                                }
-                            }
-                        }
-                        @media (prefers-reduced-motion: no-preference) {
-                            :root {
-                                --srll-bhvr: smooth
-                            }
-                            @media (any-hover: hover) {
-                                :root {
-                                    --trnstn-drtn: 200ms
-                                }
-                            }
-                        }
-                        @media (prefers-contrast: more) {
-                            :root {
-                                --txt-dcrtn: underline;
-                                --bck-prmr-klch: 99.62% 0.002 var(--hue);
-                                --bck-scndr-klch: 61.16% 0.059 var(--hue);
-                                --lbl-prmr: oklch(0% 0 var(--hue) / var(--lbl-prmr-lph));
-                                --lbl-scndr: oklch(18.29% 0.009 var(--hue) / var(--lbl-scndr-lph))
-                            }
-                        }
-                        @media (prefers-color-scheme: dark) {
-                            :root {
-                                --bck-prmr-klch: 0% 0 var(--hue);
-                                --bck-scndr-klch: 89.18% 0.045 var(--hue);
-                                --lbl-prmr-lph: .97;
-                                --lbl-scndr-lph: .75;
-                                --lbl-prmr: oklch(96.25% 0.005 var(--hue) / var(--lbl-prmr-lph));
-                                --lbl-scndr: oklch(83.13% 0.016 var(--hue) / var(--lbl-scndr-lph))
-                            }
-                            @media (prefers-contrast: more) {
-                                :root {
-                                    --bck-scndr-klch: 96.38% 0.016 var(--hue);
-                                    --lbl-prmr: oklch(99.63% 0.001 var(--hue) / var(--lbl-prmr-lph));
-                                    --lbl-scndr: oklch(95.49% 0.006 var(--hue) / var(--lbl-scndr-lph))
-                                }
-                            }
-                        }
-                    }
                 }
                 @layer resets {
                     * {
@@ -122,7 +70,7 @@
                         -webkit-font-smoothing: antialiased
                     }
                     ::selection {
-                        background: oklch(var(--bck-scndr-klch) / var(--lph-qutrnr));
+                        background: oklch(var(--bck-scndr-klch) / var(--lph-trtr));
                         color: var(--lbl-prmr)
                     }
                     body, h1, h2, ul, p {
@@ -130,6 +78,10 @@
                     }
                 }
                 @layer layouts {
+                    html {
+                        container: icb / inline-size;
+                        font: 700 100%/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif
+                    }
                     body {
                         display: grid;
                         grid: auto / [dg-strt] 1fr [mn-strt] minmax(auto, var(--mx-nln-sz)) [mn-nd] 1fr [dg-nd];
@@ -137,8 +89,18 @@
                         min-block-size: 100svb;
                         padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
                         background: oklch(var(--bck-prmr-klch));
-                        font: 700 var(--fnt-sz-prmr)/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
-                        color: var(--lbl-scndr)
+                        font-size: var(--_fnt-sz, var(--fnt-sz-scndr));
+                        font-size-adjust: from-font;
+                        color: var(--lbl-scndr);
+                        @container icb (inline-size >= 900px) {
+                            --_fnt-sz: var(--fnt-sz-trtr);
+                            @container icb (inline-size >= 1250px) {
+                                --_fnt-sz: var(--fnt-sz-qtrnr)
+                            }
+                        }
+                        @media print {
+                            --_fnt-sz: var(--fnt-sz-qtrnr)
+                        }
                     }
                 }
                 @layer components {
@@ -151,7 +113,6 @@
                         padding-left: var(--sf-lft);
                         padding-right: var(--sf-rght);
                         letter-spacing: var(--lttr-spcng-prmr);
-
                         &, section {
                             padding-block: var(--gttr-blck)
                         }
@@ -162,64 +123,49 @@
                             display: inline
                         }
                     }
-                    @supports not (selector(&)) {
-                        main, main section {
-                            padding-block: var(--gttr-blck)
-                        }
-                        main section {
-                            padding-inline: var(--gttr-nln)
-                        }
-                        main :is(h2, p) {
-                            display: inline
-                        }
-                    }
                     nav {
-                        --_dnmc-nln: 50cqi - min(var(--mx-nln-sz), 100cqi) / 2;
-                        container: nav / inline-size;
+                        --_dnmc-nln: 50cqi - min(var(--mx-nln-sz), 100cqi) / 2 + var(--_gttr, var(--gttr-nln));
                         grid-column: dg-strt / dg-nd;
                         overflow-inline: auto;
+                        scrollbar-width: thin;
                         overscroll-behavior-inline: contain;
                         scroll-padding: 0 calc(var(--_dnmc-nln) + var(--sf-rght)) 0 calc(var(--_dnmc-nln) + var(--sf-lft));
                         scroll-snap-type: inline mandatory;
                         @media (any-hover: hover) {
-                            --_lph-ntl: var(--lph-prmr);
-                            --_lph-hvr: var(--lph-trtr)
+                            --_lph-hvr: var(--lph-scndr)
+                        }
+                        @container (inline-size >= 900px) {
+                            --_lph-ntl: 0;
+                            --_gttr: 0em;
+                            --_lnk-nln: var(--gttr-nln);
+                            --_gp: var(--gttr-mn);
+                            @media (any-hover: hover) {
+                                --_lph-hvr: var(--lph-prmr);
+                                --_gp: 0
+                            }
+                        }
+                        @media print {
+                            --_gttr: 0em;
+                            --_drctn: block
                         }
                         &:focus-within {
                             scroll-behavior: var(--srll-bhvr, auto)
                         }
                         & ul {
+                            display: var(--_drctn, inline-flex);
+                            gap: var(--_gp, var(--_gttr, var(--gttr-nln)));
                             padding-block: var(--gttr-blck);
                             padding-left: calc(var(--_dnmc-nln) + var(--sf-lft));
                             padding-right: calc(var(--_dnmc-nln) + var(--sf-rght));
-                            display: var(--_nv-drctn, inline-flex);
-                            list-style: none;
-                            @container nav (inline-size >= 900px) {
-                                --_lph-ntl: 0;
-                                --_gttr-nv: 0;
-                                --_nv-lnk-nln: var(--gttr-nln);
-                                @media (any-hover: hover) {
-                                    --_lph-hvr: var(--lph-scndr)
-                                }
-                            }
-                            @media print {
-                                --_gttr-nv: 0;
-                                --_nv-drctn: block
-                            }
-                        }
-                        & li {
-                            padding-inline-start: var(--_gttr-nv, var(--gttr-nln));
-                            scroll-snap-align: start;
-                            &:last-child {
-                                padding-inline-end: var(--_gttr-nv, var(--gttr-nln))
-                            }
+                            list-style: none
                         }
                         & a:any-link {
                             display: block;
                             padding-block: var(--gttr-blck);
-                            padding-inline: var(--_nv-lnk-nln, var(--gttr-blck));
+                            padding-inline: var(--_lnk-nln, var(--gttr-blck));
+                            scroll-snap-align: start;
                             color: inherit;
-                            font-size: var(--fnt-sz-scndr);
+                            font-size: var(--fnt-sz-prmr);
                             text-decoration: var(--txt-dcrtn, none);
                             text-decoration-skip-ink: all;
                             text-transform: uppercase;
@@ -231,87 +177,16 @@
                             touch-action: manipulation;
                             transition: background-color var(--trnstn-drtn, 0s) cubic-bezier(var(--cbc-bzr));
                             &:is(:focus-visible, :hover, :target) {
-                                --_lph-ntl: var(--_lph-hvr, var(--lph-qutrnr))
+                                --_lph-ntl: var(--_lph-hvr, var(--lph-trtr))
                             }
                             &:active {
-                                --_lph-ntl: var(--lph-qutrnr)
+                                --_lph-ntl: var(--lph-trtr)
                             }
                         }
                     }
                     @supports not (overflow-inline: auto) {
                         nav {
                             overflow-x: auto
-                        }
-                    }
-                    @supports not (selector(&)) {
-                        @supports not (overflow-inline: auto) {
-                            nav {
-                                overflow-x: auto
-                            }
-                        }
-                        @media (any-hover: hover) {
-                            nav {
-                                --_lph-ntl: var(--lph-prmr);
-                                --_lph-hvr: var(--lph-trtr)
-                            }
-                        }
-                        nav:focus-within {
-                            scroll-behavior: var(--srll-bhvr, auto)
-                        }
-                        @container nav (inline-size >= 900px) {
-                            nav ul {
-                                --_lph-ntl: 0;
-                                --_gttr-nv: 0;
-                                --_nv-lnk-nln: var(--gttr-nln)
-                            }
-                            @media (any-hover: hover) {
-                                nav ul {
-                                    --_lph-hvr: var(--lph-scndr)
-                                }
-                            }
-                        }
-                        @media print {
-                            nav ul {
-                                --_gttr-nv: 0;
-                                --_nv-drctn: block
-                            }
-                        }
-                        nav ul {
-                            padding-block: var(--gttr-blck);
-                            padding-left: calc(var(--_dnmc-nln) + var(--sf-lft));
-                            padding-right: calc(var(--_dnmc-nln) + var(--sf-rght));
-                            display: var(--_nv-drctn, inline-flex);
-                            list-style: none
-                        }
-                        nav li {
-                            padding-inline-start: var(--_gttr-nv, var(--gttr-nln));
-                            scroll-snap-align: start
-                        }
-                        nav li:last-child {
-                            padding-inline-end: var(--_gttr-nv, var(--gttr-nln))
-                        }
-                        nav a:any-link {
-                            display: block;
-                            padding-block: var(--gttr-blck);
-                            padding-inline: var(--_nv-lnk-nln, var(--gttr-blck));
-                            color: inherit;
-                            font-size: var(--fnt-sz-scndr);
-                            text-decoration: var(--txt-dcrtn, none);
-                            text-decoration-skip-ink: all;
-                            text-transform: uppercase;
-                            white-space: nowrap;
-                            letter-spacing: var(--lttr-spcng-scndr);
-                            outline: none;
-                            border-radius: var(--brdr-rds);
-                            background: oklch(var(--bck-scndr-klch) / var(--_lph-ntl, var(--lph-prmr)));
-                            touch-action: manipulation;
-                            transition: background-color var(--trnstn-drtn, 0s) cubic-bezier(var(--cbc-bzr))
-                        }
-                        nav a:any-link:is(:focus-visible, :hover, :target) {
-                            --_lph-ntl: var(--_lph-hvr, var(--lph-qutrnr))
-                        }
-                        nav a:any-link:active {
-                            --_lph-ntl: var(--lph-qutrnr)
                         }
                     }
                 }
@@ -338,19 +213,21 @@
         <nav>
             <ul aria-label="Réseaux sociaux et contact">
                 <li>
-                    <h1><a href="." title="Roman Czerkies" translate="no">Roman Czerkies</a></h1>
+                    <h1 title="Site personnel de Roman Czerkies">
+                        <a href="." translate="no">Roman Czerkies</a>
+                    </h1>
                 </li>
                 <li>
-                    <a href="//twitter.com/roman_czerkies" id="twitter" title="Twitter @roman_czerkies">Twitter</a>
+                    <a href="//twitter.com/roman_czerkies" id="twitter" title="Veille technologique Twitter de @roman_czerkies">Twitter</a>
                 </li>
                 <li>
-                    <a href="//linkedin.com/in/romanczerkies" id="linkedin" title="LinkedIn Roman Czerkies">LinkedIn</a>
+                    <a href="//linkedin.com/in/romanczerkies" id="linkedin" title="Réseau professionnel LinkedIn de Roman Czerkies">LinkedIn</a>
                 </li>
                 <li>
                     <a href="//github.com/czerkies/romanczerkies.31" id="github" title="Dépôt GitHub du projet romanczerkies.fr Version 31">GitHub</a>
                 </li>
                 <li>
-                    <a href="//strava.com/athletes/roman_czerkies" id="strava" title="Strava Roman Czerkies">Strava</a>
+                    <a href="//strava.com/athletes/roman_czerkies" id="strava" title="Activités sportives Strava de Roman Czerkies">Strava</a>
                 </li>
                 <li>
                     <a href="mailto:contact@romanczerkies.fr?subject=Demande%20de%20contact" id="contact" title="Adresser un courriel à Roman Czerkies">contact@romanczerkies.fr</a>
@@ -358,5 +235,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.13.0 -->
+    <!-- romanczerkies.fr Version 31.14.0 -->
 </html>
