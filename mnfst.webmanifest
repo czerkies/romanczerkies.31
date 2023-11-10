@@ -10,7 +10,7 @@
   "id": "/",
   "lang": "fr",
   "name": "Roman Czerkies",
-  "orientation": "portrait",
+  "orientation": "any",
   "scope": "/",
   "short_name": "romanczerki.es",
   "start_url": ".",
