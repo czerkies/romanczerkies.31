@@ -80,6 +80,7 @@
                 @layer layouts {
                     html {
                         container: icb / inline-size;
+                        background: oklch(var(--bck-prmr-klch));
                         font: 700 100%/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif
                     }
                     body {
@@ -88,7 +89,6 @@
                         align-content: center;
                         min-block-size: 100svb;
                         padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
-                        background: oklch(var(--bck-prmr-klch));
                         font-size: var(--_fnt-sz, var(--fnt-sz-scndr));
                         font-size-adjust: from-font;
                         color: var(--lbl-scndr);
