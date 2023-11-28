@@ -34,12 +34,11 @@
                         --lttr-spcng-prmr: -.004em;
                         --lttr-spcng-scndr: .075em;
                         --brdr-rds: .5rem;
-                        --cbc-bzr: .68, .48, .48, .98;
+                        --cbc-bzr: cubic-bezier(.68, .48, .48, .98);
                         @media (prefers-reduced-motion: no-preference) {
                             --srll-bhvr: smooth;
-                            @media (any-hover: hover) {
-                                --trnstn-drtn: 200ms
-                            }
+                            --trnstn-drtn-prmr: 200ms;
+                            --trnstn-drtn-scndr: 32ms
                         }
                         @media (prefers-contrast: more) {
                             --txt-dcrtn: underline;
@@ -132,7 +131,9 @@
                         scroll-padding: 0 calc(var(--_dnmc-nln) + var(--sf-rght)) 0 calc(var(--_dnmc-nln) + var(--sf-lft));
                         scroll-snap-type: inline mandatory;
                         @media (any-hover: hover) {
-                            --_lph-hvr: var(--lph-scndr)
+                            --_lph-hvr: var(--lph-scndr);
+                            --_trstn-bckgrd: var(--trnstn-drtn-prmr);
+                            --_trstn-tln: var(--trnstn-drtn-scndr)
                         }
                         @container (inline-size >= 900px) {
                             --_lph-ntl: 0;
@@ -173,16 +174,21 @@
                             text-box-trim: both;
                             white-space: nowrap;
                             letter-spacing: var(--lttr-spcng-scndr);
-                            outline: none;
+                            outline-offset: calc(var(--gttr-mn) / var(--_tln-ffst, 2.5));
                             border-radius: var(--brdr-rds);
                             background: oklch(var(--bck-scndr-klch) / var(--_lph-ntl, var(--lph-prmr)));
                             touch-action: manipulation;
-                            transition: background-color var(--trnstn-drtn, 0s) cubic-bezier(var(--cbc-bzr));
+                            transition: background-color var(--_trstn-bckgrd, 0s) var(--cbc-bzr), outline-offset var(--_trstn-tln, 0s) var(--cbc-bzr);
                             &:is(:focus-visible, :hover, :target) {
                                 --_lph-ntl: var(--_lph-hvr, var(--lph-trtr))
                             }
                             &:active {
                                 --_lph-ntl: var(--lph-trtr)
+                            }
+                            &:focus-visible {
+                                --_trstn-bckgrd: calc(var(--_trstn-tln) / 2);
+                                --_tln-ffst: 1;
+                                outline: var(--lbl-scndr) solid var(--gttr-mn)
                             }
                         }
                     }
