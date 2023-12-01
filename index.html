@@ -115,11 +115,11 @@
                         &, section {
                             padding-block: var(--gttr-blck)
                         }
-                        & section {
-                            padding-inline: var(--gttr-nln)
-                        }
-                        :is(h2, p) {
-                            display: inline
+                        section {
+                            padding-inline: var(--gttr-nln);
+                            h2, p {
+                                display: inline
+                            }
                         }
                     }
                     nav {
@@ -152,43 +152,43 @@
                         &:focus-within {
                             scroll-behavior: var(--srll-bhvr, auto)
                         }
-                        & ul {
+                        ul {
                             display: var(--_drctn, inline-flex);
                             gap: var(--_gp, var(--_gttr, var(--gttr-nln)));
                             padding-block: var(--gttr-blck);
                             padding-left: calc(var(--_dnmc-nln) + var(--sf-lft));
                             padding-right: calc(var(--_dnmc-nln) + var(--sf-rght));
-                            list-style: none
-                        }
-                        & a:any-link {
-                            display: block;
-                            padding-block: var(--gttr-blck);
-                            padding-inline: var(--_lnk-nln, var(--gttr-blck));
-                            scroll-snap-align: start;
-                            color: inherit;
-                            font-size: var(--fnt-sz-prmr);
-                            text-decoration: var(--txt-dcrtn, none);
-                            text-decoration-skip-ink: all;
-                            text-transform: uppercase;
-                            text-box-edge: cap alphabetic;
-                            text-box-trim: both;
-                            white-space: nowrap;
-                            letter-spacing: var(--lttr-spcng-scndr);
-                            outline-offset: calc(var(--gttr-mn) / var(--_tln-ffst, 2.5));
-                            border-radius: var(--brdr-rds);
-                            background: oklch(var(--bck-scndr-klch) / var(--_lph-ntl, var(--lph-prmr)));
-                            touch-action: manipulation;
-                            transition: background-color var(--_trstn-bckgrd, 0s) var(--cbc-bzr), outline-offset var(--_trstn-tln, 0s) var(--cbc-bzr);
-                            &:is(:focus-visible, :hover, :target) {
-                                --_lph-ntl: var(--_lph-hvr, var(--lph-trtr))
-                            }
-                            &:active {
-                                --_lph-ntl: var(--lph-trtr)
-                            }
-                            &:focus-visible {
-                                --_trstn-bckgrd: calc(var(--_trstn-tln) / 2);
-                                --_tln-ffst: 1;
-                                outline: var(--lbl-scndr) solid var(--gttr-mn)
+                            list-style: none;
+                            a:any-link {
+                                display: block;
+                                padding-block: var(--gttr-blck);
+                                padding-inline: var(--_lnk-nln, var(--gttr-blck));
+                                scroll-snap-align: start;
+                                color: inherit;
+                                font-size: var(--fnt-sz-prmr);
+                                text-decoration: var(--txt-dcrtn, none);
+                                text-decoration-skip-ink: all;
+                                text-transform: uppercase;
+                                text-box-edge: cap alphabetic;
+                                text-box-trim: both;
+                                white-space: nowrap;
+                                letter-spacing: var(--lttr-spcng-scndr);
+                                outline-offset: calc(var(--gttr-mn) / var(--_tln-ffst, 2.5));
+                                border-radius: var(--brdr-rds);
+                                background: oklch(var(--bck-scndr-klch) / var(--_lph-ntl, var(--lph-prmr)));
+                                touch-action: manipulation;
+                                transition: background-color var(--_trstn-bckgrd, 0s) var(--cbc-bzr), outline-offset var(--_trstn-tln, 0s) var(--cbc-bzr);
+                                &:is(:focus-visible, :hover, :target) {
+                                    --_lph-ntl: var(--_lph-hvr, var(--lph-trtr))
+                                }
+                                &:active {
+                                    --_lph-ntl: var(--lph-trtr)
+                                }
+                                &:focus-visible {
+                                    --_trstn-bckgrd: calc(var(--_trstn-tln) / 2);
+                                    --_tln-ffst: 1;
+                                    outline: var(--lbl-scndr) solid var(--gttr-mn)
+                                }
                             }
                         }
                     }
