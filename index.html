@@ -67,9 +67,7 @@
                 }
                 @layer resets {
                     * {
-                        box-sizing: border-box;
-                        text-rendering: optimizeLegibility;
-                        -webkit-font-smoothing: antialiased
+                        box-sizing: border-box
                     }
                     ::selection {
                         background: oklch(var(--bck-scndr-klch) / var(--lph-trtr));
@@ -94,6 +92,9 @@
                         font-size: var(--_fnt-sz, var(--fnt-sz-scndr));
                         font-size-adjust: from-font;
                         color: var(--lbl-scndr);
+                        text-rendering: optimizeLegibility;
+                        -webkit-font-smoothing: antialiased;
+                        -moz-osx-font-smoothing: grayscale;
                         @container icb (inline-size >= 900px) {
                             --_fnt-sz: var(--fnt-sz-trtr);
                             @container icb (inline-size >= 1250px) {
