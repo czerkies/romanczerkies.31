@@ -1,5 +1,5 @@
 {
-  "background_color": "#000",
+  "background_color": "oklch(0 0 228.752)",
   "dir": "auto",
   "display": "standalone",
   "icons": [{
@@ -10,9 +10,9 @@
   "id": "/",
   "lang": "fr",
   "name": "Roman Czerkies",
-  "orientation": "portrait",
+  "orientation": "any",
   "scope": "/",
   "short_name": "romanczerki.es",
   "start_url": ".",
-  "theme_color": "#000"
+  "theme_color": "oklch(0 0 228.752)"
 }

@@ -14,13 +14,13 @@
                         --hue: 228.752;
                         --bck-prmr-klch: 99.25% 0.001 var(--hue);
                         --bck-scndr-klch: 77.17% 0.04 var(--hue);
-                        --lbl-prmr-lph: .98;
-                        --lbl-scndr-lph: .8;
+                        --lbl-prmr-lph: .99;
+                        --lbl-scndr-lph: .84;
                         --lbl-prmr: oklch(20.58% 0.009 var(--hue) / var(--lbl-prmr-lph));
                         --lbl-scndr: oklch(42.06% 0.016 var(--hue) / var(--lbl-scndr-lph));
-                        --lph-prmr: .1;
-                        --lph-scndr: .16;
-                        --lph-trtr: .28;
+                        --lph-prmr: .12;
+                        --lph-scndr: .24;
+                        --lph-trtr: .35;
                         --mx-nln-sz: 58ch;
                         --gttr-mn: .25rem;
                         --gttr-blck: clamp(var(--gttr-mn), 2.5svb, 1.5rem);
@@ -34,27 +34,29 @@
                         --lttr-spcng-prmr: -.004em;
                         --lttr-spcng-scndr: .075em;
                         --brdr-rds: .5rem;
-                        --cbc-bzr: .68, .48, .48, .98;
+                        --cbc-bzr: cubic-bezier(.68, .48, .48, .98);
                         @media (prefers-reduced-motion: no-preference) {
                             --srll-bhvr: smooth;
-                            @media (any-hover: hover) {
-                                --trnstn-drtn: 200ms
-                            }
+                            --trnstn-drtn-prmr: 200ms;
+                            --trnstn-drtn-scndr: 42ms
                         }
                         @media (prefers-contrast: more) {
                             --txt-dcrtn: underline;
                             --bck-prmr-klch: 99.62% 0.002 var(--hue);
                             --bck-scndr-klch: 61.16% 0.059 var(--hue);
-                            --lbl-prmr: oklch(0% 0 var(--hue) / var(--lbl-prmr-lph));
+                            --lbl-prmr: oklch(0 0 var(--hue) / var(--lbl-prmr-lph));
                             --lbl-scndr: oklch(18.29% 0.009 var(--hue) / var(--lbl-scndr-lph))
                         }
                         @media (prefers-color-scheme: dark) {
-                            --bck-prmr-klch: 0% 0 var(--hue);
+                            --bck-prmr-klch: 0 0 var(--hue);
                             --bck-scndr-klch: 89.18% 0.045 var(--hue);
-                            --lbl-prmr-lph: .97;
-                            --lbl-scndr-lph: .75;
+                            --lbl-prmr-lph: .95;
+                            --lbl-scndr-lph: .72;
                             --lbl-prmr: oklch(96.25% 0.005 var(--hue) / var(--lbl-prmr-lph));
                             --lbl-scndr: oklch(83.13% 0.016 var(--hue) / var(--lbl-scndr-lph));
+                            --lph-prmr: .1;
+                            --lph-scndr: .14;
+                            --lph-trtr: .22;
                             @media (prefers-contrast: more) {
                                 --bck-scndr-klch: 96.38% 0.016 var(--hue);
                                 --lbl-prmr: oklch(99.63% 0.001 var(--hue) / var(--lbl-prmr-lph));
@@ -65,9 +67,7 @@
                 }
                 @layer resets {
                     * {
-                        box-sizing: border-box;
-                        text-rendering: optimizeLegibility;
-                        -webkit-font-smoothing: antialiased
+                        box-sizing: border-box
                     }
                     ::selection {
                         background: oklch(var(--bck-scndr-klch) / var(--lph-trtr));
@@ -80,6 +80,7 @@
                 @layer layouts {
                     html {
                         container: icb / inline-size;
+                        background: oklch(var(--bck-prmr-klch));
                         font: 700 100%/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif
                     }
                     body {
@@ -88,10 +89,12 @@
                         align-content: center;
                         min-block-size: 100svb;
                         padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
-                        background: oklch(var(--bck-prmr-klch));
                         font-size: var(--_fnt-sz, var(--fnt-sz-scndr));
                         font-size-adjust: from-font;
                         color: var(--lbl-scndr);
+                        text-rendering: optimizeLegibility;
+                        -webkit-font-smoothing: antialiased;
+                        -moz-osx-font-smoothing: grayscale;
                         @container icb (inline-size >= 900px) {
                             --_fnt-sz: var(--fnt-sz-trtr);
                             @container icb (inline-size >= 1250px) {
@@ -116,11 +119,11 @@
                         &, section {
                             padding-block: var(--gttr-blck)
                         }
-                        & section {
-                            padding-inline: var(--gttr-nln)
-                        }
-                        :is(h2, p) {
-                            display: inline
+                        section {
+                            padding-inline: var(--gttr-nln);
+                            h2, p {
+                                display: inline
+                            }
                         }
                     }
                     nav {
@@ -132,7 +135,9 @@
                         scroll-padding: 0 calc(var(--_dnmc-nln) + var(--sf-rght)) 0 calc(var(--_dnmc-nln) + var(--sf-lft));
                         scroll-snap-type: inline mandatory;
                         @media (any-hover: hover) {
-                            --_lph-hvr: var(--lph-scndr)
+                            --_lph-hvr: var(--lph-scndr);
+                            --_trstn-bckgrd: var(--trnstn-drtn-prmr);
+                            --_trstn-tln: var(--trnstn-drtn-scndr)
                         }
                         @container (inline-size >= 900px) {
                             --_lph-ntl: 0;
@@ -151,36 +156,44 @@
                         &:focus-within {
                             scroll-behavior: var(--srll-bhvr, auto)
                         }
-                        & ul {
+                        ul {
                             display: var(--_drctn, inline-flex);
                             gap: var(--_gp, var(--_gttr, var(--gttr-nln)));
                             padding-block: var(--gttr-blck);
                             padding-left: calc(var(--_dnmc-nln) + var(--sf-lft));
                             padding-right: calc(var(--_dnmc-nln) + var(--sf-rght));
-                            list-style: none
-                        }
-                        & a:any-link {
-                            display: block;
-                            padding-block: var(--gttr-blck);
-                            padding-inline: var(--_lnk-nln, var(--gttr-blck));
-                            scroll-snap-align: start;
-                            color: inherit;
-                            font-size: var(--fnt-sz-prmr);
-                            text-decoration: var(--txt-dcrtn, none);
-                            text-decoration-skip-ink: all;
-                            text-transform: uppercase;
-                            white-space: nowrap;
-                            letter-spacing: var(--lttr-spcng-scndr);
-                            outline: none;
-                            border-radius: var(--brdr-rds);
-                            background: oklch(var(--bck-scndr-klch) / var(--_lph-ntl, var(--lph-prmr)));
-                            touch-action: manipulation;
-                            transition: background-color var(--trnstn-drtn, 0s) cubic-bezier(var(--cbc-bzr));
-                            &:is(:focus-visible, :hover, :target) {
-                                --_lph-ntl: var(--_lph-hvr, var(--lph-trtr))
-                            }
-                            &:active {
-                                --_lph-ntl: var(--lph-trtr)
+                            list-style: none;
+                            a:any-link {
+                                display: block;
+                                padding-block: var(--gttr-blck);
+                                padding-inline: var(--_lnk-nln, var(--gttr-blck));
+                                scroll-snap-align: start;
+                                color: inherit;
+                                font-size: var(--fnt-sz-prmr);
+                                text-decoration: var(--txt-dcrtn, none);
+                                text-decoration-skip-ink: all;
+                                text-transform: uppercase;
+                                text-box-edge: cap alphabetic;
+                                text-box-trim: both;
+                                white-space: nowrap;
+                                letter-spacing: var(--lttr-spcng-scndr);
+                                outline-offset: calc(var(--gttr-mn) / var(--_tln-ffst, 2.5));
+                                border-radius: var(--brdr-rds);
+                                background: oklch(var(--bck-scndr-klch) / var(--_lph-ntl, var(--lph-prmr)));
+                                touch-action: manipulation;
+                                transition: background-color var(--_trstn-bckgrd, 0s) var(--cbc-bzr), outline-offset var(--_trstn-tln, 0s) var(--cbc-bzr);
+                                &:is(:focus-visible, :hover, :target) {
+                                    --_lph-ntl: var(--_lph-hvr, var(--lph-trtr))
+                                }
+                                &:active {
+                                    --_lph-ntl: var(--lph-trtr);
+                                    --_trstn-bckgrd: var(--_trstn-tln)
+                                }
+                                &:focus-visible {
+                                    --_trstn-bckgrd: calc(var(--_trstn-tln) / 2);
+                                    --_tln-ffst: 1;
+                                    outline: var(--lbl-scndr) solid var(--gttr-mn)
+                                }
                             }
                         }
                     }
@@ -207,7 +220,7 @@
         <main>
             <section>
                 <h2>Designer & Développeur d'Interface Humaine.</h2>
-                <p>Spécialisé dans la conception centrée utilisateurs et développement de Design Systems. Largement inspiré du minimalisme et brutalisme, les créations tendent à un design simple et inclusif.</p>
+                <p>Spécialisé dans la conception centrée utilisateurs et développement de Design Systems. Largement inspirées du minimalisme et brutalisme, les créations tendent à un design simple et inclusif.</p>
             </section>
         </main>
         <nav>
@@ -235,5 +248,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.14.0 -->
+    <!-- romanczerkies.fr Version 31.15.0 -->
 </html>
