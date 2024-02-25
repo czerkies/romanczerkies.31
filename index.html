@@ -134,6 +134,9 @@
                         overscroll-behavior-inline: contain;
                         scroll-padding: 0 calc(var(--_dnmc-nln) + var(--sf-rght)) 0 calc(var(--_dnmc-nln) + var(--sf-lft));
                         scroll-snap-type: inline mandatory;
+                        @supports not (overflow-inline: auto) {
+                            overflow-x: auto
+                        }
                         @media (any-hover: hover) {
                             --_lph-hvr: var(--lph-scndr);
                             --_trstn-bckgrd: var(--trnstn-drtn-prmr);
@@ -195,11 +198,6 @@
                                     outline: var(--lbl-scndr) solid var(--gttr-mn)
                                 }
                             }
-                        }
-                    }
-                    @supports not (overflow-inline: auto) {
-                        nav {
-                            overflow-x: auto
                         }
                     }
                 }
