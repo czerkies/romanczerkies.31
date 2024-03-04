@@ -85,7 +85,7 @@
                     }
                     body {
                         display: grid;
-                        grid: auto / [dg-strt] 1fr [mn-strt] minmax(auto, var(--mx-nln-sz)) [mn-nd] 1fr [dg-nd];
+                        grid: auto-flow / [dg-strt] 1fr [mn-strt] minmax(auto, var(--mx-nln-sz)) [mn-nd] 1fr [dg-nd];
                         align-content: center;
                         min-block-size: 100svb;
                         padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
@@ -159,8 +159,10 @@
                         &:focus-within {
                             scroll-behavior: var(--srll-bhvr, auto)
                         }
+                        &, ul {
+                            display: var(--_drctn, flex)
+                        }
                         ul {
-                            display: var(--_drctn, flex);
                             gap: var(--_gp, var(--_gttr, var(--gttr-nln)));
                             padding-block: var(--gttr-blck);
                             padding-left: calc(var(--_dnmc-nln) + var(--sf-lft));
