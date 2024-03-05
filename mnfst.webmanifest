@@ -12,6 +12,16 @@
   "name": "Roman Czerkies",
   "orientation": "any",
   "scope": "/",
+  "shortcuts": [
+    {
+      "name": "New Kitten",
+      "url": "/new-kitten"
+    },
+    {
+      "name": "Discover",
+      "url": "/discover"
+    }
+  ],
   "short_name": "romanczerki.es",
   "start_url": ".",
   "theme_color": "oklch(0 0 228.752)"
