@@ -63,6 +63,10 @@
                                 --lbl-scndr: oklch(95.49% 0.006 var(--hue) / var(--lbl-scndr-lph))
                             }
                         }
+                        @media (prefers-reduced-transparency: reduce) {
+                            --lbl-prmr-lph: 1;
+                            --lbl-scndr-lph: 1;
+                        }
                     }
                 }
                 @layer resets {
