@@ -17,7 +17,7 @@
     "name": "Twitter",
     "short_name": "Twitter",
     "description": "Veille technologique Twitter de @roman_czerkies",
-    "url": "twitter/",
+    "url": "./#twitter",
     "icons": [{
       "src": "cn.png",
       "sizes": "256x256",
