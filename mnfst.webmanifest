@@ -13,6 +13,57 @@
   "orientation": "any",
   "scope": "/",
   "short_name": "romanczerki.es",
+  "shortcuts": [{
+    "name": "Twitter",
+    "short_name": "Twitter",
+    "description": "Veille technologique Twitter de @roman_czerkies",
+    "url": "twitter/",
+    "icons": [{
+      "src": "cn.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }]
+  },{
+    "name": "LinkedIn",
+    "short_name": "LinkedIn",
+    "description": "Réseau professionnel LinkedIn de Roman Czerkies",
+    "url": "./#linkedin",
+    "icons": [{
+      "src": "cn.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }]
+  },{
+    "name": "GitHub",
+    "short_name": "GitHub",
+    "description": "Dépôt GitHub du projet romanczerkies.fr Version 31",
+    "url": "./#github",
+    "icons": [{
+      "src": "cn.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }]
+  },{
+    "name": "Strava",
+    "short_name": "Strava",
+    "description": "Activités sportives Strava de Roman Czerkies",
+    "url": "./#strava",
+    "icons": [{
+      "src": "cn.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }]
+  },{
+    "name": "Contact",
+    "short_name": "Contact",
+    "description": "Adresser un courriel à Roman Czerkies",
+    "url": "./#contact",
+    "icons": [{
+      "src": "cn.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }]
+  }],
   "start_url": ".",
   "theme_color": "oklch(0 0 228.752)"
 }
