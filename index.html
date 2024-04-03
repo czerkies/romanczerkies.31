@@ -144,11 +144,11 @@
                         }
                         @media (any-hover: hover) {
                             --_lph-hvr: var(--lph-scndr);
-                            --_trstn-bckgrd: var(--trnstn-drtn-prmr);
-                            --_trstn-tln: var(--trnstn-drtn-scndr)
+                            --_trstn-bckgrd: var(--trnstn-drtn-prmr)
                         }
                         @container (inline-size >= 900px) {
                             --_lph-ntl: 0;
+                            --_lph-fcs: var(--lph-prmr);
                             --_gttr: 0em;
                             --_lnk-nln: var(--gttr-nln);
                             --_gp: var(--gttr-mn);
@@ -192,14 +192,16 @@
                                 background: oklch(var(--bck-scndr-klch) / var(--_lph-ntl, var(--lph-prmr)));
                                 touch-action: manipulation;
                                 transition: background-color var(--_trstn-bckgrd, 0s) var(--cbc-bzr), outline-offset var(--_trstn-tln, 0s) var(--cbc-bzr);
-                                &:is(:focus-visible, :hover, :target) {
+                                &:is(:hover, :target) {
                                     --_lph-ntl: var(--_lph-hvr, var(--lph-trtr))
                                 }
                                 &:active {
                                     --_lph-ntl: var(--lph-trtr);
-                                    --_trstn-bckgrd: var(--_trstn-tln)
+                                    --_trstn-bckgrd: var(--trnstn-drtn-scndr)
                                 }
                                 &:focus-visible {
+                                    --_lph-ntl: var(--_lph-fcs, var(--lph-scndr));
+                                    --_trstn-tln: var(--trnstn-drtn-scndr);
                                     --_trstn-bckgrd: calc(var(--_trstn-tln) / 2);
                                     --_tln-ffst: 1;
                                     outline: var(--lbl-scndr) solid var(--gttr-mn)
