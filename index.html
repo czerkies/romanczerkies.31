@@ -40,6 +40,10 @@
                             --trnstn-drtn-prmr: 200ms;
                             --trnstn-drtn-scndr: 42ms
                         }
+                        @media (prefers-reduced-transparency: reduce) {
+                            --lbl-prmr-lph: 1;
+                            --lbl-scndr-lph: .94
+                        }
                         @media (prefers-contrast: more) {
                             --txt-dcrtn: underline;
                             --bck-prmr-klch: 99.62% 0.002 var(--hue);
@@ -57,15 +61,15 @@
                             --lph-prmr: .1;
                             --lph-scndr: .14;
                             --lph-trtr: .22;
+                            @media (prefers-reduced-transparency: reduce) {
+                                --lbl-prmr-lph: 1;
+                                --lbl-scndr-lph: .82
+                            }
                             @media (prefers-contrast: more) {
                                 --bck-scndr-klch: 96.38% 0.016 var(--hue);
                                 --lbl-prmr: oklch(99.63% 0.001 var(--hue) / var(--lbl-prmr-lph));
                                 --lbl-scndr: oklch(95.49% 0.006 var(--hue) / var(--lbl-scndr-lph))
                             }
-                        }
-                        @media (prefers-reduced-transparency: reduce) {
-                            --lbl-prmr-lph: 1;
-                            --lbl-scndr-lph: 1;
                         }
                     }
                 }
