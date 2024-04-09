@@ -23,7 +23,7 @@
                         --lph-trtr: .35;
                         --mx-nln-sz: 58ch;
                         --gttr-mn: .25rem;
-                        --gttr-blck: clamp(var(--gttr-mn), 2.5svb, 1.5rem);
+                        --gttr-blck: clamp(var(--gttr-mn) * 2, 2.5svb, 1.5rem);
                         --gttr-nln: clamp(var(--gttr-mn), 2.1svi, 1.5rem);
                         --sf-lft: calc(var(--gttr-nln) + env(safe-area-inset-left));
                         --sf-rght: calc(var(--gttr-nln) + env(safe-area-inset-right));
@@ -39,6 +39,10 @@
                             --srll-bhvr: smooth;
                             --trnstn-drtn-prmr: 200ms;
                             --trnstn-drtn-scndr: 42ms
+                        }
+                        @media (prefers-reduced-transparency: reduce) {
+                            --lbl-prmr-lph: 1;
+                            --lbl-scndr-lph: .94
                         }
                         @media (prefers-contrast: more) {
                             --txt-dcrtn: underline;
@@ -57,6 +61,10 @@
                             --lph-prmr: .1;
                             --lph-scndr: .14;
                             --lph-trtr: .22;
+                            @media (prefers-reduced-transparency: reduce) {
+                                --lbl-prmr-lph: 1;
+                                --lbl-scndr-lph: .82
+                            }
                             @media (prefers-contrast: more) {
                                 --bck-scndr-klch: 96.38% 0.016 var(--hue);
                                 --lbl-prmr: oklch(99.63% 0.001 var(--hue) / var(--lbl-prmr-lph));
@@ -85,7 +93,7 @@
                     }
                     body {
                         display: grid;
-                        grid: auto / [dg-strt] 1fr [mn-strt] minmax(auto, var(--mx-nln-sz)) [mn-nd] 1fr [dg-nd];
+                        grid: auto-flow / [dg-strt] 1fr [mn-strt] minmax(auto, var(--mx-nln-sz)) [mn-nd] 1fr [dg-nd];
                         align-content: center;
                         min-block-size: 100svb;
                         padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
@@ -121,26 +129,30 @@
                         }
                         section {
                             padding-inline: var(--gttr-nln);
+                            text-wrap: pretty;
                             h2, p {
                                 display: inline
                             }
                         }
                     }
                     nav {
-                        --_dnmc-nln: 50cqi - min(var(--mx-nln-sz), 100cqi) / 2 + var(--_gttr, var(--gttr-nln));
+                        --_dnmc-nln: 50cqi - min(var(--mx-nln-sz) / 2, 50cqi) + var(--_gttr, var(--gttr-nln));
                         grid-column: dg-strt / dg-nd;
                         overflow-inline: auto;
                         scrollbar-width: thin;
                         overscroll-behavior-inline: contain;
                         scroll-padding: 0 calc(var(--_dnmc-nln) + var(--sf-rght)) 0 calc(var(--_dnmc-nln) + var(--sf-lft));
                         scroll-snap-type: inline mandatory;
+                        @supports not (overflow-inline: auto) {
+                            overflow-x: auto
+                        }
                         @media (any-hover: hover) {
                             --_lph-hvr: var(--lph-scndr);
-                            --_trstn-bckgrd: var(--trnstn-drtn-prmr);
-                            --_trstn-tln: var(--trnstn-drtn-scndr)
+                            --_trstn-bckgrd: var(--trnstn-drtn-prmr)
                         }
                         @container (inline-size >= 900px) {
                             --_lph-ntl: 0;
+                            --_lph-fcs: var(--lph-prmr);
                             --_gttr: 0em;
                             --_lnk-nln: var(--gttr-nln);
                             --_gp: var(--gttr-mn);
@@ -156,8 +168,10 @@
                         &:focus-within {
                             scroll-behavior: var(--srll-bhvr, auto)
                         }
+                        &, ul {
+                            display: var(--_drctn, flex)
+                        }
                         ul {
-                            display: var(--_drctn, inline-flex);
                             gap: var(--_gp, var(--_gttr, var(--gttr-nln)));
                             padding-block: var(--gttr-blck);
                             padding-left: calc(var(--_dnmc-nln) + var(--sf-lft));
@@ -182,24 +196,21 @@
                                 background: oklch(var(--bck-scndr-klch) / var(--_lph-ntl, var(--lph-prmr)));
                                 touch-action: manipulation;
                                 transition: background-color var(--_trstn-bckgrd, 0s) var(--cbc-bzr), outline-offset var(--_trstn-tln, 0s) var(--cbc-bzr);
-                                &:is(:focus-visible, :hover, :target) {
+                                &:is(:hover, :target) {
                                     --_lph-ntl: var(--_lph-hvr, var(--lph-trtr))
                                 }
                                 &:active {
                                     --_lph-ntl: var(--lph-trtr);
-                                    --_trstn-bckgrd: var(--_trstn-tln)
+                                    --_trstn-bckgrd: var(--trnstn-drtn-scndr)
                                 }
                                 &:focus-visible {
+                                    --_lph-ntl: var(--_lph-fcs, var(--lph-scndr));
+                                    --_trstn-tln: var(--trnstn-drtn-scndr);
                                     --_trstn-bckgrd: calc(var(--_trstn-tln) / 2);
                                     --_tln-ffst: 1;
                                     outline: var(--lbl-scndr) solid var(--gttr-mn)
                                 }
                             }
-                        }
-                    }
-                    @supports not (overflow-inline: auto) {
-                        nav {
-                            overflow-x: auto
                         }
                     }
                 }
@@ -248,5 +259,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.15.0 -->
+    <!-- romanczerkies.fr Version 31.16.0 -->
 </html>
