@@ -91,124 +91,132 @@
                         background: oklch(var(--bck-prmr-klch));
                         font: 700 100%/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif
                     }
-                    body {
-                        display: grid;
-                        grid: auto-flow / [dg-strt] 1fr [mn-strt] minmax(auto, var(--mx-nln-sz)) [mn-nd] 1fr [dg-nd];
-                        align-content: center;
-                        min-block-size: 100svb;
-                        padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
-                        font-size: var(--_fnt-sz, var(--fnt-sz-scndr));
-                        font-size-adjust: from-font;
-                        color: var(--lbl-scndr);
-                        text-rendering: optimizeLegibility;
-                        -webkit-font-smoothing: antialiased;
-                        -moz-osx-font-smoothing: grayscale;
-                        @container icb (inline-size >= 900px) {
-                            --_fnt-sz: var(--fnt-sz-trtr);
-                            @container icb (inline-size >= 1250px) {
+                    @scope (body) to (> *) {
+                        :scope {
+                            display: grid;
+                            grid: auto-flow / [dg-strt] 1fr [mn-strt] minmax(auto, var(--mx-nln-sz)) [mn-nd] 1fr [dg-nd];
+                            align-content: center;
+                            min-block-size: 100svb;
+                            padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
+                            font-size: var(--_fnt-sz, var(--fnt-sz-scndr));
+                            font-size-adjust: from-font;
+                            color: var(--lbl-scndr);
+                            text-rendering: optimizeLegibility;
+                            -webkit-font-smoothing: antialiased;
+                            -moz-osx-font-smoothing: grayscale;
+                            @container icb (inline-size >= 900px) {
+                                --_fnt-sz: var(--fnt-sz-trtr);
+                                @container icb (inline-size >= 1250px) {
+                                    --_fnt-sz: var(--fnt-sz-qtrnr)
+                                }
+                            }
+                            @media print {
                                 --_fnt-sz: var(--fnt-sz-qtrnr)
                             }
-                        }
-                        @media print {
-                            --_fnt-sz: var(--fnt-sz-qtrnr)
                         }
                     }
                 }
                 @layer components {
-                    h1, h2 {
-                        color: var(--lbl-prmr);
-                        font: inherit
-                    }
-                    main {
-                        grid-column: mn-strt / mn-nd;
-                        padding-left: var(--sf-lft);
-                        padding-right: var(--sf-rght);
-                        letter-spacing: var(--lttr-spcng-prmr);
-                        &, section {
-                            padding-block: var(--gttr-blck)
+                    @scope (h1, h2) to (> *) {
+                        :scope {
+                            color: var(--lbl-prmr);
+                            font: inherit
                         }
-                        section {
-                            padding-inline: var(--gttr-nln);
-                            text-wrap: pretty;
-                            h2, p {
-                                display: inline
+                    }
+                    @scope (main) to (:is(h2, p) > *) {
+                        :scope {
+                            grid-column: mn-strt / mn-nd;
+                            padding-left: var(--sf-lft);
+                            padding-right: var(--sf-rght);
+                            letter-spacing: var(--lttr-spcng-prmr);
+                            &, section {
+                                padding-block: var(--gttr-blck)
                             }
-                        }
+                            section {
+                                padding-inline: var(--gttr-nln);
+                                text-wrap: pretty;
+                                h2, p {
+                                    display: inline
+                                }
+                            }
+                        }   
                     }
-                    nav {
-                        --_dnmc-nln: 50cqi - min(var(--mx-nln-sz) / 2, 50cqi) + var(--_gttr, var(--gttr-nln));
-                        grid-column: dg-strt / dg-nd;
-                        overflow-inline: auto;
-                        scrollbar-width: thin;
-                        overscroll-behavior-inline: contain;
-                        scroll-padding: 0 calc(var(--_dnmc-nln) + var(--sf-rght)) 0 calc(var(--_dnmc-nln) + var(--sf-lft));
-                        scroll-snap-type: inline mandatory;
-                        @supports not (overflow-inline: auto) {
-                            overflow-x: auto
-                        }
-                        @media (any-hover: hover) {
-                            --_lph-hvr: var(--lph-scndr);
-                            --_trstn-bckgrd: var(--trnstn-drtn-prmr)
-                        }
-                        @container (inline-size >= 900px) {
-                            --_lph-ntl: 0;
-                            --_lph-fcs: var(--lph-prmr);
-                            --_gttr: 0em;
-                            --_lnk-nln: var(--gttr-nln);
-                            --_gp: var(--gttr-mn);
+                    @scope (nav) to (a:any-link > *) {
+                        :scope {
+                            --_dnmc-nln: 50cqi - min(var(--mx-nln-sz) / 2, 50cqi) + var(--_gttr, var(--gttr-nln));
+                            grid-column: dg-strt / dg-nd;
+                            overflow-inline: auto;
+                            scrollbar-width: thin;
+                            overscroll-behavior-inline: contain;
+                            scroll-padding: 0 calc(var(--_dnmc-nln) + var(--sf-rght)) 0 calc(var(--_dnmc-nln) + var(--sf-lft));
+                            scroll-snap-type: inline mandatory;
+                            @supports not (overflow-inline: auto) {
+                                overflow-x: auto
+                            }
                             @media (any-hover: hover) {
-                                --_lph-hvr: var(--lph-prmr);
-                                --_gp: 0
+                                --_lph-hvr: var(--lph-scndr);
+                                --_trstn-bckgrd: var(--trnstn-drtn-prmr)
                             }
-                        }
-                        @media print {
-                            --_gttr: 0em;
-                            --_drctn: block
-                        }
-                        &:focus-within {
-                            scroll-behavior: var(--srll-bhvr, auto)
-                        }
-                        &, ul {
-                            display: var(--_drctn, flex)
-                        }
-                        ul {
-                            gap: var(--_gp, var(--_gttr, var(--gttr-nln)));
-                            padding-block: var(--gttr-blck);
-                            padding-left: calc(var(--_dnmc-nln) + var(--sf-lft));
-                            padding-right: calc(var(--_dnmc-nln) + var(--sf-rght));
-                            list-style: none;
-                            a:any-link {
-                                display: block;
+                            @container (inline-size >= 900px) {
+                                --_lph-ntl: 0;
+                                --_lph-fcs: var(--lph-prmr);
+                                --_gttr: 0em;
+                                --_lnk-nln: var(--gttr-nln);
+                                --_gp: var(--gttr-mn);
+                                @media (any-hover: hover) {
+                                    --_lph-hvr: var(--lph-prmr);
+                                    --_gp: 0
+                                }
+                            }
+                            @media print {
+                                --_gttr: 0em;
+                                --_drctn: block
+                            }
+                            &:focus-within {
+                                scroll-behavior: var(--srll-bhvr, auto)
+                            }
+                            &, ul {
+                                display: var(--_drctn, flex)
+                            }
+                            ul {
+                                gap: var(--_gp, var(--_gttr, var(--gttr-nln)));
                                 padding-block: var(--gttr-blck);
-                                padding-inline: var(--_lnk-nln, var(--gttr-blck));
-                                scroll-snap-align: start;
-                                color: inherit;
-                                font-size: var(--fnt-sz-prmr);
-                                text-decoration: var(--txt-dcrtn, none);
-                                text-decoration-skip-ink: all;
-                                text-transform: uppercase;
-                                text-box-edge: cap alphabetic;
-                                text-box-trim: both;
-                                white-space: nowrap;
-                                letter-spacing: var(--lttr-spcng-scndr);
-                                outline-offset: calc(var(--gttr-mn) / var(--_tln-ffst, 2.5));
-                                border-radius: var(--brdr-rds);
-                                background: oklch(var(--bck-scndr-klch) / var(--_lph-ntl, var(--lph-prmr)));
-                                touch-action: manipulation;
-                                transition: background-color var(--_trstn-bckgrd, 0s) var(--cbc-bzr), outline-offset var(--_trstn-tln, 0s) var(--cbc-bzr);
-                                &:is(:hover, :target) {
-                                    --_lph-ntl: var(--_lph-hvr, var(--lph-trtr))
-                                }
-                                &:active {
-                                    --_lph-ntl: var(--lph-trtr);
-                                    --_trstn-bckgrd: var(--trnstn-drtn-scndr)
-                                }
-                                &:focus-visible {
-                                    --_lph-ntl: var(--_lph-fcs, var(--lph-scndr));
-                                    --_trstn-tln: var(--trnstn-drtn-scndr);
-                                    --_trstn-bckgrd: calc(var(--_trstn-tln) / 2);
-                                    --_tln-ffst: 1;
-                                    outline: var(--lbl-scndr) solid var(--gttr-mn)
+                                padding-left: calc(var(--_dnmc-nln) + var(--sf-lft));
+                                padding-right: calc(var(--_dnmc-nln) + var(--sf-rght));
+                                list-style: none;
+                                a:any-link {
+                                    display: block;
+                                    padding-block: var(--gttr-blck);
+                                    padding-inline: var(--_lnk-nln, var(--gttr-blck));
+                                    scroll-snap-align: start;
+                                    color: inherit;
+                                    font-size: var(--fnt-sz-prmr);
+                                    text-decoration: var(--txt-dcrtn, none);
+                                    text-decoration-skip-ink: all;
+                                    text-transform: uppercase;
+                                    text-box-edge: cap alphabetic;
+                                    text-box-trim: both;
+                                    white-space: nowrap;
+                                    letter-spacing: var(--lttr-spcng-scndr);
+                                    outline-offset: calc(var(--gttr-mn) / var(--_tln-ffst, 2.5));
+                                    border-radius: var(--brdr-rds);
+                                    background: oklch(var(--bck-scndr-klch) / var(--_lph-ntl, var(--lph-prmr)));
+                                    touch-action: manipulation;
+                                    transition: background-color var(--_trstn-bckgrd, 0s) var(--cbc-bzr), outline-offset var(--_trstn-tln, 0s) var(--cbc-bzr);
+                                    &:is(:hover, :target) {
+                                        --_lph-ntl: var(--_lph-hvr, var(--lph-trtr))
+                                    }
+                                    &:active {
+                                        --_lph-ntl: var(--lph-trtr);
+                                        --_trstn-bckgrd: var(--trnstn-drtn-scndr)
+                                    }
+                                    &:focus-visible {
+                                        --_lph-ntl: var(--_lph-fcs, var(--lph-scndr));
+                                        --_trstn-tln: var(--trnstn-drtn-scndr);
+                                        --_trstn-bckgrd: calc(var(--_trstn-tln) / 2);
+                                        --_tln-ffst: 1;
+                                        outline: var(--lbl-scndr) solid var(--gttr-mn)
+                                    }
                                 }
                             }
                         }
