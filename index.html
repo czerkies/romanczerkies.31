@@ -35,6 +35,9 @@
                         --lttr-spcng-scndr: .075em;
                         --brdr-rds: .5rem;
                         --cbc-bzr: cubic-bezier(.68, .48, .48, .98);
+                        container: icb / inline-size;
+                        background: oklch(var(--bck-prmr-klch));
+                        font: 700 100%/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
                         @media (prefers-reduced-motion: no-preference) {
                             --srll-bhvr: smooth;
                             --trnstn-drtn-prmr: 200ms;
@@ -82,11 +85,6 @@
                     }
                 }
                 @layer layouts {
-                    html {
-                        container: icb / inline-size;
-                        background: oklch(var(--bck-prmr-klch));
-                        font: 700 100%/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif
-                    }
                     @scope (body) to (> *) {
                         :scope {
                             display: grid;
