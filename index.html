@@ -12,8 +12,10 @@
                 @layer initialContainingBlock {
                     :root {
                         --hue: 228.752;
-                        --bck-prmr-klch: 99.25% 0.001 var(--hue);
-                        --bck-scndr-klch: 77.17% 0.04 var(--hue);
+                        --bck-prmr-klch: light-dark(oklch(99.25% 0.001 var(--hue)), oklch(0 0 var(--hue)));
+                        --bck-prmr-klch-fllbck: 99.25% 0.001 var(--hue);
+                        --bck-scndr-klch: light-dark(oklch(77.17% 0.04 var(--hue)), oklch(89.18% 0.045 var(--hue)));
+                        --bck-scndr-klch-fllbck: 77.17% 0.04 var(--hue);
                         --lbl-prmr-lph: .99;
                         --lbl-scndr-lph: .84;
                         --lbl-prmr: light-dark(oklch(20.58% 0.009 var(--hue) / var(--lbl-prmr-lph)), oklch(96.25% 0.005 var(--hue) / var(--lbl-prmr-lph)));
@@ -36,7 +38,10 @@
                         --brdr-rds: .5rem;
                         --cbc-bzr: cubic-bezier(.68, .48, .48, .98);
                         container: icb / inline-size;
-                        background: oklch(var(--bck-prmr-klch));
+                        background: var(--bck-prmr-klch);
+                        @supports not (color: oklch(from currentColor l c h)) {
+                            background: oklch(var(--bck-prmr-klch-fllbck));
+                        }
                         font: 700 100%/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
                         @media (prefers-reduced-motion: no-preference) {
                             --srll-bhvr: smooth;
@@ -49,14 +54,16 @@
                         }
                         @media (prefers-contrast: more) {
                             --txt-dcrtn: underline;
-                            --bck-prmr-klch: 99.62% 0.002 var(--hue);
-                            --bck-scndr-klch: 61.16% 0.059 var(--hue);
+                            --bck-prmr-klch: light-dark(oklch(99.62% 0.002 var(--hue)), oklch(0 0 var(--hue)));
+                            --bck-prmr-klch-fllbck: 99.62% 0.002 var(--hue);
+                            --bck-scndr-klch: light-dark(oklch(61.16% 0.059 var(--hue)), oklch(96.38% 0.016 var(--hue)));
+                            --bck-scndr-klch-fllbck: 61.16% 0.059 var(--hue);
                             --lbl-prmr: light-dark(oklch(0 0 var(--hue) / var(--lbl-prmr-lph)), oklch(99.63% 0.001 var(--hue) / var(--lbl-prmr-lph)));
                             --lbl-scndr: light-dark(oklch(18.29% 0.009 var(--hue) / var(--lbl-scndr-lph)), oklch(95.49% 0.006 var(--hue) / var(--lbl-scndr-lph)))
                         }
                         @media (prefers-color-scheme: dark) {
-                            --bck-prmr-klch: 0 0 var(--hue);
-                            --bck-scndr-klch: 89.18% 0.045 var(--hue);
+                            --bck-prmr-klch-fllbck: 0 0 var(--hue);
+                            --bck-scndr-klch-fllbck: 89.18% 0.045 var(--hue);
                             --lbl-prmr-lph: .95;
                             --lbl-scndr-lph: .72;
                             --lph-prmr: .1;
@@ -67,7 +74,7 @@
                                 --lbl-scndr-lph: .82
                             }
                             @media (prefers-contrast: more) {
-                                --bck-scndr-klch: 96.38% 0.016 var(--hue)
+                                --bck-scndr-klch-fllbck: 96.38% 0.016 var(--hue);
                             }
                         }
                     }
@@ -77,8 +84,13 @@
                         box-sizing: border-box
                     }
                     ::selection {
-                        background: oklch(var(--bck-scndr-klch) / var(--lph-trtr));
-                        color: var(--lbl-prmr)
+                        background: oklch(from var(--bck-scndr-klch) l c h / var(--lph-trtr));
+                        color: var(--lbl-prmr);
+                    }
+                    @supports not (color: oklch(from currentColor l c h)) {
+                        ::selection {
+                            background: oklch(var(--bck-scndr-klch-fllbck) / var(--lph-trtr));
+                        }
                     }
                     body, h1, h2, ul, p {
                         margin: 0
@@ -235,7 +247,10 @@
                                 letter-spacing: var(--lttr-spcng-scndr);
                                 outline-offset: calc(var(--gttr-mn) / var(--_tln-ffst, 2.5));
                                 border-radius: var(--brdr-rds);
-                                background: oklch(var(--bck-scndr-klch) / var(--_lph-ntl, var(--lph-prmr)));
+                                background: oklch(from var(--bck-scndr-klch) l c h / var(--_lph-ntl, var(--lph-prmr)));
+                                @supports not (color: oklch(from currentColor l c h)) {
+                                    background: oklch(var(--bck-scndr-klch-fllbck) / var(--_lph-ntl, var(--lph-prmr)));
+                                }
                                 touch-action: manipulation;
                                 transition: background-color var(--_trstn-bckgrd, 0s) var(--cbc-bzr), outline-offset var(--_trstn-tln, 0s) var(--cbc-bzr);
                                 &:is(:hover, :target) {
@@ -314,7 +329,10 @@
                                     letter-spacing: var(--lttr-spcng-scndr);
                                     outline-offset: calc(var(--gttr-mn) / var(--_tln-ffst, 2.5));
                                     border-radius: var(--brdr-rds);
-                                    background: oklch(var(--bck-scndr-klch) / var(--_lph-ntl, var(--lph-prmr)));
+                                    background: oklch(from var(--bck-scndr-klch) l c h / var(--_lph-ntl, var(--lph-prmr)));
+                                    @supports not (color: oklch(from currentColor l c h)) {
+                                        background: oklch(var(--bck-scndr-klch-fllbck) / var(--_lph-ntl, var(--lph-prmr)));
+                                    }
                                     touch-action: manipulation;
                                     transition: background-color var(--_trstn-bckgrd, 0s) var(--cbc-bzr), outline-offset var(--_trstn-tln, 0s) var(--cbc-bzr);
                                     &:is(:hover, :target) {
