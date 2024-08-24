@@ -99,7 +99,7 @@
                 @layer layouts {
                     body {
                         display: grid;
-                        grid: auto-flow / [dg-strt] 1fr [mn-strt] minmax(auto, var(--mx-nln-sz)) [mn-nd] 1fr [dg-nd];
+                        grid: auto-flow / [dg-start] 1fr [mn-start] minmax(auto, var(--mx-nln-sz)) [mn-end] 1fr [dg-end];
                         align-content: center;
                         min-block-size: 100svb;
                         padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
@@ -122,7 +122,7 @@
                     @scope (body) to (> *) {
                         :scope {
                             display: grid;
-                            grid: auto-flow / [dg-strt] 1fr [mn-strt] minmax(auto, var(--mx-nln-sz)) [mn-nd] 1fr [dg-nd];
+                            grid: auto-flow / [dg-start] 1fr [mn-start] minmax(auto, var(--mx-nln-sz)) [mn-end] 1fr [dg-end];
                             align-content: center;
                             min-block-size: 100svb;
                             padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
@@ -156,7 +156,7 @@
                         }
                     }
                     main {
-                        grid-column: mn-strt / mn-nd;
+                        grid-column: mn;
                         padding-left: var(--sf-lft);
                         padding-right: var(--sf-rght);
                         letter-spacing: var(--lttr-spcng-prmr);
@@ -173,7 +173,7 @@
                     }
                     @scope (main) to (:is(h2, p) > *) {
                         :scope {
-                            grid-column: mn-strt / mn-nd;
+                            grid-column: mn;
                             padding-left: var(--sf-lft);
                             padding-right: var(--sf-rght);
                             letter-spacing: var(--lttr-spcng-prmr);
@@ -191,7 +191,7 @@
                     }
                     nav {
                         --_dnmc-nln: 50cqi - min(var(--mx-nln-sz) / 2, 50cqi) + var(--_gttr, var(--gttr-nln));
-                        grid-column: dg-strt / dg-nd;
+                        grid-column: dg;
                         overflow-inline: auto;
                         scrollbar-width: thin;
                         overscroll-behavior-inline: contain;
@@ -273,7 +273,7 @@
                     @scope (nav) to (a:any-link > *) {
                         :scope {
                             --_dnmc-nln: 50cqi - min(var(--mx-nln-sz) / 2, 50cqi) + var(--_gttr, var(--gttr-nln));
-                            grid-column: dg-strt / dg-nd;
+                            grid-column: dg;
                             overflow-inline: auto;
                             scrollbar-width: thin;
                             overscroll-behavior-inline: contain;
