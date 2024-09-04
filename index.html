@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
-        <meta name="theme-color" media="(prefers-color-scheme: light)" content="oklch(99.25% 0.001 228.752)">
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="oklch(.9925 .001 228.752)">
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="oklch(0 0 228.752)">
         <title>Roman Czerkies</title>
         <style>
@@ -12,14 +12,14 @@
                 @layer initialContainingBlock {
                     :root {
                         --hue: 228.752;
-                        --bck-prmr-klch: light-dark(oklch(99.25% 0.001 var(--hue)), oklch(0 0 var(--hue)));
-                        --bck-prmr-klch-fllbck: 99.25% 0.001 var(--hue);
-                        --bck-scndr-klch: light-dark(oklch(77.17% 0.04 var(--hue)), oklch(89.18% 0.045 var(--hue)));
-                        --bck-scndr-klch-fllbck: 77.17% 0.04 var(--hue);
+                        --bck-prmr-klch: light-dark(oklch(.9925 .001 var(--hue)), oklch(0 0 var(--hue)));
+                        --bck-prmr-klch-fllbck: .9925 .001 var(--hue);
+                        --bck-scndr-klch: light-dark(oklch(.7717 .04 var(--hue)), oklch(.8918 .045 var(--hue)));
+                        --bck-scndr-klch-fllbck: .7717 .04 var(--hue);
                         --lbl-prmr-lph: .99;
                         --lbl-scndr-lph: .84;
-                        --lbl-prmr: light-dark(oklch(20.58% 0.009 var(--hue) / var(--lbl-prmr-lph)), oklch(96.25% 0.005 var(--hue) / var(--lbl-prmr-lph)));
-                        --lbl-scndr: light-dark(oklch(42.06% 0.016 var(--hue) / var(--lbl-scndr-lph)), oklch(83.13% 0.016 var(--hue) / var(--lbl-scndr-lph)));
+                        --lbl-prmr: light-dark(oklch(.2058 .009 var(--hue) / var(--lbl-prmr-lph)), oklch(.9625 .005 var(--hue) / var(--lbl-prmr-lph)));
+                        --lbl-scndr: light-dark(oklch(.4206 .016 var(--hue) / var(--lbl-scndr-lph)), oklch(.8313 .016 var(--hue) / var(--lbl-scndr-lph)));
                         --lph-prmr: .12;
                         --lph-scndr: .24;
                         --lph-trtr: .35;
@@ -54,16 +54,16 @@
                         }
                         @media (prefers-contrast: more) {
                             --txt-dcrtn: underline;
-                            --bck-prmr-klch: light-dark(oklch(99.62% 0.002 var(--hue)), oklch(0 0 var(--hue)));
-                            --bck-prmr-klch-fllbck: 99.62% 0.002 var(--hue);
-                            --bck-scndr-klch: light-dark(oklch(61.16% 0.059 var(--hue)), oklch(96.38% 0.016 var(--hue)));
-                            --bck-scndr-klch-fllbck: 61.16% 0.059 var(--hue);
-                            --lbl-prmr: light-dark(oklch(0 0 var(--hue) / var(--lbl-prmr-lph)), oklch(99.63% 0.001 var(--hue) / var(--lbl-prmr-lph)));
-                            --lbl-scndr: light-dark(oklch(18.29% 0.009 var(--hue) / var(--lbl-scndr-lph)), oklch(95.49% 0.006 var(--hue) / var(--lbl-scndr-lph)))
+                            --bck-prmr-klch: light-dark(oklch(.9962 .002 var(--hue)), oklch(0 0 var(--hue)));
+                            --bck-prmr-klch-fllbck: .9962 .002 var(--hue);
+                            --bck-scndr-klch: light-dark(oklch(.6116 .059 var(--hue)), oklch(.9638 .016 var(--hue)));
+                            --bck-scndr-klch-fllbck: .6116 .059 var(--hue);
+                            --lbl-prmr: light-dark(oklch(0 0 var(--hue) / var(--lbl-prmr-lph)), oklch(.9963 .001 var(--hue) / var(--lbl-prmr-lph)));
+                            --lbl-scndr: light-dark(oklch(.1829 .009 var(--hue) / var(--lbl-scndr-lph)), oklch(.9549 .006 var(--hue) / var(--lbl-scndr-lph)))
                         }
                         @media (prefers-color-scheme: dark) {
                             --bck-prmr-klch-fllbck: 0 0 var(--hue);
-                            --bck-scndr-klch-fllbck: 89.18% 0.045 var(--hue);
+                            --bck-scndr-klch-fllbck: .8918 .045 var(--hue);
                             --lbl-prmr-lph: .95;
                             --lbl-scndr-lph: .72;
                             --lph-prmr: .1;
@@ -74,7 +74,7 @@
                                 --lbl-scndr-lph: .82
                             }
                             @media (prefers-contrast: more) {
-                                --bck-scndr-klch-fllbck: 96.38% 0.016 var(--hue);
+                                --bck-scndr-klch-fllbck: .9638 .016 var(--hue);
                             }
                         }
                     }
