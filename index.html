@@ -23,6 +23,7 @@
                         --lph-prmr: .12;
                         --lph-scndr: .24;
                         --lph-trtr: .35;
+                        --lph-qutrnr: .55;
                         --mx-nln-sz: 58ch;
                         --gttr-mn: .25rem;
                         --gttr-blck: clamp(var(--gttr-mn) * 2, 2.5svb, 1.5rem);
@@ -69,6 +70,7 @@
                             --lph-prmr: .1;
                             --lph-scndr: .14;
                             --lph-trtr: .22;
+                            --lph-qutrnr: .28;
                             @media (prefers-reduced-transparency: reduce) {
                                 --lbl-prmr-lph: 1;
                                 --lbl-scndr-lph: .82
@@ -83,13 +85,21 @@
                     * {
                         box-sizing: border-box
                     }
+                    ::selection, ::target-text {
+                        color: var(--lbl-prmr)
+                    }
                     ::selection {
-                        background: oklch(from var(--bck-scndr-klch) l c h / var(--lph-trtr));
-                        color: var(--lbl-prmr);
+                        background: oklch(from var(--bck-scndr-klch) l c h / var(--lph-qutrnr))
+                    }
+                    ::target-text {
+                        background: oklch(from var(--bck-scndr-klch) l c h / var(--lph-trtr))
                     }
                     @supports not (color: oklch(from currentColor l c h)) {
                         ::selection {
-                            background: oklch(var(--bck-scndr-klch-fllbck) / var(--lph-trtr));
+                            background: oklch(var(--bck-scndr-klch-fllbck) / var(--lph-qutrnr))
+                        }
+                        ::target-text {
+                            background: oklch(var(--bck-scndr-klch-fllbck) / var(--lph-trtr))
                         }
                     }
                     body, h1, h2, ul, p {
