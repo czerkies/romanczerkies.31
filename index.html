@@ -41,7 +41,7 @@
                         container: icb / inline-size;
                         background: var(--bck-prmr-klch);
                         @supports not (color: oklch(from currentColor l c h)) {
-                            background: oklch(var(--bck-prmr-klch-fllbck));
+                            background: oklch(var(--bck-prmr-klch-fllbck))
                         }
                         font: 700 100%/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
                         @media (prefers-reduced-motion: no-preference) {
@@ -261,7 +261,7 @@
                                 border-radius: var(--brdr-rds);
                                 background: oklch(from var(--bck-scndr-klch) l c h / var(--_lph-ntl, var(--lph-prmr)));
                                 @supports not (color: oklch(from currentColor l c h)) {
-                                    background: oklch(var(--bck-scndr-klch-fllbck) / var(--_lph-ntl, var(--lph-prmr)));
+                                    background: oklch(var(--bck-scndr-klch-fllbck) / var(--_lph-ntl, var(--lph-prmr)))
                                 }
                                 touch-action: manipulation;
                                 transition: background-color var(--_trstn-bckgrd, 0s) var(--cbc-bzr), outline-offset var(--_trstn-tln, 0s) var(--cbc-bzr);
@@ -343,7 +343,7 @@
                                     border-radius: var(--brdr-rds);
                                     background: oklch(from var(--bck-scndr-klch) l c h / var(--_lph-ntl, var(--lph-prmr)));
                                     @supports not (color: oklch(from currentColor l c h)) {
-                                        background: oklch(var(--bck-scndr-klch-fllbck) / var(--_lph-ntl, var(--lph-prmr)));
+                                        background: oklch(var(--bck-scndr-klch-fllbck) / var(--_lph-ntl, var(--lph-prmr)))
                                     }
                                     touch-action: manipulation;
                                     transition: background-color var(--_trstn-bckgrd, 0s) var(--cbc-bzr), outline-offset var(--_trstn-tln, 0s) var(--cbc-bzr);
