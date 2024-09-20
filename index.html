@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr" dir="auto">
+<html lang="fr" dir="auto" itemscope itemtype="//schema.org/ProfilePage">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
-        <meta name="theme-color" media="(prefers-color-scheme: light)" content="oklch(99.25% 0.001 228.752)">
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="oklch(.9925 .001 228.752)">
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="oklch(0 0 228.752)">
         <title>Roman Czerkies</title>
         <style>
@@ -12,15 +12,18 @@
                 @layer initialContainingBlock {
                     :root {
                         --hue: 228.752;
-                        --bck-prmr-klch: 99.25% 0.001 var(--hue);
-                        --bck-scndr-klch: 77.17% 0.04 var(--hue);
+                        --bck-prmr-klch: light-dark(oklch(.9925 .001 var(--hue)), oklch(0 0 var(--hue)));
+                        --bck-prmr-klch-fllbck: .9925 .001 var(--hue);
+                        --bck-scndr-klch: light-dark(oklch(.7717 .04 var(--hue)), oklch(.8918 .045 var(--hue)));
+                        --bck-scndr-klch-fllbck: .7717 .04 var(--hue);
                         --lbl-prmr-lph: .99;
                         --lbl-scndr-lph: .84;
-                        --lbl-prmr: light-dark(oklch(20.58% 0.009 var(--hue) / var(--lbl-prmr-lph)), oklch(96.25% 0.005 var(--hue) / var(--lbl-prmr-lph)));
-                        --lbl-scndr: light-dark(oklch(42.06% 0.016 var(--hue) / var(--lbl-scndr-lph)), oklch(83.13% 0.016 var(--hue) / var(--lbl-scndr-lph)));
+                        --lbl-prmr: light-dark(oklch(.2058 .009 var(--hue) / var(--lbl-prmr-lph)), oklch(.9625 .005 var(--hue) / var(--lbl-prmr-lph)));
+                        --lbl-scndr: light-dark(oklch(.4206 .016 var(--hue) / var(--lbl-scndr-lph)), oklch(.8313 .016 var(--hue) / var(--lbl-scndr-lph)));
                         --lph-prmr: .12;
                         --lph-scndr: .24;
                         --lph-trtr: .35;
+                        --lph-qutrnr: .55;
                         --mx-nln-sz: 58ch;
                         --gttr-mn: .25rem;
                         --gttr-blck: clamp(var(--gttr-mn) * 2, 2.5svb, 1.5rem);
@@ -36,7 +39,10 @@
                         --brdr-rds: .5rem;
                         --cbc-bzr: cubic-bezier(.68, .48, .48, .98);
                         container: icb / inline-size;
-                        background: oklch(var(--bck-prmr-klch));
+                        background: var(--bck-prmr-klch);
+                        @supports not (color: oklch(from currentColor l c h)) {
+                            background: oklch(var(--bck-prmr-klch-fllbck))
+                        }
                         font: 700 100%/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
                         @media (prefers-reduced-motion: no-preference) {
                             --srll-bhvr: smooth;
@@ -49,25 +55,28 @@
                         }
                         @media (prefers-contrast: more) {
                             --txt-dcrtn: underline;
-                            --bck-prmr-klch: 99.62% 0.002 var(--hue);
-                            --bck-scndr-klch: 61.16% 0.059 var(--hue);
-                            --lbl-prmr: light-dark(oklch(0 0 var(--hue) / var(--lbl-prmr-lph)), oklch(99.63% 0.001 var(--hue) / var(--lbl-prmr-lph)));
-                            --lbl-scndr: light-dark(oklch(18.29% 0.009 var(--hue) / var(--lbl-scndr-lph)), oklch(95.49% 0.006 var(--hue) / var(--lbl-scndr-lph)))
+                            --bck-prmr-klch: light-dark(oklch(.9962 .002 var(--hue)), oklch(0 0 var(--hue)));
+                            --bck-prmr-klch-fllbck: .9962 .002 var(--hue);
+                            --bck-scndr-klch: light-dark(oklch(.6116 .059 var(--hue)), oklch(.9638 .016 var(--hue)));
+                            --bck-scndr-klch-fllbck: .6116 .059 var(--hue);
+                            --lbl-prmr: light-dark(oklch(0 0 var(--hue) / var(--lbl-prmr-lph)), oklch(.9963 .001 var(--hue) / var(--lbl-prmr-lph)));
+                            --lbl-scndr: light-dark(oklch(.1829 .009 var(--hue) / var(--lbl-scndr-lph)), oklch(.9549 .006 var(--hue) / var(--lbl-scndr-lph)))
                         }
                         @media (prefers-color-scheme: dark) {
-                            --bck-prmr-klch: 0 0 var(--hue);
-                            --bck-scndr-klch: 89.18% 0.045 var(--hue);
+                            --bck-prmr-klch-fllbck: 0 0 var(--hue);
+                            --bck-scndr-klch-fllbck: .8918 .045 var(--hue);
                             --lbl-prmr-lph: .95;
                             --lbl-scndr-lph: .72;
                             --lph-prmr: .1;
                             --lph-scndr: .14;
                             --lph-trtr: .22;
+                            --lph-qutrnr: .28;
                             @media (prefers-reduced-transparency: reduce) {
                                 --lbl-prmr-lph: 1;
                                 --lbl-scndr-lph: .82
                             }
                             @media (prefers-contrast: more) {
-                                --bck-scndr-klch: 96.38% 0.016 var(--hue)
+                                --bck-scndr-klch-fllbck: .9638 .016 var(--hue);
                             }
                         }
                     }
@@ -76,9 +85,22 @@
                     * {
                         box-sizing: border-box
                     }
-                    ::selection {
-                        background: oklch(var(--bck-scndr-klch) / var(--lph-trtr));
+                    ::selection, ::target-text {
                         color: var(--lbl-prmr)
+                    }
+                    ::selection {
+                        background: oklch(from var(--bck-scndr-klch) l c h / var(--lph-qutrnr))
+                    }
+                    ::target-text {
+                        background: oklch(from var(--bck-scndr-klch) l c h / var(--lph-trtr))
+                    }
+                    @supports not (color: oklch(from currentColor l c h)) {
+                        ::selection {
+                            background: oklch(var(--bck-scndr-klch-fllbck) / var(--lph-qutrnr))
+                        }
+                        ::target-text {
+                            background: oklch(var(--bck-scndr-klch-fllbck) / var(--lph-trtr))
+                        }
                     }
                     body, h1, h2, ul, p {
                         margin: 0
@@ -87,7 +109,7 @@
                 @layer layouts {
                     body {
                         display: grid;
-                        grid: auto-flow / [dg-strt] 1fr [mn-strt] minmax(auto, var(--mx-nln-sz)) [mn-nd] 1fr [dg-nd];
+                        grid: auto-flow / [dg-start] 1fr [mn-start] minmax(auto, var(--mx-nln-sz)) [mn-end] 1fr [dg-end];
                         align-content: center;
                         min-block-size: 100svb;
                         padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
@@ -110,7 +132,7 @@
                     @scope (body) to (> *) {
                         :scope {
                             display: grid;
-                            grid: auto-flow / [dg-strt] 1fr [mn-strt] minmax(auto, var(--mx-nln-sz)) [mn-nd] 1fr [dg-nd];
+                            grid: auto-flow / [dg-start] 1fr [mn-start] minmax(auto, var(--mx-nln-sz)) [mn-end] 1fr [dg-end];
                             align-content: center;
                             min-block-size: 100svb;
                             padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
@@ -144,7 +166,7 @@
                         }
                     }
                     main {
-                        grid-column: mn-strt / mn-nd;
+                        grid-column: mn;
                         padding-left: var(--sf-lft);
                         padding-right: var(--sf-rght);
                         letter-spacing: var(--lttr-spcng-prmr);
@@ -153,6 +175,7 @@
                         }
                         section {
                             padding-inline: var(--gttr-nln);
+                            overflow-wrap: anywhere;
                             text-wrap: pretty;
                             h2, p {
                                 display: inline
@@ -161,7 +184,7 @@
                     }
                     @scope (main) to (:is(h2, p) > *) {
                         :scope {
-                            grid-column: mn-strt / mn-nd;
+                            grid-column: mn;
                             padding-left: var(--sf-lft);
                             padding-right: var(--sf-rght);
                             letter-spacing: var(--lttr-spcng-prmr);
@@ -170,6 +193,7 @@
                             }
                             section {
                                 padding-inline: var(--gttr-nln);
+                                overflow-wrap: anywhere;
                                 text-wrap: pretty;
                                 h2, p {
                                     display: inline
@@ -179,7 +203,7 @@
                     }
                     nav {
                         --_dnmc-nln: 50cqi - min(var(--mx-nln-sz) / 2, 50cqi) + var(--_gttr, var(--gttr-nln));
-                        grid-column: dg-strt / dg-nd;
+                        grid-column: dg;
                         overflow-inline: auto;
                         scrollbar-width: thin;
                         overscroll-behavior-inline: contain;
@@ -235,7 +259,10 @@
                                 letter-spacing: var(--lttr-spcng-scndr);
                                 outline-offset: calc(var(--gttr-mn) / var(--_tln-ffst, 2.5));
                                 border-radius: var(--brdr-rds);
-                                background: oklch(var(--bck-scndr-klch) / var(--_lph-ntl, var(--lph-prmr)));
+                                background: oklch(from var(--bck-scndr-klch) l c h / var(--_lph-ntl, var(--lph-prmr)));
+                                @supports not (color: oklch(from currentColor l c h)) {
+                                    background: oklch(var(--bck-scndr-klch-fllbck) / var(--_lph-ntl, var(--lph-prmr)))
+                                }
                                 touch-action: manipulation;
                                 transition: background-color var(--_trstn-bckgrd, 0s) var(--cbc-bzr), outline-offset var(--_trstn-tln, 0s) var(--cbc-bzr);
                                 &:is(:hover, :target) {
@@ -258,7 +285,7 @@
                     @scope (nav) to (a:any-link > *) {
                         :scope {
                             --_dnmc-nln: 50cqi - min(var(--mx-nln-sz) / 2, 50cqi) + var(--_gttr, var(--gttr-nln));
-                            grid-column: dg-strt / dg-nd;
+                            grid-column: dg;
                             overflow-inline: auto;
                             scrollbar-width: thin;
                             overscroll-behavior-inline: contain;
@@ -314,7 +341,10 @@
                                     letter-spacing: var(--lttr-spcng-scndr);
                                     outline-offset: calc(var(--gttr-mn) / var(--_tln-ffst, 2.5));
                                     border-radius: var(--brdr-rds);
-                                    background: oklch(var(--bck-scndr-klch) / var(--_lph-ntl, var(--lph-prmr)));
+                                    background: oklch(from var(--bck-scndr-klch) l c h / var(--_lph-ntl, var(--lph-prmr)));
+                                    @supports not (color: oklch(from currentColor l c h)) {
+                                        background: oklch(var(--bck-scndr-klch-fllbck) / var(--_lph-ntl, var(--lph-prmr)))
+                                    }
                                     touch-action: manipulation;
                                     transition: background-color var(--_trstn-bckgrd, 0s) var(--cbc-bzr), outline-offset var(--_trstn-tln, 0s) var(--cbc-bzr);
                                     &:is(:hover, :target) {
@@ -349,37 +379,37 @@
         <meta property="og:url" content="https://romanczerkies.fr/">
         <meta property="og:video" content="https://romanczerkies.fr/bnnr.mp4">
     </head>
-    <body>
+    <body itemprop="mainEntity" itemscope itemtype="//schema.org/Person">
         <main>
             <section>
-                <h2>Designer & Développeur d'Interface Humaine.</h2>
-                <p>Spécialisé dans la conception centrée utilisateurs et développement de Design Systems. Largement inspirées du minimalisme et brutalisme, les créations tendent à un design simple et inclusif.</p>
+                <h2 itemprop="jobTitle">Designer & Développeur d'Interface Humaine.</h2>
+                <p itemprop="description">Spécialisé dans la conception centrée utilisateurs et développement de Design Systems. Largement inspirées du minimalisme et brutalisme, les créations tendent à un design simple et inclusif.</p>
             </section>
         </main>
         <nav>
             <ul aria-label="Réseaux sociaux et contact">
                 <li>
-                    <h1 title="Site personnel de Roman Czerkies">
+                    <h1 title="Site personnel de Roman Czerkies" itemprop="name">
                         <a href="." translate="no">Roman Czerkies</a>
                     </h1>
                 </li>
                 <li>
-                    <a href="//twitter.com/roman_czerkies" id="twitter" title="Veille technologique Twitter de @roman_czerkies">Twitter</a>
+                    <a href="//twitter.com/roman_czerkies" id="twitter" title="Veille technologique Twitter de @roman_czerkies" itemprop="sameAs">Twitter</a>
                 </li>
                 <li>
-                    <a href="//linkedin.com/in/romanczerkies" id="linkedin" title="Réseau professionnel LinkedIn de Roman Czerkies">LinkedIn</a>
+                    <a href="//linkedin.com/in/romanczerkies" id="linkedin" title="Réseau professionnel LinkedIn de Roman Czerkies" itemprop="sameAs">LinkedIn</a>
                 </li>
                 <li>
-                    <a href="//github.com/czerkies/romanczerkies.31" id="github" title="Dépôt GitHub du projet romanczerkies.fr Version 31">GitHub</a>
+                    <a href="//github.com/czerkies/romanczerkies.31" id="github" title="Dépôt GitHub du projet romanczerkies.fr Version 31" itemprop="sameAs">GitHub</a>
                 </li>
                 <li>
-                    <a href="//strava.com/athletes/roman_czerkies" id="strava" title="Activités sportives Strava de Roman Czerkies">Strava</a>
+                    <a href="//strava.com/athletes/roman_czerkies" id="strava" title="Activités sportives Strava de Roman Czerkies" itemprop="sameAs">Strava</a>
                 </li>
-                <li>
+                <li itemprop="email">
                     <a href="mailto:contact@romanczerkies.fr?subject=Demande%20de%20contact" id="contact" title="Adresser un courriel à Roman Czerkies">contact@romanczerkies.fr</a>
                 </li>
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.17.0 -->
+    <!-- romanczerkies.fr Version 31.18.0 -->
 </html>
