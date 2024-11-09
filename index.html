@@ -86,20 +86,15 @@
                         box-sizing: border-box
                     }
                     ::selection, ::target-text {
+                        background: oklch(from var(--background-secondary) l c h / var(--_alpha-target, var(--alpha-quaternary)));
                         color: var(--label-primary)
                     }
-                    ::selection {
-                        background: oklch(from var(--background-secondary) l c h / var(--alpha-quaternary))
-                    }
                     ::target-text {
-                        background: oklch(from var(--background-secondary) l c h / var(--alpha-tertiary))
+                        --_alpha-target: var(--alpha-tertiary);
                     }
                     @supports not (color: oklch(from currentColor l c h)) {
-                        ::selection {
-                            background: oklch(var(--background-secondary-fallback) / var(--alpha-quaternary))
-                        }
-                        ::target-text {
-                            background: oklch(var(--background-secondary-fallback) / var(--alpha-tertiary))
+                        ::selection, ::target-text {
+                            background: oklch(var(--background-secondary-fallback) / var(--_alpha-target, var(--alpha-quaternary)));
                         }
                     }
                     body, h1, h2, ul, p {
