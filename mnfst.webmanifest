@@ -9,6 +9,9 @@
   }],
   "id": "/",
   "lang": "fr",
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
   "name": "Roman Czerkies",
   "orientation": "any",
   "scope": "/",
