@@ -9,9 +9,23 @@
         <title>Roman Czerkies</title>
         <style>
             @layer designSystem {
+                @property --hue {
+                    syntax: '<number> | <angle> | none';
+                    inherits: false;
+                    initial-value: 228.752
+                }
+                @property --font-size {
+                    syntax: '<length-percentage> | xx-small | x-small | small | medium | large | x-large | xx-large | xxx-large | larger | smaller';
+                    inherits: false;
+                    initial-value: 100%
+                }
+                @property --font-weight {
+                    syntax: '<integer> | normal | bold | bolder | lighter';
+                    inherits: false;
+                    initial-value: 700
+                }
                 @layer initialContainingBlock {
                     :root {
-                        --hue: 228.752;
                         --background-primary: light-dark(oklch(.9925 .001 var(--hue)), oklch(0 0 var(--hue)));
                         --background-primary-fallback: .9925 .001 var(--hue);
                         --background-secondary: light-dark(oklch(.7717 .04 var(--hue)), oklch(.8918 .045 var(--hue)));
@@ -43,7 +57,7 @@
                         @supports not (color: oklch(from currentColor l c h)) {
                             background: oklch(var(--background-primary-fallback))
                         }
-                        font: 700 100%/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                        font: var(--font-weight) var(--font-size)/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
                         @media (prefers-reduced-motion: no-preference) {
                             --sroll-behavior: smooth;
                             --transition-duration-primary: 200ms;
