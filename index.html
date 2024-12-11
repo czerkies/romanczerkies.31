@@ -88,11 +88,11 @@
                         box-sizing: border-box
                     }
                     ::selection, ::target-text {
-                        background: oklch(from var(--background-secondary) l c h / var(--_alpha-target, var(--alpha-quaternary)));
+                        background: oklch(from var(--background-secondary) l c h / var(--_alpha, var(--alpha-quaternary)));
                         color: var(--label-primary)
                     }
                     ::target-text {
-                        --_alpha-target: var(--alpha-tertiary);
+                        --_alpha: var(--alpha-tertiary);
                     }
                     body, h1, h2, ul, p {
                         margin: 0
@@ -105,20 +105,20 @@
                         align-content: center;
                         min-block-size: 100svb;
                         padding: calc(var(--gutter-block) + env(safe-area-inset-top)) 0 calc(var(--gutter-block) + env(safe-area-inset-bottom));
-                        font-size: var(--_fnt-size, var(--font-size-secondary));
+                        font-size: var(--_font-size, var(--font-size-secondary));
                         font-size-adjust: from-font;
                         color: var(--label-secondary);
                         text-rendering: optimizeLegibility;
                         -webkit-font-smoothing: antialiased;
                         -moz-osx-font-smoothing: grayscale;
                         @container icb (inline-size >= 900px) {
-                            --_fnt-size: var(--font-size-tertiary);
+                            --_font-size: var(--font-size-tertiary);
                             @container icb (inline-size >= 1250px) {
-                                --_fnt-size: var(--font-size-quaternary)
+                                --_font-size: var(--font-size-quaternary)
                             }
                         }
                         @media print {
-                            --_fnt-size: var(--font-size-quaternary)
+                            --_font-size: var(--font-size-quaternary)
                         }
                     }
                     @scope (body) to (> *) {
@@ -128,20 +128,20 @@
                             align-content: center;
                             min-block-size: 100svb;
                             padding: calc(var(--gutter-block) + env(safe-area-inset-top)) 0 calc(var(--gutter-block) + env(safe-area-inset-bottom));
-                            font-size: var(--_fnt-size, var(--font-size-secondary));
+                            font-size: var(--_font-size, var(--font-size-secondary));
                             font-size-adjust: from-font;
                             color: var(--label-secondary);
                             text-rendering: optimizeLegibility;
                             -webkit-font-smoothing: antialiased;
                             -moz-osx-font-smoothing: grayscale;
                             @container icb (inline-size >= 900px) {
-                                --_fnt-size: var(--font-size-tertiary);
+                                --_font-size: var(--font-size-tertiary);
                                 @container icb (inline-size >= 1250px) {
-                                    --_fnt-size: var(--font-size-quaternary)
+                                    --_font-size: var(--font-size-quaternary)
                                 }
                             }
                             @media print {
-                                --_fnt-size: var(--font-size-quaternary)
+                                --_font-size: var(--font-size-quaternary)
                             }
                         }
                     }
