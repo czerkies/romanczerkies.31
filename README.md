@@ -15,14 +15,16 @@ This project is not only minimalist, fast and accessible; it is designed to impl
 
 ## Installation
 
-Clone and install locally:
+Clone the repository to your local machine:
+
 ```bash
 git clone https://github.com/czerkies/romanczerkies.31.git
 ```
 
 ## Usage
-1. Open `index.html` in a browser.
-1. Nothing to manage, nothing to do: it just works.
+
+1. Open `index.html` in any modern browser.
+1. Nothing to do, nothing to manage: it just works.
 
 ## Support
 
