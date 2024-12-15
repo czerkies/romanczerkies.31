@@ -3,7 +3,7 @@
   "dir": "auto",
   "display": "standalone",
   "icons": [{
-    "src": "cn.png",
+    "src": "icon.png",
     "sizes": "256x256",
     "type": "image/png"
   }],
@@ -22,7 +22,7 @@
     "description": "Veille technologique Twitter de @roman_czerkies",
     "url": "./twitter",
     "icons": [{
-      "src": "cn.png",
+      "src": "icon.png",
       "sizes": "256x256",
       "type": "image/png"
     }]
@@ -32,7 +32,7 @@
     "description": "Réseau professionnel LinkedIn de Roman Czerkies",
     "url": "./linkedin",
     "icons": [{
-      "src": "cn.png",
+      "src": "icon.png",
       "sizes": "256x256",
       "type": "image/png"
     }]
@@ -42,7 +42,7 @@
     "description": "Dépôt GitHub du projet romanczerki.es Version 31",
     "url": "./github",
     "icons": [{
-      "src": "cn.png",
+      "src": "icon.png",
       "sizes": "256x256",
       "type": "image/png"
     }]
@@ -52,7 +52,7 @@
     "description": "Activités sportives Strava de Roman Czerkies",
     "url": "./strava",
     "icons": [{
-      "src": "cn.png",
+      "src": "icon.png",
       "sizes": "256x256",
       "type": "image/png"
     }]
@@ -62,7 +62,7 @@
     "description": "Adresser un courriel à Roman Czerkies",
     "url": "./#contact",
     "icons": [{
-      "src": "cn.png",
+      "src": "icon.png",
       "sizes": "256x256",
       "type": "image/png"
     }]
