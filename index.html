@@ -15,12 +15,12 @@
                     initial-value: 228.752
                 }
                 @property --font-size {
-                    syntax: '<length-percentage> | xx-small | x-small | small | medium | large | x-large | xx-large | xxx-large | larger | smaller';
+                    syntax: '<percentage>';
                     inherits: false;
                     initial-value: 100%
                 }
                 @property --font-weight {
-                    syntax: '<integer> | normal | bold | bolder | lighter';
+                    syntax: '<integer>';
                     inherits: false;
                     initial-value: 700
                 }
@@ -52,7 +52,7 @@
                         --cubic-bezier: cubic-bezier(.68, .48, .48, .98);
                         container: icb / inline-size;
                         background: var(--background-primary);
-                        font: var(--font-weight) var(--font-size)/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                        font: clamp(100, var(--font-weight), 900) clamp(50%, var(--font-size), 1000%)/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
                         @media (prefers-reduced-motion: no-preference) {
                             --sroll-behavior: smooth;
                             --transition-duration-primary: 200ms;
