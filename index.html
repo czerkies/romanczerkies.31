@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" dir="auto" itemscope itemtype="//schema.org/ProfilePage">
+<html lang="fr" dir="auto" itemscope itemtype="https://schema.org/ProfilePage">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -9,74 +9,76 @@
         <title>Roman Czerkies</title>
         <style>
             @layer designSystem {
+                @property --hue {
+                    syntax: '<number> | <angle> | none';
+                    inherits: false;
+                    initial-value: 228.752
+                }
+                @property --font-size {
+                    syntax: '<percentage>';
+                    inherits: false;
+                    initial-value: 100%
+                }
+                @property --font-weight {
+                    syntax: '<integer>';
+                    inherits: false;
+                    initial-value: 700
+                }
                 @layer initialContainingBlock {
                     :root {
-                        --hue: 228.752;
-                        --bck-prmr-klch: light-dark(oklch(.9925 .001 var(--hue)), oklch(0 0 var(--hue)));
-                        --bck-prmr-klch-fllbck: .9925 .001 var(--hue);
-                        --bck-scndr-klch: light-dark(oklch(.7717 .04 var(--hue)), oklch(.8918 .045 var(--hue)));
-                        --bck-scndr-klch-fllbck: .7717 .04 var(--hue);
-                        --lbl-prmr-lph: .99;
-                        --lbl-scndr-lph: .84;
-                        --lbl-prmr: light-dark(oklch(.2058 .009 var(--hue) / var(--lbl-prmr-lph)), oklch(.9625 .005 var(--hue) / var(--lbl-prmr-lph)));
-                        --lbl-scndr: light-dark(oklch(.4206 .016 var(--hue) / var(--lbl-scndr-lph)), oklch(.8313 .016 var(--hue) / var(--lbl-scndr-lph)));
-                        --lph-prmr: .12;
-                        --lph-scndr: .24;
-                        --lph-trtr: .35;
-                        --lph-qutrnr: .55;
-                        --mx-nln-sz: 58ch;
-                        --gttr-mn: .25rem;
-                        --gttr-blck: clamp(var(--gttr-mn) * 2, 2.5svb, 1.5rem);
-                        --gttr-nln: clamp(var(--gttr-mn), 2.1svi, 1.5rem);
-                        --sf-lft: calc(var(--gttr-nln) + env(safe-area-inset-left));
-                        --sf-rght: calc(var(--gttr-nln) + env(safe-area-inset-right));
-                        --fnt-sz-prmr: .875rem;
-                        --fnt-sz-scndr: 1.5rem;
-                        --fnt-sz-trtr: 2rem;
-                        --fnt-sz-qtrnr: 2.5rem;
-                        --lttr-spcng-prmr: -.004em;
-                        --lttr-spcng-scndr: .075em;
-                        --brdr-rds: .5rem;
-                        --cbc-bzr: cubic-bezier(.68, .48, .48, .98);
+                        --background-primary: light-dark(oklch(.9925 .001 var(--hue)), oklch(0 0 var(--hue)));
+                        --background-secondary: light-dark(oklch(.7717 .04 var(--hue)), oklch(.8918 .045 var(--hue)));
+                        --label-primary-alpha: .99;
+                        --label-secondary-alpha: .84;
+                        --label-primary: light-dark(oklch(.2058 .009 var(--hue) / var(--label-primary-alpha)), oklch(.9625 .005 var(--hue) / var(--label-primary-alpha)));
+                        --label-secondary: light-dark(oklch(.4206 .016 var(--hue) / var(--label-secondary-alpha)), oklch(.8313 .016 var(--hue) / var(--label-secondary-alpha)));
+                        --alpha-primary: .12;
+                        --alpha-secondary: .24;
+                        --alpha-tertiary: .35;
+                        --alpha-quaternary: .55;
+                        --max-inline-size: 58ch;
+                        --gutter-min: .25rem;
+                        --gutter-block: clamp(var(--gutter-min) * 2, 2.5svb, 1.5rem);
+                        --gutter-inline: clamp(var(--gutter-min), 2.1svi, 1.5rem);
+                        --safe-left: calc(var(--gutter-inline) + env(safe-area-inset-left));
+                        --safe-right: calc(var(--gutter-inline) + env(safe-area-inset-right));
+                        --font-size-primary: .875rem;
+                        --font-size-secondary: 1.5rem;
+                        --font-size-tertiary: 2rem;
+                        --font-size-quaternary: 2.5rem;
+                        --letter-spacing-primary: -.004em;
+                        --letter-spacing-secondary: .075em;
+                        --border-radius: .5rem;
+                        --cubic-bezier: cubic-bezier(.68, .48, .48, .98);
                         container: icb / inline-size;
-                        background: var(--bck-prmr-klch);
-                        @supports not (color: oklch(from currentColor l c h)) {
-                            background: oklch(var(--bck-prmr-klch-fllbck))
-                        }
-                        font: 700 100%/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                        background: var(--background-primary);
+                        font: clamp(100, var(--font-weight), 900) clamp(50%, var(--font-size), 1000%)/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
                         @media (prefers-reduced-motion: no-preference) {
-                            --srll-bhvr: smooth;
-                            --trnstn-drtn-prmr: 200ms;
-                            --trnstn-drtn-scndr: 42ms
+                            --sroll-behavior: smooth;
+                            --transition-duration-primary: 200ms;
+                            --transition-duration-secondary: 42ms
                         }
                         @media (prefers-reduced-transparency: reduce) {
-                            --lbl-prmr-lph: 1;
-                            --lbl-scndr-lph: .94
+                            --label-primary-alpha: 1;
+                            --label-secondary-alpha: .94
                         }
                         @media (prefers-contrast: more) {
-                            --txt-dcrtn: underline;
-                            --bck-prmr-klch: light-dark(oklch(.9962 .002 var(--hue)), oklch(0 0 var(--hue)));
-                            --bck-prmr-klch-fllbck: .9962 .002 var(--hue);
-                            --bck-scndr-klch: light-dark(oklch(.6116 .059 var(--hue)), oklch(.9638 .016 var(--hue)));
-                            --bck-scndr-klch-fllbck: .6116 .059 var(--hue);
-                            --lbl-prmr: light-dark(oklch(0 0 var(--hue) / var(--lbl-prmr-lph)), oklch(.9963 .001 var(--hue) / var(--lbl-prmr-lph)));
-                            --lbl-scndr: light-dark(oklch(.1829 .009 var(--hue) / var(--lbl-scndr-lph)), oklch(.9549 .006 var(--hue) / var(--lbl-scndr-lph)))
+                            --text-decoration: underline;
+                            --background-primary: light-dark(oklch(.9962 .002 var(--hue)), oklch(0 0 var(--hue)));
+                            --background-secondary: light-dark(oklch(.6116 .059 var(--hue)), oklch(.9638 .016 var(--hue)));
+                            --label-primary: light-dark(oklch(0 0 var(--hue) / var(--label-primary-alpha)), oklch(.9963 .001 var(--hue) / var(--label-primary-alpha)));
+                            --label-secondary: light-dark(oklch(.1829 .009 var(--hue) / var(--label-secondary-alpha)), oklch(.9549 .006 var(--hue) / var(--label-secondary-alpha)))
                         }
                         @media (prefers-color-scheme: dark) {
-                            --bck-prmr-klch-fllbck: 0 0 var(--hue);
-                            --bck-scndr-klch-fllbck: .8918 .045 var(--hue);
-                            --lbl-prmr-lph: .95;
-                            --lbl-scndr-lph: .72;
-                            --lph-prmr: .1;
-                            --lph-scndr: .14;
-                            --lph-trtr: .22;
-                            --lph-qutrnr: .28;
+                            --label-primary-alpha: .95;
+                            --label-secondary-alpha: .72;
+                            --alpha-primary: .1;
+                            --alpha-secondary: .14;
+                            --alpha-tertiary: .22;
+                            --alpha-quaternary: .28;
                             @media (prefers-reduced-transparency: reduce) {
-                                --lbl-prmr-lph: 1;
-                                --lbl-scndr-lph: .82
-                            }
-                            @media (prefers-contrast: more) {
-                                --bck-scndr-klch-fllbck: .9638 .016 var(--hue);
+                                --label-primary-alpha: 1;
+                                --label-secondary-alpha: .82
                             }
                         }
                     }
@@ -86,21 +88,11 @@
                         box-sizing: border-box
                     }
                     ::selection, ::target-text {
-                        color: var(--lbl-prmr)
-                    }
-                    ::selection {
-                        background: oklch(from var(--bck-scndr-klch) l c h / var(--lph-qutrnr))
+                        background: oklch(from var(--background-secondary) l c h / var(--_alpha, var(--alpha-quaternary)));
+                        color: var(--label-primary)
                     }
                     ::target-text {
-                        background: oklch(from var(--bck-scndr-klch) l c h / var(--lph-trtr))
-                    }
-                    @supports not (color: oklch(from currentColor l c h)) {
-                        ::selection {
-                            background: oklch(var(--bck-scndr-klch-fllbck) / var(--lph-qutrnr))
-                        }
-                        ::target-text {
-                            background: oklch(var(--bck-scndr-klch-fllbck) / var(--lph-trtr))
-                        }
+                        --_alpha: var(--alpha-tertiary)
                     }
                     body, h1, h2, ul, p {
                         margin: 0
@@ -109,72 +101,72 @@
                 @layer layouts {
                     body {
                         display: grid;
-                        grid: auto-flow / [dg-start] 1fr [mn-start] minmax(auto, var(--mx-nln-sz)) [mn-end] 1fr [dg-end];
+                        grid: auto-flow / [edge-start] 1fr [main-start] minmax(auto, var(--max-inline-size)) [main-end] 1fr [edge-end];
                         align-content: center;
                         min-block-size: 100svb;
-                        padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
-                        font-size: var(--_fnt-sz, var(--fnt-sz-scndr));
+                        padding: calc(var(--gutter-block) + env(safe-area-inset-top)) 0 calc(var(--gutter-block) + env(safe-area-inset-bottom));
+                        font-size: var(--_font-size, var(--font-size-secondary));
                         font-size-adjust: from-font;
-                        color: var(--lbl-scndr);
+                        color: var(--label-secondary);
                         text-rendering: optimizeLegibility;
                         -webkit-font-smoothing: antialiased;
                         -moz-osx-font-smoothing: grayscale;
                         @container icb (inline-size >= 900px) {
-                            --_fnt-sz: var(--fnt-sz-trtr);
+                            --_font-size: var(--font-size-tertiary);
                             @container icb (inline-size >= 1250px) {
-                                --_fnt-sz: var(--fnt-sz-qtrnr)
+                                --_font-size: var(--font-size-quaternary)
                             }
                         }
                         @media print {
-                            --_fnt-sz: var(--fnt-sz-qtrnr)
+                            --_font-size: var(--font-size-quaternary)
                         }
                     }
                     @scope (body) to (> *) {
                         :scope {
                             display: grid;
-                            grid: auto-flow / [dg-start] 1fr [mn-start] minmax(auto, var(--mx-nln-sz)) [mn-end] 1fr [dg-end];
+                            grid: auto-flow / [edge-start] 1fr [main-start] minmax(auto, var(--max-inline-size)) [main-end] 1fr [edge-end];
                             align-content: center;
                             min-block-size: 100svb;
-                            padding: calc(var(--gttr-blck) + env(safe-area-inset-top)) 0 calc(var(--gttr-blck) + env(safe-area-inset-bottom));
-                            font-size: var(--_fnt-sz, var(--fnt-sz-scndr));
+                            padding: calc(var(--gutter-block) + env(safe-area-inset-top)) 0 calc(var(--gutter-block) + env(safe-area-inset-bottom));
+                            font-size: var(--_font-size, var(--font-size-secondary));
                             font-size-adjust: from-font;
-                            color: var(--lbl-scndr);
+                            color: var(--label-secondary);
                             text-rendering: optimizeLegibility;
                             -webkit-font-smoothing: antialiased;
                             -moz-osx-font-smoothing: grayscale;
                             @container icb (inline-size >= 900px) {
-                                --_fnt-sz: var(--fnt-sz-trtr);
+                                --_font-size: var(--font-size-tertiary);
                                 @container icb (inline-size >= 1250px) {
-                                    --_fnt-sz: var(--fnt-sz-qtrnr)
+                                    --_font-size: var(--font-size-quaternary)
                                 }
                             }
                             @media print {
-                                --_fnt-sz: var(--fnt-sz-qtrnr)
+                                --_font-size: var(--font-size-quaternary)
                             }
                         }
                     }
                 }
                 @layer components {
                     h1, h2 {
-                        color: var(--lbl-prmr);
+                        color: var(--label-primary);
                         font: inherit
                     }
                     @scope (h1, h2) to (> *) {
                         :scope {
-                            color: var(--lbl-prmr);
+                            color: var(--label-primary);
                             font: inherit
                         }
                     }
                     main {
-                        grid-column: mn;
-                        padding-left: var(--sf-lft);
-                        padding-right: var(--sf-rght);
-                        letter-spacing: var(--lttr-spcng-prmr);
+                        grid-column: main;
+                        padding-left: var(--safe-left);
+                        padding-right: var(--safe-right);
+                        letter-spacing: var(--letter-spacing-primary);
                         &, section {
-                            padding-block: var(--gttr-blck)
+                            padding-block: var(--gutter-block)
                         }
                         section {
-                            padding-inline: var(--gttr-nln);
+                            padding-inline: var(--gutter-inline);
                             overflow-wrap: anywhere;
                             text-wrap: pretty;
                             h2, p {
@@ -184,15 +176,15 @@
                     }
                     @scope (main) to (:is(h2, p) > *) {
                         :scope {
-                            grid-column: mn;
-                            padding-left: var(--sf-lft);
-                            padding-right: var(--sf-rght);
-                            letter-spacing: var(--lttr-spcng-prmr);
+                            grid-column: main;
+                            padding-left: var(--safe-left);
+                            padding-right: var(--safe-right);
+                            letter-spacing: var(--letter-spacing-primary);
                             &, section {
-                                padding-block: var(--gttr-blck)
+                                padding-block: var(--gutter-block)
                             }
                             section {
-                                padding-inline: var(--gttr-nln);
+                                padding-inline: var(--gutter-inline);
                                 overflow-wrap: anywhere;
                                 text-wrap: pretty;
                                 h2, p {
@@ -202,164 +194,156 @@
                         }
                     }
                     nav {
-                        --_dnmc-nln: 50cqi - min(var(--mx-nln-sz) / 2, 50cqi) + var(--_gttr, var(--gttr-nln));
-                        grid-column: dg;
+                        --_dynamic-inline: 50cqi - min(var(--max-inline-size) / 2, 50cqi) + var(--_gutter, var(--gutter-inline));
+                        grid-column: edge;
                         overflow-inline: auto;
                         scrollbar-width: thin;
                         overscroll-behavior-inline: contain;
-                        scroll-padding: 0 calc(var(--_dnmc-nln) + var(--sf-rght)) 0 calc(var(--_dnmc-nln) + var(--sf-lft));
+                        scroll-padding: 0 calc(var(--_dynamic-inline) + var(--safe-right)) 0 calc(var(--_dynamic-inline) + var(--safe-left));
                         scroll-snap-type: inline mandatory;
                         @supports not (overflow-inline: auto) {
                             overflow-x: auto
                         }
                         @media (any-hover: hover) {
-                            --_lph-hvr: var(--lph-scndr);
-                            --_trstn-bckgrd: var(--trnstn-drtn-prmr)
+                            --_alpha-hover: var(--alpha-secondary);
+                            --_transition-background: var(--transition-duration-primary)
                         }
                         @container (inline-size >= 900px) {
-                            --_lph-ntl: 0;
-                            --_lph-fcs: var(--lph-prmr);
-                            --_gttr: 0em;
-                            --_lnk-nln: var(--gttr-nln);
-                            --_gp: var(--gttr-mn);
+                            --_alpha-initial: 0;
+                            --_alpha-focus: var(--alpha-primary);
+                            --_link-inline: var(--gutter-inline);
+                            --_gutter: 0em;
+                            --_gap: var(--gutter-min);
                             @media (any-hover: hover) {
-                                --_lph-hvr: var(--lph-prmr);
-                                --_gp: 0
+                                --_alpha-hover: var(--alpha-primary);
+                                --_gap: 0
                             }
                         }
                         @media print {
-                            --_gttr: 0em;
-                            --_drctn: block
+                            --_gutter: 0em;
+                            --_direction: block
                         }
                         &:focus-within {
-                            scroll-behavior: var(--srll-bhvr, auto)
+                            scroll-behavior: var(--sroll-behavior, auto)
                         }
                         &, ul {
-                            display: var(--_drctn, flex)
+                            display: var(--_direction, flex)
                         }
                         ul {
-                            gap: var(--_gp, var(--_gttr, var(--gttr-nln)));
-                            padding-block: var(--gttr-blck);
-                            padding-left: calc(var(--_dnmc-nln) + var(--sf-lft));
-                            padding-right: calc(var(--_dnmc-nln) + var(--sf-rght));
+                            gap: var(--_gap, var(--_gutter, var(--gutter-inline)));
+                            padding-block: var(--gutter-block);
+                            padding-left: calc(var(--_dynamic-inline) + var(--safe-left));
+                            padding-right: calc(var(--_dynamic-inline) + var(--safe-right));
                             list-style: none;
                             a:any-link {
                                 display: block;
-                                padding-block: var(--gttr-blck);
-                                padding-inline: var(--_lnk-nln, var(--gttr-blck));
+                                padding-block: var(--gutter-block);
+                                padding-inline: var(--_link-inline, var(--gutter-block));
                                 scroll-snap-align: start;
                                 color: inherit;
-                                font-size: var(--fnt-sz-prmr);
-                                text-decoration: var(--txt-dcrtn, none);
+                                font-size: var(--font-size-primary);
+                                text-decoration: var(--text-decoration, none);
                                 text-decoration-skip-ink: all;
                                 text-transform: uppercase;
-                                text-box-edge: cap alphabetic;
-                                text-box-trim: both;
+                                text-box: trim-both cap alphabetic;
                                 white-space: nowrap;
-                                letter-spacing: var(--lttr-spcng-scndr);
-                                outline-offset: calc(var(--gttr-mn) / var(--_tln-ffst, 2.5));
-                                border-radius: var(--brdr-rds);
-                                background: oklch(from var(--bck-scndr-klch) l c h / var(--_lph-ntl, var(--lph-prmr)));
-                                @supports not (color: oklch(from currentColor l c h)) {
-                                    background: oklch(var(--bck-scndr-klch-fllbck) / var(--_lph-ntl, var(--lph-prmr)))
-                                }
+                                letter-spacing: var(--letter-spacing-secondary);
+                                outline-offset: calc(var(--gutter-min) / var(--_outline-offset, 2.5));
+                                border-radius: var(--border-radius);
+                                background: oklch(from var(--background-secondary) l c h / var(--_alpha-initial, var(--alpha-primary)));
                                 touch-action: manipulation;
-                                transition: background-color var(--_trstn-bckgrd, 0s) var(--cbc-bzr), outline-offset var(--_trstn-tln, 0s) var(--cbc-bzr);
+                                transition: background-color var(--_transition-background, 0s) var(--cubic-bezier), outline-offset var(--_transition-outline, 0s) var(--cubic-bezier);
                                 &:is(:hover, :target) {
-                                    --_lph-ntl: var(--_lph-hvr, var(--lph-trtr))
+                                    --_alpha-initial: var(--_alpha-hover, var(--alpha-tertiary))
                                 }
                                 &:active {
-                                    --_lph-ntl: var(--lph-trtr);
-                                    --_trstn-bckgrd: var(--trnstn-drtn-scndr)
+                                    --_alpha-initial: var(--alpha-tertiary);
+                                    --_transition-background: var(--transition-duration-secondary)
                                 }
                                 &:focus-visible {
-                                    --_lph-ntl: var(--_lph-fcs, var(--lph-scndr));
-                                    --_trstn-tln: var(--trnstn-drtn-scndr);
-                                    --_trstn-bckgrd: calc(var(--_trstn-tln) / 2);
-                                    --_tln-ffst: 1;
-                                    outline: var(--lbl-scndr) solid var(--gttr-mn)
+                                    --_alpha-initial: var(--_alpha-focus, var(--alpha-secondary));
+                                    --_transition-outline: var(--transition-duration-secondary);
+                                    --_transition-background: calc(var(--_transition-outline) / 2);
+                                    --_outline-offset: 1;
+                                    outline: var(--label-secondary) solid var(--gutter-min)
                                 }
                             }
                         }
                     }
                     @scope (nav) to (a:any-link > *) {
                         :scope {
-                            --_dnmc-nln: 50cqi - min(var(--mx-nln-sz) / 2, 50cqi) + var(--_gttr, var(--gttr-nln));
-                            grid-column: dg;
+                            --_dynamic-inline: 50cqi - min(var(--max-inline-size) / 2, 50cqi) + var(--_gutter, var(--gutter-inline));
+                            grid-column: edge;
                             overflow-inline: auto;
                             scrollbar-width: thin;
                             overscroll-behavior-inline: contain;
-                            scroll-padding: 0 calc(var(--_dnmc-nln) + var(--sf-rght)) 0 calc(var(--_dnmc-nln) + var(--sf-lft));
+                            scroll-padding: 0 calc(var(--_dynamic-inline) + var(--safe-right)) 0 calc(var(--_dynamic-inline) + var(--safe-left));
                             scroll-snap-type: inline mandatory;
                             @supports not (overflow-inline: auto) {
                                 overflow-x: auto
                             }
                             @media (any-hover: hover) {
-                                --_lph-hvr: var(--lph-scndr);
-                                --_trstn-bckgrd: var(--trnstn-drtn-prmr)
+                                --_alpha-hover: var(--alpha-secondary);
+                                --_transition-background: var(--transition-duration-primary)
                             }
                             @container (inline-size >= 900px) {
-                                --_lph-ntl: 0;
-                                --_lph-fcs: var(--lph-prmr);
-                                --_gttr: 0em;
-                                --_lnk-nln: var(--gttr-nln);
-                                --_gp: var(--gttr-mn);
+                                --_alpha-initial: 0;
+                                --_alpha-focus: var(--alpha-primary);
+                                --_link-inline: var(--gutter-inline);
+                                --_gutter: 0em;
+                                --_gap: var(--gutter-min);
                                 @media (any-hover: hover) {
-                                    --_lph-hvr: var(--lph-prmr);
-                                    --_gp: 0
+                                    --_alpha-hover: var(--alpha-primary);
+                                    --_gap: 0
                                 }
                             }
                             @media print {
-                                --_gttr: 0em;
-                                --_drctn: block
+                                --_gutter: 0em;
+                                --_direction: block
                             }
                             &:focus-within {
-                                scroll-behavior: var(--srll-bhvr, auto)
+                                scroll-behavior: var(--sroll-behavior, auto)
                             }
                             &, ul {
-                                display: var(--_drctn, flex)
+                                display: var(--_direction, flex)
                             }
                             ul {
-                                gap: var(--_gp, var(--_gttr, var(--gttr-nln)));
-                                padding-block: var(--gttr-blck);
-                                padding-left: calc(var(--_dnmc-nln) + var(--sf-lft));
-                                padding-right: calc(var(--_dnmc-nln) + var(--sf-rght));
+                                gap: var(--_gap, var(--_gutter, var(--gutter-inline)));
+                                padding-block: var(--gutter-block);
+                                padding-left: calc(var(--_dynamic-inline) + var(--safe-left));
+                                padding-right: calc(var(--_dynamic-inline) + var(--safe-right));
                                 list-style: none;
                                 a:any-link {
                                     display: block;
-                                    padding-block: var(--gttr-blck);
-                                    padding-inline: var(--_lnk-nln, var(--gttr-blck));
+                                    padding-block: var(--gutter-block);
+                                    padding-inline: var(--_link-inline, var(--gutter-block));
                                     scroll-snap-align: start;
                                     color: inherit;
-                                    font-size: var(--fnt-sz-prmr);
-                                    text-decoration: var(--txt-dcrtn, none);
+                                    font-size: var(--font-size-primary);
+                                    text-decoration: var(--text-decoration, none);
                                     text-decoration-skip-ink: all;
                                     text-transform: uppercase;
-                                    text-box-edge: cap alphabetic;
-                                    text-box-trim: both;
+                                    text-box: trim-both cap alphabetic;
                                     white-space: nowrap;
-                                    letter-spacing: var(--lttr-spcng-scndr);
-                                    outline-offset: calc(var(--gttr-mn) / var(--_tln-ffst, 2.5));
-                                    border-radius: var(--brdr-rds);
-                                    background: oklch(from var(--bck-scndr-klch) l c h / var(--_lph-ntl, var(--lph-prmr)));
-                                    @supports not (color: oklch(from currentColor l c h)) {
-                                        background: oklch(var(--bck-scndr-klch-fllbck) / var(--_lph-ntl, var(--lph-prmr)))
-                                    }
+                                    letter-spacing: var(--letter-spacing-secondary);
+                                    outline-offset: calc(var(--gutter-min) / var(--_outline-offset, 2.5));
+                                    border-radius: var(--border-radius);
+                                    background: oklch(from var(--background-secondary) l c h / var(--_alpha-initial, var(--alpha-primary)));
                                     touch-action: manipulation;
-                                    transition: background-color var(--_trstn-bckgrd, 0s) var(--cbc-bzr), outline-offset var(--_trstn-tln, 0s) var(--cbc-bzr);
+                                    transition: background-color var(--_transition-background, 0s) var(--cubic-bezier), outline-offset var(--_transition-outline, 0s) var(--cubic-bezier);
                                     &:is(:hover, :target) {
-                                        --_lph-ntl: var(--_lph-hvr, var(--lph-trtr))
+                                        --_alpha-initial: var(--_alpha-hover, var(--alpha-tertiary))
                                     }
                                     &:active {
-                                        --_lph-ntl: var(--lph-trtr);
-                                        --_trstn-bckgrd: var(--trnstn-drtn-scndr)
+                                        --_alpha-initial: var(--alpha-tertiary);
+                                        --_transition-background: var(--transition-duration-secondary)
                                     }
                                     &:focus-visible {
-                                        --_lph-ntl: var(--_lph-fcs, var(--lph-scndr));
-                                        --_trstn-tln: var(--trnstn-drtn-scndr);
-                                        --_trstn-bckgrd: calc(var(--_trstn-tln) / 2);
-                                        --_tln-ffst: 1;
-                                        outline: var(--lbl-scndr) solid var(--gttr-mn)
+                                        --_alpha-initial: var(--_alpha-focus, var(--alpha-secondary));
+                                        --_transition-outline: var(--transition-duration-secondary);
+                                        --_transition-background: calc(var(--_transition-outline) / 2);
+                                        --_outline-offset: 1;
+                                        outline: var(--label-secondary) solid var(--gutter-min)
                                     }
                                 }
                             }
@@ -368,18 +352,18 @@
                 }
             }
         </style>
-        <link rel="icon" type="image/png" href="cn.png">
-        <link rel="manifest" href="mnfst.webmanifest">
-        <link rel="alternate" type="application/atom+xml" title="Mises à jour de romanczerkies.fr" href="//github.com/czerkies/romanczerkies.31/releases.atom">
+        <link rel="icon" type="image/png" href="icon.png">
+        <link rel="manifest" href="manifest.webmanifest">
+        <link rel="alternate" type="application/atom+xml" title="Mises à jour de romanczerki.es" href="https://github.com/czerkies/romanczerkies.31/releases.atom">
         <meta name="description" content="Designer & Développeur d'Interface Humaine. Réseaux sociaux et contact.">
         <meta property="og:description" content="Designer & Développeur d'Interface Humaine. Réseaux sociaux et contact.">
-        <meta property="og:image" content="https://romanczerkies.fr/bnnr.jpg">
+        <meta property="og:image" content="https://romanczerki.es/banner.jpg">
         <meta property="og:title" content="Roman Czerkies">
         <meta property="og:type" content="website">
-        <meta property="og:url" content="https://romanczerkies.fr/">
-        <meta property="og:video" content="https://romanczerkies.fr/bnnr.mp4">
+        <meta property="og:url" content="https://romanczerki.es/">
+        <meta property="og:video" content="https://romanczerki.es/banner.mp4">
     </head>
-    <body itemprop="mainEntity" itemscope itemtype="//schema.org/Person">
+    <body itemprop="mainEntity" itemscope itemtype="https://schema.org/Person">
         <main>
             <section>
                 <h2 itemprop="jobTitle">Designer & Développeur d'Interface Humaine.</h2>
@@ -394,16 +378,16 @@
                     </h1>
                 </li>
                 <li>
-                    <a href="//twitter.com/roman_czerkies" id="twitter" title="Veille technologique Twitter de @roman_czerkies" itemprop="sameAs">Twitter</a>
+                    <a href="https://twitter.com/roman_czerkies" id="twitter" title="Veille technologique Twitter de @roman_czerkies" itemprop="sameAs">Twitter</a>
                 </li>
                 <li>
-                    <a href="//linkedin.com/in/romanczerkies" id="linkedin" title="Réseau professionnel LinkedIn de Roman Czerkies" itemprop="sameAs">LinkedIn</a>
+                    <a href="https://linkedin.com/in/romanczerkies" id="linkedin" title="Réseau professionnel LinkedIn de Roman Czerkies" itemprop="sameAs">LinkedIn</a>
                 </li>
                 <li>
-                    <a href="//github.com/czerkies/romanczerkies.31" id="github" title="Dépôt GitHub du projet romanczerkies.fr Version 31" itemprop="sameAs">GitHub</a>
+                    <a href="https://github.com/czerkies/romanczerkies.31" id="github" title="Dépôt GitHub du projet romanczerki.es Version 31" itemprop="sameAs">GitHub</a>
                 </li>
                 <li>
-                    <a href="//strava.com/athletes/roman_czerkies" id="strava" title="Activités sportives Strava de Roman Czerkies" itemprop="sameAs">Strava</a>
+                    <a href="https://strava.com/athletes/roman_czerkies" id="strava" title="Activités sportives Strava de Roman Czerkies" itemprop="sameAs">Strava</a>
                 </li>
                 <li itemprop="email">
                     <a href="mailto:contact@romanczerkies.fr?subject=Demande%20de%20contact" id="contact" title="Adresser un courriel à Roman Czerkies">contact@romanczerkies.fr</a>
@@ -411,5 +395,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerkies.fr Version 31.18.0 -->
+    <!-- romanczerki.es Version 31.19.0 -->
 </html>

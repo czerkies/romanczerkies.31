@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /*.mp4
+Disallow: /github
+Disallow: /linkedin
+Disallow: /strava
+Disallow: /twitter
