@@ -56,7 +56,8 @@
                         @media (prefers-reduced-motion: no-preference) {
                             --sroll-behavior: smooth;
                             --transition-duration-primary: 200ms;
-                            --transition-duration-secondary: 42ms
+                            --transition-duration-secondary: 42ms;
+                            --scale-primary: .98
                         }
                         @media (prefers-reduced-transparency: reduce) {
                             --label-primary-alpha: 1;
@@ -206,22 +207,23 @@
                         }
                         @media (any-hover: hover) {
                             --_alpha-hover: var(--alpha-secondary);
+                            --_scale-hover: none;
                             --_transition-background: var(--transition-duration-primary)
                         }
                         @container (inline-size >= 900px) {
                             --_alpha-initial: 0;
                             --_alpha-focus: var(--alpha-primary);
-                            --_link-inline: var(--gutter-inline);
                             --_gutter: 0em;
                             --_gap: var(--gutter-min);
+                            --_link-inline: var(--gutter-inline);
                             @media (any-hover: hover) {
                                 --_alpha-hover: var(--alpha-primary);
                                 --_gap: 0
                             }
                         }
                         @media print {
-                            --_gutter: 0em;
-                            --_direction: block
+                            --_direction: block;
+                            --_gutter: 0em
                         }
                         &:focus-within {
                             scroll-behavior: var(--sroll-behavior, auto)
@@ -252,19 +254,22 @@
                                 border-radius: var(--border-radius);
                                 background: oklch(from var(--background-secondary) l c h / var(--_alpha-initial, var(--alpha-primary)));
                                 touch-action: manipulation;
-                                transition: background-color var(--_transition-background, 0s) var(--cubic-bezier), outline-offset var(--_transition-outline, 0s) var(--cubic-bezier);
+                                scale: var(--_scale, none);
+                                transition: background-color var(--_transition-background, 0s) var(--cubic-bezier), scale var(--transition-duration-secondary, 0s) var(--cubic-bezier), outline-offset var(--_transition-outline, 0s) var(--cubic-bezier);
                                 &:is(:hover, :target) {
-                                    --_alpha-initial: var(--_alpha-hover, var(--alpha-tertiary))
+                                    --_alpha-initial: var(--_alpha-hover, var(--alpha-tertiary));
+                                    --_scale: var(--_scale-hover, var(--scale-primary))
                                 }
                                 &:active {
                                     --_alpha-initial: var(--alpha-tertiary);
+                                    --_scale: var(--scale-primary, none);
                                     --_transition-background: var(--transition-duration-secondary)
                                 }
                                 &:focus-visible {
                                     --_alpha-initial: var(--_alpha-focus, var(--alpha-secondary));
+                                    --_outline-offset: 1;
                                     --_transition-outline: var(--transition-duration-secondary);
                                     --_transition-background: calc(var(--_transition-outline) / 2);
-                                    --_outline-offset: 1;
                                     outline: var(--label-secondary) solid var(--gutter-min)
                                 }
                             }
@@ -284,22 +289,23 @@
                             }
                             @media (any-hover: hover) {
                                 --_alpha-hover: var(--alpha-secondary);
+                                --_scale-hover: none;
                                 --_transition-background: var(--transition-duration-primary)
                             }
                             @container (inline-size >= 900px) {
                                 --_alpha-initial: 0;
                                 --_alpha-focus: var(--alpha-primary);
-                                --_link-inline: var(--gutter-inline);
                                 --_gutter: 0em;
                                 --_gap: var(--gutter-min);
+                                --_link-inline: var(--gutter-inline);
                                 @media (any-hover: hover) {
                                     --_alpha-hover: var(--alpha-primary);
                                     --_gap: 0
                                 }
                             }
                             @media print {
-                                --_gutter: 0em;
-                                --_direction: block
+                                --_direction: block;
+                                --_gutter: 0em
                             }
                             &:focus-within {
                                 scroll-behavior: var(--sroll-behavior, auto)
@@ -330,19 +336,22 @@
                                     border-radius: var(--border-radius);
                                     background: oklch(from var(--background-secondary) l c h / var(--_alpha-initial, var(--alpha-primary)));
                                     touch-action: manipulation;
-                                    transition: background-color var(--_transition-background, 0s) var(--cubic-bezier), outline-offset var(--_transition-outline, 0s) var(--cubic-bezier);
+                                    scale: var(--_scale, none);
+                                    transition: background-color var(--_transition-background, 0s) var(--cubic-bezier), scale var(--transition-duration-secondary, 0s) var(--cubic-bezier), outline-offset var(--_transition-outline, 0s) var(--cubic-bezier);
                                     &:is(:hover, :target) {
-                                        --_alpha-initial: var(--_alpha-hover, var(--alpha-tertiary))
+                                        --_alpha-initial: var(--_alpha-hover, var(--alpha-tertiary));
+                                        --_scale: var(--_scale-hover, var(--scale-primary))
                                     }
                                     &:active {
                                         --_alpha-initial: var(--alpha-tertiary);
+                                        --_scale: var(--scale-primary, none);
                                         --_transition-background: var(--transition-duration-secondary)
                                     }
                                     &:focus-visible {
                                         --_alpha-initial: var(--_alpha-focus, var(--alpha-secondary));
+                                        --_outline-offset: 1;
                                         --_transition-outline: var(--transition-duration-secondary);
                                         --_transition-background: calc(var(--_transition-outline) / 2);
-                                        --_outline-offset: 1;
                                         outline: var(--label-secondary) solid var(--gutter-min)
                                     }
                                 }
