@@ -38,6 +38,7 @@ GitHub Project: [R&D](https://github.com/users/czerkies/projects/5)
 
 Version | Date
 :--- | :---
+**[v31.20.0](https://github.com/czerkies/romanczerkies.31/releases/tag/v31.20.0)** | 2025-06-09
 **[v31.19.0](https://github.com/czerkies/romanczerkies.31/releases/tag/v31.19.0)** | 2025-01-09
 **[v31.18.0](https://github.com/czerkies/romanczerkies.31/releases/tag/v31.18.0)** | 2024-09-20
 **[v31.17.0](https://github.com/czerkies/romanczerkies.31/releases/tag/v31.17.0)** | 2024-06-10
