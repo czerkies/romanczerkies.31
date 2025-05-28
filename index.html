@@ -210,7 +210,7 @@
                         @media (any-hover: hover) {
                             --_alpha-hover: var(--alpha-secondary);
                             --_scale-hover: none;
-                            --_transition-background: var(--transition-duration-primary)
+                            --_transition-duration: var(--transition-duration-primary)
                         }
                         @container (inline-size >= 900px) {
                             --_alpha-initial: 0;
@@ -259,7 +259,10 @@
                                 background: oklch(from var(--background-secondary) l c h / var(--_alpha-initial, var(--alpha-primary)));
                                 touch-action: manipulation;
                                 scale: var(--_scale, none);
-                                transition: background-color var(--_transition-background, 0s) var(--cubic-bezier), scale var(--transition-duration-secondary, 0s) var(--cubic-bezier), outline-offset var(--_transition-outline, 0s) var(--cubic-bezier);
+                                transition:
+                                    background-color var(--_transition-background, var(--_transition-duration, 0s)) var(--cubic-bezier),
+                                    outline-offset var(--_transition-outline, 0s) var(--cubic-bezier),
+                                    scale var(--_transition-duration, var(--transition-duration-secondary, 0s)) var(--cubic-bezier);
                                 &:is(:hover, :target) {
                                     --_alpha-initial: var(--_alpha-hover, var(--alpha-tertiary));
                                     --_scale: var(--_scale-hover, var(--scale-primary))
@@ -294,7 +297,7 @@
                             @media (any-hover: hover) {
                                 --_alpha-hover: var(--alpha-secondary);
                                 --_scale-hover: none;
-                                --_transition-background: var(--transition-duration-primary)
+                                --_transition-duration: var(--transition-duration-primary)
                             }
                             @container (inline-size >= 900px) {
                                 --_alpha-initial: 0;
@@ -343,7 +346,10 @@
                                     background: oklch(from var(--background-secondary) l c h / var(--_alpha-initial, var(--alpha-primary)));
                                     touch-action: manipulation;
                                     scale: var(--_scale, none);
-                                    transition: background-color var(--_transition-background, 0s) var(--cubic-bezier), scale var(--transition-duration-secondary, 0s) var(--cubic-bezier), outline-offset var(--_transition-outline, 0s) var(--cubic-bezier);
+                                    transition:
+                                        background-color var(--_transition-background, var(--_transition-duration, 0s)) var(--cubic-bezier),
+                                        outline-offset var(--_transition-outline, 0s) var(--cubic-bezier),
+                                        scale var(--_transition-duration, var(--transition-duration-secondary, 0s)) var(--cubic-bezier);
                                     &:is(:hover, :target) {
                                         --_alpha-initial: var(--_alpha-hover, var(--alpha-tertiary));
                                         --_scale: var(--_scale-hover, var(--scale-primary))
