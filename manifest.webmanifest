@@ -20,7 +20,7 @@
     "name": "Twitter",
     "short_name": "Twitter",
     "description": "Veille technologique Twitter de @roman_czerkies",
-    "url": "./twitter",
+    "url": "./twitter/",
     "icons": [{
       "src": "icon.png",
       "sizes": "256x256",
@@ -30,7 +30,7 @@
     "name": "LinkedIn",
     "short_name": "LinkedIn",
     "description": "Réseau professionnel LinkedIn de Roman Czerkies",
-    "url": "./linkedin",
+    "url": "./linkedin/",
     "icons": [{
       "src": "icon.png",
       "sizes": "256x256",
@@ -40,7 +40,7 @@
     "name": "GitHub",
     "short_name": "GitHub",
     "description": "Dépôt GitHub du projet romanczerki.es Version 31",
-    "url": "./github",
+    "url": "./github/",
     "icons": [{
       "src": "icon.png",
       "sizes": "256x256",
@@ -50,7 +50,7 @@
     "name": "Strava",
     "short_name": "Strava",
     "description": "Activités sportives Strava de Roman Czerkies",
-    "url": "./strava",
+    "url": "./strava/",
     "icons": [{
       "src": "icon.png",
       "sizes": "256x256",

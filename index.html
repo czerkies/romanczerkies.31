@@ -56,7 +56,8 @@
                         @media (prefers-reduced-motion: no-preference) {
                             --sroll-behavior: smooth;
                             --transition-duration-primary: 200ms;
-                            --transition-duration-secondary: 42ms
+                            --transition-duration-secondary: 42ms;
+                            --scale-primary: .98
                         }
                         @media (prefers-reduced-transparency: reduce) {
                             --label-primary-alpha: 1;
@@ -162,6 +163,7 @@
                         padding-left: var(--safe-left);
                         padding-right: var(--safe-right);
                         letter-spacing: var(--letter-spacing-primary);
+                        hanging-punctuation: first allow-end last;
                         &, section {
                             padding-block: var(--gutter-block)
                         }
@@ -180,6 +182,7 @@
                             padding-left: var(--safe-left);
                             padding-right: var(--safe-right);
                             letter-spacing: var(--letter-spacing-primary);
+                            hanging-punctuation: first allow-end last;
                             &, section {
                                 padding-block: var(--gutter-block)
                             }
@@ -206,22 +209,23 @@
                         }
                         @media (any-hover: hover) {
                             --_alpha-hover: var(--alpha-secondary);
-                            --_transition-background: var(--transition-duration-primary)
+                            --_scale-hover: none;
+                            --_transition-duration: var(--transition-duration-primary)
                         }
                         @container (inline-size >= 900px) {
                             --_alpha-initial: 0;
                             --_alpha-focus: var(--alpha-primary);
-                            --_link-inline: var(--gutter-inline);
                             --_gutter: 0em;
                             --_gap: var(--gutter-min);
+                            --_link-inline: var(--gutter-inline);
                             @media (any-hover: hover) {
                                 --_alpha-hover: var(--alpha-primary);
                                 --_gap: 0
                             }
                         }
                         @media print {
-                            --_gutter: 0em;
-                            --_direction: block
+                            --_direction: block;
+                            --_gutter: 0em
                         }
                         &:focus-within {
                             scroll-behavior: var(--sroll-behavior, auto)
@@ -244,6 +248,8 @@
                                 font-size: var(--font-size-primary);
                                 text-decoration: var(--text-decoration, none);
                                 text-decoration-skip-ink: all;
+                                text-decoration-thickness: round(.08em, .2px);
+                                text-underline-offset: round(.08em, .2px);
                                 text-transform: uppercase;
                                 text-box: trim-both cap alphabetic;
                                 white-space: nowrap;
@@ -252,19 +258,25 @@
                                 border-radius: var(--border-radius);
                                 background: oklch(from var(--background-secondary) l c h / var(--_alpha-initial, var(--alpha-primary)));
                                 touch-action: manipulation;
-                                transition: background-color var(--_transition-background, 0s) var(--cubic-bezier), outline-offset var(--_transition-outline, 0s) var(--cubic-bezier);
+                                scale: var(--_scale, none);
+                                transition:
+                                    background-color var(--_transition-background, var(--_transition-duration, 0s)) var(--cubic-bezier),
+                                    outline-offset var(--_transition-outline, 0s) var(--cubic-bezier),
+                                    scale var(--_transition-duration, var(--transition-duration-secondary, 0s)) var(--cubic-bezier);
                                 &:is(:hover, :target) {
-                                    --_alpha-initial: var(--_alpha-hover, var(--alpha-tertiary))
+                                    --_alpha-initial: var(--_alpha-hover, var(--alpha-tertiary));
+                                    --_scale: var(--_scale-hover, var(--scale-primary))
                                 }
                                 &:active {
                                     --_alpha-initial: var(--alpha-tertiary);
+                                    --_scale: var(--scale-primary, none);
                                     --_transition-background: var(--transition-duration-secondary)
                                 }
                                 &:focus-visible {
                                     --_alpha-initial: var(--_alpha-focus, var(--alpha-secondary));
+                                    --_outline-offset: 1;
                                     --_transition-outline: var(--transition-duration-secondary);
                                     --_transition-background: calc(var(--_transition-outline) / 2);
-                                    --_outline-offset: 1;
                                     outline: var(--label-secondary) solid var(--gutter-min)
                                 }
                             }
@@ -284,22 +296,23 @@
                             }
                             @media (any-hover: hover) {
                                 --_alpha-hover: var(--alpha-secondary);
-                                --_transition-background: var(--transition-duration-primary)
+                                --_scale-hover: none;
+                                --_transition-duration: var(--transition-duration-primary)
                             }
                             @container (inline-size >= 900px) {
                                 --_alpha-initial: 0;
                                 --_alpha-focus: var(--alpha-primary);
-                                --_link-inline: var(--gutter-inline);
                                 --_gutter: 0em;
                                 --_gap: var(--gutter-min);
+                                --_link-inline: var(--gutter-inline);
                                 @media (any-hover: hover) {
                                     --_alpha-hover: var(--alpha-primary);
                                     --_gap: 0
                                 }
                             }
                             @media print {
-                                --_gutter: 0em;
-                                --_direction: block
+                                --_direction: block;
+                                --_gutter: 0em
                             }
                             &:focus-within {
                                 scroll-behavior: var(--sroll-behavior, auto)
@@ -322,6 +335,8 @@
                                     font-size: var(--font-size-primary);
                                     text-decoration: var(--text-decoration, none);
                                     text-decoration-skip-ink: all;
+                                    text-decoration-thickness: round(.08em, .2px);
+                                    text-underline-offset: round(.08em, .2px);
                                     text-transform: uppercase;
                                     text-box: trim-both cap alphabetic;
                                     white-space: nowrap;
@@ -330,19 +345,25 @@
                                     border-radius: var(--border-radius);
                                     background: oklch(from var(--background-secondary) l c h / var(--_alpha-initial, var(--alpha-primary)));
                                     touch-action: manipulation;
-                                    transition: background-color var(--_transition-background, 0s) var(--cubic-bezier), outline-offset var(--_transition-outline, 0s) var(--cubic-bezier);
+                                    scale: var(--_scale, none);
+                                    transition:
+                                        background-color var(--_transition-background, var(--_transition-duration, 0s)) var(--cubic-bezier),
+                                        outline-offset var(--_transition-outline, 0s) var(--cubic-bezier),
+                                        scale var(--_transition-duration, var(--transition-duration-secondary, 0s)) var(--cubic-bezier);
                                     &:is(:hover, :target) {
-                                        --_alpha-initial: var(--_alpha-hover, var(--alpha-tertiary))
+                                        --_alpha-initial: var(--_alpha-hover, var(--alpha-tertiary));
+                                        --_scale: var(--_scale-hover, var(--scale-primary))
                                     }
                                     &:active {
                                         --_alpha-initial: var(--alpha-tertiary);
+                                        --_scale: var(--scale-primary, none);
                                         --_transition-background: var(--transition-duration-secondary)
                                     }
                                     &:focus-visible {
                                         --_alpha-initial: var(--_alpha-focus, var(--alpha-secondary));
+                                        --_outline-offset: 1;
                                         --_transition-outline: var(--transition-duration-secondary);
                                         --_transition-background: calc(var(--_transition-outline) / 2);
-                                        --_outline-offset: 1;
                                         outline: var(--label-secondary) solid var(--gutter-min)
                                     }
                                 }
@@ -395,5 +416,5 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerki.es Version 31.19.0 -->
+    <!-- romanczerki.es Version 31.20.0 -->
 </html>
