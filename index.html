@@ -204,9 +204,6 @@
                         overscroll-behavior-inline: contain;
                         scroll-padding: 0 calc(var(--_dynamic-inline) + var(--safe-right)) 0 calc(var(--_dynamic-inline) + var(--safe-left));
                         scroll-snap-type: inline mandatory;
-                        @supports not (overflow-inline: auto) {
-                            overflow-x: auto
-                        }
                         @media (any-hover: hover) {
                             --_alpha-hover: var(--alpha-secondary);
                             --_scale-hover: none;
@@ -291,9 +288,6 @@
                             overscroll-behavior-inline: contain;
                             scroll-padding: 0 calc(var(--_dynamic-inline) + var(--safe-right)) 0 calc(var(--_dynamic-inline) + var(--safe-left));
                             scroll-snap-type: inline mandatory;
-                            @supports not (overflow-inline: auto) {
-                                overflow-x: auto
-                            }
                             @media (any-hover: hover) {
                                 --_alpha-hover: var(--alpha-secondary);
                                 --_scale-hover: none;
