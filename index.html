@@ -50,13 +50,15 @@
                         --letter-spacing-secondary: .075em;
                         --border-radius: .5rem;
                         --cubic-bezier: cubic-bezier(.68, .48, .48, .98);
+                        --transition-duration-primary: 200ms;
+                        --transition-duration-secondary: 42ms;
                         container: icb / inline-size;
                         background: var(--background-primary);
                         font: clamp(100, var(--font-weight), 900) clamp(50%, var(--font-size), 1000%)/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
                         @media (prefers-reduced-motion: no-preference) {
                             --sroll-behavior: smooth;
-                            --transition-duration-primary: 200ms;
-                            --transition-duration-secondary: 42ms;
+                            --animation-duration-primary: var(--transition-duration-primary);
+                            --animation-duration-secondary: var(--transition-duration-secondary);
                             --scale-primary: .98
                         }
                         @media (prefers-reduced-transparency: reduce) {
@@ -207,7 +209,8 @@
                         @media (any-hover: hover) {
                             --_alpha-hover: var(--alpha-secondary);
                             --_scale-hover: none;
-                            --_transition-duration: var(--transition-duration-primary)
+                            --_transition-duration: var(--transition-duration-primary);
+                            --_animation-duration: var(--animation-duration-primary)
                         }
                         @container (inline-size >= 900px) {
                             --_alpha-initial: 0;
@@ -258,8 +261,8 @@
                                 scale: var(--_scale, none);
                                 transition:
                                     background-color var(--_transition-background, var(--_transition-duration, 0s)) var(--cubic-bezier),
-                                    outline-offset var(--_transition-outline, 0s) var(--cubic-bezier),
-                                    scale var(--_transition-duration, var(--transition-duration-secondary, 0s)) var(--cubic-bezier);
+                                    outline-offset var(--_animation-outline, 0s) var(--cubic-bezier),
+                                    scale var(--_animation-duration, var(--animation-duration-secondary, 0s)) var(--cubic-bezier);
                                 &:is(:hover, :target) {
                                     --_alpha-initial: var(--_alpha-hover, var(--alpha-tertiary));
                                     --_scale: var(--_scale-hover, var(--scale-primary))
@@ -272,8 +275,9 @@
                                 &:focus-visible {
                                     --_alpha-initial: var(--_alpha-focus, var(--alpha-secondary));
                                     --_outline-offset: 1;
-                                    --_transition-outline: var(--transition-duration-secondary);
-                                    --_transition-background: calc(var(--_transition-outline) / 2);
+                                    --_animation-outline: var(--animation-duration-secondary);
+                                    --_transition-background-outline: calc(var(--_animation-outline) / 2);
+                                    --_transition-background: var(--_transition-background-outline, var(--transition-duration-secondary));
                                     outline: var(--label-secondary) solid var(--gutter-min)
                                 }
                             }
@@ -291,7 +295,8 @@
                             @media (any-hover: hover) {
                                 --_alpha-hover: var(--alpha-secondary);
                                 --_scale-hover: none;
-                                --_transition-duration: var(--transition-duration-primary)
+                                --_transition-duration: var(--transition-duration-primary);
+                                --_animation-duration: var(--animation-duration-primary)
                             }
                             @container (inline-size >= 900px) {
                                 --_alpha-initial: 0;
@@ -342,8 +347,8 @@
                                     scale: var(--_scale, none);
                                     transition:
                                         background-color var(--_transition-background, var(--_transition-duration, 0s)) var(--cubic-bezier),
-                                        outline-offset var(--_transition-outline, 0s) var(--cubic-bezier),
-                                        scale var(--_transition-duration, var(--transition-duration-secondary, 0s)) var(--cubic-bezier);
+                                        outline-offset var(--_animation-outline, 0s) var(--cubic-bezier),
+                                        scale var(--_animation-duration, var(--animation-duration-secondary, 0s)) var(--cubic-bezier);
                                     &:is(:hover, :target) {
                                         --_alpha-initial: var(--_alpha-hover, var(--alpha-tertiary));
                                         --_scale: var(--_scale-hover, var(--scale-primary))
@@ -356,8 +361,9 @@
                                     &:focus-visible {
                                         --_alpha-initial: var(--_alpha-focus, var(--alpha-secondary));
                                         --_outline-offset: 1;
-                                        --_transition-outline: var(--transition-duration-secondary);
-                                        --_transition-background: calc(var(--_transition-outline) / 2);
+                                        --_animation-outline: var(--animation-duration-secondary);
+                                        --_transition-background-outline: calc(var(--_animation-outline) / 2);
+                                        --_transition-background: var(--_transition-background-outline, var(--transition-duration-secondary));
                                         outline: var(--label-secondary) solid var(--gutter-min)
                                     }
                                 }
