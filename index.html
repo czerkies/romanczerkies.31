@@ -40,8 +40,12 @@
                         --gutter-min: .25rem;
                         --gutter-block: clamp(var(--gutter-min) * 2, 2.5svb, 1.5rem);
                         --gutter-inline: clamp(var(--gutter-min), 2.1svi, 1.5rem);
-                        --safe-left: calc(var(--gutter-inline) + env(safe-area-inset-left));
-                        --safe-right: calc(var(--gutter-inline) + env(safe-area-inset-right));
+                        --safe-inline-start: calc(var(--gutter-inline) + env(safe-area-inset-left));
+                        --safe-inline-end: calc(var(--gutter-inline) + env(safe-area-inset-right));
+                        &:dir(rtl) {
+                            --safe-inline-start: calc(var(--gutter-inline) + env(safe-area-inset-right));
+                            --safe-inline-end: calc(var(--gutter-inline) + env(safe-area-inset-left));
+                        }
                         --font-size-primary: .875rem;
                         --font-size-secondary: 1.5rem;
                         --font-size-tertiary: 2rem;
@@ -162,8 +166,7 @@
                     }
                     main {
                         grid-column: main;
-                        padding-left: var(--safe-left);
-                        padding-right: var(--safe-right);
+                        padding-inline: var(--safe-inline-start) var(--safe-inline-end);
                         letter-spacing: var(--letter-spacing-primary);
                         hanging-punctuation: first allow-end last;
                         &, section {
@@ -181,8 +184,7 @@
                     @scope (main) to (:is(h2, p) > *) {
                         :scope {
                             grid-column: main;
-                            padding-left: var(--safe-left);
-                            padding-right: var(--safe-right);
+                            padding-inline: var(--safe-inline-start) var(--safe-inline-end);
                             letter-spacing: var(--letter-spacing-primary);
                             hanging-punctuation: first allow-end last;
                             &, section {
@@ -205,7 +207,7 @@
                             overflow-inline: auto;
                             scrollbar-width: thin;
                             overscroll-behavior-inline: contain;
-                            scroll-padding: 0 calc(var(--_dynamic-inline) + var(--safe-right)) 0 calc(var(--_dynamic-inline) + var(--safe-left));
+                            scroll-padding-inline: calc(var(--_dynamic-inline) + var(--safe-inline-start)) var(--safe-inline-end);
                             scroll-snap-type: inline mandatory;
                             @media (any-hover: hover) {
                                 --_alpha-hover: var(--alpha-secondary);
@@ -237,8 +239,7 @@
                             ul {
                                 gap: var(--_gap, var(--_gutter, var(--gutter-inline)));
                                 padding-block: var(--gutter-block);
-                                padding-left: calc(var(--_dynamic-inline) + var(--safe-left));
-                                padding-right: calc(var(--_dynamic-inline) + var(--safe-right));
+                                padding-inline: calc(var(--_dynamic-inline) + var(--safe-inline-start)) var(--safe-inline-end);
                                 list-style: none;
                                 a:any-link {
                                     display: block;
@@ -303,12 +304,11 @@
                             animation-timeline: scroll(inline self);
                             grid-column: edge;
                             padding-block: var(--gutter-block);
-                            padding-left: calc(var(--_dynamic-inline) + var(--safe-left));
-                            padding-right: var(--safe-right);
+                            padding-inline: calc(var(--_dynamic-inline) + var(--safe-inline-start)) var(--safe-inline-end);
                             overflow-inline: auto;
                             scrollbar-width: thin;
                             overscroll-behavior-inline: contain;
-                            scroll-padding: 0 var(--safe-right) 0 calc(var(--_dynamic-inline) + var(--safe-left));
+                            scroll-padding-inline: calc(var(--_dynamic-inline) + var(--safe-inline-start)) var(--safe-inline-end);
                             scroll-snap-type: inline mandatory;
                             @media (any-hover: hover) {
                                 --_alpha-hover: var(--alpha-secondary);
