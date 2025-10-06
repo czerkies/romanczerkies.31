@@ -289,27 +289,27 @@
                     @scope (nav) to (a:any-link > *) {
                         @keyframes --_detect-scroll {
                             0%, 100% {
-                                --_scroll-detected: 1;
+                                --_scroll-detected: 1
                             }
                         }
                         @keyframes --_load-scroll {
                             100% {
-                                background: oklch(from var(--background-secondary) l c h / var(--_alpha-initial, var(--alpha-primary)));
+                                background: oklch(from var(--background-secondary) l c h / var(--_alpha-initial, var(--alpha-primary)))
                             }
                         }
                         :scope {
                             --_dynamic-inline: 50cqi - min(var(--max-inline-size) / 2, 50cqi);
                             --_scroll-detected: 0;
-                            animation: --_detect-scroll linear both;
-                            animation-timeline: scroll(inline self);
                             grid-column: edge;
                             padding-block: var(--gutter-block);
                             padding-inline: calc(var(--_dynamic-inline) + var(--safe-inline-start)) var(--safe-inline-end);
                             overflow-inline: auto;
-                            scrollbar-width: thin;
                             overscroll-behavior-inline: contain;
                             scroll-padding-inline: calc(var(--_dynamic-inline) + var(--safe-inline-start)) var(--safe-inline-end);
                             scroll-snap-type: inline mandatory;
+                            scrollbar-width: thin;
+                            animation: --_detect-scroll linear both;
+                            animation-timeline: scroll(inline self);
                             @media (any-hover: hover) {
                                 --_alpha-hover: var(--alpha-secondary);
                                 --_scale-hover: none;
@@ -318,7 +318,7 @@
                             }
                             @media print {
                                 --_direction: block;
-                                --_gutter: 0em
+                                --_gutter: 0
                             }
                             &:focus-within {
                                 scroll-behavior: var(--sroll-behavior, auto)
@@ -334,7 +334,7 @@
                                     --_alpha-initial: 0;
                                     --_alpha-focus: var(--alpha-primary);
                                     --_gap: var(--gutter-min);
-                                    --_gutter: 0em;
+                                    --_gutter: 0;
                                     --_link-inline: var(--gutter-inline);
                                     @media (any-hover: hover) {
                                         --_alpha-hover: var(--alpha-primary);
