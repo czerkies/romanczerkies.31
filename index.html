@@ -91,9 +91,6 @@
                     }
                 }
                 @layer resets {
-                    * {
-                        box-sizing: border-box
-                    }
                     ::selection, ::target-text {
                         background: oklch(from var(--background-secondary) l c h / var(--_alpha, var(--alpha-quaternary)));
                         color: var(--label-primary)
@@ -112,6 +109,7 @@
                         align-content: center;
                         min-block-size: 100svb;
                         padding: calc(var(--gutter-block) + env(safe-area-inset-top)) 0 calc(var(--gutter-block) + env(safe-area-inset-bottom));
+                        box-sizing: border-box;
                         font-size: var(--_font-size, var(--font-size-secondary));
                         font-size-adjust: from-font;
                         color: var(--label-secondary);
@@ -135,6 +133,7 @@
                             align-content: center;
                             min-block-size: 100svb;
                             padding: calc(var(--gutter-block) + env(safe-area-inset-top)) 0 calc(var(--gutter-block) + env(safe-area-inset-bottom));
+                            box-sizing: border-box;
                             font-size: var(--_font-size, var(--font-size-secondary));
                             font-size-adjust: from-font;
                             color: var(--label-secondary);
