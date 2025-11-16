@@ -3,9 +3,7 @@
   "dir": "auto",
   "display": "standalone",
   "icons": [{
-    "src": "icon.png",
-    "sizes": "256x256",
-    "type": "image/png"
+    "src": "icon.svg"
   }],
   "id": "/",
   "lang": "fr",
@@ -22,9 +20,7 @@
     "description": "Veille technologique Twitter de @roman_czerkies",
     "url": "./twitter/",
     "icons": [{
-      "src": "icon.png",
-      "sizes": "256x256",
-      "type": "image/png"
+      "src": "icon.svg"
     }]
   },{
     "name": "LinkedIn",
@@ -32,9 +28,7 @@
     "description": "Réseau professionnel LinkedIn de Roman Czerkies",
     "url": "./linkedin/",
     "icons": [{
-      "src": "icon.png",
-      "sizes": "256x256",
-      "type": "image/png"
+      "src": "icon.svg"
     }]
   },{
     "name": "GitHub",
@@ -42,9 +36,7 @@
     "description": "Dépôt GitHub du projet romanczerki.es Version 31",
     "url": "./github/",
     "icons": [{
-      "src": "icon.png",
-      "sizes": "256x256",
-      "type": "image/png"
+      "src": "icon.svg"
     }]
   },{
     "name": "Strava",
@@ -52,9 +44,7 @@
     "description": "Activités sportives Strava de Roman Czerkies",
     "url": "./strava/",
     "icons": [{
-      "src": "icon.png",
-      "sizes": "256x256",
-      "type": "image/png"
+      "src": "icon.svg"
     }]
   },{
     "name": "Contact",
@@ -62,9 +52,7 @@
     "description": "Adresser un courriel à Roman Czerkies",
     "url": "./#contact",
     "icons": [{
-      "src": "icon.png",
-      "sizes": "256x256",
-      "type": "image/png"
+      "src": "icon.svg"
     }]
   }],
   "start_url": ".",
