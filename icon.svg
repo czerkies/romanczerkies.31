@@ -1,5 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000" role="img" aria-labelledby="romanczerkies-logo-title romanczerkies-logo-description">
-  <title id="romanczerkies-logo-title">romanczerkies Logo</title>
-  <desc id="romanczerkies-logo-description">A purple square with rounded corners and the letters CSS inside in white</desc>
-  <rect width="1000" height="1000" rx="24%" fill="#95A8B2"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000" role="img" aria-labelledby="logo-title logo-description">
+    <title id="logo-title">Logo de Roman Czerkies</title>
+    <desc id="logo-description">Un carré gris avec des coins arrondis</desc>
+    <style>
+        rect {
+            color-scheme: light dark;
+            fill: light-dark(oklch(.4206 .016 228.752), oklch(.8313 .016 228.752));
+        }
+    </style>
+    <rect width="1000" height="1000" rx="25%" />
 </svg>
