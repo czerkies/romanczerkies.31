@@ -3,8 +3,7 @@
   "dir": "auto",
   "display": "standalone",
   "icons": [{
-    "src": "icon.svg",
-    "sizes": "any 128x128 256x256 512x512"
+    "src": "icon.svg"
   }],
   "id": "/",
   "lang": "fr",
