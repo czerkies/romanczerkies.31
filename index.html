@@ -105,7 +105,7 @@
                 @layer layouts {
                     body {
                         display: grid;
-                        grid: auto-flow / [edge-start] 1fr [main-start] minmax(auto, var(--max-inline-size)) [main-end] 1fr [edge-end];
+                        grid: auto-flow / [--column-edge-start] 1fr [--column-main-start] minmax(auto, var(--max-inline-size)) [--column-main-end] 1fr [--column-edge-end];
                         align-content: center;
                         min-block-size: 100svb;
                         padding: calc(var(--gutter-block) + env(safe-area-inset-top)) 0 calc(var(--gutter-block) + env(safe-area-inset-bottom));
@@ -129,7 +129,7 @@
                     @scope (body) to (> *) {
                         :scope {
                             display: grid;
-                            grid: auto-flow / [edge-start] 1fr [main-start] minmax(auto, var(--max-inline-size)) [main-end] 1fr [edge-end];
+                            grid: auto-flow / [--column-edge-start] 1fr [--column-main-start] minmax(auto, var(--max-inline-size)) [--column-main-end] 1fr [--column-edge-end];
                             align-content: center;
                             min-block-size: 100svb;
                             padding: calc(var(--gutter-block) + env(safe-area-inset-top)) 0 calc(var(--gutter-block) + env(safe-area-inset-bottom));
@@ -164,7 +164,7 @@
                         }
                     }
                     main {
-                        grid-column: main;
+                        grid-column: --column-main;
                         padding-inline: var(--safe-inline-start) var(--safe-inline-end);
                         letter-spacing: var(--letter-spacing-primary);
                         hanging-punctuation: first allow-end last;
@@ -182,7 +182,7 @@
                     }
                     @scope (main) to (:is(h2, p) > *) {
                         :scope {
-                            grid-column: main;
+                            grid-column: --column-main;
                             padding-inline: var(--safe-inline-start) var(--safe-inline-end);
                             letter-spacing: var(--letter-spacing-primary);
                             hanging-punctuation: first allow-end last;
@@ -202,7 +202,7 @@
                     @supports not (animation-timeline: scroll(inline self)) {
                         nav {
                             --_dynamic-inline: 50cqi - min(var(--max-inline-size) / 2, 50cqi) + var(--_gutter, var(--gutter-inline));
-                            grid-column: edge;
+                            grid-column: --column-edge;
                             overflow-inline: auto;
                             scrollbar-width: thin;
                             scrollbar-color: var(--label-secondary) transparent;
@@ -300,7 +300,7 @@
                         :scope {
                             --_dynamic-inline: 50cqi - min(var(--max-inline-size) / 2, 50cqi);
                             --_scroll-detected: 0;
-                            grid-column: edge;
+                            grid-column: --column-edge;
                             padding-block: var(--gutter-block);
                             padding-inline: calc(var(--_dynamic-inline) + var(--safe-inline-start)) var(--safe-inline-end);
                             overflow-inline: auto;
