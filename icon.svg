@@ -1,11 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="logo-title logo-description">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-labelledby="logo-title logo-description" style="color-scheme: light dark">
     <title id="logo-title">Logo de Roman Czerkies</title>
     <desc id="logo-description">Un carré gris avec des coins arrondis</desc>
-    <style>
-        rect {
-            color-scheme: light dark;
-            fill: light-dark(oklch(.4206 .016 228.752), oklch(.8313 .016 228.752))
-        }
-    </style>
-    <rect width="512" height="512" rx="13.8%" />
+    <rect width="512" height="512" rx="13.8%" fill="light-dark(oklch(.4206 .016 228.752), oklch(.8313 .016 228.752))" />
 </svg>
