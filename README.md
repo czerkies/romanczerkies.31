@@ -1,4 +1,4 @@
-# [romanczerki.es](https://romanczerki.es) Version 31
+# [romanczerki.es](https://romanczerki.es)
 
 ## Informations
 
@@ -8,9 +8,10 @@ This project is not only minimalist, fast and accessible; it is designed to impl
 
 - CSS
 - HTML
+- Microdata
 - Open Graph protocol
 - RSS
-- Schema.org
+- SVG
 - Web Applications
 
 ## Installation
