@@ -91,9 +91,6 @@
                     }
                 }
                 @layer resets {
-                    * {
-                        box-sizing: border-box
-                    }
                     ::selection, ::target-text {
                         background: oklch(from var(--background-secondary) l c h / var(--_alpha, var(--alpha-quaternary)));
                         color: var(--label-primary)
@@ -106,35 +103,14 @@
                     }
                 }
                 @layer layouts {
-                    body {
-                        display: grid;
-                        grid: auto-flow / [edge-start] 1fr [main-start] minmax(auto, var(--max-inline-size)) [main-end] 1fr [edge-end];
-                        align-content: center;
-                        min-block-size: 100svb;
-                        padding: calc(var(--gutter-block) + env(safe-area-inset-top)) 0 calc(var(--gutter-block) + env(safe-area-inset-bottom));
-                        font-size: var(--_font-size, var(--font-size-secondary));
-                        font-size-adjust: from-font;
-                        color: var(--label-secondary);
-                        text-rendering: optimizeLegibility;
-                        -webkit-font-smoothing: antialiased;
-                        -moz-osx-font-smoothing: grayscale;
-                        @container icb (inline-size >= 900px) {
-                            --_font-size: var(--font-size-tertiary);
-                            @container icb (inline-size >= 1250px) {
-                                --_font-size: var(--font-size-quaternary)
-                            }
-                        }
-                        @media print {
-                            --_font-size: var(--font-size-quaternary)
-                        }
-                    }
                     @scope (body) to (> *) {
                         :scope {
                             display: grid;
-                            grid: auto-flow / [edge-start] 1fr [main-start] minmax(auto, var(--max-inline-size)) [main-end] 1fr [edge-end];
+                            grid: auto-flow / [--column-edge-start] 1fr [--column-main-start] minmax(auto, var(--max-inline-size)) [--column-main-end] 1fr [--column-edge-end];
                             align-content: center;
                             min-block-size: 100svb;
                             padding: calc(var(--gutter-block) + env(safe-area-inset-top)) 0 calc(var(--gutter-block) + env(safe-area-inset-bottom));
+                            box-sizing: border-box;
                             font-size: var(--_font-size, var(--font-size-secondary));
                             font-size-adjust: from-font;
                             color: var(--label-secondary);
@@ -154,36 +130,15 @@
                     }
                 }
                 @layer components {
-                    h1, h2 {
-                        color: var(--label-primary);
-                        font: inherit
-                    }
                     @scope (h1, h2) to (> *) {
                         :scope {
                             color: var(--label-primary);
                             font: inherit
                         }
                     }
-                    main {
-                        grid-column: main;
-                        padding-inline: var(--safe-inline-start) var(--safe-inline-end);
-                        letter-spacing: var(--letter-spacing-primary);
-                        hanging-punctuation: first allow-end last;
-                        &, section {
-                            padding-block: var(--gutter-block)
-                        }
-                        section {
-                            padding-inline: var(--gutter-inline);
-                            overflow-wrap: anywhere;
-                            text-wrap: pretty;
-                            h2, p {
-                                display: inline
-                            }
-                        }
-                    }
                     @scope (main) to (:is(h2, p) > *) {
                         :scope {
-                            grid-column: main;
+                            grid-column: --column-main;
                             padding-inline: var(--safe-inline-start) var(--safe-inline-end);
                             letter-spacing: var(--letter-spacing-primary);
                             hanging-punctuation: first allow-end last;
@@ -196,92 +151,6 @@
                                 text-wrap: pretty;
                                 h2, p {
                                     display: inline
-                                }
-                            }
-                        }
-                    }
-                    @supports not (animation-timeline: scroll(inline self)) {
-                        nav {
-                            --_dynamic-inline: 50cqi - min(var(--max-inline-size) / 2, 50cqi) + var(--_gutter, var(--gutter-inline));
-                            grid-column: edge;
-                            overflow-inline: auto;
-                            scrollbar-width: thin;
-                            overscroll-behavior-inline: contain;
-                            scroll-padding-inline: calc(var(--_dynamic-inline) + var(--safe-inline-start)) var(--safe-inline-end);
-                            scroll-snap-type: inline mandatory;
-                            @media (any-hover: hover) {
-                                --_alpha-hover: var(--alpha-secondary);
-                                --_scale-hover: none;
-                                --_transition-duration: var(--transition-duration-primary);
-                                --_animation-duration: var(--animation-duration-primary)
-                            }
-                            @container (inline-size >= 900px) {
-                                --_alpha-initial: 0;
-                                --_alpha-focus: var(--alpha-primary);
-                                --_gutter: 0em;
-                                --_gap: var(--gutter-min);
-                                --_link-inline: var(--gutter-inline);
-                                @media (any-hover: hover) {
-                                    --_alpha-hover: var(--alpha-primary);
-                                    --_gap: 0
-                                }
-                            }
-                            @media print {
-                                --_direction: block;
-                                --_gutter: 0em
-                            }
-                            &:focus-within {
-                                scroll-behavior: var(--sroll-behavior, auto)
-                            }
-                            &, ul {
-                                display: var(--_direction, flex)
-                            }
-                            ul {
-                                gap: var(--_gap, var(--_gutter, var(--gutter-inline)));
-                                padding-block: var(--gutter-block);
-                                padding-inline: calc(var(--_dynamic-inline) + var(--safe-inline-start)) var(--safe-inline-end);
-                                list-style: none;
-                                a:any-link {
-                                    display: block;
-                                    padding-block: var(--gutter-block);
-                                    padding-inline: var(--_link-inline, var(--gutter-block));
-                                    scroll-snap-align: start;
-                                    color: inherit;
-                                    font-size: var(--font-size-primary);
-                                    text-decoration: var(--text-decoration, none);
-                                    text-decoration-skip-ink: all;
-                                    text-decoration-thickness: round(.08em, .2px);
-                                    text-underline-offset: round(.08em, .2px);
-                                    text-transform: uppercase;
-                                    text-box: trim-both cap alphabetic;
-                                    white-space: nowrap;
-                                    letter-spacing: var(--letter-spacing-secondary);
-                                    outline-offset: calc(var(--gutter-min) / var(--_outline-offset, 2.5));
-                                    border-radius: var(--border-radius);
-                                    background: oklch(from var(--background-secondary) l c h / var(--_alpha-initial, var(--alpha-primary)));
-                                    touch-action: manipulation;
-                                    scale: var(--_scale, none);
-                                    transition:
-                                        background-color var(--_transition-background, var(--_transition-duration, 0s)) var(--cubic-bezier),
-                                        outline-offset var(--_animation-outline, 0s) var(--cubic-bezier),
-                                        scale var(--_animation-duration, var(--animation-duration-secondary, 0s)) var(--cubic-bezier);
-                                    &:is(:hover, :target) {
-                                        --_alpha-initial: var(--_alpha-hover, var(--alpha-tertiary));
-                                        --_scale: var(--_scale-hover, var(--scale-primary))
-                                    }
-                                    &:active {
-                                        --_alpha-initial: var(--alpha-tertiary);
-                                        --_scale: var(--scale-primary, none);
-                                        --_transition-background: var(--transition-duration-secondary)
-                                    }
-                                    &:focus-visible {
-                                        --_alpha-initial: var(--_alpha-focus, var(--alpha-secondary));
-                                        --_outline-offset: 1;
-                                        --_animation-outline: var(--animation-duration-secondary);
-                                        --_transition-background-outline: calc(var(--_animation-outline) / 2);
-                                        --_transition-background: var(--_transition-background-outline, var(--transition-duration-secondary));
-                                        outline: var(--label-secondary) solid var(--gutter-min)
-                                    }
                                 }
                             }
                         }
@@ -300,7 +169,7 @@
                         :scope {
                             --_dynamic-inline: 50cqi - min(var(--max-inline-size) / 2, 50cqi);
                             --_scroll-detected: 0;
-                            grid-column: edge;
+                            grid-column: --column-edge;
                             padding-block: var(--gutter-block);
                             padding-inline: calc(var(--_dynamic-inline) + var(--safe-inline-start)) var(--safe-inline-end);
                             overflow-inline: auto;
@@ -308,6 +177,7 @@
                             scroll-padding-inline: calc(var(--_dynamic-inline) + var(--safe-inline-start)) var(--safe-inline-end);
                             scroll-snap-type: inline mandatory;
                             scrollbar-width: thin;
+                            scrollbar-color: var(--label-secondary) transparent;
                             animation: --_detect-scroll linear both;
                             animation-timeline: scroll(inline self);
                             @media (any-hover: hover) {
@@ -339,6 +209,19 @@
                                     @media (any-hover: hover) {
                                         --_alpha-hover: var(--alpha-primary);
                                         --_gap: 0
+                                    }
+                                }
+                                @supports not (animation-timeline: scroll(inline self)) {
+                                    @container (inline-size >= 900px) {
+                                        --_alpha-initial: 0;
+                                        --_alpha-focus: var(--alpha-primary);
+                                        --_gap: var(--gutter-min);
+                                        --_gutter: 0;
+                                        --_link-inline: var(--gutter-inline);
+                                        @media (any-hover: hover) {
+                                            --_alpha-hover: var(--alpha-primary);
+                                            --_gap: 0
+                                        }
                                     }
                                 }
                                 li {
@@ -393,10 +276,11 @@
                 }
             }
         </style>
-        <link rel="icon" type="image/png" href="icon.png">
+        <link rel="icon" href="icon.svg" sizes="any">
         <link rel="manifest" href="manifest.webmanifest">
         <link rel="alternate" type="application/atom+xml" title="Mises à jour de romanczerki.es" href="https://github.com/czerkies/romanczerkies.31/releases.atom">
         <meta name="description" content="Designer & Développeur d'Interface Humaine. Réseaux sociaux et contact.">
+        <meta name="version" content="31.22.0">
         <meta property="og:description" content="Designer & Développeur d'Interface Humaine. Réseaux sociaux et contact.">
         <meta property="og:image" content="https://romanczerki.es/banner.jpg">
         <meta property="og:title" content="Roman Czerkies">
@@ -415,7 +299,7 @@
             <ul aria-label="Réseaux sociaux et contact">
                 <li>
                     <h1 title="Site personnel de Roman Czerkies" itemprop="name">
-                        <a href="." translate="no">Roman Czerkies</a>
+                        <a href="" translate="no">Roman Czerkies</a>
                     </h1>
                 </li>
                 <li>
@@ -425,7 +309,7 @@
                     <a href="https://linkedin.com/in/romanczerkies" id="linkedin" title="Réseau professionnel LinkedIn de Roman Czerkies" itemprop="sameAs">LinkedIn</a>
                 </li>
                 <li>
-                    <a href="https://github.com/czerkies/romanczerkies.31" id="github" title="Dépôt GitHub du projet romanczerki.es Version 31" itemprop="sameAs">GitHub</a>
+                    <a href="https://github.com/czerkies/romanczerkies.31" id="github" title="Dépôt GitHub du projet romanczerki.es" itemprop="sameAs">GitHub</a>
                 </li>
                 <li>
                     <a href="https://strava.com/athletes/roman_czerkies" id="strava" title="Activités sportives Strava de Roman Czerkies" itemprop="sameAs">Strava</a>
@@ -436,5 +320,4 @@
             </ul>
         </nav>
     </body>
-    <!-- romanczerki.es Version 31.21.0 -->
 </html>

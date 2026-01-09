@@ -1,4 +1,4 @@
-# [romanczerki.es](https://romanczerki.es) Version 31
+# [romanczerki.es](https://romanczerki.es)
 
 ## Informations
 
@@ -8,9 +8,10 @@ This project is not only minimalist, fast and accessible; it is designed to impl
 
 - CSS
 - HTML
+- Microdata
 - Open Graph protocol
 - RSS
-- Schema.org
+- SVG
 - Web Applications
 
 ## Installation
@@ -38,6 +39,7 @@ GitHub Project: [R&D](https://github.com/users/czerkies/projects/5)
 
 Version | Date
 :--- | :---
+**[v31.22.0](https://github.com/czerkies/romanczerkies.31/releases/tag/v31.22.0)** | 2026-01-09
 **[v31.21.0](https://github.com/czerkies/romanczerkies.31/releases/tag/v31.21.0)** | 2025-10-09
 **[v31.20.0](https://github.com/czerkies/romanczerkies.31/releases/tag/v31.20.0)** | 2025-06-09
 **[v31.19.0](https://github.com/czerkies/romanczerkies.31/releases/tag/v31.19.0)** | 2025-01-09
