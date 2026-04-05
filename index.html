@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="text-scale" content="scale">
         <meta name="color-scheme" content="light dark">
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="oklch(.9925 .001 228.752)">
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="oklch(0 0 228.752)">
@@ -249,6 +250,7 @@
                                         background: oklch(from var(--background-secondary) l c h / var(--_alpha-initial, var(--alpha-primary)));
                                         touch-action: manipulation;
                                         scale: var(--_scale, none);
+                                        will-change: scale;
                                         transition:
                                             background-color var(--_transition-background, var(--_transition-duration, 0s)) var(--cubic-bezier),
                                             outline-offset var(--_animation-outline, 0s) var(--cubic-bezier),
@@ -283,7 +285,7 @@
         <link rel="manifest" href="manifest.webmanifest">
         <link rel="alternate" type="application/atom+xml" title="Mises à jour de romanczerki.es" href="https://github.com/czerkies/romanczerkies.31/releases.atom">
         <meta name="description" content="Designer & Développeur d'Interface Humaine. Réseaux sociaux et contact.">
-        <meta name="version" content="31.22.0-beta">
+        <meta name="version" content="31.23.0-beta">
         <meta property="og:description" content="Designer & Développeur d'Interface Humaine. Réseaux sociaux et contact.">
         <meta property="og:image" content="https://romanczerki.es/banner.jpg">
         <meta property="og:title" content="Roman Czerkies">
@@ -302,7 +304,7 @@
             <ul aria-label="Réseaux sociaux et contact">
                 <li>
                     <h1 title="Site personnel de Roman Czerkies" itemprop="name">
-                        <a href="." translate="no">Roman Czerkies</a>
+                        <a href="" translate="no">Roman Czerkies</a>
                     </h1>
                 </li>
                 <li>
