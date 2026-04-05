@@ -247,6 +247,7 @@
                                         background: oklch(from var(--background-secondary) l c h / var(--_alpha-initial, var(--alpha-primary)));
                                         touch-action: manipulation;
                                         scale: var(--_scale, none);
+                                        will-change: scale;
                                         transition:
                                             background-color var(--_transition-background, var(--_transition-duration, 0s)) var(--cubic-bezier),
                                             outline-offset var(--_animation-outline, 0s) var(--cubic-bezier),
