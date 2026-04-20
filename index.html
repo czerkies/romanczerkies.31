@@ -73,7 +73,7 @@
                         background: var(--background-primary);
                         font: clamp(100, var(--font-weight), 900) clamp(50%, var(--font-size), 1000%)/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
                         @media (prefers-reduced-motion: no-preference) {
-                            --sroll-behavior: smooth;
+                            --scroll-behavior: smooth;
                             --animation-duration-primary: var(--transition-duration-primary);
                             --animation-duration-secondary: var(--transition-duration-secondary);
                             --scale-primary: .98
@@ -190,7 +190,7 @@
                                 --_gutter: 0
                             }
                             &:focus-within {
-                                scroll-behavior: var(--sroll-behavior, auto)
+                                scroll-behavior: var(--scroll-behavior, auto)
                             }
                             &, ul {
                                 display: var(--_direction, flex)
