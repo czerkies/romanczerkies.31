@@ -90,11 +90,11 @@
                 }
                 @layer resets {
                     ::selection, ::target-text {
-                        background: var(--_background, var(--fill-quaternary));
+                        background: var(--_fill, var(--fill-quaternary));
                         color: var(--label-primary)
                     }
                     ::target-text {
-                        --_background: var(--fill-tertiary)
+                        --_fill: var(--fill-tertiary)
                     }
                     body, h1, h2, ul, p {
                         margin: 0
@@ -161,7 +161,7 @@
                         }
                         @keyframes --_load-scroll {
                             100% {
-                                background: var(--_background-fill-initial, var(--fill-primary))
+                                background: var(--_fill-initial, var(--fill-primary))
                             }
                         }
                         :scope {
@@ -180,7 +180,7 @@
                             animation: --_detect-scroll linear both;
                             animation-timeline: scroll(inline self);
                             @media (any-hover: hover) {
-                                --_background-fill-hover: var(--fill-secondary);
+                                --_fill-hover: var(--fill-secondary);
                                 --_scale-hover: none;
                                 --_transition-duration: var(--transition-duration-primary);
                                 --_animation-duration: var(--animation-duration-primary)
@@ -200,25 +200,25 @@
                                 padding-inline: 0 var(--_gutter, var(--gutter-inline));
                                 list-style: none;
                                 @container style(--_scroll-detected: 0) {
-                                    --_background-fill-initial: transparent;
-                                    --_background-fill-focus: var(--fill-primary);
+                                    --_fill-initial: transparent;
+                                    --_fill-focus: var(--fill-primary);
                                     --_gap: var(--gutter-min);
                                     --_gutter: 0;
                                     --_link-inline: var(--gutter-inline);
                                     @media (any-hover: hover) {
-                                        --_background-fill-hover: var(--fill-primary);
+                                        --_fill-hover: var(--fill-primary);
                                         --_gap: 0
                                     }
                                 }
                                 @supports not (animation-timeline: scroll(inline self)) {
                                     @container (inline-size >= 900px) {
-                                        --_background-fill-initial: transparent;
-                                        --_background-fill-focus: var(--fill-primary);
+                                        --_fill-initial: transparent;
+                                        --_fill-focus: var(--fill-primary);
                                         --_gap: var(--gutter-min);
                                         --_gutter: 0;
                                         --_link-inline: var(--gutter-inline);
                                         @media (any-hover: hover) {
-                                            --_background-fill-hover: var(--fill-primary);
+                                            --_fill-hover: var(--fill-primary);
                                             --_gap: 0
                                         }
                                     }
@@ -230,7 +230,7 @@
                                         display: block;
                                         padding-block: var(--gutter-block);
                                         padding-inline: var(--_link-inline, var(--gutter-block));
-                                        background: var(--_background-fill-initial, var(--fill-primary));
+                                        background: var(--_fill-initial, var(--fill-primary));
                                         color: inherit;
                                         font-size: var(--font-size-primary);
                                         text-decoration: var(--text-decoration, none);
@@ -252,16 +252,16 @@
                                             scale var(--_animation-duration, var(--animation-duration-secondary, 0s)) var(--cubic-bezier);
                                         animation: --_load-scroll var(--_transition-background, var(--_transition-duration, 0s)) step-start;
                                         &:is(:hover, :target) {
-                                            --_background-fill-initial: var(--_background-fill-hover, var(--fill-tertiary));
+                                            --_fill-initial: var(--_fill-hover, var(--fill-tertiary));
                                             --_scale: var(--_scale-hover, var(--scale-primary))
                                         }
                                         &:active {
-                                            --_background-fill-initial: var(--fill-tertiary);
+                                            --_fill-initial: var(--fill-tertiary);
                                             --_scale: var(--scale-primary, none);
                                             --_transition-background: var(--transition-duration-secondary)
                                         }
                                         &:focus-visible {
-                                            --_background-fill-initial: var(--_background-fill-focus, var(--fill-secondary));
+                                            --_fill-initial: var(--_fill-focus, var(--fill-secondary));
                                             --_outline-offset: 1;
                                             --_animation-outline: var(--animation-duration-secondary);
                                             --_transition-background-outline: calc(var(--_animation-outline) / 2);
