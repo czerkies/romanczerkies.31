@@ -65,7 +65,11 @@
                         --font-size-quaternary: 2.5rem;
                         --letter-spacing-primary: -.004em;
                         --letter-spacing-secondary: .075em;
-                        --border-radius: .5rem;
+                        --border-radius: calc(var(--gutter-block) + .5cap);
+                        --superellipse: superellipse(2.5);
+                        @supports not (corner-shape: var(--superellipse)) {
+                            --border-radius: .5rem;
+                        }
                         --cubic-bezier: cubic-bezier(.68, .48, .48, .98);
                         --transition-duration-primary: 200ms;
                         --transition-duration-secondary: 42ms;
@@ -243,6 +247,7 @@
                                         letter-spacing: var(--letter-spacing-secondary);
                                         outline-offset: calc(var(--gutter-min) / var(--_outline-offset, 2.5));
                                         border-radius: var(--border-radius);
+                                        corner-shape: var(--superellipse);
                                         touch-action: manipulation;
                                         scale: var(--_scale, none);
                                         will-change: scale;
