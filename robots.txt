@@ -4,3 +4,4 @@ Disallow: /github
 Disallow: /linkedin
 Disallow: /strava
 Disallow: /twitter
+Disallow: /README.md
