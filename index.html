@@ -107,8 +107,9 @@
                 @layer layouts {
                     @scope (body) to (> *) {
                         :scope {
+                            --body-max-inline-size: abs(var(--max-inline-size));
                             display: grid;
-                            grid: auto-flow / [--column-edge-start] 1fr [--column-main-start] minmax(auto, var(--max-inline-size)) [--column-main-end] 1fr [--column-edge-end];
+                            grid: auto-flow / [--column-edge-start] 1fr [--column-main-start] minmax(auto, var(--body-max-inline-size)) [--column-main-end] 1fr [--column-edge-end];
                             align-content: center;
                             min-block-size: 100svb;
                             padding: calc(var(--gutter-block) + env(safe-area-inset-top)) 0 calc(var(--gutter-block) + env(safe-area-inset-bottom));
@@ -169,7 +170,7 @@
                             }
                         }
                         :scope {
-                            --_dynamic-inline: 50cqi - min(var(--max-inline-size) / 2, 50cqi);
+                            --_dynamic-inline: 50cqi - min(var(--body-max-inline-size, var(--max-inline-size)) / 2, 50cqi);
                             --_scroll-detected: 0;
                             grid-column: --column-edge;
                             padding-block: var(--gutter-block);
