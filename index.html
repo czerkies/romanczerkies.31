@@ -3,12 +3,16 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="text-scale" content="scale">
         <meta name="color-scheme" content="light dark">
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="oklch(.9925 .001 228.752)">
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="oklch(0 0 228.752)">
         <title>Roman Czerkies</title>
         <style>
             @layer designSystem {
+                @view-transition {
+                    navigation: auto
+                }
                 @property --hue {
                     syntax: '<number> | <angle> | none';
                     inherits: false;
@@ -27,15 +31,24 @@
                 @layer initialContainingBlock {
                     :root {
                         --background-primary: light-dark(oklch(.9925 .001 var(--hue)), oklch(0 0 var(--hue)));
-                        --background-secondary: light-dark(oklch(.7717 .04 var(--hue)), oklch(.8918 .045 var(--hue)));
-                        --label-primary-alpha: .99;
-                        --label-secondary-alpha: .84;
-                        --label-primary: light-dark(oklch(.2058 .009 var(--hue) / var(--label-primary-alpha)), oklch(.9625 .005 var(--hue) / var(--label-primary-alpha)));
-                        --label-secondary: light-dark(oklch(.4206 .016 var(--hue) / var(--label-secondary-alpha)), oklch(.8313 .016 var(--hue) / var(--label-secondary-alpha)));
-                        --alpha-primary: .12;
-                        --alpha-secondary: .24;
-                        --alpha-tertiary: .35;
-                        --alpha-quaternary: .55;
+                        --background-secondary-light: oklch(.7717 .04 var(--hue));
+                        --background-secondary-dark: oklch(.8918 .045 var(--hue));
+                        --label-primary-alpha-light: .99;
+                        --label-secondary-alpha-light: .84;
+                        --label-primary-alpha-dark: .95;
+                        --label-secondary-alpha-dark: .72;
+                        @media (prefers-reduced-transparency: reduce) {
+                            --label-primary-alpha-light: 1;
+                            --label-secondary-alpha-light: .94;
+                            --label-primary-alpha-dark: 1;
+                            --label-secondary-alpha-dark: .82
+                        }
+                        --fill-primary: light-dark(oklch(from var(--background-secondary-light) l c h / .12), oklch(from var(--background-secondary-dark) l c h / .1));
+                        --fill-secondary: light-dark(oklch(from var(--background-secondary-light) l c h / .24), oklch(from var(--background-secondary-dark) l c h / .14));
+                        --fill-tertiary: light-dark(oklch(from var(--background-secondary-light) l c h / .35), oklch(from var(--background-secondary-dark) l c h / .22));
+                        --fill-quaternary: light-dark(oklch(from var(--background-secondary-light) l c h / .55), oklch(from var(--background-secondary-dark) l c h / .28));
+                        --label-primary: light-dark(oklch(.2058 .009 var(--hue) / var(--label-primary-alpha-light)), oklch(.9625 .005 var(--hue) / var(--label-primary-alpha-dark)));
+                        --label-secondary: light-dark(oklch(.4206 .016 var(--hue) / var(--label-secondary-alpha-light)), oklch(.8313 .016 var(--hue) / var(--label-secondary-alpha-dark)));
                         --max-inline-size: 58ch;
                         --gutter-min: .25rem;
                         --gutter-block: clamp(var(--gutter-min) * 2, 2.5svb, 1.5rem);
@@ -52,7 +65,11 @@
                         --font-size-quaternary: 2.5rem;
                         --letter-spacing-primary: -.004em;
                         --letter-spacing-secondary: .075em;
-                        --border-radius: .5rem;
+                        --border-radius: calc(var(--gutter-block) + .5cap);
+                        --superellipse: superellipse(2.32);
+                        @supports not (corner-shape: var(--superellipse)) {
+                            --border-radius: .5rem
+                        }
                         --cubic-bezier: cubic-bezier(.68, .48, .48, .98);
                         --transition-duration-primary: 200ms;
                         --transition-duration-secondary: 42ms;
@@ -60,43 +77,28 @@
                         background: var(--background-primary);
                         font: clamp(100, var(--font-weight), 900) clamp(50%, var(--font-size), 1000%)/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
                         @media (prefers-reduced-motion: no-preference) {
-                            --sroll-behavior: smooth;
+                            --scroll-behavior: smooth;
                             --animation-duration-primary: var(--transition-duration-primary);
                             --animation-duration-secondary: var(--transition-duration-secondary);
                             --scale-primary: .98
                         }
-                        @media (prefers-reduced-transparency: reduce) {
-                            --label-primary-alpha: 1;
-                            --label-secondary-alpha: .94
-                        }
                         @media (prefers-contrast: more) {
                             --text-decoration: underline;
                             --background-primary: light-dark(oklch(.9962 .002 var(--hue)), oklch(0 0 var(--hue)));
-                            --background-secondary: light-dark(oklch(.6116 .059 var(--hue)), oklch(.9638 .016 var(--hue)));
-                            --label-primary: light-dark(oklch(0 0 var(--hue) / var(--label-primary-alpha)), oklch(.9963 .001 var(--hue) / var(--label-primary-alpha)));
-                            --label-secondary: light-dark(oklch(.1829 .009 var(--hue) / var(--label-secondary-alpha)), oklch(.9549 .006 var(--hue) / var(--label-secondary-alpha)))
-                        }
-                        @media (prefers-color-scheme: dark) {
-                            --label-primary-alpha: .95;
-                            --label-secondary-alpha: .72;
-                            --alpha-primary: .1;
-                            --alpha-secondary: .14;
-                            --alpha-tertiary: .22;
-                            --alpha-quaternary: .28;
-                            @media (prefers-reduced-transparency: reduce) {
-                                --label-primary-alpha: 1;
-                                --label-secondary-alpha: .82
-                            }
+                            --background-secondary-light: oklch(.6116 .059 var(--hue));
+                            --background-secondary-dark: oklch(.9638 .016 var(--hue));
+                            --label-primary: light-dark(oklch(0 0 var(--hue) / var(--label-primary-alpha-light)), oklch(.9963 .001 var(--hue) / var(--label-primary-alpha-dark)));
+                            --label-secondary: light-dark(oklch(.1829 .009 var(--hue) / var(--label-secondary-alpha-light)), oklch(.9549 .006 var(--hue) / var(--label-secondary-alpha-dark)))
                         }
                     }
                 }
                 @layer resets {
                     ::selection, ::target-text {
-                        background: oklch(from var(--background-secondary) l c h / var(--_alpha, var(--alpha-quaternary)));
+                        background: var(--_fill, var(--fill-quaternary));
                         color: var(--label-primary)
                     }
                     ::target-text {
-                        --_alpha: var(--alpha-tertiary)
+                        --_fill: var(--fill-tertiary)
                     }
                     body, h1, h2, ul, p {
                         margin: 0
@@ -105,15 +107,15 @@
                 @layer layouts {
                     @scope (body) to (> *) {
                         :scope {
+                            --body-max-inline-size: abs(var(--max-inline-size));
                             display: grid;
-                            grid: auto-flow / [--column-edge-start] 1fr [--column-main-start] minmax(auto, var(--max-inline-size)) [--column-main-end] 1fr [--column-edge-end];
+                            grid: auto-flow / [--column-edge-start] 1fr [--column-main-start] minmax(auto, var(--body-max-inline-size)) [--column-main-end] 1fr [--column-edge-end];
                             align-content: center;
                             min-block-size: 100svb;
                             padding: calc(var(--gutter-block) + env(safe-area-inset-top)) 0 calc(var(--gutter-block) + env(safe-area-inset-bottom));
                             box-sizing: border-box;
                             font-size: var(--_font-size, var(--font-size-secondary));
                             font-size-adjust: from-font;
-                            color: var(--label-secondary);
                             text-rendering: optimizeLegibility;
                             -webkit-font-smoothing: antialiased;
                             -moz-osx-font-smoothing: grayscale;
@@ -140,7 +142,6 @@
                         :scope {
                             grid-column: --column-main;
                             padding-inline: var(--safe-inline-start) var(--safe-inline-end);
-                            letter-spacing: var(--letter-spacing-primary);
                             hanging-punctuation: first allow-end last;
                             &, section {
                                 padding-block: var(--gutter-block)
@@ -149,6 +150,8 @@
                                 padding-inline: var(--gutter-inline);
                                 overflow-wrap: anywhere;
                                 text-wrap: pretty;
+                                color: var(--label-secondary);
+                                letter-spacing: var(--letter-spacing-primary);
                                 h2, p {
                                     display: inline
                                 }
@@ -163,11 +166,11 @@
                         }
                         @keyframes --_load-scroll {
                             100% {
-                                background: oklch(from var(--background-secondary) l c h / var(--_alpha-initial, var(--alpha-primary)))
+                                background: var(--_fill-initial, var(--fill-primary))
                             }
                         }
                         :scope {
-                            --_dynamic-inline: 50cqi - min(var(--max-inline-size) / 2, 50cqi);
+                            --_dynamic-inline: 50cqi - min(var(--body-max-inline-size, var(--max-inline-size)) / 2, 50cqi);
                             --_scroll-detected: 0;
                             grid-column: --column-edge;
                             padding-block: var(--gutter-block);
@@ -178,10 +181,11 @@
                             scroll-snap-type: inline mandatory;
                             scrollbar-width: thin;
                             scrollbar-color: var(--label-secondary) transparent;
+                            color: var(--label-secondary);
                             animation: --_detect-scroll linear both;
                             animation-timeline: scroll(inline self);
                             @media (any-hover: hover) {
-                                --_alpha-hover: var(--alpha-secondary);
+                                --_fill-hover: var(--fill-secondary);
                                 --_scale-hover: none;
                                 --_transition-duration: var(--transition-duration-primary);
                                 --_animation-duration: var(--animation-duration-primary)
@@ -191,7 +195,7 @@
                                 --_gutter: 0
                             }
                             &:focus-within {
-                                scroll-behavior: var(--sroll-behavior, auto)
+                                scroll-behavior: var(--scroll-behavior, auto)
                             }
                             &, ul {
                                 display: var(--_direction, flex)
@@ -201,25 +205,25 @@
                                 padding-inline: 0 var(--_gutter, var(--gutter-inline));
                                 list-style: none;
                                 @container style(--_scroll-detected: 0) {
-                                    --_alpha-initial: 0;
-                                    --_alpha-focus: var(--alpha-primary);
+                                    --_fill-initial: transparent;
+                                    --_fill-focus: var(--fill-primary);
                                     --_gap: var(--gutter-min);
                                     --_gutter: 0;
                                     --_link-inline: var(--gutter-inline);
                                     @media (any-hover: hover) {
-                                        --_alpha-hover: var(--alpha-primary);
+                                        --_fill-hover: var(--fill-primary);
                                         --_gap: 0
                                     }
                                 }
                                 @supports not (animation-timeline: scroll(inline self)) {
                                     @container (inline-size >= 900px) {
-                                        --_alpha-initial: 0;
-                                        --_alpha-focus: var(--alpha-primary);
+                                        --_fill-initial: transparent;
+                                        --_fill-focus: var(--fill-primary);
                                         --_gap: var(--gutter-min);
                                         --_gutter: 0;
                                         --_link-inline: var(--gutter-inline);
                                         @media (any-hover: hover) {
-                                            --_alpha-hover: var(--alpha-primary);
+                                            --_fill-hover: var(--fill-primary);
                                             --_gap: 0
                                         }
                                     }
@@ -231,6 +235,7 @@
                                         display: block;
                                         padding-block: var(--gutter-block);
                                         padding-inline: var(--_link-inline, var(--gutter-block));
+                                        background: var(--_fill-initial, var(--fill-primary));
                                         color: inherit;
                                         font-size: var(--font-size-primary);
                                         text-decoration: var(--text-decoration, none);
@@ -243,25 +248,26 @@
                                         letter-spacing: var(--letter-spacing-secondary);
                                         outline-offset: calc(var(--gutter-min) / var(--_outline-offset, 2.5));
                                         border-radius: var(--border-radius);
-                                        background: oklch(from var(--background-secondary) l c h / var(--_alpha-initial, var(--alpha-primary)));
+                                        corner-shape: var(--superellipse);
                                         touch-action: manipulation;
                                         scale: var(--_scale, none);
+                                        will-change: scale;
                                         transition:
                                             background-color var(--_transition-background, var(--_transition-duration, 0s)) var(--cubic-bezier),
                                             outline-offset var(--_animation-outline, 0s) var(--cubic-bezier),
                                             scale var(--_animation-duration, var(--animation-duration-secondary, 0s)) var(--cubic-bezier);
                                         animation: --_load-scroll var(--_transition-background, var(--_transition-duration, 0s)) step-start;
                                         &:is(:hover, :target) {
-                                            --_alpha-initial: var(--_alpha-hover, var(--alpha-tertiary));
+                                            --_fill-initial: var(--_fill-hover, var(--fill-tertiary));
                                             --_scale: var(--_scale-hover, var(--scale-primary))
                                         }
                                         &:active {
-                                            --_alpha-initial: var(--alpha-tertiary);
+                                            --_fill-initial: var(--fill-tertiary);
                                             --_scale: var(--scale-primary, none);
                                             --_transition-background: var(--transition-duration-secondary)
                                         }
                                         &:focus-visible {
-                                            --_alpha-initial: var(--_alpha-focus, var(--alpha-secondary));
+                                            --_fill-initial: var(--_fill-focus, var(--fill-secondary));
                                             --_outline-offset: 1;
                                             --_animation-outline: var(--animation-duration-secondary);
                                             --_transition-background-outline: calc(var(--_animation-outline) / 2);
@@ -280,7 +286,7 @@
         <link rel="manifest" href="manifest.webmanifest">
         <link rel="alternate" type="application/atom+xml" title="Mises à jour de romanczerki.es" href="https://github.com/czerkies/romanczerkies.31/releases.atom">
         <meta name="description" content="Designer & Développeur d'Interface Humaine. Réseaux sociaux et contact.">
-        <meta name="version" content="31.22.0">
+        <meta name="version" content="31.23.0">
         <meta property="og:description" content="Designer & Développeur d'Interface Humaine. Réseaux sociaux et contact.">
         <meta property="og:image" content="https://romanczerki.es/banner.jpg">
         <meta property="og:title" content="Roman Czerkies">
