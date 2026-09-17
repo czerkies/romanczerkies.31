@@ -1,17 +1,17 @@
 # Roman Czerkies
 
-> Designer & Développeur d'Interface Humaine. Conception centrée utilisateurs et développement de Design Systems.
+> Human Interface Designer & Developer. User-centered design and Design Systems engineering.
 
-## Contenu principal
+## Main Content
 
-- [Roman Czerkies](https://romanczerki.es/index.md): Version Markdown complète du site personnel
+- [Roman Czerkies](https://romanczerki.es/index.md): Full Markdown version of the personal website
 
-## Liens & Présence en ligne
+## Links & Online Presence
 
-- [Site web](https://romanczerki.es): Site web de Roman Czerkies
-- [GitHub](https://github.com/czerkies): Profil GitHub de Roman Czerkies
-- [Projet GitHub](https://github.com/users/czerkies/projects/5): Tableau de suivi et roadmap du projet
-- [Dépôt GitHub](https://github.com/czerkies/romanczerkies.31): Code source de romanczerki.es
-- [Twitter](https://twitter.com/roman_czerkies): Veille technologique
-- [LinkedIn](https://linkedin.com/in/romanczerkies): Profil professionnel
-- [Strava](https://strava.com/athletes/roman_czerkies): Activités sportives
+- [Website](https://romanczerki.es): Official website of Roman Czerkies
+- [GitHub](https://github.com/czerkies): GitHub profile of Roman Czerkies
+- [GitHub Project](https://github.com/users/czerkies/projects/5): Project tracking board and roadmap
+- [GitHub Repository](https://github.com/czerkies/romanczerkies.31): Source code for romanczerki.es
+- [Twitter](https://twitter.com/roman_czerkies): Tech monitoring and updates
+- [LinkedIn](https://linkedin.com/in/romanczerkies): Professional profile
+- [Strava](https://strava.com/athletes/roman_czerkies): Sports activities
