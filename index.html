@@ -43,10 +43,10 @@
                             --label-primary-alpha-dark: 1;
                             --label-secondary-alpha-dark: .82
                         }
-                        --fill-primary: light-dark(oklch(from var(--background-secondary-light) l c h / .12), oklch(from var(--background-secondary-dark) l c h / .1));
-                        --fill-secondary: light-dark(oklch(from var(--background-secondary-light) l c h / .24), oklch(from var(--background-secondary-dark) l c h / .14));
-                        --fill-tertiary: light-dark(oklch(from var(--background-secondary-light) l c h / .35), oklch(from var(--background-secondary-dark) l c h / .22));
-                        --fill-quaternary: light-dark(oklch(from var(--background-secondary-light) l c h / .55), oklch(from var(--background-secondary-dark) l c h / .28));
+                        --fill-primary: light-dark(alpha(from var(--background-secondary-light) / .12), alpha(from var(--background-secondary-dark) / .1));
+                        --fill-secondary: light-dark(alpha(from var(--background-secondary-light) / .24), alpha(from var(--background-secondary-dark) / .14));
+                        --fill-tertiary: light-dark(alpha(from var(--background-secondary-light) / .35), alpha(from var(--background-secondary-dark) / .22));
+                        --fill-quaternary: light-dark(alpha(from var(--background-secondary-light) / .55), alpha(from var(--background-secondary-dark) / .28));
                         --label-primary: light-dark(oklch(.2058 .009 var(--hue) / var(--label-primary-alpha-light)), oklch(.9625 .005 var(--hue) / var(--label-primary-alpha-dark)));
                         --label-secondary: light-dark(oklch(.4206 .016 var(--hue) / var(--label-secondary-alpha-light)), oklch(.8313 .016 var(--hue) / var(--label-secondary-alpha-dark)));
                         --max-inline-size: 58ch;
