@@ -49,7 +49,7 @@
                         --fill-quaternary: light-dark(alpha(from var(--background-secondary-light) / .55), alpha(from var(--background-secondary-dark) / .28));
                         --label-primary: light-dark(oklch(.2058 .009 var(--hue) / var(--label-primary-alpha-light)), oklch(.9625 .005 var(--hue) / var(--label-primary-alpha-dark)));
                         --label-secondary: light-dark(oklch(.4206 .016 var(--hue) / var(--label-secondary-alpha-light)), oklch(.8313 .016 var(--hue) / var(--label-secondary-alpha-dark)));
-                        --max-inline-size: 58ch;
+                        --max-inline-size: 64ch;
                         --gutter-min: .25rem;
                         --gutter-block: clamp(var(--gutter-min) * 2, 2.5svb, 1.5rem);
                         --gutter-inline: clamp(var(--gutter-min), 2.1svi, 1.5rem);
@@ -107,7 +107,7 @@
                 @layer layouts {
                     @scope (body) to (> *) {
                         :scope {
-                            --body-max-inline-size: abs(var(--max-inline-size));
+                            --body-max-inline-size: max(24ch, abs(attr(data-size-ch ch, var(--max-inline-size))));
                             display: grid;
                             grid: auto-flow / [--column-edge-start] 1fr [--column-main-start] minmax(auto, var(--body-max-inline-size)) [--column-main-end] 1fr [--column-edge-end];
                             align-content: center;
@@ -140,7 +140,7 @@
                     }
                     @scope (main) to (:is(h2, p) > *) {
                         :scope {
-                            grid-column: --column-main;
+                            grid-column: attr(data-column type(<custom-ident>), --column-main);
                             padding-inline: var(--safe-inline-start) var(--safe-inline-end);
                             hanging-punctuation: first allow-end last;
                             &, section {
@@ -172,7 +172,7 @@
                         :scope {
                             --_dynamic-inline: 50cqi - min(var(--body-max-inline-size, var(--max-inline-size)) / 2, 50cqi);
                             --_scroll-detected: 0;
-                            grid-column: --column-edge;
+                            grid-column: attr(data-column type(<custom-ident>), --column-main);
                             padding-block: var(--gutter-block);
                             padding-inline: calc(var(--_dynamic-inline) + var(--safe-inline-start)) var(--safe-inline-end);
                             overflow-inline: auto;
@@ -295,14 +295,14 @@
         <meta property="og:url" content="https://romanczerki.es/">
         <meta property="og:video" content="https://romanczerki.es/banner.mp4">
     </head>
-    <body itemprop="mainEntity" itemscope itemtype="https://schema.org/Person">
+    <body data-size-ch="58" itemprop="mainEntity" itemscope itemtype="https://schema.org/Person">
         <main>
             <section>
                 <h2 itemprop="jobTitle">Designer & Développeur d'Interface Humaine.</h2>
                 <p itemprop="description">Spécialisé dans la conception centrée utilisateurs et développement de Design Systems. Largement inspirées du minimalisme et brutalisme, les créations tendent à un design simple et inclusif.</p>
             </section>
         </main>
-        <nav>
+        <nav data-column="--column-edge">
             <ul aria-label="Réseaux sociaux et contact">
                 <li>
                     <h1 title="Site personnel de Roman Czerkies" itemprop="name">
