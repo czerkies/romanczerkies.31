@@ -28,6 +28,59 @@ git clone https://github.com/czerkies/romanczerkies.31.git
 1. Open `index.html` in any modern browser.
 2. Nothing to do, nothing to manage: it just works.
 
+## Configuration
+
+### CSS Custom Properties
+
+The following Design System variables can be overridden at the `:root` level to customize the appearance:
+
+- `--ds-oklch-hue`
+  - Syntax: `<number> | <angle> | none`
+  - Default value: `228.752`
+  - Description: Global hue for OKLCH color generation.
+- `--ds-font-size`
+  - Syntax: `<percentage>`
+  - Default value: `100%`
+  - Description: Global font size multiplier.
+- `--ds-font-weight`
+  - Syntax: `<integer>`
+  - Default value: `700`
+  - Description: Global font weight.
+
+Example:
+
+```css
+:root {
+  --ds-oklch-hue: 120;
+  --ds-font-size: 120%;
+  --ds-font-weight: 600;
+}
+```
+
+### HTML Data Attributes
+
+The following `data-ds-*` attributes configure layout and sizing behaviors on specific components:
+
+- `data-ds-size-ch`
+  - Target elements: `<body>`
+  - Syntax: `<integer>`
+  - Minimum: `24`
+  - Default value: `58`
+  - Description: Maximum inline size in `ch` units for the main content container.
+- `data-ds-column`
+  - Target elements: `<main>`, `<nav>`
+  - Syntax: `--column-main | --column-edge`
+  - Default value: `--column-main`
+  - Description: Grid column placement for elements.
+
+Example:
+
+```html
+<body data-ds-size-ch="64">
+  <nav data-ds-column="--column-edge">...</nav>
+</body>
+```
+
 ## Support
 
 Report bugs: [Contact](https://romanczerki.es/#contact)
