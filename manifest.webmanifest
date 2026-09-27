@@ -1,10 +1,14 @@
 {
-  "background_color": "oklch(0 0 228.752)",
+  "background_color": "oklch(.9925 .001 228.752)",
+  "color_scheme_dark": {
+    "background_color": "oklch(0 0 228.752)",
+    "theme_color": "oklch(0 0 228.752)"
+  },
   "dir": "auto",
   "display": "standalone",
   "icons": [{
-    "src": "icon.svg",
-    "sizes": "any"
+    "sizes": "any",
+    "src": "icon.svg"
   }],
   "id": "/",
   "lang": "fr",
@@ -16,51 +20,51 @@
   "scope": "/",
   "short_name": "romanczerki.es",
   "shortcuts": [{
+    "description": "Veille technologique Twitter de @roman_czerkies",
+    "icons": [{
+      "sizes": "any",
+      "src": "icon.svg"
+    }],
     "name": "Twitter",
     "short_name": "Twitter",
-    "description": "Veille technologique Twitter de @roman_czerkies",
-    "url": "./twitter/",
-    "icons": [{
-      "src": "icon.svg",
-      "sizes": "any"
-    }]
+    "url": "./twitter/"
   },{
+    "description": "Réseau professionnel LinkedIn de Roman Czerkies",
+    "icons": [{
+      "sizes": "any",
+      "src": "icon.svg"
+    }],
     "name": "LinkedIn",
     "short_name": "LinkedIn",
-    "description": "Réseau professionnel LinkedIn de Roman Czerkies",
-    "url": "./linkedin/",
-    "icons": [{
-      "src": "icon.svg",
-      "sizes": "any"
-    }]
+    "url": "./linkedin/"
   },{
+    "description": "Dépôt GitHub du projet romanczerki.es Version 31",
+    "icons": [{
+      "sizes": "any",
+      "src": "icon.svg"
+    }],
     "name": "GitHub",
     "short_name": "GitHub",
-    "description": "Dépôt GitHub du projet romanczerki.es Version 31",
-    "url": "./github/",
-    "icons": [{
-      "src": "icon.svg",
-      "sizes": "any"
-    }]
+    "url": "./github/"
   },{
+    "description": "Activités sportives Strava de Roman Czerkies",
+    "icons": [{
+      "sizes": "any",
+      "src": "icon.svg"
+    }],
     "name": "Strava",
     "short_name": "Strava",
-    "description": "Activités sportives Strava de Roman Czerkies",
-    "url": "./strava/",
-    "icons": [{
-      "src": "icon.svg",
-      "sizes": "any"
-    }]
+    "url": "./strava/"
   },{
+    "description": "Adresser un courriel à Roman Czerkies",
+    "icons": [{
+      "sizes": "any",
+      "src": "icon.svg"
+    }],
     "name": "Contact",
     "short_name": "Contact",
-    "description": "Adresser un courriel à Roman Czerkies",
-    "url": "./#contact",
-    "icons": [{
-      "src": "icon.svg",
-      "sizes": "any"
-    }]
+    "url": "./#contact"
   }],
   "start_url": ".",
-  "theme_color": "oklch(0 0 228.752)"
+  "theme_color": "oklch(.9925 .001 228.752)"
 }
