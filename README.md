@@ -93,6 +93,7 @@ GitHub Project: [Web Platform Experiments](https://github.com/users/czerkies/pro
 
 | Version     | Date       |
 | :---------- | :--------- |
+| [v31.24.0]  | 2026-10-09 |
 | [v31.23.0]  | 2026-06-09 |
 | [v31.22.0]  | 2026-01-09 |
 | [v31.21.0]  | 2025-10-09 |
@@ -119,6 +120,7 @@ GitHub Project: [Web Platform Experiments](https://github.com/users/czerkies/pro
 | [v31.1.0]   | 2021-02-09 |
 | [v31.0.0]   | 2021-01-09 |
 
+[v31.24.0]: https://github.com/czerkies/romanczerkies.31/releases/tag/v31.24.0
 [v31.23.0]: https://github.com/czerkies/romanczerkies.31/releases/tag/v31.23.0
 [v31.22.0]: https://github.com/czerkies/romanczerkies.31/releases/tag/v31.22.0
 [v31.21.0]: https://github.com/czerkies/romanczerkies.31/releases/tag/v31.21.0
