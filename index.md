@@ -11,7 +11,7 @@ Spécialisé dans la conception centrée utilisateurs et développement de Desig
 
 ## Réseaux sociaux et contact
 
-- [Site personnel](https://romanczerki.es "Site personnel de Roman Czerkies")
+- [Roman Czerkies](https://romanczerki.es "Site personnel de Roman Czerkies")
 - [Twitter](https://twitter.com/roman_czerkies "Veille technologique Twitter de @roman_czerkies")
 - [LinkedIn](https://linkedin.com/in/romanczerkies "Réseau professionnel LinkedIn de Roman Czerkies")
 - [GitHub](https://github.com/czerkies/romanczerkies.31 "Dépôt GitHub du projet romanczerki.es")
