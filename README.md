@@ -34,18 +34,17 @@ git clone https://github.com/czerkies/romanczerkies.31.git
 
 The following Design System variables can be overridden at the `:root` level to customize the appearance:
 
-- `--ds-oklch-hue`
+- `--ds-oklch-hue`: Global hue for OKLCH color generation.
   - Syntax: `<number> | <angle> | none`
-  - Default value: `228.752`
-  - Description: Global hue for OKLCH color generation.
-- `--ds-font-size`
+  - Default: `228.752`
+
+- `--ds-font-size`: Global font size multiplier.
   - Syntax: `<percentage>`
-  - Default value: `100%`
-  - Description: Global font size multiplier.
-- `--ds-font-weight`
+  - Default: `100%`
+
+- `--ds-font-weight`: Global font weight.
   - Syntax: `<integer>`
-  - Default value: `700`
-  - Description: Global font weight.
+  - Default: `700`
 
 Example:
 
@@ -61,17 +60,15 @@ Example:
 
 The following `data-ds-*` attributes configure layout and sizing behaviors on specific components:
 
-- `data-ds-size-ch`
-  - Target elements: `<body>`
-  - Syntax: `<integer>`
-  - Minimum: `24`
-  - Default value: `58`
-  - Description: Maximum inline size in `ch` units for the main content container.
-- `data-ds-column`
-  - Target elements: `<main>`, `<nav>`
+- `data-ds-size-ch`: Maximum inline size in `ch` units for the main content container.
+  - Elements: `<body>`
+  - Syntax: `<integer>` (min: `24`)
+  - Default: `58`
+
+- `data-ds-column`: Grid column placement for elements.
+  - Elements: `<main>`, `<nav>`
   - Syntax: `--column-main | --column-edge`
-  - Default value: `--column-main`
-  - Description: Grid column placement for elements.
+  - Default: `--column-main`
 
 Example:
 
