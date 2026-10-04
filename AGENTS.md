@@ -24,6 +24,8 @@ This repository contains the source code for the personal website of Roman Czerk
 
 ## Workflow Instructions for Agents
 
-- If asked to implement a new interaction or visual effect, you must solve it using modern CSS (e.g., CSS scroll-driven animations, state pseudo-classes, etc.) rather than scripting.
-- Do not provide commands like `npm run dev` or `npm install`. There are no dependencies to install. 
-- Ensure that any new properties or elements introduced align with the project's brutalist and minimalist design system.
+- **Code Review:** If asked to implement a new interaction or visual effect, you must solve it using modern CSS (e.g., CSS scroll-driven animations, state pseudo-classes, etc.) rather than scripting.
+- **No Build Commands:** Do not provide commands like `npm run dev` or `npm install`. There are no dependencies to install.
+- **Design Alignment:** Ensure that any new properties or elements introduced align with the project's brutalist and minimalist design system.
+- **Code Preview:** Always show the code before implementing it. You must present the full code changes for review before applying them.
+- **Clarification:** Ask questions when in doubt. If any detail is unclear or ambiguous, you must explicitly ask for clarification before proceeding.
