@@ -34,7 +34,7 @@ git clone https://github.com/czerkies/romanczerkies.31.git
 
 The following Design System variables can be overridden at the `:root` level to customize the appearance:
 
-- `--ds-oklch-hue`: Global hue for OKLCH color generation.
+- `--ds-oklch-hue`: Global hue for OKLCH color space generation.
   - Syntax: `<number> | <angle> | none`
   - Default: `228.752`
 
@@ -46,7 +46,7 @@ The following Design System variables can be overridden at the `:root` level to 
   - Syntax: `<integer>`
   - Default: `700`
 
-Example:
+*Example:*
 
 ```css
 :root {
@@ -70,7 +70,7 @@ The following `data-ds-*` attributes configure layout and sizing behaviors on sp
   - Syntax: `--column-main | --column-edge`
   - Default: `--column-main`
 
-Example:
+*Example:*
 
 ```html
 <body data-ds-size-ch="64">
