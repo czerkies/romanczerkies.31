@@ -28,6 +28,56 @@ git clone https://github.com/czerkies/romanczerkies.31.git
 1. Open `index.html` in any modern browser.
 2. Nothing to do, nothing to manage: it just works.
 
+## Configuration
+
+### CSS Custom Properties
+
+The following Design System variables can be overridden at the `:root` level to customize the appearance:
+
+- `--ds-oklch-hue`: Global hue for OKLCH color space generation.
+  - Syntax: `<number> | <angle> | none`
+  - Default: `228.752`
+
+- `--ds-font-size`: Global font size multiplier.
+  - Syntax: `<percentage>`
+  - Default: `100%`
+
+- `--ds-font-weight`: Global font weight.
+  - Syntax: `<integer>`
+  - Default: `700`
+
+*Example:*
+
+```css
+:root {
+  --ds-oklch-hue: 120;
+  --ds-font-size: 120%;
+  --ds-font-weight: 600;
+}
+```
+
+### HTML Data Attributes
+
+The following `data-ds-*` attributes configure layout and sizing behaviors on specific components:
+
+- `data-ds-size-ch`: Maximum inline size in `ch` units for the main content container.
+  - Elements: `<body>`
+  - Syntax: `<integer>` (min: `24`)
+  - Default: `58`
+
+- `data-ds-column`: Grid column placement for elements.
+  - Elements: `<main>`, `<nav>`
+  - Syntax: `--column-main | --column-edge`
+  - Default: `--column-main`
+
+*Example:*
+
+```html
+<body data-ds-size-ch="64">
+  <nav data-ds-column="--column-edge">...</nav>
+</body>
+```
+
 ## Support
 
 Report bugs: [Contact](https://romanczerki.es/#contact)
@@ -40,6 +90,7 @@ GitHub Project: [Web Platform Experiments](https://github.com/users/czerkies/pro
 
 | Version     | Date       |
 | :---------- | :--------- |
+| [v31.24.0]  | 2026-10-09 |
 | [v31.23.0]  | 2026-06-09 |
 | [v31.22.0]  | 2026-01-09 |
 | [v31.21.0]  | 2025-10-09 |
@@ -66,6 +117,7 @@ GitHub Project: [Web Platform Experiments](https://github.com/users/czerkies/pro
 | [v31.1.0]   | 2021-02-09 |
 | [v31.0.0]   | 2021-01-09 |
 
+[v31.24.0]: https://github.com/czerkies/romanczerkies.31/releases/tag/v31.24.0
 [v31.23.0]: https://github.com/czerkies/romanczerkies.31/releases/tag/v31.23.0
 [v31.22.0]: https://github.com/czerkies/romanczerkies.31/releases/tag/v31.22.0
 [v31.21.0]: https://github.com/czerkies/romanczerkies.31/releases/tag/v31.21.0

@@ -1,0 +1,17 @@
+# Roman Czerkies
+
+> Human Interface Designer & Developer. User-centered design and Design Systems engineering.
+
+## Main Content
+
+- [Roman Czerkies](https://romanczerki.es/index.md): Full Markdown version of the personal website
+
+## Links & Online Presence
+
+- [Website](https://romanczerki.es): Official website of Roman Czerkies
+- [GitHub](https://github.com/czerkies): GitHub profile of Roman Czerkies
+- [GitHub Project](https://github.com/users/czerkies/projects/5): Project tracking board and roadmap
+- [GitHub Repository](https://github.com/czerkies/romanczerkies.31): Source code for romanczerki.es
+- [Twitter](https://twitter.com/roman_czerkies): Tech monitoring and updates
+- [LinkedIn](https://linkedin.com/in/romanczerkies): Professional profile
+- [Strava](https://strava.com/athletes/roman_czerkies): Sports activities
